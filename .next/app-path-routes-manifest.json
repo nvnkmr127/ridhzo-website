@@ -1,0 +1,12 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/page": "/",
+  "/refund-policy/page": "/refund-policy",
+  "/cookie-policy/page": "/cookie-policy",
+  "/shipping-policy/page": "/shipping-policy",
+  "/privacy/page": "/privacy",
+  "/security/page": "/security",
+  "/about/page": "/about",
+  "/terms/page": "/terms",
+  "/contact/page": "/contact"
+}

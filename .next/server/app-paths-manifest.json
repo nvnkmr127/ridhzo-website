@@ -1,0 +1,12 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/page": "app/page.js",
+  "/refund-policy/page": "app/refund-policy/page.js",
+  "/cookie-policy/page": "app/cookie-policy/page.js",
+  "/shipping-policy/page": "app/shipping-policy/page.js",
+  "/privacy/page": "app/privacy/page.js",
+  "/security/page": "app/security/page.js",
+  "/about/page": "app/about/page.js",
+  "/terms/page": "app/terms/page.js",
+  "/contact/page": "app/contact/page.js"
+}
