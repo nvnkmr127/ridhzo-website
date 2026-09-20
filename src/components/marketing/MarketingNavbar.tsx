@@ -49,7 +49,7 @@ export function MarketingNavbar() {
         </nav>
 
         {/* Desktop Action Buttons - CRED Style */}
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden lg:flex items-center gap-3">
           <Button asChild variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground hover:bg-accent text-xs">
             <Link href={appUrl("/login")}>Sign in</Link>
           </Button>
@@ -62,7 +62,7 @@ export function MarketingNavbar() {
         </div>
 
         {/* Mobile Hamburger Toggle */}
-        <div className="md:hidden flex items-center">
+        <div className="lg:hidden flex items-center">
           <button
             type="button"
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -76,7 +76,7 @@ export function MarketingNavbar() {
 
       {/* Mobile Drawer Menu */}
       {mobileOpen && (
-        <div className="md:hidden border-b border-border bg-card px-4 pt-3 pb-6 space-y-4">
+        <div className="lg:hidden border-b border-border bg-card px-4 pt-3 pb-6 space-y-4">
           <nav className="flex flex-col space-y-2 text-sm font-medium text-muted-foreground">
             <a
               href="#features"

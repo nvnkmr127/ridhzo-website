@@ -22,9 +22,29 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://ridhzo.com"),
   title: "Ridhzo — Mobile-First Lead Management CRM for Fast Closers",
   description:
     "Capture leads instantly from Meta Ads, Google and Web forms, get vibrating mobile push alerts, track deals on a visual Kanban, and contact prospects in seconds—even offline.",
+  applicationName: "Ridhzo",
+  keywords: [
+    "lead management CRM",
+    "WhatsApp CRM",
+    "speed to lead",
+    "Meta Lead Ads CRM",
+    "mobile CRM",
+    "PWA CRM",
+    "real estate CRM",
+  ],
+  manifest: "/manifest.webmanifest",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+      { url: "/icon-512.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: [{ url: "/icon-192.png", sizes: "192x192" }],
+  },
   openGraph: {
     title: "Ridhzo — The 1-Tap Mobile CRM for Fast Closers",
     description:
@@ -32,6 +52,12 @@ export const metadata: Metadata = {
     url: "https://ridhzo.com",
     siteName: "Ridhzo",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ridhzo — The 1-Tap Mobile CRM for Fast Closers",
+    description:
+      "Capture leads instantly from all channels, receive vibrating mobile alerts, follow up in seconds via WhatsApp, and manage your entire sales pipeline offline.",
   },
   alternates: {
     canonical: "https://ridhzo.com",
