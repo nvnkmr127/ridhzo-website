@@ -1,14 +1,72 @@
+"use client";
+
 import { appUrl } from "@/lib/config";
+import { useState } from "react";
 import Link from "next/link";
-import { Zap, ShieldCheck } from "lucide-react";
+import { Zap, ShieldCheck, ChevronDown } from "lucide-react";
+
+interface FooterSection {
+  title: string;
+  links: { label: string; href: string }[];
+}
+
+const FOOTER_SECTIONS: FooterSection[] = [
+  {
+    title: "Product",
+    links: [
+      { label: "Multi-Channel Capture", href: "/#features" },
+      { label: "Speed SLA Engine", href: "/#speed" },
+      { label: "Pipeline Kanban Board", href: "/#pipeline" },
+      { label: "Going Cold Radar", href: "/#pipeline" },
+      { label: "Pricing Plans", href: "/#pricing" },
+    ],
+  },
+  {
+    title: "Solutions",
+    links: [
+      { label: "Real Estate Brokers", href: "/#solutions" },
+      { label: "Performance Agencies", href: "/#solutions" },
+      { label: "Financial & Insurance", href: "/#solutions" },
+      { label: "About Us", href: "/about" },
+      { label: "Contact Us", href: "/contact" },
+      { label: "FAQ & Architecture", href: "/#faq" },
+    ],
+  },
+  {
+    title: "Legal & Trust",
+    links: [
+      { label: "Privacy Policy", href: "/privacy" },
+      { label: "Terms of Service", href: "/terms" },
+      { label: "Refund & Cancellation", href: "/refund-policy" },
+      { label: "Shipping & Delivery", href: "/shipping-policy" },
+      { label: "Security Architecture", href: "/security" },
+      { label: "Cookie Policy", href: "/cookie-policy" },
+    ],
+  },
+  {
+    title: "Access",
+    links: [
+      { label: "Sign In to Workspace", href: appUrl("/login") },
+      { label: "Create Workspace", href: appUrl("/signup") },
+      { label: "Reset Password", href: appUrl("/forgot-password") },
+      { label: "Talk to Support", href: "/contact" },
+    ],
+  },
+];
 
 export function MarketingFooter() {
+  const [openSection, setOpenSection] = useState<string | null>(null);
+
+  const toggleSection = (title: string) => {
+    setOpenSection((prev) => (prev === title ? null : title));
+  };
+
   return (
     <footer className="border-t border-border bg-card text-muted-foreground text-xs">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-8 sm:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-8 sm:gap-10">
           {/* Brand Col */}
-          <div className="sm:col-span-2 space-y-4">
+          <div className="md:col-span-2 space-y-4">
             <Link href="/" aria-label="Ridhzo home" className="focus-ring rounded-md flex items-center gap-2.5 font-bold text-base tracking-tight text-foreground">
               <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-foreground text-background">
                 <Zap className="h-3.5 w-3.5 fill-current" aria-hidden="true" />
@@ -25,143 +83,90 @@ export function MarketingFooter() {
             </div>
           </div>
 
-          {/* Col 1: Product Architecture */}
-          <div className="space-y-2.5">
-            <p className="text-xs font-semibold text-foreground uppercase tracking-wider">Product</p>
-            <ul className="space-y-2 text-xs">
-              <li>
-                <Link href="/#features" className="focus-ring rounded-sm hover:text-foreground transition-colors">
-                  Multi-Channel Capture
-                </Link>
-              </li>
-              <li>
-                <Link href="/#speed" className="focus-ring rounded-sm hover:text-foreground transition-colors">
-                  Speed SLA Engine
-                </Link>
-              </li>
-              <li>
-                <Link href="/#pipeline" className="focus-ring rounded-sm hover:text-foreground transition-colors">
-                  Pipeline Kanban Board
-                </Link>
-              </li>
-              <li>
-                <Link href="/#pipeline" className="focus-ring rounded-sm hover:text-foreground transition-colors">
-                  Going Cold Radar
-                </Link>
-              </li>
-              <li>
-                <Link href="/#pricing" className="focus-ring rounded-sm hover:text-foreground transition-colors">
-                  Pricing Plans
-                </Link>
-              </li>
-            </ul>
+          {/* Mobile Accordion (md:hidden) */}
+          <div className="md:hidden space-y-1">
+            {FOOTER_SECTIONS.map((section) => {
+              const isOpen = openSection === section.title;
+              return (
+                <div key={section.title} className="border-b border-border/70 first:border-t">
+                  <button
+                    type="button"
+                    onClick={() => toggleSection(section.title)}
+                    aria-expanded={isOpen}
+                    aria-controls={`footer-accordion-${section.title}`}
+                    className="focus-ring flex w-full items-center justify-between py-3.5 text-left text-xs font-semibold uppercase tracking-wider text-foreground transition-colors hover:text-foreground/80"
+                  >
+                    <span>{section.title}</span>
+                    <ChevronDown
+                      className={`h-4 w-4 text-muted-foreground transition-transform duration-200 ${
+                        isOpen ? "rotate-180 text-foreground" : ""
+                      }`}
+                      aria-hidden="true"
+                    />
+                  </button>
+                  {isOpen && (
+                    <ul
+                      id={`footer-accordion-${section.title}`}
+                      className="pb-4 pt-1 space-y-2 text-xs text-muted-foreground"
+                    >
+                      {section.links.map((link) => (
+                        <li key={link.label}>
+                          <Link
+                            href={link.href}
+                            className="focus-ring block py-1 hover:text-foreground transition-colors"
+                          >
+                            {link.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              );
+            })}
           </div>
 
-          {/* Col 2: Solutions */}
-          <div className="space-y-2.5">
-            <p className="text-xs font-semibold text-foreground uppercase tracking-wider">Solutions</p>
-            <ul className="space-y-2 text-xs">
-              <li>
-                <Link href="/#solutions" className="focus-ring rounded-sm hover:text-foreground transition-colors">
-                  Real Estate Brokers
-                </Link>
-              </li>
-              <li>
-                <Link href="/#solutions" className="focus-ring rounded-sm hover:text-foreground transition-colors">
-                  Performance Agencies
-                </Link>
-              </li>
-              <li>
-                <Link href="/#solutions" className="focus-ring rounded-sm hover:text-foreground transition-colors">
-                  Financial &amp; Insurance
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="focus-ring rounded-sm hover:text-foreground transition-colors">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="focus-ring rounded-sm hover:text-foreground transition-colors">
-                  Contact Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/#faq" className="focus-ring rounded-sm hover:text-foreground transition-colors">
-                  FAQ &amp; Architecture
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Col 3: Legal & Trust */}
-          <div className="space-y-2.5">
-            <p className="text-xs font-semibold text-foreground uppercase tracking-wider">Legal &amp; Trust</p>
-            <ul className="space-y-2 text-xs">
-              <li>
-                <Link href="/privacy" className="focus-ring rounded-sm hover:text-foreground transition-colors">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms" className="focus-ring rounded-sm hover:text-foreground transition-colors">
-                  Terms of Service
-                </Link>
-              </li>
-              <li>
-                <Link href="/refund-policy" className="focus-ring rounded-sm hover:text-foreground transition-colors">
-                  Refund &amp; Cancellation
-                </Link>
-              </li>
-              <li>
-                <Link href="/shipping-policy" className="focus-ring rounded-sm hover:text-foreground transition-colors">
-                  Shipping &amp; Delivery
-                </Link>
-              </li>
-              <li>
-                <Link href="/security" className="focus-ring rounded-sm hover:text-foreground transition-colors">
-                  Security Architecture
-                </Link>
-              </li>
-              <li>
-                <Link href="/cookie-policy" className="focus-ring rounded-sm hover:text-foreground transition-colors">
-                  Cookie Policy
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Col 4: Portal Access */}
-          <div className="space-y-2.5">
-            <p className="text-xs font-semibold text-foreground uppercase tracking-wider">Access</p>
-            <ul className="space-y-2 text-xs">
-              <li>
-                <Link href={appUrl("/login")} className="focus-ring rounded-sm hover:text-foreground transition-colors">
-                  Sign In to Workspace
-                </Link>
-              </li>
-              <li>
-                <Link href={appUrl("/signup")} className="focus-ring rounded-sm hover:text-foreground transition-colors">
-                  Create Workspace
-                </Link>
-              </li>
-              <li>
-                <Link href={appUrl("/forgot-password")} className="focus-ring rounded-sm hover:text-foreground transition-colors">
-                  Reset Password
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="focus-ring rounded-sm hover:text-foreground transition-colors">
-                  Talk to Support
-                </Link>
-              </li>
-            </ul>
+          {/* Desktop Grid Columns (hidden md:grid) */}
+          <div className="hidden md:grid md:grid-cols-4 md:col-span-4 gap-8">
+            {FOOTER_SECTIONS.map((section) => (
+              <div key={section.title} className="space-y-2.5">
+                <p className="text-xs font-semibold text-foreground uppercase tracking-wider">
+                  {section.title}
+                </p>
+                <ul className="space-y-2 text-xs">
+                  {section.links.map((link) => (
+                    <li key={link.label}>
+                      <Link
+                        href={link.href}
+                        className="focus-ring rounded-sm hover:text-foreground transition-colors"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-muted-foreground text-center sm:text-left">
-          <p>© {new Date().getFullYear()} Ridhzo CRM. All rights reserved.</p>
+        <div className="mt-10 sm:mt-12 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-muted-foreground text-center sm:text-left">
+          <div className="flex flex-col sm:flex-row items-center gap-1.5 sm:gap-3">
+            <p>© {new Date().getFullYear()} Ridhzo CRM. All rights reserved.</p>
+            <span className="hidden sm:inline text-border">•</span>
+            <p>
+              Made with <span className="text-red-500 font-sans">♥</span> by{" "}
+              <a
+                href="https://digicloudify.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-foreground underline underline-offset-2 hover:text-foreground/80 transition-colors"
+              >
+                Digicloudify
+              </a>
+            </p>
+          </div>
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-2">
             <Link href="/privacy" className="focus-ring rounded-sm hover:text-foreground transition-colors">
               Privacy
