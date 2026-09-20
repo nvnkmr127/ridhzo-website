@@ -111,7 +111,7 @@ export function PricingSection() {
               }`}
             >
               <span>Annual Billing</span>
-              <span className="rounded bg-background text-foreground text-[10px] px-1.5 py-0.2 font-mono">
+              <span className="rounded bg-background text-foreground text-[10px] px-1.5 py-0.5 font-mono">
                 Save 20%
               </span>
             </button>

@@ -1,4 +1,4 @@
-import { Zap, Heart, Shield, CheckCircle2 } from "lucide-react";
+import { Heart, CheckCircle2 } from "lucide-react";
 
 export function AboutUsSection() {
   const values = [

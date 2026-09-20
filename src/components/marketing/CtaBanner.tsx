@@ -45,7 +45,7 @@ export function CtaBanner() {
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-xs text-muted-foreground">
             <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="h-3.5 w-3.5 text-foreground" /> 50 Free Leads Forever
+              <CheckCircle2 className="h-3.5 w-3.5 text-foreground" /> 100 Free Leads Forever
             </span>
             <span className="flex items-center gap-1.5">
               <CheckCircle2 className="h-3.5 w-3.5 text-foreground" /> No Credit Card Required

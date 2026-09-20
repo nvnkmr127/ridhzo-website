@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { MessageSquare, Mail, MapPin, Clock, Send, CheckCircle2 } from "lucide-react";
+import { MessageSquare, Mail, Clock, Send, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function ContactUsSection() {
@@ -47,7 +47,7 @@ export function ContactUsSection() {
                 href="https://wa.me/919820144520?text=Hi%20Ridhzo%20team%2C%20I%20have%20a%20question%20about%20the%20CRM."
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-start gap-3.5 p-3 rounded-lg border border-border bg-secondary/30 hover:bg-secondary transition-all block group"
+                className="flex items-start gap-3.5 p-3 rounded-lg border border-border bg-secondary/30 hover:bg-secondary transition-all group"
               >
                 <div className="h-9 w-9 rounded-lg bg-foreground text-background flex items-center justify-center shrink-0 mt-0.5">
                   <MessageSquare className="h-4 w-4" />

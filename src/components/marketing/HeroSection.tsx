@@ -153,7 +153,7 @@ export function HeroSection() {
           <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-xs text-muted-foreground">
             <div className="flex items-center gap-1.5">
               <CheckCircle2 className="h-3.5 w-3.5 text-foreground" />
-              <span>50 Free leads forever</span>
+              <span>100 Free leads forever</span>
             </div>
             <div className="flex items-center gap-1.5">
               <CheckCircle2 className="h-3.5 w-3.5 text-foreground" />
@@ -241,7 +241,7 @@ export function HeroSection() {
                     <span className="text-[11px] font-medium text-muted-foreground uppercase tracking-wide">
                       {activeLead.sourceLabel} · {activeLead.sourceBadge}
                     </span>
-                    <span className="rounded bg-secondary px-1.5 py-0.2 text-[10px] text-muted-foreground">
+                    <span className="rounded bg-secondary px-1.5 py-0.5 text-[10px] text-muted-foreground">
                       Just now
                     </span>
                   </div>

@@ -1,6 +1,5 @@
 import {
   MessageSquare,
-  Zap,
   BellRing,
   WifiOff,
   Kanban,
@@ -8,8 +7,6 @@ import {
   Workflow,
   Layers,
   CheckCircle2,
-  Clock,
-  Sparkles,
   Bot,
   CalendarCheck,
   UserPlus,

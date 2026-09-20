@@ -22,34 +22,34 @@ export function MarketingNavbar() {
 
         {/* Desktop Nav Links */}
         <nav className="hidden lg:flex items-center gap-6 text-xs uppercase tracking-wider font-medium text-muted-foreground">
-          <a href="#features" className="hover:text-foreground transition-colors">
+          <a href="/#features" className="hover:text-foreground transition-colors">
             Features
           </a>
-          <a href="#speed" className="hover:text-foreground transition-colors">
+          <a href="/#speed" className="hover:text-foreground transition-colors">
             Speed SLA
           </a>
-          <a href="#pipeline" className="hover:text-foreground transition-colors">
+          <a href="/#pipeline" className="hover:text-foreground transition-colors">
             Pipeline
           </a>
-          <a href="#solutions" className="hover:text-foreground transition-colors">
+          <a href="/#solutions" className="hover:text-foreground transition-colors">
             Solutions
           </a>
-          <a href="#about" className="hover:text-foreground transition-colors">
+          <a href="/#about" className="hover:text-foreground transition-colors">
             About
           </a>
-          <a href="#pricing" className="hover:text-foreground transition-colors">
+          <a href="/#pricing" className="hover:text-foreground transition-colors">
             Pricing
           </a>
-          <a href="#contact" className="hover:text-foreground transition-colors">
+          <a href="/#contact" className="hover:text-foreground transition-colors">
             Contact
           </a>
-          <a href="#faq" className="hover:text-foreground transition-colors">
+          <a href="/#faq" className="hover:text-foreground transition-colors">
             FAQ
           </a>
         </nav>
 
         {/* Desktop Action Buttons - CRED Style */}
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden lg:flex items-center gap-3">
           <Button asChild variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground hover:bg-accent text-xs">
             <Link href={appUrl("/login")}>Sign in</Link>
           </Button>
@@ -62,7 +62,7 @@ export function MarketingNavbar() {
         </div>
 
         {/* Mobile Hamburger Toggle */}
-        <div className="md:hidden flex items-center">
+        <div className="lg:hidden flex items-center">
           <button
             type="button"
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -76,59 +76,59 @@ export function MarketingNavbar() {
 
       {/* Mobile Drawer Menu */}
       {mobileOpen && (
-        <div className="md:hidden border-b border-border bg-card px-4 pt-3 pb-6 space-y-4">
+        <div className="lg:hidden border-b border-border bg-card px-4 pt-3 pb-6 space-y-4">
           <nav className="flex flex-col space-y-2 text-sm font-medium text-muted-foreground">
             <a
-              href="#features"
+              href="/#features"
               onClick={() => setMobileOpen(false)}
               className="px-3 py-2 rounded-md hover:bg-accent hover:text-foreground transition-colors"
             >
               Features
             </a>
             <a
-              href="#speed"
+              href="/#speed"
               onClick={() => setMobileOpen(false)}
               className="px-3 py-2 rounded-md hover:bg-accent hover:text-foreground transition-colors"
             >
               Speed SLA
             </a>
             <a
-              href="#pipeline"
+              href="/#pipeline"
               onClick={() => setMobileOpen(false)}
               className="px-3 py-2 rounded-md hover:bg-accent hover:text-foreground transition-colors"
             >
-              Pipeline &amp; Radar
+              Pipeline
             </a>
             <a
-              href="#solutions"
+              href="/#solutions"
               onClick={() => setMobileOpen(false)}
               className="px-3 py-2 rounded-md hover:bg-accent hover:text-foreground transition-colors"
             >
               Solutions
             </a>
             <a
-              href="#about"
+              href="/#about"
               onClick={() => setMobileOpen(false)}
               className="px-3 py-2 rounded-md hover:bg-accent hover:text-foreground transition-colors"
             >
-              About Us
+              About
             </a>
             <a
-              href="#pricing"
+              href="/#pricing"
               onClick={() => setMobileOpen(false)}
               className="px-3 py-2 rounded-md hover:bg-accent hover:text-foreground transition-colors"
             >
               Pricing
             </a>
             <a
-              href="#contact"
+              href="/#contact"
               onClick={() => setMobileOpen(false)}
               className="px-3 py-2 rounded-md hover:bg-accent hover:text-foreground transition-colors"
             >
-              Contact Us
+              Contact
             </a>
             <a
-              href="#faq"
+              href="/#faq"
               onClick={() => setMobileOpen(false)}
               className="px-3 py-2 rounded-md hover:bg-accent hover:text-foreground transition-colors"
             >
