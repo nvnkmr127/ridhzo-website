@@ -138,7 +138,7 @@ export function ContactUsSection() {
                       placeholder="e.g. Rahul Sharma"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full rounded-md border border-border bg-secondary/50 px-3 py-2 text-xs text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-foreground"
+                      className="w-full rounded-md border border-border bg-secondary/50 px-3 py-2 text-base sm:text-xs text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-foreground"
                     />
                   </div>
 
@@ -155,7 +155,7 @@ export function ContactUsSection() {
                       placeholder="e.g. +91 98765 43210"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full rounded-md border border-border bg-secondary/50 px-3 py-2 text-xs text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-foreground"
+                      className="w-full rounded-md border border-border bg-secondary/50 px-3 py-2 text-base sm:text-xs text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-foreground"
                     />
                   </div>
                 </div>
@@ -174,7 +174,7 @@ export function ContactUsSection() {
                       placeholder="rahul@company.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full rounded-md border border-border bg-secondary/50 px-3 py-2 text-xs text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-foreground"
+                      className="w-full rounded-md border border-border bg-secondary/50 px-3 py-2 text-base sm:text-xs text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-foreground"
                     />
                   </div>
 
@@ -187,7 +187,7 @@ export function ContactUsSection() {
                       name="businessType"
                       value={formData.businessType}
                       onChange={(e) => setFormData({ ...formData, businessType: e.target.value })}
-                      className="w-full rounded-md border border-border bg-secondary/50 px-3 py-2 text-xs text-foreground focus:outline-none focus:ring-1 focus:ring-foreground"
+                      className="w-full rounded-md border border-border bg-secondary/50 px-3 py-2 text-base sm:text-xs text-foreground focus:outline-none focus:ring-1 focus:ring-foreground"
                     >
                       <option value="Real Estate">Real Estate Broker / Developer</option>
                       <option value="Marketing Agency">Performance Marketing Agency</option>
@@ -200,17 +200,16 @@ export function ContactUsSection() {
 
                 <div>
                   <label htmlFor="contact-message" className="block text-xs font-medium text-foreground mb-1">
-                    How Can We Help? *
+                    How can we help your team?
                   </label>
                   <textarea
                     id="contact-message"
                     name="message"
-                    required
                     rows={4}
-                    placeholder="Tell us what questions you have or what kind of setup you need..."
+                    placeholder="Tell us about your lead sources, monthly lead volume, or questions..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full rounded-md border border-border bg-secondary/50 px-3 py-2 text-xs text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-foreground resize-none"
+                    className="w-full rounded-md border border-border bg-secondary/50 px-3 py-2 text-base sm:text-xs text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-foreground resize-none"
                   />
                 </div>
 

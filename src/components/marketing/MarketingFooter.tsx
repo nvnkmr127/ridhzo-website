@@ -5,10 +5,10 @@ import { Zap, ShieldCheck } from "lucide-react";
 export function MarketingFooter() {
   return (
     <footer className="border-t border-border bg-card text-muted-foreground text-xs">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-8 sm:gap-10">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-8 sm:gap-10">
           {/* Brand Col */}
-          <div className="col-span-2 space-y-4">
+          <div className="sm:col-span-2 space-y-4">
             <Link href="/" aria-label="Ridhzo home" className="focus-ring rounded-md flex items-center gap-2.5 font-bold text-base tracking-tight text-foreground">
               <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-foreground text-background">
                 <Zap className="h-3.5 w-3.5 fill-current" aria-hidden="true" />
@@ -160,9 +160,9 @@ export function MarketingFooter() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-muted-foreground">
+        <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-muted-foreground text-center sm:text-left">
           <p>© {new Date().getFullYear()} Ridhzo CRM. All rights reserved.</p>
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-2">
             <Link href="/privacy" className="focus-ring rounded-sm hover:text-foreground transition-colors">
               Privacy
             </Link>

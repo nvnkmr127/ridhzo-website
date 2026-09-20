@@ -38,7 +38,7 @@ export function FaqSection() {
   ];
 
   return (
-    <section id="faq" className="py-24 border-t border-border bg-background relative">
+    <section id="faq" className="py-16 sm:py-24 border-t border-border bg-background relative">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <div className="inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary px-3 py-1 text-xs font-medium text-foreground">
@@ -53,7 +53,7 @@ export function FaqSection() {
           </p>
         </div>
 
-        <div className="mt-12 space-y-3">
+        <div className="mt-10 sm:mt-12 space-y-3">
           {faqs.map((faq, idx) => {
             const isOpen = openIndex === idx;
             return (

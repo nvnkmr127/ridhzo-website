@@ -74,7 +74,7 @@ export function PricingSection() {
   ];
 
   return (
-    <section id="pricing" className="py-24 relative border-t border-border bg-background">
+    <section id="pricing" className="py-16 sm:py-24 relative border-t border-border bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary px-3 py-1 text-xs font-medium text-foreground">
@@ -89,12 +89,12 @@ export function PricingSection() {
           </p>
 
           {/* Billing Cycle Toggle - Monochrome */}
-          <div className="mt-8 inline-flex items-center rounded-lg border border-border bg-secondary/70 p-1" role="group" aria-label="Billing cycle">
+          <div className="mt-8 inline-flex items-center rounded-lg border border-border bg-secondary/70 p-1 max-w-full" role="group" aria-label="Billing cycle">
             <button
               type="button"
               onClick={() => setBillingCycle("monthly")}
               aria-pressed={billingCycle === "monthly"}
-              className={`focus-ring rounded-md px-3.5 py-1.5 text-xs font-medium transition-all ${
+              className={`focus-ring rounded-md px-3 sm:px-3.5 py-1.5 text-xs font-medium transition-all ${
                 billingCycle === "monthly"
                   ? "bg-foreground text-background shadow-xs font-semibold"
                   : "text-muted-foreground hover:text-foreground"
@@ -106,7 +106,7 @@ export function PricingSection() {
               type="button"
               onClick={() => setBillingCycle("yearly")}
               aria-pressed={billingCycle === "yearly"}
-              className={`focus-ring rounded-md px-3.5 py-1.5 text-xs font-medium flex items-center gap-1.5 transition-all ${
+              className={`focus-ring rounded-md px-3 sm:px-3.5 py-1.5 text-xs font-medium flex items-center gap-1.5 transition-all ${
                 billingCycle === "yearly"
                   ? "bg-foreground text-background shadow-xs font-semibold"
                   : "text-muted-foreground hover:text-foreground"
@@ -121,7 +121,7 @@ export function PricingSection() {
         </div>
 
         {/* Pricing Cards Grid - Strict THEME.md Monochrome Surface */}
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto items-stretch">
+        <div className="mt-10 sm:mt-14 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto items-stretch">
           {plans.map((p, i) => {
             const price = billingCycle === "monthly" ? p.priceMonthly : p.priceYearly;
 

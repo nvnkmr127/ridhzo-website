@@ -101,7 +101,7 @@ export function FeatureShowcase() {
   ];
 
   return (
-    <section id="features" className="py-24 relative border-t border-border bg-background">
+    <section id="features" className="py-16 sm:py-24 relative border-t border-border bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary px-3 py-1 text-xs font-medium text-foreground">
@@ -118,11 +118,11 @@ export function FeatureShowcase() {
         </div>
 
         {/* Main 6 Core Features */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="mt-10 sm:mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {mainFeatures.map((f, i) => (
             <div
               key={i}
-              className="rounded-xl border border-border bg-card p-6 sm:p-7 flex flex-col justify-between transition-all hover:border-foreground/30 shadow-sm"
+              className="rounded-xl border border-border bg-card p-5 sm:p-7 flex flex-col justify-between transition-all hover:border-foreground/30 shadow-sm"
             >
               <div>
                 <div className="flex items-center justify-between">
@@ -155,7 +155,7 @@ export function FeatureShowcase() {
         </div>
 
         {/* Extra Features Grid */}
-        <div className="mt-16 rounded-xl border border-border bg-card p-6 sm:p-9">
+        <div className="mt-10 sm:mt-16 rounded-xl border border-border bg-card p-4 sm:p-8">
           <div className="text-left mb-6">
             <h3 className="text-lg font-bold text-foreground">Even More Built-In Tools</h3>
             <p className="text-xs text-muted-foreground mt-1">

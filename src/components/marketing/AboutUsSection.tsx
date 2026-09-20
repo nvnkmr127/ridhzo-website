@@ -20,7 +20,7 @@ export function AboutUsSection() {
   ];
 
   return (
-    <section id="about" className="py-24 border-t border-border bg-background relative">
+    <section id="about" className="py-16 sm:py-24 border-t border-border bg-background relative">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary px-3 py-1 text-xs font-medium text-foreground">
@@ -37,7 +37,7 @@ export function AboutUsSection() {
         </div>
 
         {/* Narrative Box */}
-        <div className="mt-14 max-w-4xl mx-auto rounded-xl border border-border bg-card p-6 sm:p-10 shadow-lg">
+        <div className="mt-10 sm:mt-14 max-w-4xl mx-auto rounded-xl border border-border bg-card p-5 sm:p-10 shadow-lg">
           <div className="space-y-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
             <p>
               If you run Facebook ads or buy leads, you know how painful the old process is. A lead comes in, sits

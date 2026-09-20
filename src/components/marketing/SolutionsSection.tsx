@@ -118,7 +118,7 @@ export function SolutionsSection() {
   const activeSolution = SOLUTIONS.find((s) => s.id === activeId) || SOLUTIONS[0];
 
   return (
-    <section id="solutions" className="py-24 border-t border-border bg-background relative">
+    <section id="solutions" className="py-16 sm:py-24 border-t border-border bg-background relative">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary px-3 py-1 text-xs font-medium text-foreground">
@@ -134,28 +134,28 @@ export function SolutionsSection() {
           </p>
 
           {/* Industry Tab Navigation */}
-          <div className="mt-8 flex flex-wrap justify-center gap-2" role="group" aria-label="Select an industry">
+          <div className="mt-8 grid grid-cols-2 sm:flex sm:flex-wrap justify-center gap-2 max-w-lg sm:max-w-none mx-auto" role="group" aria-label="Select an industry">
             {SOLUTIONS.map((sol) => (
               <button
                 key={sol.id}
                 type="button"
                 onClick={() => setActiveId(sol.id)}
                 aria-pressed={activeId === sol.id}
-                className={`focus-ring flex items-center gap-2 rounded-lg px-3.5 py-2 text-xs font-medium transition-all ${
+                className={`focus-ring flex items-center justify-center gap-2 rounded-lg px-3 sm:px-4 py-2 text-xs font-semibold transition-all ${
                   activeId === sol.id
-                    ? "bg-foreground text-background shadow-xs font-semibold"
-                    : "bg-secondary/60 text-muted-foreground hover:text-foreground hover:bg-secondary border border-border"
+                    ? "bg-foreground text-background shadow-xs"
+                    : "border border-border bg-secondary/60 text-muted-foreground hover:text-foreground"
                 }`}
               >
-                <sol.icon className="h-3.5 w-3.5" aria-hidden="true" />
-                <span>{sol.label}</span>
+                <sol.icon className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+                <span className="truncate">{sol.label}</span>
               </button>
             ))}
           </div>
         </div>
 
         {/* Active Solution Deep Dive Box */}
-        <div className="mt-12 max-w-5xl mx-auto rounded-xl border border-border bg-card p-6 sm:p-9 shadow-xl">
+        <div className="mt-10 sm:mt-12 max-w-5xl mx-auto rounded-xl border border-border bg-card p-4 sm:p-6 lg:p-9 shadow-xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Left Col: Overview & Steps */}
             <div className="lg:col-span-7 space-y-6">

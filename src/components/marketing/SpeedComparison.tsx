@@ -15,7 +15,7 @@ export function SpeedComparison() {
   const extraRevenue = extraDeals * dealValue;
 
   return (
-    <section id="speed" className="py-24 border-t border-border bg-background relative">
+    <section id="speed" className="py-16 sm:py-24 border-t border-border bg-background relative">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary px-3 py-1 text-xs font-medium text-foreground">
@@ -32,9 +32,9 @@ export function SpeedComparison() {
         </div>
 
         {/* Side-by-Side Comparison Cards - Strict Monochrome */}
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <div className="mt-10 sm:mt-14 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
           {/* Traditional Way */}
-          <div className="rounded-xl border border-border bg-card p-6 sm:p-8 flex flex-col justify-between">
+          <div className="rounded-xl border border-border bg-card p-5 sm:p-8 flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3">
                 <div className="h-10 w-10 rounded-lg bg-secondary text-muted-foreground flex items-center justify-center border border-border">
@@ -117,10 +117,10 @@ export function SpeedComparison() {
         </div>
 
         {/* Interactive Speed-to-Lead ROI Calculator */}
-        <div className="mt-14 max-w-5xl mx-auto rounded-xl border border-border bg-card p-6 sm:p-8">
+        <div className="mt-12 sm:mt-14 max-w-5xl mx-auto rounded-xl border border-border bg-card p-4 sm:p-8">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-border pb-6">
             <div className="flex items-center gap-3">
-              <div className="h-9 w-9 rounded-lg bg-secondary text-foreground flex items-center justify-center border border-border">
+              <div className="h-9 w-9 rounded-lg bg-secondary text-foreground flex items-center justify-center border border-border shrink-0">
                 <Calculator className="h-4 w-4" />
               </div>
               <div>
@@ -130,9 +130,9 @@ export function SpeedComparison() {
                 </p>
               </div>
             </div>
-            <div className="inline-flex items-center gap-1.5 rounded-full bg-secondary px-3 py-1 text-xs text-muted-foreground">
-              <TrendingUp className="h-3.5 w-3.5" />
-              <span>Based on Harvard Business Review Lead Response Data</span>
+            <div className="inline-flex items-center gap-1.5 rounded-full bg-secondary px-2.5 py-1 text-[11px] sm:text-xs text-muted-foreground self-start sm:self-auto">
+              <TrendingUp className="h-3.5 w-3.5 shrink-0" />
+              <span>Based on Harvard Business Review Data</span>
             </div>
           </div>
 

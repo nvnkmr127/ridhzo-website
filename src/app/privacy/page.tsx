@@ -229,7 +229,7 @@ export default function PrivacyPolicyPage() {
           sub-processors who adhere to stringent security obligations:
         </p>
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs border border-border mt-2">
+          <table className="w-full min-w-[500px] text-left text-xs border border-border mt-2">
             <thead className="bg-secondary/50 text-foreground border-b border-border">
               <tr>
                 <th className="p-3">Sub-Processor</th>

@@ -114,8 +114,11 @@ export function MarketingNavbar() {
 
       {/* Mobile Drawer Menu */}
       {mobileOpen && (
-        <div id="mobile-nav-drawer" className="lg:hidden border-b border-border bg-card px-4 pt-3 pb-6 space-y-4">
-          <nav aria-label="Primary" className="flex flex-col space-y-2 text-sm font-medium text-muted-foreground">
+        <div
+          id="mobile-nav-drawer"
+          className="lg:hidden border-b border-border bg-card/95 backdrop-blur-xl px-4 pt-3 pb-[max(1.5rem,env(safe-area-inset-bottom))] space-y-4 max-h-[calc(100dvh-4rem)] overflow-y-auto"
+        >
+          <nav aria-label="Primary" className="flex flex-col space-y-1 text-sm font-medium text-muted-foreground">
             {NAV_LINKS.map((link) => {
               const isActive = activeId === link.id;
               return (
@@ -124,8 +127,8 @@ export function MarketingNavbar() {
                   href={`/#${link.id}`}
                   onClick={() => setMobileOpen(false)}
                   aria-current={isActive ? "true" : undefined}
-                  className={`focus-ring px-3 py-2 rounded-md transition-colors hover:bg-accent hover:text-foreground ${
-                    isActive ? "bg-accent/60 text-foreground" : ""
+                  className={`focus-ring px-3.5 py-2.5 min-h-[44px] flex items-center rounded-lg transition-colors hover:bg-accent hover:text-foreground ${
+                    isActive ? "bg-accent/70 text-foreground font-semibold" : ""
                   }`}
                 >
                   {link.label}
@@ -133,13 +136,13 @@ export function MarketingNavbar() {
               );
             })}
           </nav>
-          <div className="pt-2 flex flex-col gap-2">
-            <Button asChild variant="outline" className="w-full text-xs">
+          <div className="pt-2 flex flex-col gap-2.5 border-t border-border/70">
+            <Button asChild variant="outline" className="w-full h-11 text-sm border-border bg-secondary/50">
               <Link href={appUrl("/login")} onClick={() => setMobileOpen(false)}>
                 Sign in
               </Link>
             </Button>
-            <Button asChild className="w-full bg-foreground text-background hover:bg-foreground/90 text-xs font-medium">
+            <Button asChild className="w-full h-11 bg-foreground text-background hover:bg-foreground/90 text-sm font-semibold shadow-sm">
               <Link href={appUrl("/signup")} onClick={() => setMobileOpen(false)}>
                 Start Free Trial
               </Link>

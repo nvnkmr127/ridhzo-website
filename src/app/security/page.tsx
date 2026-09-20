@@ -188,7 +188,7 @@ export default function SecurityPolicyPage() {
         </h2>
         <p>Workspaces enforce granular permissions across three distinct administrative tiers:</p>
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs border border-border mt-2">
+          <table className="w-full min-w-[500px] text-left text-xs border border-border mt-2">
             <thead className="bg-secondary/50 text-foreground border-b border-border">
               <tr>
                 <th className="p-3">Role</th>

@@ -81,7 +81,7 @@ export function PipelinePreview() {
   ];
 
   return (
-    <section id="pipeline" className="py-24 border-t border-border bg-background relative">
+    <section id="pipeline" className="py-16 sm:py-24 border-t border-border bg-background relative">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary px-3 py-1 text-xs font-medium text-foreground">
@@ -97,12 +97,12 @@ export function PipelinePreview() {
           </p>
 
           {/* Surface Tab Switcher */}
-          <div className="mt-8 inline-flex rounded-lg border border-border bg-secondary/60 p-1" role="group" aria-label="Pipeline surface">
+          <div className="mt-8 flex flex-col sm:inline-flex sm:flex-row rounded-lg border border-border bg-secondary/60 p-1 w-full sm:w-auto max-w-md mx-auto" role="group" aria-label="Pipeline surface">
             <button
               type="button"
               onClick={() => setActiveTab("kanban")}
               aria-pressed={activeTab === "kanban"}
-              className={`focus-ring flex items-center gap-2 rounded-md px-4 py-2 text-xs font-semibold transition-all ${
+              className={`focus-ring flex items-center justify-center gap-2 rounded-md px-4 py-2 text-xs font-semibold transition-all ${
                 activeTab === "kanban"
                   ? "bg-foreground text-background shadow-xs"
                   : "text-muted-foreground hover:text-foreground"
@@ -115,7 +115,7 @@ export function PipelinePreview() {
               type="button"
               onClick={() => setActiveTab("cold")}
               aria-pressed={activeTab === "cold"}
-              className={`focus-ring flex items-center gap-2 rounded-md px-4 py-2 text-xs font-semibold transition-all ${
+              className={`focus-ring flex items-center justify-center gap-2 rounded-md px-4 py-2 text-xs font-semibold transition-all ${
                 activeTab === "cold"
                   ? "bg-foreground text-background shadow-xs"
                   : "text-muted-foreground hover:text-foreground"
@@ -129,7 +129,7 @@ export function PipelinePreview() {
 
         {/* Tab 1: Interactive Pipeline Kanban */}
         {activeTab === "kanban" && (
-          <div className="mt-12 rounded-xl border border-border bg-card p-5 sm:p-7 shadow-xl">
+          <div className="mt-12 rounded-xl border border-border bg-card p-4 sm:p-7 shadow-xl">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-border pb-4">
               <div>
                 <h3 className="text-sm font-bold text-foreground">
@@ -139,20 +139,23 @@ export function PipelinePreview() {
                   Dynamic columns mirror your organization&apos;s custom status schema with optimistic UI updates.
                 </p>
               </div>
-              <span className="text-[11px] font-mono text-muted-foreground">
-                Total Active Pipeline: {leads.length} Deals
-              </span>
+              <div className="flex items-center gap-3 self-end sm:self-auto">
+                <span className="sm:hidden text-[10px] text-muted-foreground">← Swipe stages →</span>
+                <span className="text-[11px] font-mono text-muted-foreground">
+                  Total: {leads.length} Deals
+                </span>
+              </div>
             </div>
 
-            {/* Kanban Columns Grid */}
-            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {/* Kanban Columns Grid - Swipeable snap-scroll on mobile, 4-col grid on desktop */}
+            <div className="mt-6 flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:overflow-visible sm:pb-0">
               {stageColumns.map((col) => {
                 const columnLeads = leads.filter((l) => l.stage === col.key);
 
                 return (
                   <div
                     key={col.key}
-                    className="rounded-lg border border-border bg-secondary/30 p-3 flex flex-col justify-between min-h-[320px]"
+                    className="w-[82vw] max-w-[280px] shrink-0 snap-center sm:w-auto sm:max-w-none rounded-lg border border-border bg-secondary/30 p-3 flex flex-col justify-between min-h-[300px]"
                   >
                     <div>
                       {/* Column Header */}
@@ -228,7 +231,7 @@ export function PipelinePreview() {
 
         {/* Tab 2: Going Cold Intelligence Radar */}
         {activeTab === "cold" && (
-          <div className="mt-12 rounded-xl border border-border bg-card p-5 sm:p-7 shadow-xl">
+          <div className="mt-10 sm:mt-12 rounded-xl border border-border bg-card p-5 sm:p-7 shadow-xl">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-border pb-5">
               <div>
                 <div className="flex items-center gap-2">
@@ -246,7 +249,7 @@ export function PipelinePreview() {
                 type="button"
                 onClick={handleEscalateAll}
                 size="sm"
-                className="bg-foreground text-background hover:bg-foreground/90 font-medium text-xs shadow-xs"
+                className="w-full sm:w-auto bg-foreground text-background hover:bg-foreground/90 font-medium text-xs shadow-xs"
               >
                 <Flame className="h-3.5 w-3.5 fill-current" />
                 <span>{allEscalated ? "All Escalated to High" : "Escalate All to High (1-Click)"}</span>
@@ -254,8 +257,13 @@ export function PipelinePreview() {
             </div>
 
             {/* Cold Leads Table */}
-            <div className="mt-6 overflow-x-auto">
-              <table className="w-full text-left text-xs border-collapse">
+            <div className="mt-6">
+              <div className="sm:hidden flex items-center justify-between text-[10px] text-muted-foreground pb-2">
+                <span>Inactivity Radar</span>
+                <span>← Scroll table horizontally →</span>
+              </div>
+              <div className="overflow-x-auto">
+                <table className="w-full min-w-[580px] text-left text-xs border-collapse">
                 <thead>
                   <tr className="border-b border-border text-muted-foreground font-mono uppercase text-[10px]">
                     <th className="pb-3 font-medium">Lead &amp; Contact</th>
@@ -312,7 +320,8 @@ export function PipelinePreview() {
                     </tr>
                   ))}
                 </tbody>
-              </table>
+                </table>
+              </div>
             </div>
 
             {/* Audit log footnote */}
