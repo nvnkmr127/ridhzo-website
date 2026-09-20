@@ -27,7 +27,7 @@ export function AboutUsSection() {
             <Heart className="h-3.5 w-3.5" />
             <span>Our Story &amp; Mission</span>
           </div>
-          <h2 className="mt-4 text-3xl sm:text-5xl font-extrabold text-foreground tracking-tight">
+          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight">
             Why We Built Ridhzo
           </h2>
           <p className="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed">

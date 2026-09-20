@@ -81,7 +81,7 @@ export function PricingSection() {
             <Sparkles className="h-3.5 w-3.5" />
             <span>Simple, Transparent Pricing</span>
           </div>
-          <h2 className="mt-4 text-3xl sm:text-5xl font-extrabold text-foreground tracking-tight">
+          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight">
             Plans That Pay for Themselves With One Closed Deal
           </h2>
           <p className="mt-4 text-base sm:text-lg text-muted-foreground">

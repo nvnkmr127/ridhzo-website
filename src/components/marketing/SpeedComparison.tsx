@@ -15,14 +15,14 @@ export function SpeedComparison() {
   const extraRevenue = extraDeals * dealValue;
 
   return (
-    <section id="speed" className="py-20 border-t border-b border-border bg-background relative">
+    <section id="speed" className="py-24 border-t border-border bg-background relative">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary px-3 py-1 text-xs font-medium text-foreground">
             <Zap className="h-3.5 w-3.5 fill-current" />
             <span>The 5-Minute Lead Rule</span>
           </div>
-          <h2 className="mt-4 text-3xl sm:text-4xl font-extrabold text-foreground tracking-tight">
+          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight">
             Responding Within 5 Minutes Makes You 21x More Likely to Close
           </h2>
           <p className="mt-4 text-base sm:text-lg text-muted-foreground">

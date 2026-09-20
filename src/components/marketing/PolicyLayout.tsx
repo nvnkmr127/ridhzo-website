@@ -47,7 +47,7 @@ export function PolicyLayout({
             <span>Legal &amp; Compliance Center</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-foreground leading-tight">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-foreground leading-tight">
             {title}
           </h1>
 

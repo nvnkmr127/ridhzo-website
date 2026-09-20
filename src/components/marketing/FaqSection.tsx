@@ -45,7 +45,7 @@ export function FaqSection() {
             <HelpCircle className="h-3.5 w-3.5" />
             <span>Got Questions?</span>
           </div>
-          <h2 className="mt-4 text-3xl sm:text-4xl font-extrabold text-foreground tracking-tight">
+          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight">
             Frequently Asked Questions
           </h2>
           <p className="mt-3 text-base text-muted-foreground">

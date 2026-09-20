@@ -1,13 +1,51 @@
 "use client";
 
 import { appUrl } from "@/lib/config";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Zap, Menu, X, ArrowRight } from "lucide-react";
 
+/* Single source of truth for the in-page nav, ordered to match the actual
+   scroll order of the home page sections (see src/app/page.tsx). Desktop and
+   mobile menus both render from this array so they can never drift apart. */
+const NAV_LINKS = [
+  { id: "speed", label: "Speed SLA" },
+  { id: "features", label: "Features" },
+  { id: "pipeline", label: "Pipeline" },
+  { id: "solutions", label: "Solutions" },
+  { id: "about", label: "About" },
+  { id: "pricing", label: "Pricing" },
+  { id: "faq", label: "FAQ" },
+  { id: "contact", label: "Contact" },
+] as const;
+
 export function MarketingNavbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeId, setActiveId] = useState<string | null>(null);
+
+  // Scroll-spy: highlight the nav link for the section currently in view.
+  // Only runs where the sections exist (the home page); no-ops elsewhere.
+  useEffect(() => {
+    const sections = NAV_LINKS.map((l) => document.getElementById(l.id)).filter(
+      (el): el is HTMLElement => el !== null,
+    );
+    if (sections.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visible[0]) setActiveId(visible[0].target.id);
+      },
+      // Trigger around the upper third of the viewport, below the sticky nav.
+      { rootMargin: "-40% 0px -55% 0px", threshold: [0, 0.25, 0.5, 1] },
+    );
+
+    sections.forEach((s) => observer.observe(s));
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/85 backdrop-blur-md transition-all">
@@ -21,31 +59,25 @@ export function MarketingNavbar() {
         </Link>
 
         {/* Desktop Nav Links */}
-        <nav className="hidden lg:flex items-center gap-6 text-xs uppercase tracking-wider font-medium text-muted-foreground">
-          <a href="/#features" className="focus-ring rounded-sm hover:text-foreground transition-colors">
-            Features
-          </a>
-          <a href="/#speed" className="focus-ring rounded-sm hover:text-foreground transition-colors">
-            Speed SLA
-          </a>
-          <a href="/#pipeline" className="focus-ring rounded-sm hover:text-foreground transition-colors">
-            Pipeline
-          </a>
-          <a href="/#solutions" className="focus-ring rounded-sm hover:text-foreground transition-colors">
-            Solutions
-          </a>
-          <a href="/#about" className="focus-ring rounded-sm hover:text-foreground transition-colors">
-            About
-          </a>
-          <a href="/#pricing" className="focus-ring rounded-sm hover:text-foreground transition-colors">
-            Pricing
-          </a>
-          <a href="/#contact" className="focus-ring rounded-sm hover:text-foreground transition-colors">
-            Contact
-          </a>
-          <a href="/#faq" className="focus-ring rounded-sm hover:text-foreground transition-colors">
-            FAQ
-          </a>
+        <nav
+          aria-label="Primary"
+          className="hidden lg:flex items-center gap-6 text-xs uppercase tracking-wider font-medium text-muted-foreground"
+        >
+          {NAV_LINKS.map((link) => {
+            const isActive = activeId === link.id;
+            return (
+              <a
+                key={link.id}
+                href={`/#${link.id}`}
+                aria-current={isActive ? "true" : undefined}
+                className={`focus-ring rounded-sm transition-colors hover:text-foreground ${
+                  isActive ? "text-foreground" : ""
+                }`}
+              >
+                {link.label}
+              </a>
+            );
+          })}
         </nav>
 
         {/* Desktop Action Buttons - CRED Style */}
@@ -56,7 +88,7 @@ export function MarketingNavbar() {
           <Button asChild size="sm" className="bg-foreground text-background hover:bg-foreground/90 font-medium text-xs shadow-sm">
             <Link href={appUrl("/signup")} className="flex items-center gap-1.5">
               <span>Start Free Trial</span>
-              <ArrowRight className="h-3.5 w-3.5" />
+              <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
             </Link>
           </Button>
         </div>
@@ -83,63 +115,23 @@ export function MarketingNavbar() {
       {/* Mobile Drawer Menu */}
       {mobileOpen && (
         <div id="mobile-nav-drawer" className="lg:hidden border-b border-border bg-card px-4 pt-3 pb-6 space-y-4">
-          <nav className="flex flex-col space-y-2 text-sm font-medium text-muted-foreground">
-            <a
-              href="/#features"
-              onClick={() => setMobileOpen(false)}
-              className="focus-ring px-3 py-2 rounded-md hover:bg-accent hover:text-foreground transition-colors"
-            >
-              Features
-            </a>
-            <a
-              href="/#speed"
-              onClick={() => setMobileOpen(false)}
-              className="focus-ring px-3 py-2 rounded-md hover:bg-accent hover:text-foreground transition-colors"
-            >
-              Speed SLA
-            </a>
-            <a
-              href="/#pipeline"
-              onClick={() => setMobileOpen(false)}
-              className="focus-ring px-3 py-2 rounded-md hover:bg-accent hover:text-foreground transition-colors"
-            >
-              Pipeline
-            </a>
-            <a
-              href="/#solutions"
-              onClick={() => setMobileOpen(false)}
-              className="focus-ring px-3 py-2 rounded-md hover:bg-accent hover:text-foreground transition-colors"
-            >
-              Solutions
-            </a>
-            <a
-              href="/#about"
-              onClick={() => setMobileOpen(false)}
-              className="focus-ring px-3 py-2 rounded-md hover:bg-accent hover:text-foreground transition-colors"
-            >
-              About
-            </a>
-            <a
-              href="/#pricing"
-              onClick={() => setMobileOpen(false)}
-              className="focus-ring px-3 py-2 rounded-md hover:bg-accent hover:text-foreground transition-colors"
-            >
-              Pricing
-            </a>
-            <a
-              href="/#contact"
-              onClick={() => setMobileOpen(false)}
-              className="focus-ring px-3 py-2 rounded-md hover:bg-accent hover:text-foreground transition-colors"
-            >
-              Contact
-            </a>
-            <a
-              href="/#faq"
-              onClick={() => setMobileOpen(false)}
-              className="focus-ring px-3 py-2 rounded-md hover:bg-accent hover:text-foreground transition-colors"
-            >
-              FAQ
-            </a>
+          <nav aria-label="Primary" className="flex flex-col space-y-2 text-sm font-medium text-muted-foreground">
+            {NAV_LINKS.map((link) => {
+              const isActive = activeId === link.id;
+              return (
+                <a
+                  key={link.id}
+                  href={`/#${link.id}`}
+                  onClick={() => setMobileOpen(false)}
+                  aria-current={isActive ? "true" : undefined}
+                  className={`focus-ring px-3 py-2 rounded-md transition-colors hover:bg-accent hover:text-foreground ${
+                    isActive ? "bg-accent/60 text-foreground" : ""
+                  }`}
+                >
+                  {link.label}
+                </a>
+              );
+            })}
           </nav>
           <div className="pt-2 flex flex-col gap-2">
             <Button asChild variant="outline" className="w-full text-xs">
@@ -158,4 +150,3 @@ export function MarketingNavbar() {
     </header>
   );
 }
-

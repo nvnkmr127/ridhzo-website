@@ -88,7 +88,7 @@ export function PipelinePreview() {
             <Kanban className="h-3.5 w-3.5" />
             <span>Velocity &amp; Reclamation</span>
           </div>
-          <h2 className="mt-4 text-3xl sm:text-5xl font-extrabold text-foreground tracking-tight">
+          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight">
             Active Kanban Board &amp; Going Cold Radar
           </h2>
           <p className="mt-4 text-base sm:text-lg text-muted-foreground">

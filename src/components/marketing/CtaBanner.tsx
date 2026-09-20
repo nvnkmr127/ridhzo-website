@@ -13,7 +13,7 @@ export function CtaBanner() {
             <span>Join High-Velocity Closers</span>
           </div>
 
-          <h2 className="mt-6 text-3xl sm:text-5xl font-extrabold text-foreground tracking-tight">
+          <h2 className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight">
             Stop Losing Deals to Slow Response Times
           </h2>
 

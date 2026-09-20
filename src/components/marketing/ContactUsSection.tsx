@@ -27,7 +27,7 @@ export function ContactUsSection() {
             <Mail className="h-3.5 w-3.5" />
             <span>Get in Touch</span>
           </div>
-          <h2 className="mt-4 text-3xl sm:text-5xl font-extrabold text-foreground tracking-tight">
+          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight">
             Talk to Us — We Reply Fast
           </h2>
           <p className="mt-4 text-base sm:text-lg text-muted-foreground">
