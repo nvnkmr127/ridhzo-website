@@ -64,17 +64,26 @@ export function FaqSection() {
                 <button
                   type="button"
                   onClick={() => setOpenIndex(isOpen ? null : idx)}
-                  className="flex w-full items-center justify-between p-4 sm:p-5 text-left text-sm sm:text-base font-semibold text-foreground transition-all"
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-panel-${idx}`}
+                  id={`faq-trigger-${idx}`}
+                  className="focus-ring flex w-full items-center justify-between gap-4 rounded-lg p-4 sm:p-5 text-left text-sm sm:text-base font-semibold text-foreground transition-all"
                 >
                   <span>{faq.q}</span>
                   <ChevronDown
-                    className={`h-4 w-4 text-muted-foreground transition-transform duration-200 shrink-0 ml-4 ${
+                    aria-hidden="true"
+                    className={`h-4 w-4 text-muted-foreground transition-transform duration-200 shrink-0 ${
                       isOpen ? "rotate-180 text-foreground" : ""
                     }`}
                   />
                 </button>
                 {isOpen && (
-                  <div className="px-4 sm:px-5 pb-5 pt-1 text-xs sm:text-sm text-muted-foreground leading-relaxed border-t border-border">
+                  <div
+                    id={`faq-panel-${idx}`}
+                    role="region"
+                    aria-labelledby={`faq-trigger-${idx}`}
+                    className="px-4 sm:px-5 pb-5 pt-1 text-xs sm:text-sm text-muted-foreground leading-relaxed border-t border-border"
+                  >
                     {faq.a}
                   </div>
                 )}

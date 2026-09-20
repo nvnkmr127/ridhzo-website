@@ -134,19 +134,20 @@ export function SolutionsSection() {
           </p>
 
           {/* Industry Tab Navigation */}
-          <div className="mt-8 flex flex-wrap justify-center gap-2">
+          <div className="mt-8 flex flex-wrap justify-center gap-2" role="group" aria-label="Select an industry">
             {SOLUTIONS.map((sol) => (
               <button
                 key={sol.id}
                 type="button"
                 onClick={() => setActiveId(sol.id)}
-                className={`flex items-center gap-2 rounded-lg px-3.5 py-2 text-xs font-medium transition-all ${
+                aria-pressed={activeId === sol.id}
+                className={`focus-ring flex items-center gap-2 rounded-lg px-3.5 py-2 text-xs font-medium transition-all ${
                   activeId === sol.id
                     ? "bg-foreground text-background shadow-xs font-semibold"
                     : "bg-secondary/60 text-muted-foreground hover:text-foreground hover:bg-secondary border border-border"
                 }`}
               >
-                <sol.icon className="h-3.5 w-3.5" />
+                <sol.icon className="h-3.5 w-3.5" aria-hidden="true" />
                 <span>{sol.label}</span>
               </button>
             ))}

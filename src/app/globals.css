@@ -9,6 +9,31 @@ html {
   scroll-padding-top: 5rem;
 }
 
+/* Consistent, keyboard-only focus ring. Applied to custom interactive controls
+   (nav links, tab/toggle buttons, accordions, sliders) via the .focus-ring class
+   so every focusable element matches the ui/ Button's focus treatment. */
+@layer components {
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+}
+
+/* Respect users who prefer reduced motion: drop smooth scroll, animations and
+   transitions to near-instant instead of removing focus/hover affordances. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* Monochrome, dark-first. Strictly black → white through a neutral gray scale (hue 0, sat 0),
    so the whole product reads in two colors. All shadcn semantic tokens live here; before this
    file existed they were undefined and the ui/ primitives rendered with no color. */

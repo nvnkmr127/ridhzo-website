@@ -13,37 +13,37 @@ export function MarketingNavbar() {
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/85 backdrop-blur-md transition-all">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Brand Logo */}
-        <Link href="/" className="flex items-center gap-2.5 font-bold text-lg tracking-tight text-foreground group">
+        <Link href="/" aria-label="Ridhzo home" className="focus-ring rounded-md flex items-center gap-2.5 font-bold text-lg tracking-tight text-foreground group">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-foreground text-background transition-transform group-hover:scale-105">
-            <Zap className="h-4 w-4 fill-current" />
+            <Zap className="h-4 w-4 fill-current" aria-hidden="true" />
           </div>
           <span className="font-semibold text-foreground tracking-tight">Ridhzo</span>
         </Link>
 
         {/* Desktop Nav Links */}
         <nav className="hidden lg:flex items-center gap-6 text-xs uppercase tracking-wider font-medium text-muted-foreground">
-          <a href="/#features" className="hover:text-foreground transition-colors">
+          <a href="/#features" className="focus-ring rounded-sm hover:text-foreground transition-colors">
             Features
           </a>
-          <a href="/#speed" className="hover:text-foreground transition-colors">
+          <a href="/#speed" className="focus-ring rounded-sm hover:text-foreground transition-colors">
             Speed SLA
           </a>
-          <a href="/#pipeline" className="hover:text-foreground transition-colors">
+          <a href="/#pipeline" className="focus-ring rounded-sm hover:text-foreground transition-colors">
             Pipeline
           </a>
-          <a href="/#solutions" className="hover:text-foreground transition-colors">
+          <a href="/#solutions" className="focus-ring rounded-sm hover:text-foreground transition-colors">
             Solutions
           </a>
-          <a href="/#about" className="hover:text-foreground transition-colors">
+          <a href="/#about" className="focus-ring rounded-sm hover:text-foreground transition-colors">
             About
           </a>
-          <a href="/#pricing" className="hover:text-foreground transition-colors">
+          <a href="/#pricing" className="focus-ring rounded-sm hover:text-foreground transition-colors">
             Pricing
           </a>
-          <a href="/#contact" className="hover:text-foreground transition-colors">
+          <a href="/#contact" className="focus-ring rounded-sm hover:text-foreground transition-colors">
             Contact
           </a>
-          <a href="/#faq" className="hover:text-foreground transition-colors">
+          <a href="/#faq" className="focus-ring rounded-sm hover:text-foreground transition-colors">
             FAQ
           </a>
         </nav>
@@ -66,71 +66,77 @@ export function MarketingNavbar() {
           <button
             type="button"
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-accent"
-            aria-label="Toggle navigation menu"
+            className="focus-ring p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-accent"
+            aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-nav-drawer"
           >
-            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5 text-foreground" />}
+            {mobileOpen ? (
+              <X className="h-5 w-5" aria-hidden="true" />
+            ) : (
+              <Menu className="h-5 w-5 text-foreground" aria-hidden="true" />
+            )}
           </button>
         </div>
       </div>
 
       {/* Mobile Drawer Menu */}
       {mobileOpen && (
-        <div className="lg:hidden border-b border-border bg-card px-4 pt-3 pb-6 space-y-4">
+        <div id="mobile-nav-drawer" className="lg:hidden border-b border-border bg-card px-4 pt-3 pb-6 space-y-4">
           <nav className="flex flex-col space-y-2 text-sm font-medium text-muted-foreground">
             <a
               href="/#features"
               onClick={() => setMobileOpen(false)}
-              className="px-3 py-2 rounded-md hover:bg-accent hover:text-foreground transition-colors"
+              className="focus-ring px-3 py-2 rounded-md hover:bg-accent hover:text-foreground transition-colors"
             >
               Features
             </a>
             <a
               href="/#speed"
               onClick={() => setMobileOpen(false)}
-              className="px-3 py-2 rounded-md hover:bg-accent hover:text-foreground transition-colors"
+              className="focus-ring px-3 py-2 rounded-md hover:bg-accent hover:text-foreground transition-colors"
             >
               Speed SLA
             </a>
             <a
               href="/#pipeline"
               onClick={() => setMobileOpen(false)}
-              className="px-3 py-2 rounded-md hover:bg-accent hover:text-foreground transition-colors"
+              className="focus-ring px-3 py-2 rounded-md hover:bg-accent hover:text-foreground transition-colors"
             >
               Pipeline
             </a>
             <a
               href="/#solutions"
               onClick={() => setMobileOpen(false)}
-              className="px-3 py-2 rounded-md hover:bg-accent hover:text-foreground transition-colors"
+              className="focus-ring px-3 py-2 rounded-md hover:bg-accent hover:text-foreground transition-colors"
             >
               Solutions
             </a>
             <a
               href="/#about"
               onClick={() => setMobileOpen(false)}
-              className="px-3 py-2 rounded-md hover:bg-accent hover:text-foreground transition-colors"
+              className="focus-ring px-3 py-2 rounded-md hover:bg-accent hover:text-foreground transition-colors"
             >
               About
             </a>
             <a
               href="/#pricing"
               onClick={() => setMobileOpen(false)}
-              className="px-3 py-2 rounded-md hover:bg-accent hover:text-foreground transition-colors"
+              className="focus-ring px-3 py-2 rounded-md hover:bg-accent hover:text-foreground transition-colors"
             >
               Pricing
             </a>
             <a
               href="/#contact"
               onClick={() => setMobileOpen(false)}
-              className="px-3 py-2 rounded-md hover:bg-accent hover:text-foreground transition-colors"
+              className="focus-ring px-3 py-2 rounded-md hover:bg-accent hover:text-foreground transition-colors"
             >
               Contact
             </a>
             <a
               href="/#faq"
               onClick={() => setMobileOpen(false)}
-              className="px-3 py-2 rounded-md hover:bg-accent hover:text-foreground transition-colors"
+              className="focus-ring px-3 py-2 rounded-md hover:bg-accent hover:text-foreground transition-colors"
             >
               FAQ
             </a>

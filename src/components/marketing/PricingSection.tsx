@@ -89,11 +89,12 @@ export function PricingSection() {
           </p>
 
           {/* Billing Cycle Toggle - Monochrome */}
-          <div className="mt-8 inline-flex items-center rounded-lg border border-border bg-secondary/70 p-1">
+          <div className="mt-8 inline-flex items-center rounded-lg border border-border bg-secondary/70 p-1" role="group" aria-label="Billing cycle">
             <button
               type="button"
               onClick={() => setBillingCycle("monthly")}
-              className={`rounded-md px-3.5 py-1.5 text-xs font-medium transition-all ${
+              aria-pressed={billingCycle === "monthly"}
+              className={`focus-ring rounded-md px-3.5 py-1.5 text-xs font-medium transition-all ${
                 billingCycle === "monthly"
                   ? "bg-foreground text-background shadow-xs font-semibold"
                   : "text-muted-foreground hover:text-foreground"
@@ -104,7 +105,8 @@ export function PricingSection() {
             <button
               type="button"
               onClick={() => setBillingCycle("yearly")}
-              className={`rounded-md px-3.5 py-1.5 text-xs font-medium flex items-center gap-1.5 transition-all ${
+              aria-pressed={billingCycle === "yearly"}
+              className={`focus-ring rounded-md px-3.5 py-1.5 text-xs font-medium flex items-center gap-1.5 transition-all ${
                 billingCycle === "yearly"
                   ? "bg-foreground text-background shadow-xs font-semibold"
                   : "text-muted-foreground hover:text-foreground"

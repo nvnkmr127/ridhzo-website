@@ -177,11 +177,12 @@ export function HeroSection() {
                 <span className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">
                   Simulate Channel:
                 </span>
-                <div className="inline-flex rounded-lg border border-border bg-secondary/50 p-0.5">
+                <div className="inline-flex rounded-lg border border-border bg-secondary/50 p-0.5" role="group" aria-label="Simulate lead channel">
                   <button
                     type="button"
                     onClick={() => handleSourceChange("meta")}
-                    className={`rounded-md px-2.5 py-1 text-xs font-medium transition-all ${
+                    aria-pressed={selectedSource === "meta"}
+                    className={`focus-ring rounded-md px-2.5 py-1 text-xs font-medium transition-all ${
                       selectedSource === "meta"
                         ? "bg-foreground text-background shadow-xs"
                         : "text-muted-foreground hover:text-foreground"
@@ -192,7 +193,8 @@ export function HeroSection() {
                   <button
                     type="button"
                     onClick={() => handleSourceChange("google")}
-                    className={`rounded-md px-2.5 py-1 text-xs font-medium transition-all ${
+                    aria-pressed={selectedSource === "google"}
+                    className={`focus-ring rounded-md px-2.5 py-1 text-xs font-medium transition-all ${
                       selectedSource === "google"
                         ? "bg-foreground text-background shadow-xs"
                         : "text-muted-foreground hover:text-foreground"
@@ -203,7 +205,8 @@ export function HeroSection() {
                   <button
                     type="button"
                     onClick={() => handleSourceChange("webhook")}
-                    className={`rounded-md px-2.5 py-1 text-xs font-medium transition-all ${
+                    aria-pressed={selectedSource === "webhook"}
+                    className={`focus-ring rounded-md px-2.5 py-1 text-xs font-medium transition-all ${
                       selectedSource === "webhook"
                         ? "bg-foreground text-background shadow-xs"
                         : "text-muted-foreground hover:text-foreground"
@@ -289,7 +292,7 @@ export function HeroSection() {
                   <button
                     type="button"
                     onClick={handleReset}
-                    className="flex items-center gap-1 text-[11px] text-muted-foreground hover:text-foreground transition-colors"
+                    className="focus-ring rounded-sm flex items-center gap-1 text-[11px] text-muted-foreground hover:text-foreground transition-colors"
                   >
                     <RotateCcw className="h-3 w-3" />
                     Reset Simulation

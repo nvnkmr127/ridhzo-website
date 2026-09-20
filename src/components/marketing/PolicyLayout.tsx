@@ -88,7 +88,7 @@ export function PolicyLayout({
                     <a
                       key={section.id}
                       href={`#${section.id}`}
-                      className="block text-xs py-1.5 px-2 rounded hover:bg-secondary hover:text-foreground text-muted-foreground transition-colors leading-snug"
+                      className="focus-ring block text-xs py-1.5 px-2 rounded hover:bg-secondary hover:text-foreground text-muted-foreground transition-colors leading-snug"
                     >
                       <span className="font-mono text-[10px] text-muted-foreground mr-1.5 opacity-70">
                         {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}.
@@ -111,7 +111,7 @@ export function PolicyLayout({
                 <div className="space-y-2 pt-1 text-xs">
                   <a
                     href="mailto:legal@ridhzo.com"
-                    className="flex items-center gap-2 text-muted-foreground hover:text-foreground hover:underline"
+                    className="focus-ring rounded-sm flex items-center gap-2 text-muted-foreground hover:text-foreground hover:underline"
                   >
                     <Mail className="h-3.5 w-3.5 shrink-0" />
                     <span>legal@ridhzo.com</span>
@@ -120,7 +120,7 @@ export function PolicyLayout({
                     href="https://wa.me/919820144520"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-muted-foreground hover:text-foreground hover:underline"
+                    className="focus-ring rounded-sm flex items-center gap-2 text-muted-foreground hover:text-foreground hover:underline"
                   >
                     <Phone className="h-3.5 w-3.5 shrink-0" />
                     <span>+91 98201 44520 (WhatsApp)</span>
@@ -148,7 +148,8 @@ export function PolicyLayout({
                     <Link
                       key={policy.href}
                       href={policy.href}
-                      className={`p-4 rounded-xl border transition-all ${
+                      aria-current={isCurrent ? "page" : undefined}
+                      className={`focus-ring p-4 rounded-xl border transition-all ${
                         isCurrent
                           ? "border-foreground/40 bg-muted/60 pointer-events-none"
                           : "border-border bg-card hover:border-foreground/30 hover:bg-secondary/40"

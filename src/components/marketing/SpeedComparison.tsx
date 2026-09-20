@@ -151,7 +151,9 @@ export function SpeedComparison() {
                   step="10"
                   value={monthlyLeads}
                   onChange={(e) => setMonthlyLeads(Number(e.target.value))}
-                  className="mt-2 w-full h-2 bg-secondary rounded-lg appearance-none cursor-pointer accent-foreground"
+                  aria-label="Monthly inbound leads"
+                  aria-valuetext={`${monthlyLeads} leads per month`}
+                  className="focus-ring mt-2 w-full h-2 bg-secondary rounded-lg appearance-none cursor-pointer accent-foreground"
                 />
                 <div className="flex justify-between text-[10px] text-muted-foreground mt-1 font-mono">
                   <span>20</span>
@@ -172,7 +174,9 @@ export function SpeedComparison() {
                   step="5000"
                   value={dealValue}
                   onChange={(e) => setDealValue(Number(e.target.value))}
-                  className="mt-2 w-full h-2 bg-secondary rounded-lg appearance-none cursor-pointer accent-foreground"
+                  aria-label="Average deal value or gross margin in rupees"
+                  aria-valuetext={`₹${dealValue.toLocaleString("en-IN")}`}
+                  className="focus-ring mt-2 w-full h-2 bg-secondary rounded-lg appearance-none cursor-pointer accent-foreground"
                 />
                 <div className="flex justify-between text-[10px] text-muted-foreground mt-1 font-mono">
                   <span>₹10,000</span>

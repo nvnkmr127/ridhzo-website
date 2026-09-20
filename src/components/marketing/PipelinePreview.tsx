@@ -97,29 +97,31 @@ export function PipelinePreview() {
           </p>
 
           {/* Surface Tab Switcher */}
-          <div className="mt-8 inline-flex rounded-lg border border-border bg-secondary/60 p-1">
+          <div className="mt-8 inline-flex rounded-lg border border-border bg-secondary/60 p-1" role="group" aria-label="Pipeline surface">
             <button
               type="button"
               onClick={() => setActiveTab("kanban")}
-              className={`flex items-center gap-2 rounded-md px-4 py-2 text-xs font-semibold transition-all ${
+              aria-pressed={activeTab === "kanban"}
+              className={`focus-ring flex items-center gap-2 rounded-md px-4 py-2 text-xs font-semibold transition-all ${
                 activeTab === "kanban"
                   ? "bg-foreground text-background shadow-xs"
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              <Kanban className="h-4 w-4" />
+              <Kanban className="h-4 w-4" aria-hidden="true" />
               <span>1. Pipeline Board (/leads/kanban)</span>
             </button>
             <button
               type="button"
               onClick={() => setActiveTab("cold")}
-              className={`flex items-center gap-2 rounded-md px-4 py-2 text-xs font-semibold transition-all ${
+              aria-pressed={activeTab === "cold"}
+              className={`focus-ring flex items-center gap-2 rounded-md px-4 py-2 text-xs font-semibold transition-all ${
                 activeTab === "cold"
                   ? "bg-foreground text-background shadow-xs"
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              <Snowflake className="h-4 w-4" />
+              <Snowflake className="h-4 w-4" aria-hidden="true" />
               <span>2. Going Cold Radar (/leads/cold)</span>
             </button>
           </div>
@@ -194,10 +196,11 @@ export function PipelinePreview() {
                                           : "won";
                                       moveStage(card.id, next);
                                     }}
-                                    className="rounded bg-secondary px-1.5 py-0.5 font-medium text-foreground hover:bg-accent border border-border flex items-center gap-0.5"
+                                    aria-label={`Advance ${card.name} to the next stage`}
+                                    className="focus-ring rounded bg-secondary px-1.5 py-0.5 font-medium text-foreground hover:bg-accent border border-border flex items-center gap-0.5"
                                   >
                                     <span>Next</span>
-                                    <ArrowRight className="h-2.5 w-2.5" />
+                                    <ArrowRight className="h-2.5 w-2.5" aria-hidden="true" />
                                   </button>
                                 )}
                               </div>

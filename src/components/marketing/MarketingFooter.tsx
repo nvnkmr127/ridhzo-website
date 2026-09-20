@@ -9,9 +9,9 @@ export function MarketingFooter() {
         <div className="grid grid-cols-2 md:grid-cols-6 gap-8 sm:gap-10">
           {/* Brand Col */}
           <div className="col-span-2 space-y-4">
-            <Link href="/" className="flex items-center gap-2.5 font-bold text-base tracking-tight text-foreground">
+            <Link href="/" aria-label="Ridhzo home" className="focus-ring rounded-md flex items-center gap-2.5 font-bold text-base tracking-tight text-foreground">
               <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-foreground text-background">
-                <Zap className="h-3.5 w-3.5 fill-current" />
+                <Zap className="h-3.5 w-3.5 fill-current" aria-hidden="true" />
               </div>
               <span className="font-semibold text-foreground">Ridhzo</span>
             </Link>
@@ -30,27 +30,27 @@ export function MarketingFooter() {
             <p className="text-xs font-semibold text-foreground uppercase tracking-wider">Product</p>
             <ul className="space-y-2 text-xs">
               <li>
-                <Link href="/#features" className="hover:text-foreground transition-colors">
+                <Link href="/#features" className="focus-ring rounded-sm hover:text-foreground transition-colors">
                   Multi-Channel Capture
                 </Link>
               </li>
               <li>
-                <Link href="/#speed" className="hover:text-foreground transition-colors">
+                <Link href="/#speed" className="focus-ring rounded-sm hover:text-foreground transition-colors">
                   Speed SLA Engine
                 </Link>
               </li>
               <li>
-                <Link href="/#pipeline" className="hover:text-foreground transition-colors">
+                <Link href="/#pipeline" className="focus-ring rounded-sm hover:text-foreground transition-colors">
                   Pipeline Kanban Board
                 </Link>
               </li>
               <li>
-                <Link href="/#pipeline" className="hover:text-foreground transition-colors">
+                <Link href="/#pipeline" className="focus-ring rounded-sm hover:text-foreground transition-colors">
                   Going Cold Radar
                 </Link>
               </li>
               <li>
-                <Link href="/#pricing" className="hover:text-foreground transition-colors">
+                <Link href="/#pricing" className="focus-ring rounded-sm hover:text-foreground transition-colors">
                   Pricing Plans
                 </Link>
               </li>
@@ -62,32 +62,32 @@ export function MarketingFooter() {
             <p className="text-xs font-semibold text-foreground uppercase tracking-wider">Solutions</p>
             <ul className="space-y-2 text-xs">
               <li>
-                <Link href="/#solutions" className="hover:text-foreground transition-colors">
+                <Link href="/#solutions" className="focus-ring rounded-sm hover:text-foreground transition-colors">
                   Real Estate Brokers
                 </Link>
               </li>
               <li>
-                <Link href="/#solutions" className="hover:text-foreground transition-colors">
+                <Link href="/#solutions" className="focus-ring rounded-sm hover:text-foreground transition-colors">
                   Performance Agencies
                 </Link>
               </li>
               <li>
-                <Link href="/#solutions" className="hover:text-foreground transition-colors">
+                <Link href="/#solutions" className="focus-ring rounded-sm hover:text-foreground transition-colors">
                   Financial &amp; Insurance
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="hover:text-foreground transition-colors">
+                <Link href="/about" className="focus-ring rounded-sm hover:text-foreground transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-foreground transition-colors">
+                <Link href="/contact" className="focus-ring rounded-sm hover:text-foreground transition-colors">
                   Contact Us
                 </Link>
               </li>
               <li>
-                <Link href="/#faq" className="hover:text-foreground transition-colors">
+                <Link href="/#faq" className="focus-ring rounded-sm hover:text-foreground transition-colors">
                   FAQ &amp; Architecture
                 </Link>
               </li>
@@ -99,32 +99,32 @@ export function MarketingFooter() {
             <p className="text-xs font-semibold text-foreground uppercase tracking-wider">Legal &amp; Trust</p>
             <ul className="space-y-2 text-xs">
               <li>
-                <Link href="/privacy" className="hover:text-foreground transition-colors">
+                <Link href="/privacy" className="focus-ring rounded-sm hover:text-foreground transition-colors">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="hover:text-foreground transition-colors">
+                <Link href="/terms" className="focus-ring rounded-sm hover:text-foreground transition-colors">
                   Terms of Service
                 </Link>
               </li>
               <li>
-                <Link href="/refund-policy" className="hover:text-foreground transition-colors">
+                <Link href="/refund-policy" className="focus-ring rounded-sm hover:text-foreground transition-colors">
                   Refund &amp; Cancellation
                 </Link>
               </li>
               <li>
-                <Link href="/shipping-policy" className="hover:text-foreground transition-colors">
+                <Link href="/shipping-policy" className="focus-ring rounded-sm hover:text-foreground transition-colors">
                   Shipping &amp; Delivery
                 </Link>
               </li>
               <li>
-                <Link href="/security" className="hover:text-foreground transition-colors">
+                <Link href="/security" className="focus-ring rounded-sm hover:text-foreground transition-colors">
                   Security Architecture
                 </Link>
               </li>
               <li>
-                <Link href="/cookie-policy" className="hover:text-foreground transition-colors">
+                <Link href="/cookie-policy" className="focus-ring rounded-sm hover:text-foreground transition-colors">
                   Cookie Policy
                 </Link>
               </li>
@@ -136,22 +136,22 @@ export function MarketingFooter() {
             <p className="text-xs font-semibold text-foreground uppercase tracking-wider">Access</p>
             <ul className="space-y-2 text-xs">
               <li>
-                <Link href={appUrl("/login")} className="hover:text-foreground transition-colors">
+                <Link href={appUrl("/login")} className="focus-ring rounded-sm hover:text-foreground transition-colors">
                   Sign In to Workspace
                 </Link>
               </li>
               <li>
-                <Link href={appUrl("/signup")} className="hover:text-foreground transition-colors">
+                <Link href={appUrl("/signup")} className="focus-ring rounded-sm hover:text-foreground transition-colors">
                   Create Workspace
                 </Link>
               </li>
               <li>
-                <Link href={appUrl("/forgot-password")} className="hover:text-foreground transition-colors">
+                <Link href={appUrl("/forgot-password")} className="focus-ring rounded-sm hover:text-foreground transition-colors">
                   Reset Password
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-foreground transition-colors">
+                <Link href="/contact" className="focus-ring rounded-sm hover:text-foreground transition-colors">
                   Talk to Support
                 </Link>
               </li>
@@ -163,27 +163,27 @@ export function MarketingFooter() {
         <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-muted-foreground">
           <p>© {new Date().getFullYear()} Ridhzo CRM. All rights reserved.</p>
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-            <Link href="/privacy" className="hover:text-foreground transition-colors">
+            <Link href="/privacy" className="focus-ring rounded-sm hover:text-foreground transition-colors">
               Privacy
             </Link>
             <span>•</span>
-            <Link href="/terms" className="hover:text-foreground transition-colors">
+            <Link href="/terms" className="focus-ring rounded-sm hover:text-foreground transition-colors">
               Terms
             </Link>
             <span>•</span>
-            <Link href="/refund-policy" className="hover:text-foreground transition-colors">
+            <Link href="/refund-policy" className="focus-ring rounded-sm hover:text-foreground transition-colors">
               Refunds
             </Link>
             <span>•</span>
-            <Link href="/shipping-policy" className="hover:text-foreground transition-colors">
+            <Link href="/shipping-policy" className="focus-ring rounded-sm hover:text-foreground transition-colors">
               Shipping
             </Link>
             <span>•</span>
-            <Link href="/security" className="hover:text-foreground transition-colors">
+            <Link href="/security" className="focus-ring rounded-sm hover:text-foreground transition-colors">
               Security
             </Link>
             <span>•</span>
-            <Link href="/cookie-policy" className="hover:text-foreground transition-colors">
+            <Link href="/cookie-policy" className="focus-ring rounded-sm hover:text-foreground transition-colors">
               Cookies
             </Link>
           </div>

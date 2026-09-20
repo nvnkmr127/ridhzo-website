@@ -47,7 +47,7 @@ export function ContactUsSection() {
                 href="https://wa.me/919820144520?text=Hi%20Ridhzo%20team%2C%20I%20have%20a%20question%20about%20the%20CRM."
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-start gap-3.5 p-3 rounded-lg border border-border bg-secondary/30 hover:bg-secondary transition-all group"
+                className="focus-ring flex items-start gap-3.5 p-3 rounded-lg border border-border bg-secondary/30 hover:bg-secondary transition-all group"
               >
                 <div className="h-9 w-9 rounded-lg bg-foreground text-background flex items-center justify-center shrink-0 mt-0.5">
                   <MessageSquare className="h-4 w-4" />
@@ -73,7 +73,7 @@ export function ContactUsSection() {
                   <p className="text-xs text-muted-foreground mt-0.5">Replies within 2 hours</p>
                   <a
                     href="mailto:support@ridhzo.com"
-                    className="text-xs font-mono text-foreground hover:underline mt-1 block"
+                    className="focus-ring rounded-sm text-xs font-mono text-foreground hover:underline mt-1 block"
                   >
                     support@ridhzo.com
                   </a>
@@ -126,12 +126,15 @@ export function ContactUsSection() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                   <div>
-                    <label className="block text-xs font-medium text-foreground mb-1">
+                    <label htmlFor="contact-name" className="block text-xs font-medium text-foreground mb-1">
                       Your Name *
                     </label>
                     <input
+                      id="contact-name"
+                      name="name"
                       type="text"
                       required
+                      autoComplete="name"
                       placeholder="e.g. Rahul Sharma"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -140,12 +143,15 @@ export function ContactUsSection() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-medium text-foreground mb-1">
+                    <label htmlFor="contact-phone" className="block text-xs font-medium text-foreground mb-1">
                       WhatsApp Phone Number *
                     </label>
                     <input
+                      id="contact-phone"
+                      name="phone"
                       type="tel"
                       required
+                      autoComplete="tel"
                       placeholder="e.g. +91 98765 43210"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -156,12 +162,15 @@ export function ContactUsSection() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-medium text-foreground mb-1">
+                    <label htmlFor="contact-email" className="block text-xs font-medium text-foreground mb-1">
                       Email Address *
                     </label>
                     <input
+                      id="contact-email"
+                      name="email"
                       type="email"
                       required
+                      autoComplete="email"
                       placeholder="rahul@company.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -170,10 +179,12 @@ export function ContactUsSection() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-medium text-foreground mb-1">
+                    <label htmlFor="contact-business-type" className="block text-xs font-medium text-foreground mb-1">
                       Your Business Type
                     </label>
                     <select
+                      id="contact-business-type"
+                      name="businessType"
                       value={formData.businessType}
                       onChange={(e) => setFormData({ ...formData, businessType: e.target.value })}
                       className="w-full rounded-md border border-border bg-secondary/50 px-3 py-2 text-xs text-foreground focus:outline-none focus:ring-1 focus:ring-foreground"
@@ -188,10 +199,12 @@ export function ContactUsSection() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-foreground mb-1">
+                  <label htmlFor="contact-message" className="block text-xs font-medium text-foreground mb-1">
                     How Can We Help? *
                   </label>
                   <textarea
+                    id="contact-message"
+                    name="message"
                     required
                     rows={4}
                     placeholder="Tell us what questions you have or what kind of setup you need..."
