@@ -15,21 +15,30 @@ const FOOTER_SECTIONS: FooterSection[] = [
   {
     title: "Product",
     links: [
-      { label: "Multi-Channel Capture", href: "/#features" },
-      { label: "Speed SLA Engine", href: "/#speed" },
-      { label: "Pipeline Kanban Board", href: "/#pipeline" },
-      { label: "Going Cold Radar", href: "/#pipeline" },
+      { label: "All Features", href: "/features" },
+      { label: "Instant Lead Capture", href: "/features/lead-capture" },
+      { label: "WhatsApp Follow-ups", href: "/features/whatsapp" },
+      { label: "Pipeline & SLA Engine", href: "/features/pipeline-kanban" },
       { label: "Pricing Plans", href: "/#pricing" },
     ],
   },
   {
     title: "Solutions",
     links: [
-      { label: "Real Estate Brokers", href: "/#solutions" },
-      { label: "Performance Agencies", href: "/#solutions" },
-      { label: "Financial & Insurance", href: "/#solutions" },
+      { label: "Real Estate Brokers", href: "/usecases/real-estate" },
+      { label: "Performance Agencies", href: "/usecases/marketing-agencies" },
+      { label: "Financial & Insurance", href: "/usecases/financial-advisors" },
+      { label: "All Use Cases", href: "/usecases" },
       { label: "About Us", href: "/about" },
       { label: "Contact Us", href: "/contact" },
+    ],
+  },
+  {
+    title: "Resources",
+    links: [
+      { label: "Blog", href: "/blog" },
+      { label: "How-To Guides", href: "/how-to" },
+      { label: "Help Center", href: "/help" },
       { label: "FAQ & Architecture", href: "/#faq" },
     ],
   },
@@ -136,7 +145,7 @@ export function MarketingFooter() {
           </div>
 
           {/* Desktop Grid Columns (hidden md:grid) */}
-          <div className="hidden md:grid md:grid-cols-4 md:col-span-4 gap-8">
+          <div className="hidden md:grid md:grid-cols-3 md:col-span-4 gap-x-8 gap-y-10">
             {FOOTER_SECTIONS.map((section) => (
               <div key={section.title} className="space-y-2.5">
                 <p className="text-xs font-semibold text-foreground uppercase tracking-wider">

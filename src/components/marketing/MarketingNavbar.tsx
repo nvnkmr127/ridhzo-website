@@ -10,16 +10,23 @@ import { Menu, X, ArrowRight } from "lucide-react";
 /* Single source of truth for the in-page nav, ordered to match the actual
    scroll order of the home page sections (see src/app/page.tsx). Desktop and
    mobile menus both render from this array so they can never drift apart. */
-const NAV_LINKS = [
+type NavLink = { label: string; id?: string; href?: string };
+
+const NAV_LINKS: readonly NavLink[] = [
   { id: "speed", label: "Speed SLA" },
   { id: "features", label: "Features" },
   { id: "pipeline", label: "Pipeline" },
-  { id: "solutions", label: "Solutions" },
-  { id: "about", label: "About" },
+  { href: "/usecases", label: "Use Cases" },
   { id: "pricing", label: "Pricing" },
-  { id: "faq", label: "FAQ" },
+  { href: "/blog", label: "Blog" },
+  { href: "/help", label: "Help" },
   { id: "contact", label: "Contact" },
 ] as const;
+
+/** Resolve the href for a nav link: an explicit route, or an in-page anchor. */
+function linkHref(link: NavLink): string {
+  return link.href ?? `/#${link.id}`;
+}
 
 export function MarketingNavbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -28,7 +35,7 @@ export function MarketingNavbar() {
   // Scroll-spy: highlight the nav link for the section currently in view.
   // Only runs where the sections exist (the home page); no-ops elsewhere.
   useEffect(() => {
-    const sections = NAV_LINKS.map((l) => document.getElementById(l.id)).filter(
+    const sections = NAV_LINKS.map((l) => (l.id ? document.getElementById(l.id) : null)).filter(
       (el): el is HTMLElement => el !== null,
     );
     if (sections.length === 0) return;
@@ -74,11 +81,11 @@ export function MarketingNavbar() {
           className="hidden lg:flex items-center gap-6 text-xs uppercase tracking-wider font-medium text-muted-foreground"
         >
           {NAV_LINKS.map((link) => {
-            const isActive = activeId === link.id;
+            const isActive = Boolean(link.id) && activeId === link.id;
             return (
               <a
-                key={link.id}
-                href={`/#${link.id}`}
+                key={link.label}
+                href={linkHref(link)}
                 aria-current={isActive ? "true" : undefined}
                 className={`focus-ring rounded-sm transition-colors hover:text-foreground ${
                   isActive ? "text-foreground" : ""
@@ -130,11 +137,11 @@ export function MarketingNavbar() {
         >
           <nav aria-label="Primary" className="flex flex-col space-y-1 text-sm font-medium text-muted-foreground">
             {NAV_LINKS.map((link) => {
-              const isActive = activeId === link.id;
+              const isActive = Boolean(link.id) && activeId === link.id;
               return (
                 <a
-                  key={link.id}
-                  href={`/#${link.id}`}
+                  key={link.label}
+                  href={linkHref(link)}
                   onClick={() => setMobileOpen(false)}
                   aria-current={isActive ? "true" : undefined}
                   className={`focus-ring px-3.5 py-2.5 min-h-[44px] flex items-center rounded-lg transition-colors hover:bg-accent hover:text-foreground ${

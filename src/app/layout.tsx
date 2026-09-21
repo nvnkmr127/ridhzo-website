@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { MarketingNavbar } from "@/components/marketing/MarketingNavbar";
 import { MarketingFooter } from "@/components/marketing/MarketingFooter";
+import { Analytics } from "@/components/analytics/Analytics";
+import { CookieConsent } from "@/components/analytics/CookieConsent";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -71,6 +73,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://ridhzo.com",
   },
+  verification: process.env.NEXT_PUBLIC_GSC_VERIFICATION
+    ? { google: process.env.NEXT_PUBLIC_GSC_VERIFICATION }
+    : undefined,
 };
 
 export default function RootLayout({
@@ -92,6 +97,8 @@ export default function RootLayout({
           {children}
         </main>
         <MarketingFooter />
+        <CookieConsent />
+        <Analytics />
       </body>
     </html>
   );
