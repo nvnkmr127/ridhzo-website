@@ -3,7 +3,8 @@
 import { appUrl } from "@/lib/config";
 import { useState } from "react";
 import Link from "next/link";
-import { Zap, ShieldCheck, ChevronDown } from "lucide-react";
+import Image from "next/image";
+import { ShieldCheck, ChevronDown } from "lucide-react";
 
 interface FooterSection {
   title: string;
@@ -67,11 +68,19 @@ export function MarketingFooter() {
         <div className="grid grid-cols-1 md:grid-cols-6 gap-8 sm:gap-10">
           {/* Brand Col */}
           <div className="md:col-span-2 space-y-4">
-            <Link href="/" aria-label="Ridhzo home" className="focus-ring rounded-md flex items-center gap-2.5 font-bold text-base tracking-tight text-foreground">
-              <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-foreground text-background">
-                <Zap className="h-3.5 w-3.5 fill-current" aria-hidden="true" />
-              </div>
-              <span className="font-semibold text-foreground">Ridhzo</span>
+            <Link
+              href="/"
+              aria-label="Ridhzo home"
+              className="focus-ring rounded-md inline-flex items-center group py-0.5"
+            >
+              <Image
+                src="/ridhzo_logo.png"
+                alt="Ridhzo — The 1-Tap Mobile CRM"
+                width={130}
+                height={42}
+                className="h-9 w-auto object-contain transition-opacity group-hover:opacity-90"
+                unoptimized
+              />
             </Link>
             <p className="text-muted-foreground text-xs max-w-sm leading-relaxed">
               The 1-tap mobile CRM engineered for sub-minute lead response, instant WhatsApp follow-ups,

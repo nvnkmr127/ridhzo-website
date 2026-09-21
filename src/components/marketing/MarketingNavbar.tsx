@@ -3,8 +3,9 @@
 import { appUrl } from "@/lib/config";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Zap, Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 
 /* Single source of truth for the in-page nav, ordered to match the actual
    scroll order of the home page sections (see src/app/page.tsx). Desktop and
@@ -51,11 +52,20 @@ export function MarketingNavbar() {
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/85 backdrop-blur-md transition-all">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Brand Logo */}
-        <Link href="/" aria-label="Ridhzo home" className="focus-ring rounded-md flex items-center gap-2.5 font-bold text-lg tracking-tight text-foreground group">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-foreground text-background transition-transform group-hover:scale-105">
-            <Zap className="h-4 w-4 fill-current" aria-hidden="true" />
-          </div>
-          <span className="font-semibold text-foreground tracking-tight">Ridhzo</span>
+        <Link
+          href="/"
+          aria-label="Ridhzo home"
+          className="focus-ring rounded-md flex items-center group py-1"
+        >
+          <Image
+            src="/ridhzo_logo.png"
+            alt="Ridhzo — The 1-Tap Mobile CRM"
+            width={126}
+            height={40}
+            className="h-8 sm:h-9 w-auto object-contain transition-opacity group-hover:opacity-90"
+            priority
+            unoptimized
+          />
         </Link>
 
         {/* Desktop Nav Links */}

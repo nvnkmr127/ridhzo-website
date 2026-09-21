@@ -43,11 +43,15 @@ export const metadata: Metadata = {
   manifest: "/manifest.webmanifest",
   icons: {
     icon: [
+      { url: "/fav.png", type: "image/png" },
       { url: "/favicon.ico", sizes: "any" },
       { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
       { url: "/icon-512.png", type: "image/png", sizes: "512x512" },
     ],
-    apple: [{ url: "/icon-192.png", sizes: "192x192" }],
+    apple: [
+      { url: "/fav.png", sizes: "180x180" },
+      { url: "/icon-192.png", sizes: "192x192" },
+    ],
   },
   openGraph: {
     title: "Ridhzo — The 1-Tap Mobile CRM for Fast Closers",
