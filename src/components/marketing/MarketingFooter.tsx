@@ -39,6 +39,7 @@ const FOOTER_SECTIONS: FooterSection[] = [
       { label: "Blog", href: "/blog" },
       { label: "How-To Guides", href: "/how-to" },
       { label: "Help Center", href: "/help" },
+      { label: "Compare Ridhzo", href: "/compare" },
       { label: "FAQ & Architecture", href: "/#faq" },
     ],
   },
