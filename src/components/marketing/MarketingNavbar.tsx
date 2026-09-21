@@ -65,8 +65,8 @@ export function MarketingNavbar() {
           className="focus-ring rounded-md flex items-center group py-1"
         >
           <Image
-            src="/ridhzo_logo.png"
-            alt="Ridhzo — The 1-Tap Mobile CRM"
+            src="/logo/Ridhzo-Logo-Final_Horizontal-Light.png"
+            alt="Ridhzo — Leads Move Faster"
             width={126}
             height={40}
             className="h-8 sm:h-9 w-auto object-contain transition-opacity group-hover:opacity-90"

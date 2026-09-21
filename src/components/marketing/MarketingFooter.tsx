@@ -84,8 +84,8 @@ export function MarketingFooter() {
               className="focus-ring rounded-md inline-flex items-center group py-0.5"
             >
               <Image
-                src="/ridhzo_logo.png"
-                alt="Ridhzo — The 1-Tap Mobile CRM"
+                src="/logo/Ridhzo-Logo-Final_Horizontal-Light.png"
+                alt="Ridhzo — Leads Move Faster"
                 width={130}
                 height={42}
                 className="h-9 w-auto object-contain transition-opacity group-hover:opacity-90"
