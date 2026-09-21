@@ -19,7 +19,7 @@ const FOOTER_SECTIONS: FooterSection[] = [
       { label: "Instant Lead Capture", href: "/features/lead-capture" },
       { label: "WhatsApp Follow-ups", href: "/features/whatsapp" },
       { label: "Pipeline & SLA Engine", href: "/features/pipeline-kanban" },
-      { label: "Pricing Plans", href: "/#pricing" },
+      { label: "Pricing Plans", href: "/pricing" },
     ],
   },
   {

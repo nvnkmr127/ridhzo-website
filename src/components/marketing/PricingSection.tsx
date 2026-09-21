@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Check, Sparkles } from "lucide-react";
 
-export function PricingSection() {
+export function PricingSection({ showHeader = true }: { showHeader?: boolean } = {}) {
   const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">("monthly");
 
   const plans = [
@@ -77,16 +77,20 @@ export function PricingSection() {
     <section id="pricing" className="py-16 sm:py-24 relative border-t border-border bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary px-3 py-1 text-xs font-medium text-foreground">
-            <Sparkles className="h-3.5 w-3.5" />
-            <span>Simple, Transparent Pricing</span>
-          </div>
-          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight">
-            Plans That Pay for Themselves With One Closed Deal
-          </h2>
-          <p className="mt-4 text-base sm:text-lg text-muted-foreground">
-            Start for free, then upgrade as your lead pipeline expands. No hidden charges, no contracts.
-          </p>
+          {showHeader && (
+            <>
+              <div className="inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary px-3 py-1 text-xs font-medium text-foreground">
+                <Sparkles className="h-3.5 w-3.5" />
+                <span>Simple, Transparent Pricing</span>
+              </div>
+              <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight">
+                Plans That Pay for Themselves With One Closed Deal
+              </h2>
+              <p className="mt-4 text-base sm:text-lg text-muted-foreground">
+                Start for free, then upgrade as your lead pipeline expands. No hidden charges, no contracts.
+              </p>
+            </>
+          )}
 
           {/* Billing Cycle Toggle - Monochrome */}
           <div className="mt-8 inline-flex items-center rounded-lg border border-border bg-secondary/70 p-1 max-w-full" role="group" aria-label="Billing cycle">

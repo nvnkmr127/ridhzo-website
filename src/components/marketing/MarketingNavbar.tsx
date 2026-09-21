@@ -17,7 +17,7 @@ const NAV_LINKS: readonly NavLink[] = [
   { id: "features", label: "Features" },
   { id: "pipeline", label: "Pipeline" },
   { href: "/usecases", label: "Use Cases" },
-  { id: "pricing", label: "Pricing" },
+  { href: "/pricing", label: "Pricing" },
   { href: "/blog", label: "Blog" },
   { href: "/help", label: "Help" },
   { id: "contact", label: "Contact" },
