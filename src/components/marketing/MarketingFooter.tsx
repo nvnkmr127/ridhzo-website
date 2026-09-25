@@ -5,6 +5,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ShieldCheck, ChevronDown } from "lucide-react";
+import { SocialIcons } from "./SocialIcons";
 import { FEATURE_NAV, SOLUTION_NAV, RESOURCE_NAV } from "@/lib/navigation";
 
 interface FooterSection {
@@ -92,6 +93,7 @@ export function MarketingFooter() {
               <ShieldCheck className="h-3.5 w-3.5 text-foreground" />
               <span>AES-256 Encrypted &amp; Tenant-Isolated Postgres</span>
             </div>
+            <SocialIcons className="pt-2" />
           </div>
 
           {/* Mobile Accordion (md:hidden) */}

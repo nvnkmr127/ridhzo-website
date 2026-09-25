@@ -1,3 +1,4 @@
+import { SOCIAL_LINKS } from "@/lib/config";
 import type { ContentItem } from "@/lib/content";
 import { CONTENT_ROUTES } from "@/lib/content-routes";
 
@@ -28,6 +29,7 @@ export function ArticleJsonLd({ item }: { item: ContentItem }) {
       name: "Ridhzo",
       url: SITE_URL,
       logo: { "@type": "ImageObject", url: `${SITE_URL}/ridhzo_logo.png` },
+      sameAs: SOCIAL_LINKS.map((s) => s.href),
     },
   };
 
