@@ -1,58 +1,43 @@
 ---
-title: "Instant Omnichannel Lead Ingestion"
+title: "Instant Lead Capture from Every Source"
 slug: "lead-capture"
-badge: "📥 Sub-Second Ingestion"
-summary: "Capture leads from Facebook Ads, Web forms, Webhooks, and CSV with E.164 regex deduplication and custom field mapping."
-keyMetric: "<1s Webhook Processing Latency"
+badge: "⚡ All Your Leads, One Inbox"
+summary: "Facebook & Instagram Lead Ads, Google Lead Form Ads, web forms, website webhooks, API, CSV import and missed calls — every lead lands in Ridhzo within seconds."
+keyMetric: "Leads Arrive in Seconds, Not Hours"
+order: 1
 ---
 
-# Instant Omnichannel Lead Ingestion
+# Instant Lead Capture from Every Source
 
-## 1. Feature Overview
-Ridhzo serves as a unified collection hub for all inbound marketing channels. Prospects captured via Facebook Lead Ads, Google Ads, hosted forms, iframe embeds, and API webhooks are parsed, validated, deduplicated, and placed into the CRM pipeline in less than 1 second.
+## Stop copying leads from five different places
+Your leads come from Facebook Lead Center, Google Ads, your website, WhatsApp, walk-ins and old spreadsheets. When they're scattered, they get called late — or never. Ridhzo pulls every lead into **one inbox, automatically**, the moment it arrives.
 
----
+## Every source you need
 
-## 2. Ingestion Channels & Configuration Options
+| Source | How it works |
+| :--- | :--- |
+| **Facebook & Instagram Lead Ads** | Click Connect, log in to Facebook, pick your Page. New leads arrive within seconds. Choose which forms to import and **sync past leads** too. |
+| **Google Lead Form Ads** | Paste your Ridhzo webhook URL and key into the Google Ads lead form. Campaign details are kept with each lead. |
+| **Hosted web forms** | Build a form visually (multi-step if you like), then share the link — Instagram bio, WhatsApp status, QR code on a flyer — or embed it on WordPress, Wix, Webflow, Shopify or any site. |
+| **Website webhook** | Connect your existing contact form or tools like Zapier, Make or Pabbly with a secure, signed webhook. |
+| **REST API** | Send leads from your own app or backend with an API key. |
+| **CSV / Excel import** | Upload a file, match the columns, preview what will be imported, then import. |
+| **Quick Add** | Add a walk-in or phone enquiry in seconds from any screen — even offline. |
+| **Missed calls** | Connect your call provider; when a call is missed, Ridhzo matches the caller and sends them a WhatsApp automatically. |
 
-### Channel 1: Meta / Facebook & Instagram Lead Ads
-- **OAuth Page Authorization**: Connect your Facebook Page with one click; Ridhzo securely subscribes to real-time Leadgen webhooks.
-- **Form-to-Field Mapping**:
-  - Automatically matches default fields (`full_name`, `phone_number`, `email`).
-  - Custom Question Mapper: Maps custom ad form questions (e.g., "Expected Purchase Timeline", "Preferred Unit Size") into Ridhzo custom fields.
-- **HMAC Signature Verification**: Validates `x-hub-signature-256` on every incoming request to reject spoofed payloads.
-- **Auto-Sync Ad Campaign Tags**: Automatically tags incoming leads with the ad name, campaign ID, and ad set for granular ROI attribution.
+*LinkedIn Lead Gen Forms and WhatsApp inbound as a lead source are coming soon.*
 
-### Channel 2: Hosted & Embeddable Web Forms
-- **Hosted Landing Form (`/f/[sourceId]`)**:
-  - Standalone, mobile-optimized public page with your company branding.
-  - Options: Form title, subheadline, custom submit button label, success message or external redirect URL.
-- **Iframe Embed Snippet**:
-  - Responsive HTML embed code snippet ready for WordPress, Webflow, Framer, Wix, or Shopify.
-  - Cross-domain postMessage height auto-resizing.
-- **Anti-Spam & Security Options**:
-  - Built-in rate limiting per IP address.
-  - Honeypot bot trap fields that drop automated spam silently without blocking real users.
+## What happens to every new lead
+1. **Fields mapped automatically** — name, phone, email, company, plus every form answer ("what they told you in the form").
+2. **Phone numbers cleaned** — `+91 98765 43210`, `9876543210` and `98765 43210` are recognised as the same number.
+3. **Duplicates caught** — same phone or email is flagged, or merged automatically if you turn that on.
+4. **Source & campaign saved** — including UTM parameters, so you know which ad produced which sale.
+5. **Assigned instantly** — round-robin, by team, by capacity or by your rules.
+6. **Owner alerted** — push notification with sound, in seconds.
+7. **Automations run** — welcome WhatsApp, follow-up scheduled, sequence started.
 
-### Channel 3: Generic Webhook Endpoints
-- **Unique Endpoint URL**: Generated per lead source (`/api/webhooks/[provider]?sourceId=...`).
-- **Flexible JSON Payload Ingestion**: Compatible with Zapier, Make.com, Google Ads scripts, and custom server backends.
-- **Custom Header Authentication**: Optional API Bearer token verification.
+## Real example
+A real-estate developer runs six lead ads for two projects. Every lead lands in Ridhzo tagged with its form, goes round-robin to the right project team, and the rep's phone buzzes within seconds. The first WhatsApp goes out before the buyer has closed Facebook.
 
-### Channel 4: Bulk CSV Import
-- **Upload Formats**: `.csv`, comma or semicolon delimited.
-- **Column Auto-Detection**: Matches headers like "First Name", "Client Mobile", "Email Address".
-- **Deduplication Strategy Options**:
-  - *Skip Duplicates*: Retain existing record, ignore duplicate CSV row.
-  - *Merge & Update*: Update empty fields on existing lead without overriding existing data.
-  - *Overwrite*: Replace existing record with newer CSV data.
-- **Batch Processing**: Background BullMQ worker imports files up to 50,000 rows without browser timeouts.
-
----
-
-## 3. Intelligent Deduplication Engine
-- **Regex Digit Normalization**: Strips punctuation, spaces, and leading zeros to normalize phone numbers to international standard format.
-- **Collision Rules**:
-  - Match by exact E.164 phone number.
-  - Match by case-insensitive trimmed email address.
-- **Multi-Tenant Isolation**: Deduplication checks are strictly scoped to the tenant's `organizationId`, preventing cross-company collisions.
+## Plans
+Free includes 1 lead source, Starter 5, Unlimited as many as you need. Web forms on the Free plan show a small "Powered by Ridhzo" badge.

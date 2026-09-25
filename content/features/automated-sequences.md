@@ -1,46 +1,53 @@
 ---
-title: "Automations & Scheduled Sequences"
+title: "Automations: When → If → Then"
 slug: "automations"
-badge: "⚙️ Automated Follow-up Engine"
-summary: "Trigger-condition-action rules engine, Redis BullMQ delayed jobs, and automated follow-up cadences."
-keyMetric: "Zero Leads Slip Through the Cracks"
+badge: "⚙️ Your Sales Process on Autopilot"
+summary: "Build simple rules that assign leads, send WhatsApp messages, change status, schedule follow-ups and start sequences — automatically, 24/7, no coding."
+keyMetric: "Hours of Manual Work Saved Every Week"
+order: 7
 ---
 
-# Automations & Scheduled Sequences
+# Automations: When → If → Then
 
-## 1. Feature Overview
-The Ridhzo Automation Engine executes background actions whenever specific events occur in your sales cycle. From sending instant welcome WhatsApp templates to scheduling follow-up reminders and updating tags, repetitious tasks run hands-free.
+## Do the repetitive work once
+Assigning, tagging, scheduling, sending the welcome message — your team does the same steps for every lead. Automations do them for you, every time, even at night and on holidays.
 
----
+## Build a rule in three parts
 
-## 2. Rule Builder: Triggers, Conditions & Actions
+### WHEN — something happens
+- A lead is created (from any source)
+- A lead is assigned
+- A lead's status or stage changes
+- A tag is added
+- A follow-up is scheduled, completed or **becomes overdue**
+- A task is completed
 
-### 1. Available Event Triggers:
-- lead.created: Fires the millisecond a lead is saved from any source.
-- lead.assigned: Fires when a lead receives an owner or is reassigned.
-- lead.status_changed: Fires when a deal changes stage (e.g., moved to Proposal).
-- lead.tag_added: Fires when a specific tag (e.g., "High Budget") is attached.
-- sla.breached: Fires when first-contact SLA threshold is exceeded.
+### IF — conditions match (optional)
+Any lead detail: source, status, owner, tags, city, budget or any custom field. Use equals, contains, is empty, greater than, before/after — and combine with **AND / OR**.
 
-### 2. Condition Filters:
-- Filter by Lead Source (e.g., Facebook Lead Ads only).
-- Filter by Deal Value / Budget threshold.
-- Filter by Current Stage.
-- Filter by Assigned Team or Agent.
-- Filter by Custom JSONB Attributes.
+### THEN — do one or more actions
+- Assign to a person
+- Assign by round-robin (to the rep with the most room)
+- Change status
+- Schedule a follow-up in X days
+- Create a task in X hours
+- Add a note
+- Send a WhatsApp template (Business API)
+- Start a sequence
 
-### 3. Executable Actions:
-- assign_lead: Route to a designated agent or team round-robin.
-- change_status: Advance or change lead stage.
-- add_tag / remove_tag: Apply or clear organization tags.
-- create_task: Schedule a mandatory task for the lead owner.
-- send_whatsapp_template: Dispatch automated WhatsApp greeting via Watxio / Meta Cloud API.
-- trigger_webhook: Dispatch outbound HTTP POST to external CRM or analytics endpoint.
+## Start from a template
+Ready-made recipes get you going in a minute — for example: *New Facebook lead → round-robin → WhatsApp welcome → follow-up in 1 hour.*
 
----
+## Safe by design
+- Automations can't trigger each other in an endless loop.
+- Each rule runs once per event, even when many leads arrive together.
+- If one action fails, the others still run and the failure is logged.
+- Pause or resume any automation with a switch.
 
-## 3. Scheduled Sequences & BullMQ Delayed Jobs
-- **Multi-Day Drip Cadences**: Configure multi-step follow-ups (e.g., Day 1: Welcome WhatsApp → Day 3: Case Study → Day 7: Check-in).
-- **Working Hours Guard**: Restrict automated messages to business hours (e.g., 9:00 AM – 7:00 PM in organization timezone).
-- **Auto-Stop on Reply**: Sequence immediately terminates if the prospect replies on WhatsApp or status moves to Won or Lost.
-- **Worker Infrastructure**: Powered by isolated Redis BullMQ queues with automatic retry backoff and Dead Letter Queue (DLQ) protection.
+## Real examples
+- **Real estate:** Leads from the "Project A" form go to the Project A team and get the brochure on WhatsApp instantly.
+- **Coaching:** When a lead is tagged "Demo attended", their status changes to Hot and a fee-reminder sequence starts.
+- **Solo advisor:** Every new lead gets a follow-up for 10 AM tomorrow, so none are forgotten.
+
+## Plans
+Free: 2 automations · Starter: 15 · Unlimited: no limit.

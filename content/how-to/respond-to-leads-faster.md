@@ -1,7 +1,7 @@
 ---
 title: "How to Respond to Inbound Leads in Under 5 Minutes"
 slug: "respond-to-leads-faster"
-summary: "A practical setup guide to consistently make first contact within minutes — instant alerts, 1-tap WhatsApp, automated routing, and a response-time SLA."
+summary: "A practical setup guide to consistently make first contact within minutes — instant alerts, 1-tap WhatsApp, automated routing, and response-time tracking."
 badge: "⚡ Speed Guide"
 date: "2026-09-08"
 author: "Ridhzo Team"
@@ -31,19 +31,22 @@ Enable **round-robin routing** so each new lead is instantly assigned to an avai
 
 ## Step 4 — Make first contact one tap
 
-Set up **WhatsApp templates** with dynamic tokens:
+Set up **WhatsApp templates** in Settings → Templates. These fill in automatically: `{{first_name}}`, `{{name}}`, `{{email}}`, `{{phone}}`, `{{company}}`.
 
-> Hi {name}, thanks for your interest in {product}! I'm {rep} from {company}. Is now a good time for a quick chat?
+> Hi {{first_name}}, thanks for your enquiry! Is now a good time for a quick chat?
+
+With the WhatsApp Business API, an automation can even send this the moment the lead arrives.
 
 Now first contact is a single tap — the chat opens pre-filled with the prospect's number and your greeting.
 
-## Step 5 — Hold the line with an SLA
+## Step 5 — Watch your response time
 
-Turn on the **Response-Time SLA**:
+The **Executive Dashboard** tracks it for you:
 
-- Set a target (e.g. 5 minutes) for first contact.
-- Watch the dashboard for leads approaching the limit.
-- Let the **Going Cold detector** flag leads that need a nudge.
+- Average and median time to first response.
+- The % of leads contacted within 5 minutes.
+- Leads that missed the 15-minute response target.
+- The **Going Cold** list flags leads nobody has contacted for 14 days.
 
 ## Step 6 — Review weekly
 

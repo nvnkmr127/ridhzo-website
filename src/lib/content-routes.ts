@@ -26,7 +26,7 @@ export const CONTENT_ROUTES: Record<ContentType, ContentRoute> = {
     label: "Features",
     title: "Product Features",
     description:
-      "Every capability inside Ridhzo — from sub-second omnichannel lead capture to 1-tap WhatsApp follow-ups, offline sync, and automated pipeline routing.",
+      "Everything inside Ridhzo — instant lead capture, 1-tap WhatsApp, automatic assignment, follow-ups, meetings, automations, sequences, AI and dashboards.",
     eyebrow: "Platform",
   },
   usecases: {
@@ -35,7 +35,7 @@ export const CONTENT_ROUTES: Record<ContentType, ContentRoute> = {
     label: "Use Cases",
     title: "Ridhzo by Industry",
     description:
-      "How fast-closing teams use Ridhzo to win the speed-to-lead race — real estate, performance agencies, auto, solar, insurance, coaching and more.",
+      "How fast-closing teams use Ridhzo to win the speed-to-lead race — real estate, agencies, education, clinics, insurance, solar & interiors, coaching, auto and more.",
     eyebrow: "Solutions",
   },
   blog: {

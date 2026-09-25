@@ -1,54 +1,44 @@
 ---
 title: "How to Connect Meta (Facebook & Instagram) Lead Ads to Ridhzo"
 slug: "connect-meta-lead-ads"
-summary: "A step-by-step guide to piping your Facebook and Instagram Lead Ads into Ridhzo so new leads arrive in under a second — with the right fields mapped."
+summary: "A step-by-step guide to sending your Facebook and Instagram Lead Ads straight into Ridhzo, so new leads arrive within seconds and go to the right rep."
 badge: "📥 Setup Guide"
-date: "2026-09-12"
+date: "2026-09-25"
 author: "Ridhzo Team"
 order: 1
 ---
 
 # How to Connect Meta Lead Ads to Ridhzo
 
-Connecting your Meta Lead Ads means every lead from Facebook and Instagram lands in Ridhzo the instant it's submitted — no CSV exports, no delays. This takes about five minutes.
+Connecting your Meta Lead Ads means every lead from Facebook and Instagram lands in Ridhzo within seconds of being submitted — no CSV downloads, no delays. It takes about five minutes.
 
 ## Before you start
+- You're an admin of the Facebook Page running the ads (or have Leads Access for it).
+- You're signed in to Ridhzo with permission to manage lead sources.
 
-- You're an admin (or have Leads Access) on the Facebook Page running the ads.
-- You have a Ridhzo workspace and are signed in.
+## Step 1 — Open Lead Sources
+In Ridhzo, go to **Settings → Lead Sources** and choose **Facebook Lead Ads**, then click **Connect**.
 
-## Step 1 — Open the integration
-
-In Ridhzo, go to **Settings → Integrations → Meta Lead Ads** and click **Connect Facebook Page**.
-
-## Step 2 — Authorize the Page
-
+## Step 2 — Log in and pick your Page
 1. Log in with the Facebook account that manages the Page.
-2. Grant the requested permissions (Pages and Leads Access).
-3. Select the Page (or Pages) whose leads you want to capture.
+2. Allow the permissions Ridhzo asks for (Page and lead access).
+3. Select the Page (or Pages) whose leads you want.
 
-Ridhzo subscribes to Meta's real-time Leadgen webhook, so leads flow in as they're created.
+## Step 3 — Choose your forms
+Import every form, or pick only the forms you want. Name, phone and email are matched automatically, and every other question on the form is saved on the lead under **"What they told you in the form"**.
 
-## Step 3 — Map your form fields
+## Step 4 — Bring in past leads (optional)
+Click **Sync Past Leads** to import leads you received before connecting.
 
-For each lead form, match the form questions to Ridhzo fields:
+## Step 5 — Send a test lead
+Use Meta's **Lead Ads Testing Tool** to submit a test lead, then check it appears in your Ridhzo leads within a few seconds. If notifications are on, your phone will buzz too.
 
-| Meta form field | Ridhzo field |
-| :--- | :--- |
-| Full name | Name |
-| Phone number | Phone (auto-validated to E.164) |
-| Email | Email |
-| Custom questions | Custom fields / notes |
+## Step 6 — Turn on assignment and alerts
+- **Assignment:** turn on round-robin (or choose a person or team) for this source.
+- **Alerts:** make sure your reps have installed Ridhzo on their phones and allowed notifications.
+- **Automation (optional):** new Facebook lead → send WhatsApp welcome → follow-up in 1 hour.
 
-Mapping once means every future lead from that form is parsed correctly.
+## If the connection expires
+Facebook access can expire if a password changes or permissions are removed. Ridhzo warns you, and once you reconnect it can recover leads that arrived while the connection was down.
 
-## Step 4 — Send a test lead
-
-Use Meta's **Lead Ads Testing Tool** to submit a test lead, then confirm it appears in your Ridhzo pipeline within a second or two. You should also receive a push alert if notifications are enabled.
-
-## Step 5 — Turn on routing and alerts
-
-- **Assignment:** enable round-robin so new leads are distributed automatically.
-- **Alerts:** enable mobile push so the assigned rep is notified instantly.
-
-That's it — you're now capturing Meta leads in real time. Next, set up [1-tap WhatsApp follow-ups](/how-to/respond-to-leads-faster) so first contact takes seconds.
+You're now capturing Meta leads in real time. Next: [respond to every lead in under 5 minutes](/how-to/respond-to-leads-faster).

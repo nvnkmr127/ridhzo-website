@@ -10,7 +10,7 @@ import {
   Bot,
   CalendarCheck,
   UserPlus,
-  PhoneCall,
+  MapPin,
   Sliders,
   Send,
 } from "lucide-react";
@@ -54,15 +54,15 @@ export function FeatureShowcase() {
       tag: "Team Sharing",
       title: "Fair Team Lead Distribution",
       description:
-        "Distribute new leads fairly among your sales reps using round-robin. Reps only get leads when they are on duty and have room to take more.",
-      bullets: ["No lead fighting between reps", "Set maximum leads per person", "Turn reps off when on leave"],
+        "Distribute new leads fairly among your sales reps using round-robin. Set how many open leads each rep can hold, and new leads go to whoever has room.",
+      bullets: ["No lead fighting between reps", "Set maximum leads per person", "Reps see only their own leads"],
     },
     {
       icon: WifiOff,
       tag: "Works Offline",
-      title: "100% Offline Mobile App",
+      title: "Mobile App That Works Offline",
       description:
-        "Working in a basement, elevator, or site with poor signal? You can still add leads and notes. Ridhzo saves your work and uploads it the second you are back online.",
+        "Working in a basement, elevator, or site with poor signal? You can still add new leads. Ridhzo saves them on your phone and uploads them the second you are back online.",
       bullets: ["Installs directly on iPhone & Android", "No internet needed to add leads", "Auto-syncs when signal returns"],
     },
   ];
@@ -70,13 +70,13 @@ export function FeatureShowcase() {
   const extraFeatures = [
     {
       icon: Bot,
-      title: "AI Lead Summary & Quick Replies",
-      description: "AI reads long form answers, tells you what the buyer wants, and suggests the best message to send.",
+      title: "AI Assistant, Summaries & Reply Drafts",
+      description: "AI sums up what the buyer wants and drafts your next WhatsApp in their language. Ask the AI Assistant to find leads, update them or set reminders.",
     },
     {
       icon: CalendarCheck,
       title: "Smart Follow-up Reminders",
-      description: "Pick a date and time to call back. Your phone reminds you so you never forget an appointment.",
+      description: "Pick a date and time to call back. Your phone reminds you on time, and overdue follow-ups are flagged for managers.",
     },
     {
       icon: UserPlus,
@@ -86,12 +86,12 @@ export function FeatureShowcase() {
     {
       icon: Send,
       title: "Automated Drip Sequences",
-      description: "Send a sequence of messages over 7 days (Day 1, Day 3, Day 5) until the lead answers your message.",
+      description: "Send a series of WhatsApp and email messages over days (Day 0, Day 2, Day 5) that stops automatically when the lead replies.",
     },
     {
-      icon: PhoneCall,
-      title: "Call History & Audio Notes",
-      description: "Tap to call prospects. After the call, record a quick voice note so the rest of your team knows what was discussed.",
+      icon: MapPin,
+      title: "Meetings, Site Visits & Booking Page",
+      description: "Book site visits and online meetings with automatic WhatsApp confirmations and reminders, GPS check-in, and a booking link leads can use themselves.",
     },
     {
       icon: Sliders,

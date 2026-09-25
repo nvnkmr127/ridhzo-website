@@ -10,7 +10,7 @@ const SITE_URL = "https://ridhzo.com";
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Simple, transparent pricing for Ridhzo — start free forever, or unlock instant Meta Lead Ads capture, push alerts, and automations from ₹199/user/month. 14-day free trial, no card required.",
+    "Simple, transparent pricing for Ridhzo — start free forever with Meta Lead Ads capture, instant push alerts, and automations. Paid plans from ₹249/month for your whole team — not per user. 14-day free trial, no card required.",
   alternates: { canonical: "/pricing" },
   openGraph: {
     title: "Ridhzo Pricing — Plans That Pay for Themselves",
@@ -62,8 +62,8 @@ export default function PricingPage() {
             Simple pricing that scales with your pipeline
           </h1>
           <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-lg">
-            Start free forever. Upgrade when you need instant Meta Lead Ads capture, push
-            alerts, and automations — one closed deal pays for the whole year.
+            Start free forever. Upgrade when you need more leads, teammates, lead sources and
+            automations — one flat price for your whole team, and one closed deal pays for the whole year.
           </p>
 
           <ul className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-muted-foreground">

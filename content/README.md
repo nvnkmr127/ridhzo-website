@@ -1,22 +1,41 @@
 # Ridhzo Website Content Library
 
-This folder contains the complete copy, technical specifications, and marketing frameworks for all of Ridhzo's features and industry use cases.
+Markdown pages rendered at `/features`, `/usecases`, `/help`, `/how-to` and `/blog`. Each file has YAML frontmatter (`title`, `slug`, `summary`/`targetAudience`, `badge`, `keyMetric`, `order`). The URL comes from `slug`, not the filename.
 
-## Directory Index
+**Source of truth for product facts:** `ridhzo/docs/product-kb/` in the app repo. Only describe features that exist there; mark anything else "coming soon". Prices: Free ₹0, Starter ₹249/month, Unlimited ₹449/month — flat per workspace, not per user.
 
-### 📁 features/
-- `whatsapp-instant-messaging.md` — 1-Tap WhatsApp follow-ups, dynamic template tokens, dual-mode (wa.me deep links vs Watxio API), 24h Meta compliance.
-- `instant-lead-capture.md` — Multi-channel ingestion pipeline (Facebook Lead Ads, embeddable web forms, webhooks, CSV import), regex E.164 phone/email deduplication.
-- `mobile-pwa-push-alerts.md` — Progressive Web App for iOS Safari & Android Chrome, vibrating web push alerts, background event listeners.
-- `offline-outbox-sync.md` — Zero-dependency browser outbox, field offline resilience, automatic reconnection flush, deadlock prevention.
-- `pipeline-kanban-sla.md` — Drag-and-drop visual pipeline, Response Time SLA engine, first-contact velocity tracking, Going Cold detector.
-- `team-round-robin-routing.md` — Atomic row-locked assignment (FOR UPDATE), capacity balancing, multi-tenant role isolation.
-- `automated-sequences.md` — Trigger-condition-action automations, Redis BullMQ delayed jobs, automated follow-up cadences.
+## features/ (`/features/<slug>`)
+| Order | File | Slug |
+| :--- | :--- | :--- |
+| 1 | `instant-lead-capture.md` | `lead-capture` |
+| 2 | `whatsapp-instant-messaging.md` | `whatsapp` |
+| 3 | `team-round-robin-routing.md` | `team-routing` |
+| 4 | `mobile-pwa-push-alerts.md` | `mobile-pwa` |
+| 5 | `follow-ups-reminders.md` | `follow-ups` |
+| 6 | `pipeline-kanban-sla.md` | `pipeline-kanban` |
+| 7 | `automated-sequences.md` | `automations` |
+| 8 | `sequences.md` | `sequences` |
+| 9 | `meetings-booking.md` | `meetings` |
+| 10 | `ai-assistant.md` | `ai` |
+| 11 | `lead-management.md` | `lead-management` |
+| 12 | `dashboards-insights.md` | `dashboards` |
+| 13 | `offline-outbox-sync.md` | `offline-mode` |
+| 14 | `integrations-api.md` | `integrations` |
+| 15 | `team-roles-security.md` | `team-and-security` |
 
-### 📁 usecases/
-- `real-estate-agents.md` — High-ticket property walkthroughs, instant brochure sharing, 5-minute lead response rule.
-- `performance-marketing-agencies.md` — Lead ad attribution, proof of client response speed, automated WhatsApp greetings to reduce CPA.
-- `financial-insurance-advisors.md` — High-trust policy inquiries, scheduled renewal reminders, compliance audit logs.
-- `solar-home-services.md` — Field sales canvassing, offline rooftop estimates, contractor team routing.
-- `coaching-consulting.md` — Webinar and masterclass attendee qualification, 1-on-1 discovery call bookings.
-- `auto-dealerships.md` — Inbound test drive requests, showroom walk-ins, rep performance leaderboards.
+## usecases/ (`/usecases/<slug>`)
+| Order | File | Slug |
+| :--- | :--- | :--- |
+| 1 | `real-estate-agents.md` | `real-estate` |
+| 2 | `performance-marketing-agencies.md` | `marketing-agencies` |
+| 3 | `financial-insurance-advisors.md` | `financial-advisors` |
+| 4 | `solar-home-services.md` | `solar-contractors` |
+| 5 | `education-institutes.md` | `education` |
+| 6 | `coaching-consulting.md` | `coaching-consulting` |
+| 7 | `auto-dealerships.md` | `auto-dealerships` |
+| 8 | `clinics-healthcare.md` | `clinics` |
+
+## help/, how-to/, blog/
+- `help/getting-started.md`, `help/faq-plans-and-billing.md`
+- `how-to/connect-meta-lead-ads.md`, `how-to/respond-to-leads-faster.md`
+- `blog/speed-to-lead-why-five-minutes-matters.md`, `blog/whatsapp-crm-for-lead-ads.md`

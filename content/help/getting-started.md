@@ -1,43 +1,50 @@
 ---
 title: "Getting Started with Ridhzo"
 slug: "getting-started"
-summary: "New to Ridhzo? This quick-start walks you through your first workspace, connecting a lead source, and making your first 1-tap follow-up."
+summary: "New to Ridhzo? Go from signup to your first real lead in about 10 minutes — connect a source, invite your team, turn on alerts and send your first 1-tap WhatsApp."
 badge: "🚀 Quick Start"
-date: "2026-09-14"
+date: "2026-09-25"
 author: "Ridhzo Team"
 order: 1
 ---
 
 # Getting Started with Ridhzo
 
-Welcome to Ridhzo. This guide gets you from signup to your first tracked lead in a few minutes.
+This guide gets you from signup to your first real lead in about 10 minutes. No card is needed — every new workspace starts with a **14-day Starter trial**.
 
-## 1. Create your workspace
-
-After signing up, you'll create a workspace for your team. Invite teammates from **Settings → Team** — each gets their own login with role-based access.
+## 1. Sign up
+Sign up with email, **Google**, or your **phone number and OTP**. Set your business name, timezone and working hours in **Settings → General**.
 
 ## 2. Connect a lead source
+Go to **Settings → Lead Sources** and pick one:
 
-Pick where your leads come from and connect it:
+- **Facebook & Instagram Lead Ads** — click Connect, log in, choose your Page. [Step-by-step guide](/how-to/connect-meta-lead-ads)
+- **Google Lead Form Ads** — copy the webhook URL and key into your Google Ads lead form.
+- **Hosted web form** — build a form, then share the link or paste the embed code on your website.
+- **Website webhook** — connect your existing form or Zapier/Make/Pabbly.
+- **CSV import** — upload your existing leads from Excel or Google Sheets.
 
-- **Meta Lead Ads** — [step-by-step guide](/how-to/connect-meta-lead-ads)
-- **Website forms** — embed a form or point a webhook at Ridhzo
-- **CSV import** — bring in an existing list to get started immediately
+## 3. Invite your team
+Go to **Settings → Users**, invite by email, and choose a role (Admin, Member, or a custom role). Reps see only the leads assigned to them.
 
-## 3. Turn on alerts
+## 4. Turn on assignment and alerts
+- Turn on **round-robin** for your source so every new lead gets an owner instantly.
+- On your phone, open Ridhzo and tap **Add to Home Screen**, then **allow notifications** — you'll be alerted the second a lead arrives.
+- Optional: set up **New-lead alerts** to email or WhatsApp a manager or partner.
 
-Install Ridhzo as a PWA on your phone (Add to Home Screen) and enable push notifications, so you're alerted the instant a lead arrives — even with the app closed.
+## 5. Set up your WhatsApp templates
+Go to **Settings → Templates** and edit the starter messages. These fill in automatically: `{{first_name}}`, `{{name}}`, `{{email}}`, `{{phone}}`, `{{company}}`.
 
-## 4. Set up WhatsApp follow-ups
+> Hi {{first_name}}, thanks for your enquiry! When's a good time for a quick call?
 
-Create a message template with dynamic tokens like `{name}` and `{product}`. Now first contact is a single tap.
+Now first contact is a single tap from any lead.
 
-## 5. Configure your pipeline
+## 6. Match the pipeline to how you sell
+In **Settings → General → Statuses**, rename and reorder your stages — e.g. New → Contacted → Site Visit → Negotiation → Won / Lost.
 
-Adjust your pipeline stages to match how you actually sell, and turn on the **Response-Time SLA** so no lead goes cold.
+## 7. Add your first automation
+Open **Automations** and pick a template like *New lead → assign → schedule follow-up tomorrow*.
 
 ## Need help?
-
-- Browse the [Help Center](/help) for common questions.
-- Read the [How-To Guides](/how-to) for detailed walkthroughs.
+- Browse the [Help Center](/help) and [How-To Guides](/how-to).
 - Still stuck? [Contact us](/contact) — we respond within 24 hours.

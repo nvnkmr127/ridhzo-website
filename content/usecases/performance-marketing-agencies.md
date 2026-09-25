@@ -1,54 +1,38 @@
 ---
 title: "Ridhzo for Performance Marketing & Lead Gen Agencies"
 slug: "marketing-agencies"
-badge: "📈 Maximize Ad ROI"
+badge: "📈 Prove Your Leads Convert"
 targetAudience: "Lead Gen Agencies, Media Buyers & Performance Marketers"
-keyMetric: "Lower Cost Per Acquisition (CPA) by 40%"
+keyMetric: "Stop Losing Clients to 'The Leads Are Bad'"
+order: 2
 ---
 
 # Ridhzo for Performance Marketing & Lead Gen Agencies
 
-## 1. Executive Summary
-Performance agencies generate high volumes of qualified leads on Meta and Google Ads, only for clients to take days to contact them. The client complains of "poor lead quality", cancels their retainer, and blames the ad spend. 
+## The reality
+You deliver good leads from Meta and Google. The client calls them two days later, the lead has forgotten them, and the client says "your leads are bad" and pauses the account. The problem isn't the ads — it's the follow-up.
 
-Ridhzo closes the agency-client accountability gap by delivering sub-second lead alerts, automated WhatsApp greetings, and verifiable response-time audit logs.
+## How Ridhzo fixes it
 
----
-
-## 2. Agency Pain Points & The Ridhzo Solution
-
-| Client Issue | Root Cause | Ridhzo Fix |
+| Client complaint | Real cause | Ridhzo fix |
 | :--- | :--- | :--- |
-| *"Your leads are fake or don't answer."* | Client calls 48 hours later; lead forgot who they are. | 1-Tap WhatsApp opens conversation within 15 seconds while ad intent is peak. |
-| *"We are getting duplicate leads."* | Prospects fill forms multiple times across ad sets. | E.164 phone digit deduplication merges inquiries without burning rep time. |
-| *"We can't prove our ads work."* | Offline sales cycles hide conversion data. | Ingestion attribution tags (Campaign, Ad Set, Source) tracked through to Won/Lost. |
-| *"Clients leak leads to competitor reps."* | Unmonitored spreadsheets shared on WhatsApp groups. | Atomic round-robin assigns leads directly to designated client closers with push alerts. |
+| "The leads don't answer." | Called 48 hours later | Instant **push alerts** and **1-tap WhatsApp** while interest is fresh |
+| "We get duplicate leads." | Same person fills several forms | **Duplicate detection** by phone and email, with merge |
+| "We can't see if the ads work." | Sales happen offline | **Source, form and campaign** saved on every lead, tracked to Won/Lost |
+| "Leads get lost in WhatsApp groups." | Shared spreadsheets | Leads **assigned directly** to the client's reps; reps see only their own |
 
----
+## Recommended setup
+1. **Connect the client's Facebook Page** in Settings → Lead Sources and choose the forms to import. Add Google Lead Form Ads or your landing-page builder via webhook.
+2. **Custom fields** for the qualifying questions (budget, city, timing) — form answers are also saved automatically on the lead.
+3. **Invite the client's reps** and turn on round-robin. Reps install Ridhzo on their phones and allow push notifications.
+4. **New-lead alerts** — email every new lead to the client's sales head, or your own account manager.
+5. **Automatic welcome WhatsApp** (with the WhatsApp Business API):
+   > Hi {{first_name}}! 👋 Thanks for your enquiry. Our team will call you shortly — meanwhile, here's our latest portfolio: [link]
+6. **Meta Conversions API** — send "qualified" and "won" signals back to Meta so campaigns optimise for quality, not just volume.
+7. **Outbound webhooks** if the client also wants leads in their own system.
 
-## 3. Agency Setup Checklist & Configuration Options
+## Monthly reporting that protects the retainer
+Open the Executive Dashboard with the client: average first-response time, % contacted within 5 minutes, win rate by source and campaign. When response time is the problem, the data shows it.
 
-### Step 1: Ingestion & Attribution Setup
-1. **Connect Facebook Pages**: Connect client Facebook Page under `Settings → Lead Sources`.
-2. **Tag Ingestion**: Automatically attach `Campaign_ID`, `Ad_Set`, and `Platform:Meta` to inbound records.
-3. **Form Mapping**: Map custom qualifying questions (e.g., "Monthly Budget", "City", "Preferred Timing") to custom lead fields.
-
-### Step 2: Instant Client Notification
-1. **Client Rep Onboarding**: Invite the client's sales reps as `Sales Rep` role (restricts access to their assigned leads only).
-2. **PWA Mobile App**: Have client reps install Ridhzo via Safari (iOS) or Chrome (Android).
-3. **Vibrating Web Push**: Turn on vibrating push alerts so reps receive instant buzzer alerts on ad submissions.
-
-### Step 3: Automated Welcome Message (Optional)
-- Configure an automated template via Watxio/Meta Cloud API:
-  > *"Hi {{name}}! 👋 Thank you for inquiring on our Facebook ad for {{interest}}. A senior consultant from {{workspace_name}} will connect shortly. Meanwhile, you can view our latest portfolio here: [Link]"*
-
-### Step 4: SLA Speed Auditing & Monthly Reporting
-- In monthly reporting meetings, pull up **SLA Analytics**:
-  - Show average first-contact time across the client's team.
-  - Correlate conversion rate with response speed to educate clients on lead handling velocity.
-
----
-
-## 4. Key ROI Metrics
-- **40% Reduction in Effective CPA**: Converting 3x more existing leads lowers blended customer acquisition costs without increasing ad spend.
-- **Client Retention Boost**: Eliminates the "lead quality" objection with objective timestamps on every lead touchpoint.
+## Agency-friendly pricing
+Clients can start on the Free plan. Ridhzo can also give an agency's clients a **complimentary paid plan** for a period — contact us.
