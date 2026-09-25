@@ -33,6 +33,8 @@ export interface ContentMeta {
   author?: string;
   /** Ordering hint for index pages (lower = earlier). */
   order?: number;
+  /** Grouping key for index pages (features use FEATURE_CATEGORIES ids). */
+  category?: string;
 }
 
 export interface ContentItem extends ContentMeta {
@@ -106,6 +108,7 @@ function normalizeMeta(type: ContentType, fileSlug: string, data: Record<string,
     date: data.date as string | undefined,
     author: data.author as string | undefined,
     order: typeof data.order === "number" ? data.order : undefined,
+    category: data.category as string | undefined,
   };
 }
 
@@ -162,4 +165,15 @@ export function getAllContentPaths(): { type: ContentType; slug: string }[] {
   return types.flatMap((type) =>
     getContentSummaries(type).map((item) => ({ type, slug: item.slug })),
   );
+}
+
+/**
+ * Up to `limit` other items of the same type, preferring ones that share the
+ * item's category, for "related" rails at the bottom of article pages.
+ */
+export function getRelatedSummaries(item: ContentSummary, limit = 3): ContentSummary[] {
+  const others = getContentSummaries(item.type).filter((o) => o.slug !== item.slug);
+  const sameCategory = item.category ? others.filter((o) => o.category === item.category) : [];
+  const rest = others.filter((o) => !sameCategory.includes(o));
+  return [...sameCategory, ...rest].slice(0, limit);
 }

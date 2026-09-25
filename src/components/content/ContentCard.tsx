@@ -2,17 +2,23 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import type { ContentSummary } from "@/lib/content";
 import { CONTENT_ROUTES } from "@/lib/content-routes";
+import { getFeatureNav } from "@/lib/navigation";
 
 /** A single card on a content index/listing page. */
 export function ContentCard({ item }: { item: ContentSummary }) {
   const href = `${CONTENT_ROUTES[item.type].path}/${item.slug}`;
+  const Icon = item.type === "features" ? getFeatureNav(item.slug)?.icon : undefined;
 
   return (
     <Link
       href={href}
       className="focus-ring group flex h-full flex-col rounded-xl border border-border bg-card p-5 transition-all hover:border-foreground/30 hover:bg-secondary/40"
     >
-      {item.badge ? (
+      {Icon ? (
+        <span className="mb-4 flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-secondary text-foreground">
+          <Icon className="h-4 w-4" aria-hidden="true" />
+        </span>
+      ) : item.badge ? (
         <span className="mb-3 inline-flex w-fit items-center rounded-full border border-border bg-secondary px-2.5 py-0.5 text-[11px] font-medium text-foreground">
           {item.badge}
         </span>

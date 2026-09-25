@@ -25,11 +25,19 @@ export function FaqSection() {
     },
     {
       q: "What inbound lead sources can I connect?",
-      a: "Ridhzo provides out-of-the-box support for Meta (Facebook & Instagram) Lead Ads via direct webhooks, Google Ads lead form webhooks, hosted & embeddable web forms (sharable landing pages or embeddable iframe/JS snippets), and custom JSON webhooks with automatic regex E.164 phone and email deduplication.",
+      a: "Ridhzo provides out-of-the-box support for Meta (Facebook & Instagram) Lead Ads via direct webhooks, Google Ads lead form webhooks, hosted & embeddable web forms (sharable landing pages or embeddable iframe/JS snippets), custom JSON webhooks, CSV import and a REST API, all with automatic phone and email deduplication. LinkedIn Lead Gen Forms and WhatsApp inbound are on the roadmap.",
     },
     {
       q: "What is the 'Going Cold' radar and how does it prevent deal decay?",
       a: "The Going Cold radar continuously monitors communication recency. The moment an active lead goes silent past your configured threshold (default 14 days), it surfaces on the /leads/cold radar with pre-filled WhatsApp re-engagement links and a 1-click 'Escalate all to High' button that pushes them to the top of daily priority call feeds.",
+    },
+    {
+      q: "Does the AI Sales Copilot send messages to my leads on its own?",
+      a: "No. The copilot can search leads, summarize timelines, change statuses, add tags, assign owners and set reminders for you, but it never sends a WhatsApp or email by itself. It drafts the message as a card with Send and Dismiss buttons, and nothing goes out until you approve it.",
+    },
+    {
+      q: "Will automated drip sequences keep messaging a lead who has already replied?",
+      a: "No. A sequence stops automatically when the lead replies on WhatsApp or by email, or when the deal is marked Won, Lost or Unqualified, and the reason is logged on the timeline. Steps also respect your quiet hours, so nothing goes out at midnight.",
     },
     {
       q: "Can I use Ridhzo for free without a credit card?",

@@ -1,12 +1,14 @@
 ---
-title: "Visual Pipeline Kanban & Response Time SLA"
+title: "Pipeline Board, SLA & Going Cold Radar"
 slug: "pipeline-kanban"
 badge: "🎯 Complete Deal Visibility"
-summary: "Custom stage Kanban, column pagination, Response Time SLA engine, first-contact velocity tracking, and Going Cold detector."
+summary: "Drag-and-drop pipeline board for your own stages, a response-time SLA engine, and a Going Cold radar that flags leads left silent for 14 days before you lose them."
 keyMetric: "21x More Deals Entered into Sales Cycle"
+category: "manage"
+order: 2
 ---
 
-# Visual Pipeline Kanban & Response Time SLA
+# Pipeline Board, SLA & Going Cold Radar
 
 ## 1. Feature Overview
 The Ridhzo Pipeline combines visual drag-and-drop Kanban deal management with an automated response-time SLA engine. Sales managers get live visibility over conversion bottlenecks, while reps know exactly which deals require immediate attention.
@@ -49,6 +51,12 @@ The Ridhzo Pipeline combines visual drag-and-drop Kanban deal management with an
 
 ---
 
-## 4. "Going Cold" Inactivity Detector
-- **Automated Inactivity Scan**: Detects active leads with no recorded call, message, or note for over 48 hours.
-- **Cold Queue View (/leads/cold)**: Dedicated filter view that isolates neglected prospects for targeted re-engagement campaigns.
+## 4. "Going Cold" Radar (/leads/cold)
+A safety net that stops leads from going quiet without anyone noticing.
+- **14-day inactivity detection**: open leads with no call, message or note for 14+ days show up on the Going Cold radar.
+- **Clear reasons**: see whether a deal stalled mid-funnel or a new lead was never contacted at all.
+- **Pre-filled WhatsApp recovery links**: re-open the conversation in one tap with a drafted follow-up.
+- **One-click bulk escalation**: raise every cold lead to *High* priority at once. An audit note is logged and the leads move to the top of reps' call lists.
+- **Auto-reset**: completing a [follow-up](/features/follow-ups) or logging contact takes the lead off the radar.
+
+Related: [Dashboards & Insights](/features/analytics) · [Leads Hub](/features/leads-hub)

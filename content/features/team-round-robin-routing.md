@@ -1,12 +1,14 @@
 ---
-title: "Smart Team Round-Robin & Capacity Routing"
+title: "Team Routing, Roles & Permissions"
 slug: "team-routing"
 badge: "🤝 Fair & Balanced Distribution"
-summary: "Atomic row-locked round-robin distribution, rep capacity balancing, role-based access control, and bulk lead actions."
+summary: "Race-safe round-robin that respects each rep's capacity, teams for squads and territories, custom roles built from 13 permissions, and email or direct invites."
 keyMetric: "Zero Lead-Grabbing · 100% Fair Workload"
+category: "automate"
+order: 3
 ---
 
-# Smart Team Round-Robin & Capacity Routing
+# Team Routing, Roles & Permissions
 
 ## 1. Feature Overview
 Ridhzo eliminates manual lead assignment, cherry-picking, and rep overload with an automated distribution engine that allocates inbound leads instantly based on fair rotation and live capacity.
@@ -30,17 +32,30 @@ Ridhzo eliminates manual lead assignment, cherry-picking, and rep overload with 
 
 ---
 
-## 3. Team Management & Role Access Control (RBAC)
+## 3. Teams, Roles & Permissions (RBAC)
 
-### User Role Permissions:
-- **SuperAdmin**: Platform-level control, tenant impersonation, global system metrics.
-- **Admin**: Full organization management, team member invites, billing & subscription management, audit trails, and source webhooks.
-- **Sales Rep**: Access to assigned leads, manual lead creation, WhatsApp templates, Kanban drag-and-drop, and personal activity log.
-- **Viewer**: Read-only access to pipeline reports and analytics.
+### Custom roles from 13 permissions
+Go beyond admin vs. member. Build roles such as *Team Lead*, *Telecaller* or *Auditor* by turning individual permissions on and off:
 
-### Team Organization:
-- Create custom teams (e.g., "North Zone Sales", "NRI Investment Desk", "Inbound Call Team").
-- Assign team leaders with oversight over their squad performance.
+| Area | Permissions |
+| :--- | :--- |
+| People | Manage users · Manage roles |
+| Configuration | Manage settings · Manage lead sources · Manage templates · Manage automations |
+| Leads | Edit leads · Delete leads · Permanently purge · Merge duplicates |
+| Oversight | View audit log · Manage API keys · Manage billing |
+
+### Teams
+Group reps into squads (e.g. *Inbound SDRs*, *North Zone*, *NRI Desk*). Round-robin automations then share leads only within that team.
+
+### Onboarding your team
+- **Email invitations**: new reps set their own password from a secure link.
+- **Direct provisioning**: create accounts instantly for call-centre style onboarding.
+- **Shareable join link**: if email is blocked, copy a one-time invite link to send on WhatsApp or Slack.
+
+### Built-in safeguards
+- Admins **can't lock themselves out**: self-deactivation, self-deletion and self-demotion are blocked.
+- Departing employees are **deactivated, not erased**. Their notes, activity and closed deals stay in your history.
+- Every role and user change is recorded in the **audit log**.
 
 ---
 

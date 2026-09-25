@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { ChevronRight, ArrowLeft, Clock } from "lucide-react";
-import type { ContentItem } from "@/lib/content";
+import type { ContentItem, ContentSummary } from "@/lib/content";
+import { ContentCard } from "./ContentCard";
 import { CONTENT_ROUTES } from "@/lib/content-routes";
 import { CtaBanner } from "@/components/marketing/CtaBanner";
 
 /** Full single-article page: breadcrumb, hero, rendered prose, and CTA. */
-export function ArticleLayout({ item }: { item: ContentItem }) {
+export function ArticleLayout({ item, related = [] }: { item: ContentItem; related?: ContentSummary[] }) {
   const route = CONTENT_ROUTES[item.type];
   const metaChips: string[] = [];
   if (item.keyMetric) metaChips.push(item.keyMetric);
@@ -82,6 +83,21 @@ export function ArticleLayout({ item }: { item: ContentItem }) {
           </Link>
         </div>
       </div>
+
+      {related.length > 0 ? (
+        <section aria-labelledby="related-heading" className="border-t border-border bg-card/30 py-12 sm:py-16">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h2 id="related-heading" className="text-lg font-bold tracking-tight text-foreground sm:text-xl">
+              {item.type === "features" ? "Works great with" : `More from ${route.label}`}
+            </h2>
+            <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {related.map((r) => (
+                <ContentCard key={r.slug} item={r} />
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <CtaBanner />
     </div>

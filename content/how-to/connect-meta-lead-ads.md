@@ -19,7 +19,7 @@ Connecting your Meta Lead Ads means every lead from Facebook and Instagram lands
 
 ## Step 1 — Open the integration
 
-In Ridhzo, go to **Settings → Integrations → Meta Lead Ads** and click **Connect Facebook Page**.
+In Ridhzo, go to **Settings → Sources → Facebook & Instagram Lead Ads** and click **Connect Facebook Page**.
 
 ## Step 2 — Authorize the Page
 

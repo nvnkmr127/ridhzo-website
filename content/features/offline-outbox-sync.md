@@ -4,6 +4,8 @@ slug: "offline-mode"
 badge: "⚡ Zero Data Loss"
 summary: "Capture leads anywhere with zero network signal. Outbox queue, automatic reconnection flush, and deadlock recovery."
 keyMetric: "100% Reliable Field Capture"
+category: "capture"
+order: 5
 ---
 
 # Offline First Outbox & Auto-Sync

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getContentItem, getContentSummaries } from "@/lib/content";
+import { getContentItem, getContentSummaries, getRelatedSummaries } from "@/lib/content";
 import { CONTENT_ROUTES } from "@/lib/content-routes";
 import { ArticleLayout } from "@/components/content/ArticleLayout";
 import { ArticleJsonLd } from "@/components/content/JsonLd";
@@ -45,7 +45,7 @@ export default async function HowToPage({
   return (
     <>
       <ArticleJsonLd item={item} />
-      <ArticleLayout item={item} />
+      <ArticleLayout item={item} related={getRelatedSummaries(item)} />
     </>
   );
 }

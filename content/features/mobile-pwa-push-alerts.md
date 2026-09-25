@@ -4,6 +4,8 @@ slug: "mobile-pwa"
 badge: "📱 Install on iOS & Android"
 summary: "Install Ridhzo straight from Safari or Chrome without visiting the App Store. Vibrating lead alerts with instant 1-tap deep link routing."
 keyMetric: "100% Native Feel · Zero App Store Delays"
+category: "capture"
+order: 4
 ---
 
 # PWA Mobile App & Instant Push Notifications

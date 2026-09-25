@@ -4,6 +4,8 @@ slug: "whatsapp"
 badge: "⚡ 10-Second Response Time"
 summary: "Engage leads instantly without saving phone contacts. Complete options, templates, dual-mode engine, and compliance guards."
 keyMetric: "3x Higher Conversion vs Delayed Calls"
+category: "engage"
+order: 1
 ---
 
 # 1-Tap WhatsApp Follow-ups & Messaging

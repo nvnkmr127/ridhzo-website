@@ -14,15 +14,17 @@ Welcome to Ridhzo. This guide gets you from signup to your first tracked lead in
 
 ## 1. Create your workspace
 
-After signing up, you'll create a workspace for your team. Invite teammates from **Settings → Team** — each gets their own login with role-based access.
+After signing up, you'll create a workspace for your team. Invite teammates from **Settings → Users & Roles**, by email invite or by creating their account directly. Group them into teams and give each person a role (admin, member, or a custom role you build from 13 permissions).
 
 ## 2. Connect a lead source
 
 Pick where your leads come from and connect it:
 
 - **Meta Lead Ads** — [step-by-step guide](/how-to/connect-meta-lead-ads)
-- **Website forms** — embed a form or point a webhook at Ridhzo
-- **CSV import** — bring in an existing list to get started immediately
+- **Google Lead Form Ads**: paste Ridhzo's webhook URL and key into your Google Ads lead form
+- **Hosted web forms**: build a multi-step form and share the link or embed it ([learn more](/features/web-forms))
+- **Website webhook**: point WordPress, Webflow or your own backend at a signed endpoint
+- **CSV import**: map columns, preview with a dry run, then import
 
 ## 3. Turn on alerts
 
@@ -30,11 +32,17 @@ Install Ridhzo as a PWA on your phone (Add to Home Screen) and enable push notif
 
 ## 4. Set up WhatsApp follow-ups
 
-Create a message template with dynamic tokens like `{name}` and `{product}`. Now first contact is a single tap.
+Create a message template in **Settings → Templates** with tokens like `{{first_name}}` and `{{company}}`. First contact is now a single tap.
 
 ## 5. Configure your pipeline
 
-Adjust your pipeline stages to match how you actually sell, and turn on the **Response-Time SLA** so no lead goes cold.
+Adjust your pipeline stages to match how you actually sell, add [custom fields](/features/custom-fields-templates) for the details you qualify on, and set your timezone and quiet hours.
+
+## 6. Put follow-up on autopilot
+
+- Turn on the **Welcome WhatsApp on new lead** automation template ([guide](/how-to/build-your-first-automation)).
+- Create a **drip sequence** so leads who aren't ready yet still hear from you ([guide](/how-to/create-a-whatsapp-drip-sequence)).
+- Open the **AI copilot** (sparkle button, bottom-right) and ask *"What should I focus on today?"*
 
 ## Need help?
 

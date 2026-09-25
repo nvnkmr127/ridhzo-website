@@ -26,7 +26,7 @@ export const CONTENT_ROUTES: Record<ContentType, ContentRoute> = {
     label: "Features",
     title: "Product Features",
     description:
-      "Every capability inside Ridhzo — from sub-second omnichannel lead capture to 1-tap WhatsApp follow-ups, offline sync, and automated pipeline routing.",
+      "Everything inside Ridhzo, from instant lead capture and 1-tap WhatsApp to drip sequences, no-code automations, dashboards, an AI sales copilot and a developer API.",
     eyebrow: "Platform",
   },
   usecases: {

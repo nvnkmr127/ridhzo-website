@@ -1,6 +1,7 @@
 import { HeroSection } from "@/components/marketing/HeroSection";
 import { SpeedComparison } from "@/components/marketing/SpeedComparison";
 import { FeatureShowcase } from "@/components/marketing/FeatureShowcase";
+import { IntegrationsSection } from "@/components/marketing/IntegrationsSection";
 import { PipelinePreview } from "@/components/marketing/PipelinePreview";
 import { SolutionsSection } from "@/components/marketing/SolutionsSection";
 import { AboutUsSection } from "@/components/marketing/AboutUsSection";
@@ -15,6 +16,7 @@ export default function HomePage() {
       <HeroSection />
       <SpeedComparison />
       <FeatureShowcase />
+      <IntegrationsSection />
       <PipelinePreview />
       <SolutionsSection />
       <AboutUsSection />

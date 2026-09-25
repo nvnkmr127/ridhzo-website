@@ -1,12 +1,14 @@
 ---
-title: "Instant Omnichannel Lead Ingestion"
+title: "Instant Lead Capture from Every Channel"
 slug: "lead-capture"
 badge: "📥 Sub-Second Ingestion"
-summary: "Capture leads from Facebook Ads, Web forms, Webhooks, and CSV with E.164 regex deduplication and custom field mapping."
+summary: "Facebook & Instagram Lead Ads, Google Lead Form Ads, hosted forms, website webhooks, CSV and API all feed one pipeline. Leads land in seconds, duplicates are caught and nothing is lost."
 keyMetric: "<1s Webhook Processing Latency"
+category: "capture"
+order: 1
 ---
 
-# Instant Omnichannel Lead Ingestion
+# Instant Lead Capture from Every Channel
 
 ## 1. Feature Overview
 Ridhzo serves as a unified collection hub for all inbound marketing channels. Prospects captured via Facebook Lead Ads, Google Ads, hosted forms, iframe embeds, and API webhooks are parsed, validated, deduplicated, and placed into the CRM pipeline in less than 1 second.
@@ -23,30 +25,43 @@ Ridhzo serves as a unified collection hub for all inbound marketing channels. Pr
 - **HMAC Signature Verification**: Validates `x-hub-signature-256` on every incoming request to reject spoofed payloads.
 - **Auto-Sync Ad Campaign Tags**: Automatically tags incoming leads with the ad name, campaign ID, and ad set for granular ROI attribution.
 
-### Channel 2: Hosted & Embeddable Web Forms
-- **Hosted Landing Form (`/f/[sourceId]`)**:
-  - Standalone, mobile-optimized public page with your company branding.
-  - Options: Form title, subheadline, custom submit button label, success message or external redirect URL.
-- **Iframe Embed Snippet**:
-  - Responsive HTML embed code snippet ready for WordPress, Webflow, Framer, Wix, or Shopify.
-  - Cross-domain postMessage height auto-resizing.
-- **Anti-Spam & Security Options**:
-  - Built-in rate limiting per IP address.
-  - Honeypot bot trap fields that drop automated spam silently without blocking real users.
+### Channel 2: Google Lead Form Ads
+- **Search, YouTube, Performance Max & Display**: capture leads from Google's native lead form extension.
+- **Key-verified webhooks**: every payload is checked against your secret key, and Google's test pings are handled correctly.
+- **Automatic column mapping**: Google's field names map to the right Ridhzo fields.
+- **GCLID attribution**: the Google Click ID is stored on each lead for offline conversion tracking and closed-loop ROAS.
 
-### Channel 3: Generic Webhook Endpoints
+### Channel 3: Hosted & Embeddable Web Forms
+- **Hosted link** (`/f/<form-id>`) for bios, QR codes and WhatsApp.
+- **One-line iframe embed** for WordPress, Webflow, Framer, Shopify or plain HTML.
+- **Multi-step forms** with up to 10 steps and required-field validation.
+- See the full [Web Forms](/features/web-forms) page.
+
+### Channel 4: Website Custom Webhook
 - **Unique Endpoint URL**: Generated per lead source (`/api/webhooks/[provider]?sourceId=...`).
 - **Flexible JSON Payload Ingestion**: Compatible with Zapier, Make.com, Google Ads scripts, and custom server backends.
-- **Custom Header Authentication**: Optional API Bearer token verification.
+- **HMAC SHA-256 signatures** to reject spoofed submissions.
+- **Rate limiting** (100 requests per minute per IP) and optional idempotency keys to block duplicate posts.
+- Works with WordPress (Elementor, Contact Form 7, Gravity Forms), Webflow, Framer, Shopify and custom apps.
 
-### Channel 4: Bulk CSV Import
-- **Upload Formats**: `.csv`, comma or semicolon delimited.
-- **Column Auto-Detection**: Matches headers like "First Name", "Client Mobile", "Email Address".
-- **Deduplication Strategy Options**:
-  - *Skip Duplicates*: Retain existing record, ignore duplicate CSV row.
-  - *Merge & Update*: Update empty fields on existing lead without overriding existing data.
-  - *Overwrite*: Replace existing record with newer CSV data.
-- **Batch Processing**: Background BullMQ worker imports files up to 50,000 rows without browser timeouts.
+### Channel 5: CSV Import Wizard
+- **Upload**: drag and drop a CSV. A sample template is included.
+- **Map**: match columns to standard fields or your custom fields.
+- **Dry run**: preview new records, errors and duplicates before anything is saved.
+- **Commit**: import with a lead source and default owner applied.
+
+### Channel 6: REST API
+Create leads from any system with a scoped API key. See [API & Webhooks](/features/api-webhooks).
+
+### Coming soon
+- **LinkedIn Lead Gen Forms**: B2B lead sync from LinkedIn sponsored content.
+- **WhatsApp inbound**: turn new WhatsApp conversations into leads automatically.
+
+---
+
+## Zero lead loss
+- **Every payload is saved first**, then processed in a queue, so traffic spikes and restarts never drop a lead.
+- **Expired token recovery**: if a Meta connection is revoked, missed leads are replayed once you reconnect.
 
 ---
 
