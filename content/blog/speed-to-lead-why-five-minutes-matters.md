@@ -39,4 +39,4 @@ The reason is simple: at the moment someone submits a form, they are **actively 
 4. **Route automatically.** Round-robin assignment means no lead waits for someone to "claim" it.
 5. **Measure response time.** What gets measured gets fixed — track first-response SLA per rep.
 
-This is exactly the loop Ridhzo is built around: capture in under a second, alert instantly, reply in one tap, and hold every rep to a response-time SLA. Speed-to-lead isn't a mindset — it's a system.
+This is exactly the loop Ridhzo is built around: capture every lead within seconds, alert the owner instantly, reply in one tap, and track every rep's response time. Speed-to-lead isn't a mindset — it's a system.

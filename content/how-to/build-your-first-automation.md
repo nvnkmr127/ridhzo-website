@@ -39,7 +39,7 @@ Optional: add `customData.budget greater than 50000` in a separate rule to route
 Save, then check that the toggle on the automation card is **on**. You can pause it with one tap at any time.
 
 ## Step 6: Test it
-Submit a test lead from your ad form or a [hosted web form](/features/web-forms). Within seconds you should see:
+Submit a test lead from your ad form or a [web form](/features/lead-capture). Within seconds you should see:
 - the lead assigned to a rep, who gets a push alert
 - the WhatsApp welcome on the lead's timeline
 - tomorrow's follow-up in **Follow-ups**

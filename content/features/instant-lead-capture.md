@@ -1,73 +1,44 @@
 ---
-title: "Instant Lead Capture from Every Channel"
+title: "Instant Lead Capture from Every Source"
 slug: "lead-capture"
-badge: "📥 Sub-Second Ingestion"
-summary: "Facebook & Instagram Lead Ads, Google Lead Form Ads, hosted forms, website webhooks, CSV and API all feed one pipeline. Leads land in seconds, duplicates are caught and nothing is lost."
-keyMetric: "<1s Webhook Processing Latency"
-category: "capture"
+badge: "⚡ All Your Leads, One Inbox"
+summary: "Facebook & Instagram Lead Ads, Google Lead Form Ads, web forms, website webhooks, API, CSV import and missed calls — every lead lands in Ridhzo within seconds."
+keyMetric: "Leads Arrive in Seconds, Not Hours"
 order: 1
+category: "capture"
 ---
 
-# Instant Lead Capture from Every Channel
+# Instant Lead Capture from Every Source
 
-## 1. Feature Overview
-Ridhzo serves as a unified collection hub for all inbound marketing channels. Prospects captured via Facebook Lead Ads, Google Ads, hosted forms, iframe embeds, and API webhooks are parsed, validated, deduplicated, and placed into the CRM pipeline in less than 1 second.
+## Stop copying leads from five different places
+Your leads come from Facebook Lead Center, Google Ads, your website, WhatsApp, walk-ins and old spreadsheets. When they're scattered, they get called late — or never. Ridhzo pulls every lead into **one inbox, automatically**, the moment it arrives.
 
----
+## Every source you need
 
-## 2. Ingestion Channels & Configuration Options
+| Source | How it works |
+| :--- | :--- |
+| **Facebook & Instagram Lead Ads** | Click Connect, log in to Facebook, pick your Page. New leads arrive within seconds. Choose which forms to import and **sync past leads** too. |
+| **Google Lead Form Ads** | Paste your Ridhzo webhook URL and key into the Google Ads lead form. Campaign details are kept with each lead. |
+| **Hosted web forms** | Build a form visually (multi-step if you like), then share the link — Instagram bio, WhatsApp status, QR code on a flyer — or embed it on WordPress, Wix, Webflow, Shopify or any site. |
+| **Website webhook** | Connect your existing contact form or tools like Zapier, Make or Pabbly with a secure, signed webhook. |
+| **REST API** | Send leads from your own app or backend with an API key. |
+| **CSV / Excel import** | Upload a file, match the columns, preview what will be imported, then import. |
+| **Quick Add** | Add a walk-in or phone enquiry in seconds from any screen — even offline. |
+| **Missed calls** | Connect your call provider; when a call is missed, Ridhzo matches the caller and sends them a WhatsApp automatically. |
 
-### Channel 1: Meta / Facebook & Instagram Lead Ads
-- **OAuth Page Authorization**: Connect your Facebook Page with one click; Ridhzo securely subscribes to real-time Leadgen webhooks.
-- **Form-to-Field Mapping**:
-  - Automatically matches default fields (`full_name`, `phone_number`, `email`).
-  - Custom Question Mapper: Maps custom ad form questions (e.g., "Expected Purchase Timeline", "Preferred Unit Size") into Ridhzo custom fields.
-- **HMAC Signature Verification**: Validates `x-hub-signature-256` on every incoming request to reject spoofed payloads.
-- **Auto-Sync Ad Campaign Tags**: Automatically tags incoming leads with the ad name, campaign ID, and ad set for granular ROI attribution.
+*LinkedIn Lead Gen Forms and WhatsApp inbound as a lead source are coming soon.*
 
-### Channel 2: Google Lead Form Ads
-- **Search, YouTube, Performance Max & Display**: capture leads from Google's native lead form extension.
-- **Key-verified webhooks**: every payload is checked against your secret key, and Google's test pings are handled correctly.
-- **Automatic column mapping**: Google's field names map to the right Ridhzo fields.
-- **GCLID attribution**: the Google Click ID is stored on each lead for offline conversion tracking and closed-loop ROAS.
+## What happens to every new lead
+1. **Fields mapped automatically** — name, phone, email, company, plus every form answer ("what they told you in the form").
+2. **Phone numbers cleaned** — `+91 98765 43210`, `9876543210` and `98765 43210` are recognised as the same number.
+3. **Duplicates caught** — same phone or email is flagged, or merged automatically if you turn that on.
+4. **Source & campaign saved** — including UTM parameters, so you know which ad produced which sale.
+5. **Assigned instantly** — round-robin, by team, by capacity or by your rules.
+6. **Owner alerted** — push notification with sound, in seconds.
+7. **Automations run** — welcome WhatsApp, follow-up scheduled, sequence started.
 
-### Channel 3: Hosted & Embeddable Web Forms
-- **Hosted link** (`/f/<form-id>`) for bios, QR codes and WhatsApp.
-- **One-line iframe embed** for WordPress, Webflow, Framer, Shopify or plain HTML.
-- **Multi-step forms** with up to 10 steps and required-field validation.
-- See the full [Web Forms](/features/web-forms) page.
+## Real example
+A real-estate developer runs six lead ads for two projects. Every lead lands in Ridhzo tagged with its form, goes round-robin to the right project team, and the rep's phone buzzes within seconds. The first WhatsApp goes out before the buyer has closed Facebook.
 
-### Channel 4: Website Custom Webhook
-- **Unique Endpoint URL**: Generated per lead source (`/api/webhooks/[provider]?sourceId=...`).
-- **Flexible JSON Payload Ingestion**: Compatible with Zapier, Make.com, Google Ads scripts, and custom server backends.
-- **HMAC SHA-256 signatures** to reject spoofed submissions.
-- **Rate limiting** (100 requests per minute per IP) and optional idempotency keys to block duplicate posts.
-- Works with WordPress (Elementor, Contact Form 7, Gravity Forms), Webflow, Framer, Shopify and custom apps.
-
-### Channel 5: CSV Import Wizard
-- **Upload**: drag and drop a CSV. A sample template is included.
-- **Map**: match columns to standard fields or your custom fields.
-- **Dry run**: preview new records, errors and duplicates before anything is saved.
-- **Commit**: import with a lead source and default owner applied.
-
-### Channel 6: REST API
-Create leads from any system with a scoped API key. See [API & Webhooks](/features/api-webhooks).
-
-### Coming soon
-- **LinkedIn Lead Gen Forms**: B2B lead sync from LinkedIn sponsored content.
-- **WhatsApp inbound**: turn new WhatsApp conversations into leads automatically.
-
----
-
-## Zero lead loss
-- **Every payload is saved first**, then processed in a queue, so traffic spikes and restarts never drop a lead.
-- **Expired token recovery**: if a Meta connection is revoked, missed leads are replayed once you reconnect.
-
----
-
-## 3. Intelligent Deduplication Engine
-- **Regex Digit Normalization**: Strips punctuation, spaces, and leading zeros to normalize phone numbers to international standard format.
-- **Collision Rules**:
-  - Match by exact E.164 phone number.
-  - Match by case-insensitive trimmed email address.
-- **Multi-Tenant Isolation**: Deduplication checks are strictly scoped to the tenant's `organizationId`, preventing cross-company collisions.
+## Plans
+Free includes 1 lead source, Starter 5, Unlimited as many as you need. Web forms on the Free plan show a small "Powered by Ridhzo" badge.

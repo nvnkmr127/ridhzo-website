@@ -1,58 +1,37 @@
 ---
-title: "WhatsApp & Email Drip Sequences"
+title: "Sequences: Automatic Drip Follow-ups"
 slug: "sequences"
-badge: "📨 Multi-Day Nurture on Autopilot"
-summary: "Multi-step WhatsApp and email cadences that stop the moment a lead replies. AI drafts the whole sequence from a one-line goal, and quiet hours stop messages from going out at midnight."
-keyMetric: "Auto-Stops on Every Reply"
+badge: "📨 Follow Up Until They Reply"
+summary: "Multi-step WhatsApp and email follow-ups that run by themselves over days — drafted by AI in seconds, and stopped automatically when the lead replies or converts."
+keyMetric: "Every Lead Gets Your Best 5 Follow-ups"
+order: 8
 category: "engage"
-order: 3
 ---
 
-# WhatsApp & Email Drip Sequences
+# Sequences: Automatic Drip Follow-ups
 
-## The follow-up gap
-Buyers take days or weeks to decide. When follow-up depends on a rep remembering, outreach usually stops after day two. Sequences keep in touch with the lead for you until they are ready to talk.
+## Most sales need 5+ follow-ups. Most reps stop after 1.
+A sequence sends your best follow-up messages over days — Day 0, Day 2, Day 5, Day 9 — so every lead is nurtured consistently without anyone having to remember.
 
----
+## What you can do
+- **Multi-step, multi-channel:** each step is WhatsApp or email with a delay you choose.
+- **Personalised:** `{{first_name}}`, `{{name}}`, `{{company}}`, `{{email}}`, `{{phone}}` fill in automatically.
+- **Attach links:** brochures, price lists, videos, case studies.
+- **AI drafts the whole sequence:** type a goal like *"Nurture a new real-estate lead over two weeks toward booking a site visit"* and AI writes the steps, timing and messages. Edit and save.
+- **AI improve:** polish any message to be clearer or friendlier.
+- **Enrol leads** from the lead page, in bulk, or automatically with an automation.
+- **Stops by itself** when the lead replies or converts — you never chase someone who already said yes.
+- **Pause / resume** a whole sequence in one click.
+- **See the funnel:** how many leads are on each step, how many finished, and how many left early because they replied.
 
-## How sequences work
-- **Day-offset steps**: build cadences like *Day 0 → Day 2 → Day 5 → Day 10*, timed from the day the lead is enrolled.
-- **Two channels**: every step can go out on **WhatsApp** or **Email**.
-- **Personalisation tokens**: `{{first_name}}`, `{{company}}` and more are filled in for each lead.
-- **Attachments**: add brochures, price sheets or decks to any step.
+## Using your personal WhatsApp?
+Without the WhatsApp Business API, WhatsApp steps become one-tap reminders on the lead for your rep to send. Email steps still go out automatically.
 
-## AI writes the first draft
-Describe your goal in plain English, for example *"Nurture a new real estate lead over two weeks toward booking a site visit"*, and click **Generate**. Ridhzo drafts the steps, day offsets, channels and message copy. Edit anything before you save.
+## Sequence ideas
+- **Real estate — new enquiry:** welcome + brochure → walkthrough video → site-visit invite → offer deadline.
+- **Education — admission season:** course details → scholarship info → fee deadline → counsellor call.
+- **Services — demo no-show:** reschedule link → case study → final check-in.
+- **Win-back:** four gentle touches for leads silent for 30+ days.
 
-## Never message a lead who's already talking to you
-Enrollments stop automatically when:
-- the lead **replies on WhatsApp**
-- the lead **replies by email**
-- a rep marks the deal **Won, Lost or Unqualified**
-
-Each auto-stop is logged on the lead's timeline so the team knows why.
-
-## Quiet hours built in
-Steps follow your organisation's business hours and timezone. A step due at 11 PM waits until your send window opens the next morning. Overnight windows (e.g. 8 PM–6 AM) work too.
-
----
-
-## See where every lead is
-The sequence detail view shows the flow of your leads:
-- **Live counters** show how many leads are waiting on each step, e.g. *"12 people here, 43% share"*
-- **Channel and timing badges** on every step
-- An **exit node** that counts completed runs and leads removed early because they replied or converted
-
-## Edit live sequences safely
-Change the copy on a running sequence without restarting anyone. A lead on Step 2 stays on Step 2 and gets your updated copy from then on.
-
----
-
-## Two ways to enroll
-1. **Automatically**: an [Automation](/features/automations) enrolls every new Meta Ads lead into your nurture track.
-2. **Manually**: on any [lead profile](/features/lead-profile), tap **+ Add to Sequence** and pick a cadence. Tap **Stop** to end it at any time.
-
-## Reliable delivery
-- Temporary failures retry automatically.
-- If a lead has no phone or email, the step is skipped and a manual reminder is logged, so the sequence doesn't stall.
-- Pause or resume a whole sequence with one click.
+## Plans
+Free: 1 sequence · Starter: 10 · Unlimited: no limit.

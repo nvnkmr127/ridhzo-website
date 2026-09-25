@@ -1,61 +1,47 @@
 ---
-title: "1-Tap WhatsApp Follow-ups & Messaging"
+title: "1-Tap WhatsApp Follow-ups"
 slug: "whatsapp"
-badge: "⚡ 10-Second Response Time"
-summary: "Engage leads instantly without saving phone contacts. Complete options, templates, dual-mode engine, and compliance guards."
-keyMetric: "3x Higher Conversion vs Delayed Calls"
+badge: "💬 WhatsApp-First Selling"
+summary: "Reply on WhatsApp in one tap with personalised templates — free with your own WhatsApp, or fully automated with the WhatsApp Business API."
+keyMetric: "Reply to a New Lead in Under 30 Seconds"
+order: 2
 category: "engage"
-order: 1
 ---
 
-# 1-Tap WhatsApp Follow-ups & Messaging
+# 1-Tap WhatsApp Follow-ups
 
-## 1. Feature Overview
-The WhatsApp engine in Ridhzo is built for zero-friction closing. Sales reps never waste time saving prospects to their phone address book or typing repetitive greetings. In one tap, Ridhzo generates customized messages with live deal context and launches WhatsApp.
+## Your customers are on WhatsApp. Your CRM should be too.
+Saving every lead's number to your phone, typing the same intro again and again, losing chats in your personal inbox — that's how leads go cold. Ridhzo makes WhatsApp the fastest way to reach every lead.
 
----
+## Two ways to use WhatsApp
 
-## 2. Dual-Engine Architecture & Options
+### Personal mode — free, no setup
+- Tap **WhatsApp** on any lead: your own WhatsApp opens with the chat and a ready message.
+- **No need to save the number** to your contacts.
+- One-tap **call, SMS and email** links too.
+- The message is logged on the lead's timeline so your team sees it.
 
-### Mode A: Native Deep Link Mode (`wa.me`)
-- **How It Works**: Generates encrypted browser and mobile universal links (`https://wa.me/<phone>?text=<encoded_body>`).
-- **Zero API Requirements**: No Meta Business verification, no BSP contracts, and no per-message fees.
-- **Client Fallback**: Intelligently switches between WhatsApp Desktop, WhatsApp Mobile App, and WhatsApp Web depending on the user's operating system.
-- **Country Code Handling**: Automatically normalizes raw numbers (e.g., `9876543210` → `+919876543210`) based on the organization's default country code setting.
+### WhatsApp Business API — for automation
+Connect the official WhatsApp Business API to:
+- Send and receive messages **inside Ridhzo**, with delivered/read ticks.
+- See **replies on the lead's timeline** and trigger automations from them.
+- Send a **welcome message automatically** the moment a lead arrives.
+- Run **sequences** and **bulk campaigns** (up to 500 leads per send).
+- Auto-reply to **missed calls**.
+- Ridhzo picks free text inside WhatsApp's 24-hour window and your approved template outside it — automatically.
 
-### Mode B: Automated Business API Mode (Watxio / Meta Cloud)
-- **Automated Welcome Dispatch**: Triggered instantly via BullMQ background jobs on `lead.created`.
-- **24-Hour Customer Care Window**: Real-time counter tracks the 24-hour Meta service window. Warnings display when 2 hours remain.
-- **Delivery Receipts**: Tracks real-time status: `Sent`, `Delivered`, `Read`, `Failed`.
-- **Inbound Reply Ingestion**: Webhook receiver (`/api/webhooks/whatsapp`) matches inbound messages to existing leads and logs them in the conversation feed.
+## Templates that write themselves
+Create WhatsApp and email templates once and reuse them everywhere. Personalisation fills in automatically:
 
----
+`{{first_name}}` · `{{name}}` · `{{email}}` · `{{phone}}` · `{{company}}`
 
-## 3. Template Management & Personalization Options
+> Hi {{first_name}}, thanks for your interest in Green Acres! When's a good time for a quick call?
 
-### Template Configuration Fields:
-- **Template Name**: Internal identifier (e.g., "Luxury Villa Welcome", "Post-Site Visit Quote").
-- **Category**:
-  - `Welcome & First Contact`
-  - `Follow-up / Re-engagement`
-  - `Meeting & Site Visit Confirmation`
-  - `Pricing & Proposal Delivery`
-  - `Payment Reminder`
-- **Language**: English, Hindi, and multi-lingual UTF-8 support.
-- **Dynamic Context Variables**:
-  - `{{name}}`: Full name or first name of prospect.
-  - `{{phone}}`: Normalized mobile number.
-  - `{{company}}`: Prospect's company name.
-  - `{{interest}}`: Project, product, or campaign tag.
-  - `{{assigned_rep}}`: Name of the assigned closer.
-  - `{{workspace_name}}`: Name of your company/agency.
-  - `{{custom_field_name}}`: Any custom field defined on the lead.
-- **Attachments**: PDF brochures, pricing sheets, and image preview links.
+## Let AI write the reply
+Tap **Draft with AI** and get a message based on what the lead actually asked for — in a friendly, professional or short tone, and in their language (Hindi, Hinglish, Telugu, Tamil and more). You always review before sending.
 
----
+## Share brochures and know when they're opened
+Send a tracked link to your brochure, price list or video. You get a notification the moment the lead opens it — the perfect time to call.
 
-## 4. UI Controls & Rep Actions
-- **Quick Action Bar**: Positioned directly on the lead card in both the Leads List and Kanban Board.
-- **Template Selector Modal**: Click "1-Tap WhatsApp" to choose between pre-configured templates or edit on the fly.
-- **Activity Log Audit**: Each outbound click creates an `activity` record: *"WhatsApp initiated by Sarah Miller using template: Site Visit Booking"*.
-- **Direct Phone Link Fallback**: Accompanied by 1-tap `tel:` and `mailto:` controls.
+## Real example
+A gym owner gets 30 Instagram leads a day. A welcome WhatsApp goes out automatically, and staff reply to questions from one shared timeline. Leads who opened the membership price list get a call the same evening.

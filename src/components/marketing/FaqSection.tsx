@@ -9,39 +9,31 @@ export function FaqSection() {
   const faqs = [
     {
       q: "Does Ridhzo install like a native mobile app on iPhone and Android?",
-      a: "Yes. Ridhzo is engineered as an installable Progressive Web App (PWA). You can tap 'Add to Home Screen' directly from Safari (iOS) or Chrome (Android) to get a full-screen, standalone app with vibrating push notifications and instantaneous home-screen launching—with zero app store download hurdles.",
+      a: "Yes. Yes. Tap 'Add to Home Screen' in Safari (iPhone) or Chrome (Android) and Ridhzo opens full-screen with its own icon and push notifications — no app-store download needed. The app is available in English, Hindi and Telugu.",
     },
     {
-      q: "Do I need complex Meta Business API approvals or BSP verification to start?",
-      a: "No. Ridhzo features zero-barrier 1-tap native WhatsApp messaging out of the box. Clicking '1-Tap WhatsApp' opens WhatsApp on your phone or desktop with the prospect's phone number and a personalized template pre-filled with dynamic tokens ({{name}}, {{interest}}, {{budget}}). You don't need any API credentials or Meta verification to begin closing immediately.",
+      q: "Do I need the WhatsApp Business API to start?",
+      a: "No. Tap 'WhatsApp' on any lead and your own WhatsApp opens with the chat and a personalised template ready — {{first_name}}, {{name}}, {{company}} and more fill in automatically. No saving numbers, no approvals. Connect the official WhatsApp Business API later if you want automatic welcome messages, sequences and bulk campaigns.",
     },
     {
       q: "How does the offline mode work when reps lose mobile signal in the field?",
-      a: "If you are in an elevator, basement, or remote site without network coverage, you can still open Ridhzo, create new leads, and add timeline notes. Ridhzo buffers mutations in a zero-dependency IndexedDB outbox and automatically syncs them to PostgreSQL the second your connection restores.",
+      a: "If you are in an elevator, basement, or remote site without network coverage, you can still add new leads in Ridhzo. They're saved safely on your phone and uploaded automatically the moment your connection returns — then assigned and alerted like any other lead.",
     },
     {
-      q: "How does atomic row-locked round-robin prevent lead-grabbing?",
-      a: "When a new lead arrives via Meta Ads or webhooks, Ridhzo executes an atomic PostgreSQL 'SELECT ... FOR UPDATE' transaction. This prevents concurrent workers from double-assigning leads and distributes inquiries evenly across active reps while strictly respecting individual capacity caps (maxCapacity).",
+      q: "How does Ridhzo stop reps fighting over leads?",
+      a: "Every new lead is assigned automatically — round-robin, by team, by capacity or by your own rules — so nobody has to grab leads. Rotation stays fair even when many leads arrive at once, deactivated reps are skipped, and each rep sees only the leads assigned to them.",
     },
     {
       q: "What inbound lead sources can I connect?",
-      a: "Ridhzo provides out-of-the-box support for Meta (Facebook & Instagram) Lead Ads via direct webhooks, Google Ads lead form webhooks, hosted & embeddable web forms (sharable landing pages or embeddable iframe/JS snippets), custom JSON webhooks, CSV import and a REST API, all with automatic phone and email deduplication. LinkedIn Lead Gen Forms and WhatsApp inbound are on the roadmap.",
+      a: "Facebook & Instagram Lead Ads (one-click connect, plus past-lead sync), Google Lead Form Ads, hosted and embeddable web forms, website webhooks (Zapier, Make, Pabbly), the REST API, CSV import, Quick Add, and missed calls. Duplicates are detected by phone and email. LinkedIn Lead Gen Forms are coming soon.",
     },
     {
-      q: "What is the 'Going Cold' radar and how does it prevent deal decay?",
-      a: "The Going Cold radar continuously monitors communication recency. The moment an active lead goes silent past your configured threshold (default 14 days), it surfaces on the /leads/cold radar with pre-filled WhatsApp re-engagement links and a 1-click 'Escalate all to High' button that pushes them to the top of daily priority call feeds.",
-    },
-    {
-      q: "Does the AI Sales Copilot send messages to my leads on its own?",
-      a: "No. The copilot can search leads, summarize timelines, change statuses, add tags, assign owners and set reminders for you, but it never sends a WhatsApp or email by itself. It drafts the message as a card with Send and Dismiss buttons, and nothing goes out until you approve it.",
-    },
-    {
-      q: "Will automated drip sequences keep messaging a lead who has already replied?",
-      a: "No. A sequence stops automatically when the lead replies on WhatsApp or by email, or when the deal is marked Won, Lost or Unqualified, and the reason is logged on the timeline. Steps also respect your quiet hours, so nothing goes out at midnight.",
+      q: "What is the 'Going Cold' list?",
+      a: "It automatically lists open leads nobody has contacted for 14 days, with a ready re-engagement WhatsApp and a call button for each. One click on 'Escalate all to High' pushes them all to the top of your team's priorities.",
     },
     {
       q: "Can I use Ridhzo for free without a credit card?",
-      a: "Yes! The Free forever plan includes up to 100 active leads, 1 workspace seat, 1-tap WhatsApp deep links, PWA mobile installation, and the offline outbox. You can upgrade to Starter (₹249/mo) or Unlimited (₹449/mo) as your lead volume expands.",
+      a: "Yes! The Free forever plan includes up to 300 leads, 1 user, 1 lead source, 2 automations, 1 sequence, 15 AI credits a month, 1-tap WhatsApp, push alerts, the mobile app and offline capture. You can upgrade to Starter (₹249/mo) or Unlimited (₹449/mo) as your lead volume expands.",
     },
   ];
 
@@ -57,7 +49,7 @@ export function FaqSection() {
             Frequently Asked Questions
           </h2>
           <p className="mt-3 text-base text-muted-foreground">
-            Everything you need to know about architecture, speed-to-lead, and getting started.
+            Everything you need to know about getting started, WhatsApp, your team and pricing.
           </p>
         </div>
 

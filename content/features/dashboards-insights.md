@@ -1,59 +1,46 @@
 ---
 title: "Dashboards & Sales Insights"
-slug: "analytics"
-badge: "📊 Real-Time Revenue Intelligence"
-summary: "Three views of your sales: an executive dashboard for speed-to-lead and SLA, a personal dashboard for each rep, and in-depth Insights for forecasting, bottlenecks and channel ROI."
-keyMetric: "Pipeline Health Graded A–D"
+slug: "dashboards"
+badge: "📈 Know What's Working"
+summary: "A personal dashboard for every rep, an executive dashboard for owners, and deep insights — response speed, source ROI, team leaderboard, win/loss, forecast and pipeline health."
+keyMetric: "Every Rupee of Ad Spend Traced to Revenue"
+order: 12
 category: "analyze"
-order: 1
 ---
 
 # Dashboards & Sales Insights
 
-Ridhzo gives each role its own view. Owners see the whole business, reps see only their own work, and sales leaders get the analysis behind both.
+## My Dashboard — for every rep
+Start each day knowing exactly what to do: leads assigned to you, new and active leads, **follow-ups due today**, **overdue** follow-ups, today's meetings, your win rate, your pipeline value and your follow-up completion rate.
 
----
+## Executive Dashboard — for owners and managers
+Filter by date, team and source:
+- **Speed to first response** — average, median, and the **% of leads contacted within 5 minutes**
+- **Response target** — leads contacted within your target (15 minutes by default) and how many were missed
+- Total, new and active leads · win rate · pipeline value
+- Follow-ups due, overdue and completion rate
+- **Content opened** in the last 7 days, and shared links nobody opened
+- **Revenue by source** and **pipeline by stage**
+- **Today's priorities** — high-priority leads needing action now
 
-## 1. Executive Dashboard: the command center
-See your whole sales operation as soon as you log in. Filter by **Today, 7 days, 30 days, This month or All time**.
+## Insights — for deeper decisions
+| Insight | Question it answers |
+| :--- | :--- |
+| Pipeline health grade (A–D) | How healthy is our sales engine overall? |
+| Source ROI | Which ad or channel actually brings sales? |
+| Team leaderboard | Who is converting, and who needs coaching? |
+| Revenue forecast | What revenue can we realistically expect? |
+| Win / loss analysis | Why are we losing deals? |
+| Stage speed & stuck deals | Where do deals slow down? |
+| Pipeline aging | How much value is sitting in old deals? |
+| Engagement health | Which leads are healthy, at risk or critical? |
+| Best contact times | When do leads respond most? |
+| Territory | Which cities perform best? |
+| Cohorts | How does each month's batch of leads convert over time? |
+| Customer lifetime value | How much are repeat customers worth? |
+| Rep capacity | Who has room for more leads? |
 
-- **Speed-to-lead tracker**: average time to first contact across the team
-- **SLA compliance**: how many leads were contacted within your target (e.g. 15 minutes), with breaches flagged
-- **Content engagement radar**: leads opening your shared quotes, decks and brochures right now
-- **Today's priorities**: a ranked list built from lead score, follow-up deadlines and live document views, with WhatsApp and call buttons on every card
-- **Honest conversion rate**: win rate that counts disqualified leads, so the number isn't inflated
-- **Pipeline value** in your own currency and format
-- **Channel attribution**: lead volume by source, side by side
-- **Stage funnel and rep workload**: where deals are sitting and who's carrying them, including unassigned leads
-- **Live activity feed**: messages, notes and assignments across the company
-
-## 2. My Dashboard: each rep's own view
-Each rep sees only their own leads, deals and tasks, with no company-wide clutter.
-- Total leads (new vs. active)
-- Personal win rate
-- Personal pipeline value
-- Overdue and due-today follow-ups
-- My pipeline by stage and my recent activity
-
-## 3. Insights: in-depth analysis
-Insights answers questions like *what will we close this quarter?* and *where are deals getting stuck?*
-
-- **Pipeline health score**: a 0–100 score and A–D grade based on SLA compliance, engagement, speed and stalled deals
-- **Probability-weighted forecast**: projected revenue that weights each open deal by its stage
-- **Best time to contact**: the days and hours your prospects are most likely to respond
-- **Win/loss and loss reasons**: find out why deals are lost
-- **Pipeline velocity**: time spent in each stage, and the stage that is slowing you down the most
-- **Stale pipeline aging**: deal value at risk in 0–7, 8–14, 15–30 and 30+ day brackets
-- **Source ROI**: revenue, close rate and average deal size per marketing channel
-- **Monthly cohorts, geography and customer lifetime value**
-- **Rep capacity and daily activity logs**
-- **Overdue follow-up escalation register**
-
----
-
-## Who uses what
-| View | Built for | Answers |
-| :--- | :--- | :--- |
-| Executive Dashboard | Owners, sales heads | *Are we responding fast enough today?* |
-| My Dashboard | Reps, account managers | *What do I need to do right now?* |
-| Insights | CROs, RevOps, growth leads | *Where is revenue leaking, and what's the forecast?* |
+## Real examples
+- Insights shows Google leads close at 18% and Facebook at 6% — the owner shifts budget to Google.
+- Only 22% of leads were being contacted within 5 minutes; after turning on round-robin and push alerts, the team reaches 70%.
+- The leaderboard shows one rep with high volume and a low win rate — the manager reviews their calls.

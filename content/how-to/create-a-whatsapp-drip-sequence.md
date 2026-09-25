@@ -28,6 +28,8 @@ For each step, check:
 
 Tip: open with value (brochure, video, pricing) rather than "just checking in".
 
+> **Using personal WhatsApp?** Without the WhatsApp Business API, WhatsApp steps become one-tap reminders for the rep to send. Email steps still go out automatically.
+
 ## Step 3: Check quiet hours
 In **Settings**, confirm your **timezone** and **quiet hours** (e.g. 8 PM–9 AM). Steps due inside that window are held until the morning.
 
@@ -52,4 +54,4 @@ A rep can also tap **Stop** on the lead profile. Every stop is logged on the tim
 ## Edit live sequences safely
 Improve the copy at any time. Leads already enrolled keep their place and get your updated steps from then on.
 
-Related: [Drip Sequences](/features/sequences) · [AI Sales Copilot](/features/ai-assistant)
+Related: [Drip Sequences](/features/sequences) · [AI Assistant](/features/ai)

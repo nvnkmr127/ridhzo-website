@@ -1,56 +1,45 @@
 ---
-title: "Ridhzo for Real Estate Agents & Property Brokers"
+title: "Ridhzo for Real Estate Agents & Developers"
 slug: "real-estate"
-badge: "🏡 High-Ticket Property Sales"
-targetAudience: "Real Estate Brokers, Developers, Channel Partners & Site Walkthrough Closers"
-keyMetric: "Close Property Inquiries in <15 Minutes"
+badge: "🏡 Property Sales & Site Visits"
+targetAudience: "Real Estate Brokers, Developers, Channel Partners & Site Visit Teams"
+keyMetric: "Reply Before the Buyer Calls the Next Project"
+order: 1
 ---
 
-# Ridhzo for Real Estate Agents & Property Brokers
+# Ridhzo for Real Estate Agents & Developers
 
-## 1. Executive Summary
-Real estate is a high-ticket, high-velocity sales environment. Buyers comparing villas, apartments, or commercial plots submit inquiries on multiple portals simultaneously. The agent who responds first with floor plans and pricing captures the site visit and earns the commission.
+## The reality
+Property buyers enquire on several projects at once. The agent who replies first with the brochure and a site-visit slot usually wins the visit — and the booking. Meanwhile leads from Facebook, Google, portals and hoardings are scattered, site visits are forgotten, and agents fight over leads.
 
----
+## How Ridhzo fixes it
 
-## 2. Broker Pain Points & The Ridhzo Solution
+| Problem | With Ridhzo |
+| :--- | :--- |
+| Saving 20 numbers a day to reply on WhatsApp | **1-tap WhatsApp** opens the chat with your brochure message ready — no saving numbers |
+| Leads spread across Facebook, Google, portals and Excel | **One inbox** — Facebook/Instagram Lead Ads, Google Lead Form Ads, web forms, webhooks, CSV |
+| No signal in basements and on remote plots | **Offline lead capture** — add leads anyway, they sync later |
+| Buyers forget weekend site visits | **Site-visit confirmations** with a Google Maps pin, plus automatic reminders **24 hours and 1 hour before** |
+| Agents grabbing or hoarding leads | **Round-robin** per project team, and reps see **only their own leads** |
+| No proof the rep actually went | **GPS check-in** at the site |
 
-| Broker Pain Point | Traditional Consequence | Ridhzo Advantage |
-| :--- | :--- | :--- |
-| **Manual Number Saving**: Saving 20 numbers a day into phone address books. | 3 to 5 minutes wasted per lead; delayed outreach. | **1-Tap WhatsApp**: Chat opens immediately with prospect's number and brochure intro. |
-| **Basement & Site Walkthrough Signal Drops**: Touring high-rise basements or remote land with zero cellular coverage. | App crashes, notes lost, cannot save prospective buyer data. | **Offline Outbox**: Leads and notes save locally on device; auto-syncs when exiting the basement. |
-| **Site Visit No-Shows**: Buyers forget scheduled weekend site visits. | 50% weekend walkthrough drop-off rate. | **Scheduled Reminder Cadences**: Automated WhatsApp confirmations sent 24h and 2h before visit. |
-| **Lead Grabbing Among Agents**: Aggressive agents hoard portal leads and ignore follow-ups. | Unfair workload, burned leads, agent conflict. | **Atomic Round-Robin**: Even, race-safe lead rotation with capacity caps per rep. |
+## Recommended setup
+1. **Sources:** one Facebook lead form per project, Google Lead Form Ads, and a hosted form with a QR code for hoardings and brochures.
+2. **Custom fields:** Configuration (1BHK / 2BHK / 3BHK / Villa / Plot), Budget (currency), Preferred location, Possession timeline.
+3. **Stages:** New → Contacted → Site Visit Scheduled → Site Visit Done → Negotiation → Booked / Lost.
+4. **Automation:** New lead from the Project A form → assign round-robin in the Project A team → send WhatsApp brochure → follow-up in 1 hour.
+5. **Saved locations:** each project site with its map link, for site-visit meetings.
+6. **Sequence:** 14-day nurture — walkthrough video, price sheet, site-visit invite, offer deadline.
+7. **Tracked links:** share the floor plan and get notified when the buyer opens it.
 
----
+## WhatsApp templates to start with
+> Hi {{first_name}}! 👋 Thanks for your interest in our project. I have the floor plans and latest price sheet ready — shall I share them here?
 
-## 3. Ideal Broker Workflow & Configuration Options
+> Hi {{first_name}}, we have sample flats open for viewing this Saturday between 11 AM and 4 PM. Would a morning or afternoon visit suit you?
 
-### 1. Ingestion Configuration
-- Connect Facebook Ads (Property Campaigns), Website Lead Forms, and 99acres/Magicbricks webhook relays.
-- Custom Fields configured:
-  - `Unit_Type` (1BHK, 2BHK, 3BHK, Villa, Plot)
-  - `Budget_Range` (₹50L – ₹1 Cr, ₹1 Cr – ₹2.5 Cr, ₹2.5 Cr+)
-  - `Possession_Timeline` (Ready to Move, Under Construction, 1 Year)
+> Hi {{first_name}}, great meeting you at the site today! Sharing the unit availability and payment plan we discussed. Any questions, just reply here.
 
-### 2. High-Converting WhatsApp Templates
-
-#### Template A: Immediate Brochure & Pricing Dispatch (First 5 Minutes)
-> *"Hi {{name}}! 👋 Thank you for inquiring about {{interest}}. I am {{assigned_rep}} from {{workspace_name}}. I have the floor plans, master layout, and current price sheet ready. Can I share the PDF here on WhatsApp?"*
-
-#### Template B: Site Visit Scheduling (Post-Inquiry)
-> *"Hi {{name}}, we have 3 sample apartments available for private viewing this Saturday between 11 AM and 4 PM. Would you prefer a morning or afternoon slot for a walkthrough?"*
-
-#### Template C: Post-Walkthrough Follow-up
-> *"Hi {{name}}, great meeting you at {{interest}} today! Here is the unit availability sheet and customized payment schedule we discussed. Let me know if you have any questions before Monday."*
-
----
-
-## 4. Pipeline Stages Customized for Real Estate
-- `Stage 1: New Inquiry` (SLA: &lt;15 mins)
-- `Stage 2: WhatsApp / Call Connected`
-- `Stage 3: Site Visit Scheduled`
-- `Stage 4: Walkthrough Completed`
-- `Stage 5: Unit Shortlisted & Negotiation`
-- `Stage 6: Booking Token Paid (Won)`
-- `Stage 7: Lost / Budget Mismatch`
+## What owners track
+- Speed to first response and % of leads contacted within 5 minutes
+- Site visits by rep, and conversion from visit to booking
+- Which project, campaign and source bring bookings — not just enquiries

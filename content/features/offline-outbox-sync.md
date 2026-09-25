@@ -1,39 +1,27 @@
 ---
-title: "Offline First Outbox & Auto-Sync"
+title: "Offline Lead Capture"
 slug: "offline-mode"
-badge: "⚡ Zero Data Loss"
-summary: "Capture leads anywhere with zero network signal. Outbox queue, automatic reconnection flush, and deadlock recovery."
-keyMetric: "100% Reliable Field Capture"
+badge: "📶 Works Without Signal"
+summary: "Add new leads with no internet — at expos, basements or remote sites. Ridhzo saves them on your phone and syncs automatically when you're back online."
+keyMetric: "Zero Leads Lost to Bad Network"
+order: 13
 category: "capture"
-order: 5
 ---
 
-# Offline First Outbox & Auto-Sync
+# Offline Lead Capture
 
-## 1. Feature Overview
-Ridhzo's offline-first architecture allows sales agents to create leads, update deal notes, and advance stages even in zero-connectivity environments—such as basement parking, high-rise elevators, and remote property sites.
+## No signal? No problem.
+Property basements, exhibition halls, rural sites and lifts — the places where you meet buyers are often the places with no network. With most apps, the lead you just typed is simply lost.
 
----
+## How it works
+1. Open **Quick Add** and enter the lead as usual — name, phone, email, company, custom fields.
+2. With no connection, Ridhzo **saves the lead safely on your device** (kept separately for each workspace).
+3. You can see how many leads are waiting to sync.
+4. When your connection returns, Ridhzo **uploads them automatically** — no button to press.
+5. They then go through the normal steps: duplicate check, assignment, alerts and automations.
 
-## 2. Offline Outbox Capabilities & Options
+## Real example
+An agent at a weekend property expo adds 40 walk-in visitors on a patchy network. When they step outside, all 40 sync, get assigned, and receive a thank-you WhatsApp that evening.
 
-### Native Device Outbox Queue:
-- **Zero Heavy Dependencies**: Implemented natively in `src/lib/offline/outbox.ts` using encrypted browser storage.
-- **Optimistic Lead Creation**: Submitting the Quick-Add Lead Drawer while offline saves the record immediately with a client UUID and timestamp.
-- **User Feedback**: Instant amber toast notification: *"Saved offline ⚡ Will auto-sync once reconnected."*
-
-### Auto-Sync & Reconnection Engine:
-- **Connection Event Listener**: Monitors `window.addEventListener("online")` and `offline` triggers in real-time.
-- **Automatic Flush**: Calls `flushOfflineOutbox()` the moment internet connectivity returns.
-- **Sequential Mutation Processing**: Dispatches queued leads to `createLeadAction` in order of creation.
-
-### Deadlock-Proof Conflict Handling:
-- **Validation Recovery**: If a queued lead has a duplicate email or phone that was created concurrently, Ridhzo safely logs the occurrence and clears the queue item.
-- **Transient Error Retry**: Server 500s or temporary timeouts remain buffered in the outbox for subsequent retry cycles.
-
----
-
-## 3. UI Status Indicators
-- **Header Offline Pill**: Pulsing amber pill in the top header displaying `Offline (X queued)`.
-- **Manual Sync Trigger**: Clicking the offline indicator triggers an immediate sync attempt without requiring a page reload.
-- **Offline Shell**: If a user navigates to an uncached route while offline, the service worker displays a clean offline shell (`/offline.html`) explaining connectivity status.
+## Good to know
+Offline mode is for **adding new leads**. Viewing and updating existing leads needs a connection.

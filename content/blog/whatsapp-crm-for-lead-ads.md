@@ -32,7 +32,7 @@ WhatsApp is powerful but rule-bound. A WhatsApp-first CRM should handle:
 
 - **The 24-hour window.** Outside it, you need approved message templates — the tool should manage this for you.
 - **Deep links vs. API.** For solo closers, a `wa.me` deep link that opens a pre-filled chat is enough. For teams at volume, a proper Business API (e.g. via a BSP) sends at scale.
-- **Dynamic tokens.** "Hi {name}, thanks for your interest in {property}" should fill itself from the lead record.
+- **Dynamic tokens.** "Hi {{first_name}}, thanks for your enquiry" should fill itself from the lead record.
 
 ## The playbook
 

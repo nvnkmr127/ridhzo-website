@@ -1,25 +1,30 @@
 ---
-title: "Ridhzo for Coaches, Educators & Consultants"
+title: "Ridhzo for Coaches & Consultants"
 slug: "coaching-consulting"
-badge: "🎓 High-Ticket Course & Consulting Sales"
-targetAudience: "Executive Coaches, Course Creators & B2B Consultants"
-keyMetric: "Turn Webinar Registrants into Paying Clients"
+badge: "🎯 High-Ticket Programs & Services"
+targetAudience: "Coaches, Course Creators, Trainers & B2B Consultants"
+keyMetric: "Turn Webinar Sign-ups into Discovery Calls"
+order: 6
 ---
 
-# Ridhzo for Coaches, Educators & Consultants
+# Ridhzo for Coaches & Consultants
 
-## The Industry Reality
-High-ticket coaching programs ($1,000 — $5,000) cannot be sold through checkout pages alone. They require a 1-on-1 qualification conversation. Leads who register for webinars or download cheat sheets are most interested in the first 20 minutes after signing up.
+## The reality
+High-ticket programs and consulting are sold through a conversation, not a checkout page. People who register for a webinar or download a guide are most interested in the first hour — then they move on.
 
----
+## How coaches use Ridhzo
 
-## How Coaches Win with Ridhzo
+### Start the conversation right away
+Webinar and application-form leads land in Ridhzo instantly. Send a personal WhatsApp in one tap:
+> Hey {{first_name}}! Saw you registered for Saturday's masterclass. What's the #1 thing you're hoping we cover?
 
-### 1. Instant 1-Tap DM Outreach
-- Contact webinar attendees and application form submitters directly on WhatsApp with a personalized welcome message:
-  > *"Hey Priya! Noticed you just registered for the Masterclass on Saturday. What is the #1 challenge you are hoping we cover?"*
-- Starts an authentic 2-way conversation that leads naturally into booking a discovery call.
+### Focus on the hottest leads
+- Qualification answers from your form are saved on the lead; tag high-intent leads ("Revenue 50L+", "Starting this month").
+- The **Hot Leads** list and lead score bring the most engaged people to the top.
 
-### 2. Lead Scoring & Temperature Tracking
-- Automatically tag high-intent leads who answered key qualification questions (e.g., revenue &gt; ₹50L or immediate timeline).
-- Focus rep energy on hot prospects before working through bulk lists.
+### Book discovery calls without back-and-forth
+- Share your **booking page** — leads choose a slot in your working hours.
+- **Online meetings** get the join link, confirmations and reminders automatically, and sync with Google Calendar.
+
+### Follow up after the webinar
+A **sequence** sends the replay, a case study and a call invitation over the following week — and stops when they reply.

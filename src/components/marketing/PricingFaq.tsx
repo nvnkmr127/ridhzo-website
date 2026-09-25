@@ -9,12 +9,12 @@ const FAQS: { q: string; a: React.ReactNode; plain: string }[] = [
     q: "Is there really a free plan?",
     a: (
       <>
-        Yes. The Free plan is free forever — up to 100 active leads, a full mobile
+        Yes. The Free plan is free forever — up to 300 leads, a full mobile
         pipeline, 1-tap WhatsApp, and offline mode. No credit card required to start.
       </>
     ),
     plain:
-      "Yes. The Free plan is free forever — up to 100 active leads, a full mobile pipeline, 1-tap WhatsApp, and offline mode. No credit card required to start.",
+      "Yes. The Free plan is free forever — up to 300 leads, a full mobile pipeline, 1-tap WhatsApp, and offline mode. No credit card required to start.",
   },
   {
     q: "How does the 14-day trial work?",
@@ -31,24 +31,24 @@ const FAQS: { q: string; a: React.ReactNode; plain: string }[] = [
     q: "Is pricing per user or per company?",
     a: (
       <>
-        Pricing is per user, per month, so it scales with your team. Starter includes
-        up to 3 seats; Unlimited has unlimited seats for larger brokerages and agencies.
+        Per company. You pay one flat monthly price for your workspace, not per user. Starter
+        (₹249/month) includes up to 3 seats; Unlimited (₹449/month) has unlimited seats for larger brokerages and agencies.
       </>
     ),
     plain:
-      "Pricing is per user, per month, so it scales with your team. Starter includes up to 3 seats; Unlimited has unlimited seats for larger brokerages and agencies.",
+      "Per company. You pay one flat monthly price for your workspace, not per user. Starter (₹249/month) includes up to 3 seats; Unlimited (₹449/month) has unlimited seats for larger brokerages and agencies.",
   },
   {
-    q: "What counts as an active lead?",
+    q: "What counts toward my lead limit?",
     a: (
       <>
-        An active lead is a contact currently in your pipeline. Archived or closed
-        leads don&apos;t count against your limit, so you only pay for what you&apos;re
-        actively working.
+        Every lead in your workspace counts, whatever its status. Leads you delete (to the
+        recycle bin) don&apos;t count. If you reach the limit, nothing is deleted — you just
+        can&apos;t add new leads until you upgrade.
       </>
     ),
     plain:
-      "An active lead is a contact currently in your pipeline. Archived or closed leads don't count against your limit, so you only pay for what you're actively working.",
+      "Every lead in your workspace counts, whatever its status. Leads you delete (to the recycle bin) don't count. If you reach the limit, nothing is deleted — you just can't add new leads until you upgrade.",
   },
   {
     q: "Can I switch plans or cancel later?",
@@ -69,13 +69,13 @@ const FAQS: { q: string; a: React.ReactNode; plain: string }[] = [
     q: "What payment methods do you accept?",
     a: (
       <>
-        Major credit and debit cards plus popular regional payment methods, handled
-        securely by our payment processor. Your card details are never stored on our
+        UPI, credit and debit cards, and net banking, handled securely by Razorpay.
+        Prices exclude 18% GST, and every payment gets a GST invoice. Your card details are never stored on our
         servers.
       </>
     ),
     plain:
-      "Major credit and debit cards plus popular regional payment methods, handled securely by our payment processor. Your card details are never stored on our servers.",
+      "UPI, credit and debit cards, and net banking, handled securely by Razorpay. Prices exclude 18% GST, and every payment gets a GST invoice. Your card details are never stored on our servers.",
   },
   {
     q: "Is my data secure?",

@@ -161,21 +161,21 @@ export default function SecurityPolicyPage() {
           <span>5. Mobile PWA Offline Security</span>
         </h2>
         <p>
-          Ridhzo is designed for reps in the field with patchy network connectivity. Our offline sync outbox implements
-          rigorous device-level safeguards:
+          Ridhzo lets reps in the field add new leads even without a network connection. Here is how that data is handled:
         </p>
         <ul className="list-disc pl-5 space-y-1.5 text-xs sm:text-sm">
           <li>
-            <strong>Origin-Bound IndexedDB:</strong> Offline lead updates are stored exclusively within the browser&apos;s
-            origin-isolated IndexedDB storage sandbox, inaccessible to other web applications or browser tabs.
+            <strong>New leads only:</strong> Offline mode holds only leads a rep has just added. Existing leads are never
+            downloaded for offline use, so a lost phone does not expose your pipeline.
           </li>
           <li>
-            <strong>Session Expiry Invalidation:</strong> If an agent&apos;s JWT authentication session is revoked or
-            expired on the server, the offline cache is wiped immediately upon the next network heartbeat.
+            <strong>Browser-isolated storage:</strong> Pending leads are kept in the browser&apos;s storage for the Ridhzo
+            app, separated per workspace and not readable by other websites.
           </li>
           <li>
-            <strong>Conflict Resolution Locks:</strong> Offline edits sync using optimistic concurrency control to
-            prevent data overwrite collisions when multiple reps update lead records simultaneously.
+            <strong>Normal checks on sync:</strong> When the connection returns, each lead is sent through the same
+            signed-in, permission-checked path as any other new lead — including duplicate detection — and is then
+            removed from the device.
           </li>
         </ul>
       </section>

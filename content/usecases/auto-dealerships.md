@@ -1,26 +1,31 @@
 ---
 title: "Ridhzo for Auto Dealerships & Showrooms"
 slug: "auto-dealerships"
-badge: "🚗 Fast Test-Drive Bookings"
-targetAudience: "Car Dealerships, Bike Showrooms & Fleet Sales"
-keyMetric: "Double Weekend Test-Drive Bookings"
+badge: "🚗 Test Drives & Showroom Visits"
+targetAudience: "Car Dealerships, Two-Wheeler Showrooms & Used-Car Sellers"
+keyMetric: "Book the Test Drive Before the Buyer Visits a Rival"
+order: 7
 ---
 
 # Ridhzo for Auto Dealerships & Showrooms
 
-## The Industry Reality
-Car shoppers submit test-drive requests online while browsing vehicles in the evening. If the dealership takes 24 hours to assign the lead, the buyer has already visited a competing brand showroom.
+## The reality
+Buyers send test-drive requests in the evening while comparing brands. If the dealership takes a day to respond, the buyer has already visited another showroom.
 
----
+## How dealerships use Ridhzo
 
-## How Dealerships Use Ridhzo
+### Instant alert, instant reply
+- Leads from your website, Facebook ads and portals arrive in Ridhzo and are assigned round-robin to sales consultants.
+- The consultant gets a push alert and sends colour options, on-road price and test-drive slots on WhatsApp in one tap.
 
-### 1. Instant Rep Notification & Test-Drive Booking
-- Inbound inquiries from car portal ads trigger an instant push alert on the showroom sales executive's phone.
-- 1-tap WhatsApp sends vehicle color options, on-road price breakdowns, and available test-drive slots in seconds.
+### Walk-ins captured, not forgotten
+Consultants add walk-in visitors with **Quick Add** on their phone — with custom fields like Model, Variant, Exchange vehicle and Finance required.
 
-### 2. Walk-in Visitor Capture
-- Floor sales reps use the mobile PWA on showroom tablets or personal phones to record walk-in visitors and trade-in vehicle details.
+### Test drives that happen
+Book test drives as **store visits** or **in-person** meetings; the buyer gets a confirmation and automatic reminders.
 
-### 3. Rep Capacity & Performance Leaderboards
-- Track lead conversion rates and response time per sales consultant to incentivize healthy competition across the showroom floor.
+### Follow-up until they book
+A sequence sends the offer, finance options and a test-drive reminder. Going Cold catches buyers nobody has contacted for two weeks.
+
+### Floor performance
+The **team leaderboard** and response-time metrics show which consultants convert, and where coaching is needed.

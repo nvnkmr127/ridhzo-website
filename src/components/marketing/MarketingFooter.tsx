@@ -18,7 +18,7 @@ const FOOTER_SECTIONS: FooterSection[] = [
     title: "Product",
     links: [
       ...FEATURE_NAV.filter((f) =>
-        ["lead-capture", "whatsapp", "sequences", "automations", "ai-assistant", "analytics"].includes(f.slug),
+        ["lead-capture", "whatsapp", "follow-ups", "meetings", "sequences", "ai"].includes(f.slug),
       ).map(({ label, href }) => ({ label, href })),
       { label: "All Features", href: "/features" },
       { label: "Pricing", href: "/pricing" },
@@ -28,9 +28,7 @@ const FOOTER_SECTIONS: FooterSection[] = [
     title: "Platform",
     links: [
       ...FEATURE_NAV.filter((f) =>
-        ["web-forms", "leads-hub", "team-routing", "custom-fields-templates", "api-webhooks", "lead-intelligence"].includes(
-          f.slug,
-        ),
+        ["automations", "team-routing", "lead-management", "dashboards", "integrations", "team-and-security"].includes(f.slug),
       ).map(({ label, href }) => ({ label, href })),
       { label: "Security", href: "/security" },
     ],

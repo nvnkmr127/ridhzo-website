@@ -1,27 +1,36 @@
 ---
-title: "Ridhzo for Solar & Home Service Contractors"
+title: "Ridhzo for Solar, Interiors & Home Services"
 slug: "solar-contractors"
-badge: "☀️ Field Sales & Canvassing"
-targetAudience: "Solar Installers, Roofers, Interior Designers & HVAC"
-keyMetric: "Book On-Site Consultations 2x Faster"
+badge: "☀️ Field Sales & Site Surveys"
+targetAudience: "Solar Installers, Interior Designers, Roofers, HVAC & Home Services"
+keyMetric: "Book More Site Surveys, Lose Fewer Quotes"
+order: 4
 ---
 
-# Ridhzo for Solar & Home Service Contractors
+# Ridhzo for Solar, Interiors & Home Services
 
-## The Industry Reality
-Solar and home renovation sales happen in the field—on rooftops, during site inspections, and at homeowner doorsteps. Contractors need a mobile tool that works fast and never loses data when working in rural or low-signal neighborhoods.
+## The reality
+These sales happen in the field — on rooftops, at site measurements, in homes with poor signal. Teams need a phone-first tool that doesn't lose data and makes sure every quote is followed up.
 
----
+## How home-service teams use Ridhzo
 
-## How Home Service Teams Use Ridhzo
+### Leads to the right estimator
+- Facebook and Google lead ads by district or city, plus your website form.
+- **Team-based round-robin** by territory, or **capacity limits** so no estimator is overloaded.
 
-### 1. 100% Offline Field Canvassing
-- Reps surveying rooftop conditions or visiting rural properties can log homeowner details, electricity bill estimates, and roof measurements offline.
-- Data auto-syncs to the office database as soon as the rep drives back into coverage.
+### Site surveys that actually happen
+- Book a **site visit** meeting with the address and map link; the customer gets a WhatsApp confirmation and reminders.
+- Reps **check in with GPS** on arrival and record the outcome with a next follow-up.
+- Add leads **offline** at the site; they sync when back in coverage.
 
-### 2. Rapid Estimate Follow-ups
-- Deliver solar savings projections and interior 3D design quotes over WhatsApp in one tap.
-- Homeowners can review estimates and reply with photos of their current utility bills directly in chat.
+### Quotes that get followed up
+- Share the quote, savings estimate or design portfolio as a **tracked link** — you're notified when the customer opens it.
+- A **sequence** follows up automatically: quote → financing options → subsidy information → final reminder.
 
-### 3. Fair Estimator Lead Routing
-- Route inbound roof repair and solar inquiries evenly across estimators based on geographical zone or daily appointment capacity.
+### Useful custom fields
+Monthly electricity bill (currency), Roof type, Subsidy eligible (checkbox), Room count, Budget, Site measurements done (checkbox).
+
+## What owners track
+- Leads, win rate and revenue by **city/territory**
+- Surveys per rep and survey-to-order conversion
+- Quotes nobody has opened

@@ -17,13 +17,14 @@ export function PricingSection({ showHeader = true }: { showHeader?: boolean } =
       description: "For individual closers evaluating Ridhzo and getting started with instant response.",
       badge: null,
       features: [
-        "Up to 100 active leads",
-        "1 User workspace",
-        "1-Tap WhatsApp deep links",
-        "PWA mobile app on iOS & Android",
-        "Native offline lead outbox",
-        "Visual drag-and-drop Kanban pipeline",
-        "Call logging & chronological timeline",
+        "Up to 300 leads",
+        "1 user",
+        "1 lead source (Facebook, Google, web form, webhook…)",
+        "2 automations & 1 follow-up sequence",
+        "15 AI credits / month",
+        "Instant push alerts & 1-tap WhatsApp",
+        "Kanban pipeline, follow-ups & meetings",
+        "Mobile app (iOS & Android) with offline capture",
       ],
       ctaText: "Start Free Forever",
       ctaHref: appUrl("/signup"),
@@ -32,19 +33,18 @@ export function PricingSection({ showHeader = true }: { showHeader?: boolean } =
     {
       name: "Starter",
       priceMonthly: 249,
-      priceYearly: 199,
+      priceYearly: 2490,
       description: "For active solo agents & growing sales teams who need automated speed.",
       badge: "Most Popular",
       features: [
-        "Up to 5,000 active leads",
-        "Up to 3 Team seats",
+        "Up to 5,000 leads",
+        "Up to 3 team seats",
         "Everything in Free, plus:",
-        "Meta (Facebook & Instagram) Lead Ads sync",
-        "Hosted & embeddable web lead forms",
-        "Instant vibrating push notifications",
-        "Atomic row-locked round-robin assignment",
-        "SLA response time & first-contact tracking",
-        "Custom fields & lead tags",
+        "5 lead sources",
+        "15 automations & 10 follow-up sequences",
+        "300 AI credits / month",
+        "AI auto-tagging of incoming replies",
+        "No \"Powered by Ridhzo\" on your web forms",
       ],
       ctaText: "Start 14-Day Free Trial",
       ctaHref: appUrl("/signup?plan=starter"),
@@ -53,18 +53,16 @@ export function PricingSection({ showHeader = true }: { showHeader?: boolean } =
     {
       name: "Unlimited",
       priceMonthly: 449,
-      priceYearly: 359,
+      priceYearly: 4490,
       description: "For high-volume sales agencies and fast-scaling brokerages.",
       badge: "Best Value",
       features: [
-        "Unlimited active leads",
+        "Unlimited leads",
         "Unlimited team seats",
         "Everything in Starter, plus:",
-        "Event-driven Automations Engine",
-        "Automated WhatsApp & task drip sequences",
-        "Executive SLA dashboard & team leaderboards",
-        "Going Cold automated inactivity radar",
-        "Outbound webhook triggers (Zapier / Make)",
+        "Unlimited lead sources",
+        "Unlimited automations & sequences",
+        "2,000 AI credits / month",
         "Priority phone & WhatsApp onboarding",
       ],
       ctaText: "Upgrade to Unlimited",
@@ -118,7 +116,7 @@ export function PricingSection({ showHeader = true }: { showHeader?: boolean } =
             >
               <span>Annual Billing</span>
               <span className="rounded bg-background text-foreground text-[10px] px-1.5 py-0.5 font-mono">
-                Save 20%
+                2 months free
               </span>
             </button>
           </div>
@@ -127,7 +125,8 @@ export function PricingSection({ showHeader = true }: { showHeader?: boolean } =
         {/* Pricing Cards Grid - Strict THEME.md Monochrome Surface */}
         <div className="mt-10 sm:mt-14 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto items-stretch">
           {plans.map((p, i) => {
-            const price = billingCycle === "monthly" ? p.priceMonthly : p.priceYearly;
+            // Yearly plans are billed as one annual charge (10× monthly = 2 months free); show the monthly equivalent.
+            const price = billingCycle === "monthly" ? p.priceMonthly : Math.round(p.priceYearly / 12);
 
             return (
               <div
@@ -158,12 +157,12 @@ export function PricingSection({ showHeader = true }: { showHeader?: boolean } =
                       ₹{price}
                     </span>
                     <span className="text-xs text-muted-foreground">
-                      {price === 0 ? "forever free" : "/ user / month"}
+                      {price === 0 ? "forever free" : "/ month"}
                     </span>
                   </div>
                   {billingCycle === "yearly" && price > 0 && (
                     <p className="text-[11px] text-muted-foreground font-mono mt-1">
-                      Billed annually (₹{price * 12}/year)
+                      Billed annually (₹{p.priceYearly.toLocaleString("en-IN")}/year)
                     </p>
                   )}
 

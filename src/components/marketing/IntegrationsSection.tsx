@@ -15,6 +15,7 @@ import {
   Briefcase,
   MessageCircle,
   ArrowRight,
+  Phone,
 } from "lucide-react";
 
 type Integration = {
@@ -31,25 +32,25 @@ const GROUPS: { title: string; items: Integration[] }[] = [
   {
     title: "Lead sources in",
     items: [
-      { icon: Megaphone, name: "Facebook & Instagram Lead Ads", detail: "Real-time via Meta Graph API", href: "/features/lead-capture" },
-      { icon: Search, name: "Google Lead Form Ads", detail: "Search, YouTube & PMax with GCLID", href: "/features/lead-capture" },
-      { icon: FileText, name: "Hosted Web Forms", detail: "Multi-step link or iframe embed", href: "/features/web-forms" },
-      { icon: Webhook, name: "Website Webhook", detail: "WordPress, Webflow, Framer, Shopify", href: "/features/lead-capture" },
-      { icon: Table2, name: "CSV Import", detail: "Map, dry-run, then commit", href: "/features/leads-hub" },
-      { icon: Code2, name: "REST API", detail: "Scoped keys, 600 req/min", href: "/features/api-webhooks" },
-      { icon: Briefcase, name: "LinkedIn Lead Gen", detail: "B2B lead form sync", href: "/features/lead-capture", soon: true },
-      { icon: MessageCircle, name: "WhatsApp Inbound", detail: "New chats become leads", href: "/features/lead-capture", soon: true },
+      { icon: Megaphone, name: "Facebook & Instagram Lead Ads", detail: "Leads in seconds, past-lead sync", href: "/features/lead-capture" },
+      { icon: Search, name: "Google Lead Form Ads", detail: "Leads in seconds with campaign details", href: "/features/lead-capture" },
+      { icon: FileText, name: "Web Forms & Webhooks", detail: "Your website, Zapier, Make, Pabbly", href: "/features/lead-capture" },
+      { icon: Table2, name: "CSV Import", detail: "Bring in an existing list", href: "/features/lead-capture" },
+      { icon: Phone, name: "Telephony", detail: "Missed call → instant WhatsApp", href: "/features/integrations" },
+      { icon: Code2, name: "REST API", detail: "Full or read-only API keys", href: "/features/integrations" },
+      { icon: Briefcase, name: "LinkedIn Lead Gen", detail: "B2B lead form sync", href: "/features/integrations", soon: true },
+      { icon: MessageCircle, name: "WhatsApp Inbound", detail: "New chats become leads", href: "/features/integrations", soon: true },
     ],
   },
   {
     title: "Conversations & data out",
     items: [
-      { icon: MessageSquare, name: "WhatsApp", detail: "1-tap personal or Cloud API", href: "/features/whatsapp" },
-      { icon: Mail, name: "Email (your SMTP)", detail: "Send from your own domain", href: "/features/custom-fields-templates" },
-      { icon: CalendarDays, name: "Google Calendar", detail: "Bookings sync to rep calendars", href: "/features/follow-ups" },
-      { icon: Target, name: "Meta Conversions API", detail: "Train ads on won deals", href: "/features/lead-intelligence" },
-      { icon: Database, name: "Lead Enrichment", detail: "Clearbit, Apollo, ZoomInfo…", href: "/features/lead-intelligence" },
-      { icon: Webhook, name: "Outbound Webhooks", detail: "Signed events with retries", href: "/features/api-webhooks" },
+      { icon: MessageSquare, name: "WhatsApp", detail: "1-tap personal or Business API", href: "/features/whatsapp" },
+      { icon: Mail, name: "Your Email (SMTP)", detail: "Gmail, Workspace, Zoho, Outlook, SES", href: "/features/integrations" },
+      { icon: CalendarDays, name: "Google Calendar", detail: "Meetings sync, Google Meet links", href: "/features/meetings" },
+      { icon: Target, name: "Meta Conversions API", detail: "Tell Meta which leads won", href: "/features/integrations" },
+      { icon: Database, name: "Lead Enrichment & Inbound Email", detail: "Fill gaps, log email replies", href: "/features/integrations" },
+      { icon: Webhook, name: "Outbound Webhooks", detail: "Signed events, auto-retry & replay", href: "/features/integrations" },
     ],
   },
 ];
@@ -109,10 +110,10 @@ export function IntegrationsSection() {
 
         <div className="mt-10 text-center">
           <Link
-            href="/features/api-webhooks"
+            href="/features/integrations"
             className="focus-ring inline-flex items-center gap-1 rounded-sm text-sm font-semibold text-foreground hover:underline underline-offset-4"
           >
-            Building something custom? See the API &amp; webhooks <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            Building something custom? See integrations &amp; the API <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
         </div>
       </div>

@@ -69,7 +69,7 @@ export const COMPETITORS: Competitor[] = [
       { dimension: "Mobile experience", ridhzo: "Mobile-first PWA, offline-capable", competitor: "Web-first with mobile apps" },
       { dimension: "WhatsApp follow-up", ridhzo: "1-tap deep links, built-in", competitor: "Via integrations / add-ons" },
       { dimension: "Setup time", ridhzo: "Minutes", competitor: "Longer — more to configure" },
-      { dimension: "Entry price", ridhzo: "Free plan, then ₹249/user/mo", competitor: "Free for 3 users, then ~₹800+/user/mo" },
+      { dimension: "Entry price", ridhzo: "Free plan, then ₹249/mo flat (3 users)", competitor: "Free for 3 users, then ~₹800+/user/mo" },
     ],
     narrative: [
       {
@@ -96,11 +96,11 @@ export const COMPETITORS: Competitor[] = [
       "Companies already standardized on the Zoho ecosystem",
       "Businesses wanting CRM + support + marketing + analytics in one vendor",
     ],
-    pricingNote: `As of ${AS_OF}, Zoho CRM offers a free edition for up to 3 users, with paid plans from roughly ₹800/user/month (Standard) up to ₹2,600/user/month (Ultimate) on annual billing, plus GST; the CRM Plus bundle is around ₹4,200/user/month. Ridhzo has a free-forever plan and paid plans from ₹249/user/month. For a small team, Ridhzo is typically the lower-cost entry point; always check each vendor's current pricing.`,
+    pricingNote: `As of ${AS_OF}, Zoho CRM offers a free edition for up to 3 users, with paid plans from roughly ₹800/user/month (Standard) up to ₹2,600/user/month (Ultimate) on annual billing, plus GST; the CRM Plus bundle is around ₹4,200/user/month. Ridhzo has a free-forever plan and flat workspace pricing: ₹249/month for up to 3 users, or ₹449/month for unlimited users. For a small team, Ridhzo is typically the lower-cost entry point; always check each vendor's current pricing.`,
     migration:
       "Moving from Zoho to Ridhzo is straightforward for lead data: export your leads to CSV and import them into Ridhzo, then connect your lead sources (Meta Lead Ads, web forms). Because Ridhzo is focused on lead response rather than a full suite, there's far less to reconfigure.",
     faqs: [
-      { q: "Is Ridhzo cheaper than Zoho CRM?", a: "For small teams, usually yes — Ridhzo has a free-forever plan and paid plans from ₹249/user/month, while Zoho's paid CRM plans start around ₹800/user/month (it's free for up to 3 users). Compare current pricing for your team size before deciding." },
+      { q: "Is Ridhzo cheaper than Zoho CRM?", a: "For small teams, usually yes — Ridhzo has a free-forever plan and flat pricing from ₹249/month for up to 3 users (₹449/month for unlimited users), while Zoho's paid CRM plans start around ₹800/user/month (it's free for up to 3 users). Compare current pricing for your team size before deciding." },
       { q: "Can Ridhzo do everything Zoho CRM does?", a: "No, and it isn't trying to. Zoho is a broad, customizable suite; Ridhzo is a focused speed-to-lead CRM. If you need deep customization or many business modules, Zoho is broader. If you want the fastest lead response from mobile, Ridhzo is purpose-built." },
       { q: "Does Ridhzo integrate with WhatsApp like Zoho?", a: "WhatsApp is native to Ridhzo — 1-tap deep links and templates are core, not an add-on. Zoho supports WhatsApp mainly through integrations." },
     ],
@@ -121,7 +121,7 @@ export const COMPETITORS: Competitor[] = [
       { dimension: "Core focus", ridhzo: "Speed-to-lead & 1-tap WhatsApp", competitor: "Sales execution, lead scoring, field ops" },
       { dimension: "Complexity", ridhzo: "Minimal — live in minutes", competitor: "Higher — configuration & onboarding" },
       { dimension: "Mobile experience", ridhzo: "Mobile-first PWA, offline-capable", competitor: "Strong mobile + field CRM" },
-      { dimension: "Entry price", ridhzo: "Free plan, then ₹249/user/mo", competitor: "~₹1,250–₹4,500/user/mo range" },
+      { dimension: "Entry price", ridhzo: "Free plan, then ₹249/mo flat (3 users)", competitor: "~₹1,250–₹4,500/user/mo range" },
       { dimension: "Time to value", ridhzo: "Same day", competitor: "Weeks (implementation)" },
     ],
     narrative: [
@@ -135,7 +135,7 @@ export const COMPETITORS: Competitor[] = [
       },
       {
         heading: "Cost profile",
-        body: "For a solo agent or a 3–10 person team, LeadSquared's enterprise pricing and add-ons (telephony, WhatsApp volume) are usually more than needed. Ridhzo's free tier and ₹249/user entry make it far cheaper to start at small scale. At large enterprise scale with complex field operations, LeadSquared's depth may justify its cost.",
+        body: "For a solo agent or a 3–10 person team, LeadSquared's enterprise pricing and add-ons (telephony, WhatsApp volume) are usually more than needed. Ridhzo's free tier and flat ₹249/month entry (₹449/month for unlimited users) make it far cheaper to start at small scale. At large enterprise scale with complex field operations, LeadSquared's depth may justify its cost.",
       },
     ],
     ridhzoBestFor: [
@@ -149,7 +149,7 @@ export const COMPETITORS: Competitor[] = [
       "Distributed field-sales operations needing deep automation",
       "Teams that want ML lead scoring and heavy process customization",
     ],
-    pricingNote: `As of ${AS_OF}, LeadSquared is typically priced in the ₹1,250–₹4,500/user/month range with enterprise implementation, and add-ons like telephony and WhatsApp messaging are billed separately. Ridhzo has a free-forever plan and paid plans from ₹249/user/month. Ridhzo is the lighter, lower-cost option at small and mid scale; verify current pricing with each vendor.`,
+    pricingNote: `As of ${AS_OF}, LeadSquared is typically priced in the ₹1,250–₹4,500/user/month range with enterprise implementation, and add-ons like telephony and WhatsApp messaging are billed separately. Ridhzo has a free-forever plan and flat workspace pricing: ₹249/month for up to 3 users, or ₹449/month for unlimited users. Ridhzo is the lighter, lower-cost option at small and mid scale; verify current pricing with each vendor.`,
     migration:
       "For small and mid teams switching from LeadSquared, export your leads to CSV, import into Ridhzo, and reconnect your lead sources. You'll trade heavy configuration for a much simpler setup focused on fast response.",
     faqs: [
@@ -168,19 +168,19 @@ export const COMPETITORS: Competitor[] = [
     metaTitle: "Ridhzo vs Kylas: Speed-to-Lead CRM vs Flat Unlimited-User CRM",
     metaDescription:
       "Ridhzo vs Kylas compared — mobile-first speed-to-lead and WhatsApp vs. flat-price unlimited-user CRM. Pricing math, features, and who each is best for.",
-    tldr: `Kylas is an SMB CRM with a flat monthly price for unlimited users, which is great value for larger teams. Ridhzo is ${RIDHZO_ONE_LINER}, with a free plan and low per-user pricing. For a big team, Kylas's flat price can be cheaper per head; for a solo agent or small team focused on fast lead response from mobile, Ridhzo is cheaper to start and purpose-built for speed.`,
+    tldr: `Kylas is an SMB CRM with a flat monthly price for unlimited users, Ridhzo is ${RIDHZO_ONE_LINER}, and is also flat-priced: a free plan, ₹249/month for up to 3 users, and ₹449/month for unlimited users. Kylas is a broad general CRM; Ridhzo is cheaper at any team size and purpose-built for fast lead response from mobile.`,
     atAGlance: [
-      { dimension: "Best for", ridhzo: "Solo agents & small/mid teams; speed-first", competitor: "Larger teams wanting flat, unlimited seats" },
-      { dimension: "Pricing model", ridhzo: "Free plan + per-user (₹249+)", competitor: "Flat ~₹12,999/mo, unlimited users" },
+      { dimension: "Best for", ridhzo: "Solo agents & small/mid teams; speed-first", competitor: "Larger teams wanting a broad general CRM" },
+      { dimension: "Pricing model", ridhzo: "Free plan, then flat ₹249 (3 users) or ₹449/mo (unlimited users)", competitor: "Flat ~₹12,999/mo, unlimited users" },
       { dimension: "Core focus", ridhzo: "Speed-to-lead & 1-tap WhatsApp", competitor: "General SMB sales CRM" },
       { dimension: "Mobile experience", ridhzo: "Mobile-first PWA, offline-capable", competitor: "Web + mobile apps" },
-      { dimension: "Cheapest to start", ridhzo: "Free / very low per-user", competitor: "Flat fee from day one" },
-      { dimension: "Cheaper at scale", ridhzo: "Depends on team size", competitor: "Often, for large teams" },
+      { dimension: "Cheapest to start", ridhzo: "Free plan", competitor: "Flat fee from day one" },
+      { dimension: "Unlimited users", ridhzo: "₹449/mo", competitor: "~₹12,999/mo" },
     ],
     narrative: [
       {
         heading: "The pricing math",
-        body: "This is the crux. Kylas charges a flat monthly fee for unlimited users, so cost per person drops as the team grows — excellent for larger teams. Ridhzo has a free plan and per-user pricing from ₹249, so it's cheaper for a solo agent or a small team. Roughly: small team → Ridhzo is cheaper; large team → Kylas's flat price may win. Do the math for your headcount.",
+        body: "Both use flat pricing rather than charging per user. Kylas charges about ₹12,999/month for unlimited users. Ridhzo has a free plan, ₹249/month for up to 3 users, and ₹449/month for unlimited users — so Ridhzo costs less at any team size. What Kylas's higher price buys is a broader general-purpose CRM with onboarding included.",
       },
       {
         heading: "Focus: speed-to-lead",
@@ -198,17 +198,17 @@ export const COMPETITORS: Competitor[] = [
       "Teams that want a focused tool, not a general CRM",
     ],
     competitorBestFor: [
-      "Larger teams that benefit from flat, unlimited-user pricing",
+      "Larger teams that want onboarding included in the price",
       "Businesses wanting a broad general-purpose SMB CRM",
       "Teams that prefer predictable flat billing regardless of headcount",
     ],
-    pricingNote: `As of ${AS_OF}, Kylas uses a flat price of about ₹12,999/month for unlimited users (with onboarding included). Ridhzo has a free-forever plan and per-user pricing from ₹249/month. For small teams Ridhzo is usually cheaper; for large teams Kylas's flat fee can cost less per user. Calculate both for your team size and check current pricing.`,
+    pricingNote: `As of ${AS_OF}, Kylas uses a flat price of about ₹12,999/month for unlimited users (with onboarding included). Ridhzo has a free-forever plan and flat pricing of ₹249/month (up to 3 users) or ₹449/month (unlimited users), so it is the lower-cost option at any team size. Check current pricing with each vendor.`,
     migration:
       "Switching from Kylas to Ridhzo means exporting leads to CSV, importing them, and connecting your lead sources. You'll move from a broad CRM to a focused speed-to-lead workflow.",
     faqs: [
-      { q: "Is Ridhzo or Kylas cheaper?", a: "It depends on team size. Kylas charges a flat ~₹12,999/month for unlimited users, so it's cheaper per head for large teams. Ridhzo is free to start and ₹249/user/month, so it's cheaper for solo agents and small teams. Do the math for your headcount." },
+      { q: "Is Ridhzo or Kylas cheaper?", a: "Ridhzo, at any team size. Kylas charges a flat ~₹12,999/month for unlimited users. Ridhzo is free to start, ₹249/month for up to 3 users, and ₹449/month for unlimited users." },
       { q: "Why choose Ridhzo over a general CRM like Kylas?", a: "If your business wins or loses on lead-response speed, Ridhzo's specialization — instant capture, push alerts, routing, 1-tap WhatsApp, and SLA tracking as the core — is built for exactly that, from mobile." },
-      { q: "Does Kylas or Ridhzo have unlimited users?", a: "Kylas is known for flat pricing with unlimited users. Ridhzo's Unlimited plan also offers unlimited seats; its lower tiers are per-user with a free plan to start." },
+      { q: "Does Kylas or Ridhzo have unlimited users?", a: "Kylas is known for flat pricing with unlimited users. Both do. Ridhzo's Unlimited plan gives unlimited seats for a flat ₹449/month; Starter covers up to 3 users for ₹249/month, and there's a free plan to start." },
     ],
   },
   {
@@ -228,7 +228,7 @@ export const COMPETITORS: Competitor[] = [
       { dimension: "Sales pipeline", ridhzo: "Visual Kanban + SLA tracking", competitor: "Not a sales pipeline CRM" },
       { dimension: "Lead capture", ridhzo: "Meta Ads, web forms, webhooks, CSV", competitor: "Click-to-WhatsApp, contacts" },
       { dimension: "WhatsApp style", ridhzo: "1-tap personal follow-up + templates", competitor: "Official API broadcasts at scale" },
-      { dimension: "Entry price", ridhzo: "Free plan, then ₹249/user/mo", competitor: "Free plan, then ~₹1,500/mo + per-message" },
+      { dimension: "Entry price", ridhzo: "Free plan, then ₹249/mo flat (3 users)", competitor: "Free plan, then ~₹1,500/mo + per-message" },
     ],
     narrative: [
       {
@@ -255,7 +255,7 @@ export const COMPETITORS: Competitor[] = [
       "Building WhatsApp chatbots for support/engagement",
       "Running click-to-WhatsApp ad campaigns on the official API",
     ],
-    pricingNote: `As of ${AS_OF}, AiSensy offers a free-forever plan with paid plans from about ₹1,500/month (Basic) and ₹3,200/month (Pro), plus WhatsApp's per-message charges. Ridhzo has a free-forever plan and per-user pricing from ₹249/month. Because they do different jobs, compare by the outcome you need rather than price alone.`,
+    pricingNote: `As of ${AS_OF}, AiSensy offers a free-forever plan with paid plans from about ₹1,500/month (Basic) and ₹3,200/month (Pro), plus WhatsApp's per-message charges. Ridhzo has a free-forever plan and flat workspace pricing from ₹249/month. Because they do different jobs, compare by the outcome you need rather than price alone.`,
     migration:
       "Ridhzo isn't a replacement for a WhatsApp broadcast tool — it's the CRM layer. If you're moving lead management into Ridhzo, import your contacts via CSV and connect your lead sources; you can keep using a dedicated WhatsApp marketing platform alongside it for bulk campaigns.",
     faqs: [

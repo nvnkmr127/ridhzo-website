@@ -92,7 +92,7 @@ export function SpeedComparison() {
               <ul className="mt-6 space-y-3.5 text-xs sm:text-sm text-foreground">
                 <li className="flex items-start gap-2.5">
                   <span className="text-foreground font-bold mt-0.5">✓</span>
-                  <span>Real-time webhook ingestion from Meta Ads, Google Ads &amp; web forms in &lt;1 second.</span>
+                  <span>Leads from Meta Ads, Google Ads &amp; web forms arrive within seconds.</span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <span className="text-foreground font-bold mt-0.5">✓</span>
@@ -104,7 +104,7 @@ export function SpeedComparison() {
                 </li>
                 <li className="flex items-start gap-2.5">
                   <span className="text-foreground font-bold mt-0.5">✓</span>
-                  <span>Row-locked round-robin distribution, drag-and-drop Kanban, and Going Cold radar protection.</span>
+                  <span>Fair round-robin assignment, drag-and-drop pipeline, and a Going Cold list so no lead is forgotten.</span>
                 </li>
               </ul>
             </div>

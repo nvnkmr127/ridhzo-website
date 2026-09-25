@@ -312,17 +312,17 @@ function ProductPanel() {
 
       <div className="flex flex-col gap-3">
         <Link
-          href="/features/ai-assistant"
+          href="/features/ai"
           className="focus-ring group flex flex-col rounded-xl border border-border bg-card p-5 transition-colors hover:border-foreground/30"
         >
           <div>
             <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary px-2.5 py-0.5 text-[11px] font-medium text-foreground">
               <Sparkles className="h-3 w-3" aria-hidden="true" /> New
             </span>
-            <p className="mt-3 text-sm font-bold text-foreground">Meet your AI Sales Copilot</p>
+            <p className="mt-3 text-sm font-bold text-foreground">Meet your AI Assistant</p>
             <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">
-              Ask &ldquo;what should I focus on today?&rdquo;, get a 3-second recap before every call, and approve
-              AI-drafted follow-ups in one tap.
+              Summarise any lead in one click, draft replies in the buyer&apos;s language, and ask it to find or
+              update leads. You approve before anything is sent.
             </p>
           </div>
           <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-foreground">

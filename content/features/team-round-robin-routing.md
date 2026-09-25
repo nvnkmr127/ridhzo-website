@@ -1,68 +1,41 @@
 ---
-title: "Team Routing, Roles & Permissions"
+title: "Automatic Lead Assignment & Alerts"
 slug: "team-routing"
-badge: "🤝 Fair & Balanced Distribution"
-summary: "Race-safe round-robin that respects each rep's capacity, teams for squads and territories, custom roles built from 13 permissions, and email or direct invites."
-keyMetric: "Zero Lead-Grabbing · 100% Fair Workload"
-category: "automate"
+badge: "🔄 Fair, Instant Distribution"
+summary: "Round-robin, team, capacity and rule-based assignment — plus new-lead alerts by email, in-app or WhatsApp to anyone who needs to know."
+keyMetric: "Every Lead Has an Owner in Seconds"
 order: 3
+category: "automate"
 ---
 
-# Team Routing, Roles & Permissions
+# Automatic Lead Assignment & Alerts
 
-## 1. Feature Overview
-Ridhzo eliminates manual lead assignment, cherry-picking, and rep overload with an automated distribution engine that allocates inbound leads instantly based on fair rotation and live capacity.
+## The first rep to call usually wins
+When leads wait in a shared inbox, everyone assumes someone else will call. Ridhzo gives every new lead an owner instantly and tells them straight away.
 
----
+## Ways to assign leads
 
-## 2. Lead Distribution Engine & Options
-
-### 1. Atomic Row-Locked Round-Robin
-- Implemented with PostgreSQL SELECT ... FOR UPDATE transaction locks.
-- Guarantees race-condition-free sequential rotation across active reps even during traffic spikes (e.g., 100 leads arriving within 10 seconds).
-- Persists the pointer in the database so rotation resumes seamlessly across app restarts.
-
-### 2. Workload Capacity Balancing (CapacityAssignmentService)
-- **Active Lead Ceiling**: Set maximum open leads per rep (e.g., max 25 active deals).
-- **Auto-Skip Logic**: If an agent reaches their capacity ceiling, the engine skips them in the round-robin queue until they close or advance existing leads.
-- **Fair Opportunity Allocation**: Ensures top closers are not burdened with backlogs while newer reps sit idle.
-
-### 3. Escalation Reassignment
-- If an assigned sales rep does not make contact within the SLA window (e.g., 30 minutes), Ridhzo can automatically pull the lead and re-route to the next available agent.
-
----
-
-## 3. Teams, Roles & Permissions (RBAC)
-
-### Custom roles from 13 permissions
-Go beyond admin vs. member. Build roles such as *Team Lead*, *Telecaller* or *Auditor* by turning individual permissions on and off:
-
-| Area | Permissions |
+| Method | Best for |
 | :--- | :--- |
-| People | Manage users · Manage roles |
-| Configuration | Manage settings · Manage lead sources · Manage templates · Manage automations |
-| Leads | Edit leads · Delete leads · Permanently purge · Merge duplicates |
-| Oversight | View audit log · Manage API keys · Manage billing |
+| **Round-robin** | Even, fair rotation across reps — safe even when many leads arrive at once |
+| **By team** | Rotate inside a team, e.g. "Hyderabad team" or "Telugu-speaking counsellors" |
+| **By capacity** | Set a maximum number of open leads per rep; new leads go to whoever has room |
+| **By source** | Leads from a specific ad, form or website go to a chosen person or team |
+| **By rules** | Automations like "if city is Pune, assign to Rahul" or "if budget is over ₹1 crore, assign to senior rep" |
+| **Manual & bulk** | Reassign one lead or hundreds at once |
 
-### Teams
-Group reps into squads (e.g. *Inbound SDRs*, *North Zone*, *NRI Desk*). Round-robin automations then share leads only within that team.
+Deactivated users (on leave, left the company) never receive leads. Every assignment is logged on the lead.
 
-### Onboarding your team
-- **Email invitations**: new reps set their own password from a secure link.
-- **Direct provisioning**: create accounts instantly for call-centre style onboarding.
-- **Shareable join link**: if email is blocked, copy a one-time invite link to send on WhatsApp or Slack.
+## New-lead alerts — for anyone, inside or outside your team
+Send a notification about new leads by **email**, **in-app** or **WhatsApp**:
+- Alert a manager, a partner or your client every time a lead arrives.
+- Add conditions: only Facebook leads, only a certain project, only high budgets.
+- Test a rule before switching it on and see a delivery log.
 
-### Built-in safeguards
-- Admins **can't lock themselves out**: self-deactivation, self-deletion and self-demotion are blocked.
-- Departing employees are **deactivated, not erased**. Their notes, activity and closed deals stay in your history.
-- Every role and user change is recorded in the **audit log**.
+## Instant alerts to the owner
+The assigned rep gets a **push notification with sound** on their phone within seconds, plus an in-app alert — even if Ridhzo is closed.
 
----
-
-## 4. Advanced Bulk Lead Actions
-- **Multi-Select Bulk Operations**:
-  - Bulk Reassign to User or Team.
-  - Bulk Status / Stage Advancement.
-  - Bulk Tagging & Untagging.
-  - Bulk Export to CSV.
-  - Bulk Move to Recycle Bin (with 30-day restore protection).
+## Real examples
+- **Speed:** A Facebook lead arrives at 9:02 PM, goes to the on-shift rep, and gets a WhatsApp at 9:03 PM.
+- **Agency:** A marketing agency emails every new lead to its client's sales head automatically.
+- **No more fights:** Reps stop grabbing leads — rotation is automatic and transparent.

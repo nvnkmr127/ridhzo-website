@@ -1,53 +1,40 @@
 ---
-title: "PWA Mobile App & Instant Push Notifications"
+title: "Mobile App & Instant Push Alerts"
 slug: "mobile-pwa"
-badge: "📱 Install on iOS & Android"
-summary: "Install Ridhzo straight from Safari or Chrome without visiting the App Store. Vibrating lead alerts with instant 1-tap deep link routing."
-keyMetric: "100% Native Feel · Zero App Store Delays"
-category: "capture"
+badge: "📱 Your CRM in Your Pocket"
+summary: "Install Ridhzo on iPhone or Android straight from your browser and get a push notification the second a lead arrives. Available in English, Hindi and Telugu."
+keyMetric: "Hear About Every Lead Within Seconds"
 order: 4
+category: "capture"
 ---
 
-# PWA Mobile App & Instant Push Notifications
+# Mobile App & Instant Push Alerts
 
-## 1. Feature Overview
-Built as an installable Progressive Web App (PWA), Ridhzo delivers a lightning-fast native mobile experience on iPhone and Android. Closers receive vibrating push notifications with direct 1-tap navigation to the prospect's profile—even when the browser is closed.
+## Sales happen on the move
+Your reps are at site visits, in the showroom, on the road. Ridhzo is built for the phone first — every screen works with one thumb.
 
----
+## Install in one tap
+- On Android (Chrome) or iPhone (Safari), tap **Add to Home Screen**.
+- Ridhzo opens full-screen with its own icon, just like an app — no app-store download needed.
 
-## 2. PWA Installation Options & Mechanics
+## Push notifications that get attention
+You're notified — even when Ridhzo is closed — about:
+- A new lead assigned to you (with an alert sound)
+- A follow-up that's due
+- A meeting coming up
+- A lead opening the brochure you shared
 
-### Cross-Platform Installation:
-- **iOS Safari Support**:
-  - Prompts clean guided instructions: *"Tap Share ⎋ → Add to Home Screen"*.
-  - Configured with Apple Touch Icons, standalone display mode, and dark status bar (`#0a0a0a`).
-- **Android Chromium Support**:
-  - Listens for `beforeinstallprompt` event.
-  - Displays a clean, 1-tap "Install App" banner in the bottom drawer.
-  - Dismissal preference: Remembers user dismissal for 7 days in `localStorage`.
-- **Desktop Chrome / Edge / macOS**:
-  - Address bar install badge installs Ridhzo as a standalone windowed desktop application.
+Each person chooses which email notifications they also want.
 
----
+## Everything from your phone
+- One-tap **call, WhatsApp, SMS and email**
+- Change status, add notes, set follow-ups
+- Drag deals on the pipeline
+- **GPS check-in** at meetings and site visits
+- **Add leads offline** — they sync when you're back online
 
-## 3. Web Push Notification Engine & Options
+## Your language
+Choose the app language in your profile: **English, हिन्दी (Hindi) or తెలుగు (Telugu)**. The menu and phone notifications appear in your language.
 
-### Technical Specifications:
-- **Standard**: RFC-8291 Web Push protocol with VAPID key pairs (`NEXT_PUBLIC_VAPID_PUBLIC_KEY` & `VAPID_PRIVATE_KEY`).
-- **Closed-Tab Delivery**: Notifications are handled by the background service worker (`sw.js`), delivering alerts even when the device is locked.
-- **Vibration & Sound**:
-  - Custom vibration rhythm `[200, 100, 200]` triggers on mobile devices to differentiate lead alerts from routine messages.
-  - High-resolution `/icon-192.png` badge and avatar.
-- **Renotify Option**: `renotify: true` with tag `ridhzo-lead-alert` ensures back-to-back leads don't collapse into a silent stack.
-
-### Notification Controls & Testing:
-- **1-Click Enablement**: Toggle push alerts directly from the user header or settings.
-- **Test Alert Button**: In Integrations settings, click "Send Test Alert" to dispatch a simulated lead notification (*"⚡ Test Lead Alert: Jane Doe • +91 98765 43210"*).
-- **Direct Deep Link Routing**: Clicking an alert automatically opens that specific lead detail view (`/leads/[id]`), focusing the browser or standalone app window.
-
----
-
-## 4. Service Worker Caching Policies
-- **Core Navigation**: Network-first strategy with static offline fallback shell (`/offline.html`).
-- **Static Assets**: Stale-while-revalidate caching for stylesheets, JS chunks, fonts, and icons.
-- **Mutation Bypass**: Next.js Server Actions and `/api/` routes strictly bypass the cache to guarantee real-time data integrity.
+## Real example
+A solar sales rep gets a push alert while driving between surveys, pulls over, and sends a WhatsApp in 20 seconds. Later, at the customer's rooftop, they check in with GPS and log the outcome — all from the phone.
