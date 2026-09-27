@@ -216,7 +216,7 @@ export function ContactUsSection() {
                 <Button
                   type="submit"
                   size="sm"
-                  className="w-full bg-foreground text-background hover:bg-foreground/90 font-semibold text-xs h-10 shadow-sm"
+                  className="w-full rounded-full font-semibold text-xs h-10 shadow-glow-sm"
                 >
                   <Send className="h-3.5 w-3.5 mr-1.5" />
                   <span>Send Message</span>

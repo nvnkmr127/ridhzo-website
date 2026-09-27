@@ -10,6 +10,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { KanbanIllustration, IndexMarker } from "@/components/marketing/decor";
 
 interface LeadCard {
   id: string;
@@ -95,6 +96,7 @@ export function PipelinePreview() {
             Two tightly coupled surfaces: visually advance active deals across stages, while our automated
             radar detects stagnant leads before prospective revenue decays.
           </p>
+          <KanbanIllustration className="mx-auto mt-8 h-24 opacity-70" />
 
           {/* Surface Tab Switcher */}
           <div className="mt-8 flex flex-col sm:inline-flex sm:flex-row rounded-full border border-border bg-secondary/60 p-1 w-full sm:w-auto max-w-md mx-auto" role="group" aria-label="Pipeline surface">
@@ -161,6 +163,7 @@ export function PipelinePreview() {
                       {/* Column Header */}
                       <div className="flex items-center justify-between border-b border-border/80 pb-2.5">
                         <div className="flex items-center gap-2">
+                          <IndexMarker index={stageColumns.findIndex((c) => c.key === col.key) + 1} />
                           <span className={`h-2 w-2 rounded-full ${col.dotColor}`} />
                           <span className="text-xs font-bold text-foreground">{col.label}</span>
                         </div>
@@ -231,7 +234,7 @@ export function PipelinePreview() {
 
         {/* Tab 2: Going Cold Intelligence Radar */}
         {activeTab === "cold" && (
-          <div className="mt-10 sm:mt-12 rounded-xl border border-border bg-card p-5 sm:p-7 shadow-xl">
+          <div className="mt-10 sm:mt-12 rounded-2xl border border-border bg-card p-5 sm:p-7 shadow-card">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-border pb-5">
               <div>
                 <div className="flex items-center gap-2">
@@ -249,7 +252,7 @@ export function PipelinePreview() {
                 type="button"
                 onClick={handleEscalateAll}
                 size="sm"
-                className="w-full sm:w-auto bg-foreground text-background hover:bg-foreground/90 font-medium text-xs shadow-xs"
+                className="w-full sm:w-auto rounded-full font-medium text-xs shadow-glow-sm"
               >
                 <Flame className="h-3.5 w-3.5 fill-current" />
                 <span>{allEscalated ? "All Escalated to High" : "Escalate All to High (1-Click)"}</span>

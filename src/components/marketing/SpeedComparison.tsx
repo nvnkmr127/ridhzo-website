@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Clock, TrendingUp, XCircle, CheckCircle2, Zap, Calculator } from "lucide-react";
+import { PhoneAlertIllustration, ChatTapIllustration } from "@/components/marketing/decor";
 
 export function SpeedComparison() {
   const [monthlyLeads, setMonthlyLeads] = useState(150);
@@ -73,12 +74,15 @@ export function SpeedComparison() {
           </div>
 
           {/* The Ridhzo Velocity Engine */}
-          <div className="rounded-2xl border border-foreground/25 bg-white/[0.03] p-6 sm:p-8 flex flex-col justify-between relative shadow-card">
+          <div className="rounded-2xl border border-foreground/25 bg-white/[0.03] p-6 sm:p-8 flex flex-col justify-between relative shadow-card overflow-hidden">
             <div className="absolute -top-3 right-6 bg-foreground text-background text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">
               3.5x Conversion Velocity
             </div>
+            {/* Line-art illustrations anchoring the card corners */}
+            <PhoneAlertIllustration className="absolute right-4 top-8 hidden h-28 opacity-40 sm:block" />
+            <ChatTapIllustration className="absolute bottom-24 right-6 hidden h-20 opacity-25 lg:block" />
 
-            <div>
+            <div className="relative">
               <div className="flex items-center gap-3">
                 <div className="h-10 w-10 rounded-xl bg-foreground text-background flex items-center justify-center shadow-glow-sm">
                   <CheckCircle2 className="h-5 w-5" />

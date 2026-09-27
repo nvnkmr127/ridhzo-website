@@ -202,7 +202,7 @@ export function SolutionsSection() {
               </div>
 
               <div className="pt-2">
-                <Button asChild size="sm" className="bg-foreground text-background hover:bg-foreground/90 text-xs font-semibold">
+                <Button asChild size="sm" className="rounded-full text-xs font-semibold shadow-glow-sm">
                   <Link href={appUrl("/signup")} className="flex items-center gap-1.5">
                     <span>Deploy This Workflow</span>
                     <ArrowRight className="h-3.5 w-3.5" />

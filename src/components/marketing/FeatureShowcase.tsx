@@ -19,6 +19,7 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import Link from "next/link";
+import { IndexMarker } from "@/components/marketing/decor";
 
 export function FeatureShowcase() {
   const mainFeatures = [
@@ -163,15 +164,20 @@ export function FeatureShowcase() {
             >
               <div>
                 <div className="flex items-center justify-between">
-                  <div className="h-10 w-10 rounded-xl bg-white/5 border border-white/10 text-foreground flex items-center justify-center">
-                    <f.icon className="h-5 w-5" />
+                  <div className="icon-chip">
+                    <f.icon className="h-5 w-5" strokeWidth={1.5} />
                   </div>
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground bg-secondary border border-border px-2 py-0.5 rounded-full">
-                    {f.tag}
-                  </span>
+                  <IndexMarker index={i + 1} className="text-sm" />
                 </div>
 
-                <h3 className="mt-5 text-lg font-bold text-foreground tracking-tight">
+                <div className="mt-3 flex items-center gap-2">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">
+                    {f.tag}
+                  </span>
+                  <span className="h-px flex-1 bg-border" aria-hidden="true" />
+                </div>
+
+                <h3 className="mt-4 text-lg font-bold text-foreground tracking-tight">
                   {f.title}
                 </h3>
                 <p className="mt-2.5 text-xs sm:text-sm text-muted-foreground leading-relaxed">
@@ -212,21 +218,22 @@ export function FeatureShowcase() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4">
             {extraFeatures.map((f, i) => (
               <Link
                 key={i}
                 href={f.href}
-                className="focus-ring group flex items-start gap-3.5 p-3 rounded-lg hover:bg-secondary/40 transition-colors"
+                className="focus-ring group flex items-start gap-3.5 p-3 rounded-xl border border-transparent hover:border-border hover:bg-secondary/30 transition-colors"
               >
-                <div className="h-9 w-9 rounded-lg bg-secondary border border-border text-foreground flex items-center justify-center shrink-0 mt-0.5">
-                  <f.icon className="h-4 w-4" />
+                <div className="flex items-center gap-2 shrink-0 mt-1">
+                  <f.icon className="h-4 w-4 text-foreground" strokeWidth={1.5} aria-hidden="true" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <h4 className="flex items-center gap-1.5 text-sm font-semibold text-foreground">
+                    <IndexMarker index={i + 7} className="mr-0.5" />
                     {f.title}
                     {f.badge ? (
-                      <span className="rounded border border-border bg-secondary px-1.5 py-px text-[10px] font-medium text-muted-foreground">
+                      <span className="rounded-full border border-border bg-secondary px-1.5 py-px text-[10px] font-medium text-muted-foreground">
                         {f.badge}
                       </span>
                     ) : null}

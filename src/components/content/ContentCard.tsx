@@ -17,8 +17,8 @@ export function ContentCard({ item }: { item: ContentSummary }) {
       className="focus-ring group flex h-full flex-col rounded-2xl border border-border bg-card p-5 transition-all hover:border-foreground/25 hover:shadow-card"
     >
       {Icon ? (
-        <span className="mb-4 flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-foreground">
-          <Icon className="h-4 w-4" aria-hidden="true" />
+        <span className="icon-chip mb-4">
+          <Icon className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
         </span>
       ) : badge ? (
         <span className="mb-3 inline-flex w-fit items-center rounded-full border border-border bg-secondary px-2.5 py-0.5 text-[11px] font-medium text-foreground">

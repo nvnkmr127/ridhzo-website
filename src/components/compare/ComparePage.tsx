@@ -41,17 +41,17 @@ export function ComparePage({ competitor: c }: { competitor: Competitor }) {
           <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
             Comparison
           </p>
-          <h1 className="mt-2 text-2xl font-extrabold leading-tight tracking-tight text-foreground sm:text-4xl">
+          <h1 className="mt-2 text-2xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl">
             {c.title}
           </h1>
 
-          <div className="mt-5 rounded-xl border border-border bg-secondary/30 p-4 sm:p-5">
+          <div className="mt-5 rounded-2xl border border-border bg-secondary/30 p-4 sm:p-5">
             <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">TL;DR</p>
             <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{c.tldr}</p>
           </div>
 
           <div className="mt-5 flex flex-wrap items-center gap-3">
-            <Button asChild size="sm" className="h-10 bg-foreground text-background hover:bg-foreground/90 text-xs font-semibold">
+            <Button asChild size="sm" className="h-10 rounded-full text-xs font-semibold shadow-glow-sm">
               <Link href={appUrl("/signup")} className="flex items-center gap-1.5">
                 <span>Start free with Ridhzo</span>
                 <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
@@ -70,7 +70,7 @@ export function ComparePage({ competitor: c }: { competitor: Competitor }) {
           <h2 id="at-a-glance" className="text-xl font-bold text-foreground sm:text-2xl">
             At a glance
           </h2>
-          <div className="mt-5 overflow-x-auto rounded-xl border border-border">
+          <div className="mt-5 overflow-x-auto rounded-2xl border border-border shadow-card">
             <table className="w-full min-w-[520px] border-collapse text-left text-sm">
               <thead>
                 <tr className="border-b border-border bg-card/60">
@@ -107,7 +107,7 @@ export function ComparePage({ competitor: c }: { competitor: Competitor }) {
 
         {/* Who each is for */}
         <section className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <div className="rounded-xl border border-foreground/30 bg-card p-5">
+          <div className="rounded-2xl border border-foreground/30 bg-card p-5 shadow-card">
             <h2 className="text-sm font-bold text-foreground">Choose Ridhzo if…</h2>
             <ul className="mt-3 space-y-2 text-xs text-muted-foreground">
               {c.ridhzoBestFor.map((item) => (
@@ -118,7 +118,7 @@ export function ComparePage({ competitor: c }: { competitor: Competitor }) {
               ))}
             </ul>
           </div>
-          <div className="rounded-xl border border-border bg-card p-5">
+          <div className="rounded-2xl border border-border bg-card p-5">
             <h2 className="text-sm font-bold text-foreground">Choose {c.competitorShort} if…</h2>
             <ul className="mt-3 space-y-2 text-xs text-muted-foreground">
               {c.competitorBestFor.map((item) => (
@@ -150,7 +150,7 @@ export function ComparePage({ competitor: c }: { competitor: Competitor }) {
         {/* FAQ */}
         <section className="mt-12">
           <h2 className="text-lg font-bold text-foreground sm:text-xl">FAQ</h2>
-          <dl className="mt-4 divide-y divide-border rounded-xl border border-border bg-card">
+          <dl className="mt-4 divide-y divide-border rounded-2xl border border-border bg-card">
             {c.faqs.map((f) => (
               <div key={f.q} className="p-5">
                 <dt className="text-sm font-semibold text-foreground">{f.q}</dt>

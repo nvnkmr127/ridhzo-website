@@ -53,12 +53,11 @@ export default function PricingPage() {
       />
 
       {/* Page hero — owns the H1 */}
-      <header className="border-b border-border bg-card/40 py-14 sm:py-20">
-        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-            Pricing
-          </p>
-          <h1 className="mt-2 text-3xl font-extrabold tracking-tight text-foreground sm:text-5xl">
+      <header className="relative overflow-hidden border-b border-border bg-card/40 py-14 sm:py-20">
+        <div className="glow-blob -top-32 left-1/2 h-[24rem] w-[40rem] -translate-x-1/2 bg-white/5" aria-hidden="true" />
+        <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+          <span className="section-label">Pricing</span>
+          <h1 className="mt-4 text-3xl font-bold tracking-tight text-foreground sm:text-5xl">
             Simple pricing that scales with your pipeline
           </h1>
           <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-lg">

@@ -13,12 +13,11 @@ export const metadata: Metadata = {
 export default function CompareIndexPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <header className="border-b border-border bg-card/40 py-12 sm:py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-            Comparison
-          </p>
-          <h1 className="mt-2 text-2xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+      <header className="relative overflow-hidden border-b border-border bg-card/40 py-14 sm:py-20">
+        <div className="glow-blob -top-32 left-[30%] h-[22rem] w-[36rem] -translate-x-1/2 bg-white/5" aria-hidden="true" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <span className="section-label">Comparison</span>
+          <h1 className="mt-4 text-2xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
             How Ridhzo compares
           </h1>
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground sm:mt-4 sm:text-lg">

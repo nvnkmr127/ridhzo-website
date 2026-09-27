@@ -4,6 +4,7 @@ import { appUrl } from "@/lib/config";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { CornerTicks } from "@/components/marketing/decor";
 import {
   MessageSquare,
   Bell,
@@ -104,7 +105,12 @@ export function HeroSection() {
 
   return (
     <section className="relative overflow-hidden py-20 md:py-28">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      {/* Blueprint dot-grid wash, fading toward the fold */}
+      <div
+        className="bg-dots-faint pointer-events-none absolute inset-x-0 top-0 h-[42rem] [mask-image:radial-gradient(60rem_30rem_at_50%_0%,black,transparent)]"
+        aria-hidden="true"
+      />
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center text-center">
           {/* Top Pill Badge */}
           <span className="section-label backdrop-blur-md">
@@ -166,14 +172,22 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Interactive Live Lead Simulator */}
+          {/* Interactive Live Lead Simulator — blueprint-framed instrument panel */}
           <div className="relative mt-12 sm:mt-14 w-full max-w-3xl">
             {/* Ambient glow behind the simulator card */}
             <div
               className="glow-blob left-1/2 top-1/2 h-[40rem] w-[40rem] -translate-x-1/2 -translate-y-1/2 bg-white/5"
               aria-hidden="true"
             />
+            {/* Live-feed annotation tag */}
+            <div className="absolute -top-3 left-6 z-10 flex items-center gap-2 bg-background px-2" aria-hidden="true">
+              <span className="h-1.5 w-1.5 rounded-full bg-foreground animate-pulse" />
+              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                Live lead feed — simulated
+              </span>
+            </div>
             <div className="relative w-full rounded-2xl border border-border bg-card/80 p-4 sm:p-7 shadow-card backdrop-blur-xl">
+              <CornerTicks />
             {/* Source Tab Selector */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-border pb-4">
               <div className="flex flex-col xs:flex-row items-start xs:items-center gap-2 w-full sm:w-auto">

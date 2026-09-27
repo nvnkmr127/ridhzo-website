@@ -75,7 +75,7 @@ export function PolicyLayout({
       {/* Main Content Area */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 sm:py-16">
         {/* Mobile Collapsible Quick-Jump Table of Contents */}
-        <div className="lg:hidden mb-8 rounded-xl border border-border bg-card p-4">
+        <div className="lg:hidden mb-8 rounded-2xl border border-border bg-card p-4">
           <details className="group">
             <summary className="flex items-center justify-between text-xs font-semibold text-foreground uppercase tracking-wider cursor-pointer list-none select-none">
               <span className="flex items-center gap-2">
@@ -107,7 +107,7 @@ export function PolicyLayout({
           {/* Sticky Table of Contents (Desktop Only) */}
           <aside className="hidden lg:block lg:col-span-4">
             <div className="sticky top-24 space-y-6">
-              <div className="rounded-xl border border-border bg-card p-5">
+              <div className="rounded-2xl border border-border bg-card p-5">
                 <p className="text-xs font-semibold text-foreground uppercase tracking-wider mb-3 flex items-center gap-2">
                   <FileText className="h-3.5 w-3.5" />
                   Table of Contents

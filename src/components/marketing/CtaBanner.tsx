@@ -2,6 +2,7 @@ import { appUrl } from "@/lib/config";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, CheckCircle2 } from "lucide-react";
+import { CornerTicks } from "@/components/marketing/decor";
 
 export function CtaBanner() {
   return (
@@ -13,7 +14,14 @@ export function CtaBanner() {
             className="glow-blob left-1/2 top-1/2 h-[30rem] w-[46rem] -translate-x-1/2 -translate-y-1/2 bg-white/5"
             aria-hidden="true"
           />
-          <div className="relative rounded-3xl border border-border bg-card p-6 sm:p-14 text-center shadow-card">
+          <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-6 sm:p-14 text-center shadow-card">
+            <CornerTicks />
+            {/* Dot-grid wash rising from the panel floor */}
+            <div
+              className="bg-dots-faint pointer-events-none absolute inset-x-0 bottom-0 h-40 [mask-image:linear-gradient(to_top,black,transparent)]"
+              aria-hidden="true"
+            />
+            <div className="relative">
             <span className="section-label">
               <Zap className="h-3.5 w-3.5 fill-current" />
               Join High-Velocity Closers
@@ -59,6 +67,7 @@ export function CtaBanner() {
               <span className="flex items-center gap-1.5">
                 <CheckCircle2 className="h-3.5 w-3.5 text-foreground" /> Setup in 60 Seconds
               </span>
+            </div>
             </div>
           </div>
         </div>

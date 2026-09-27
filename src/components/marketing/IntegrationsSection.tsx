@@ -86,8 +86,8 @@ export function IntegrationsSection() {
                         it.soon ? "opacity-70" : ""
                       }`}
                     >
-                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-foreground">
-                        <it.icon className="h-4 w-4" aria-hidden="true" />
+                      <span className="icon-chip !h-9 !w-9">
+                        <it.icon className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
                       </span>
                       <span className="min-w-0">
                         <span className="flex flex-wrap items-center gap-1.5 text-sm font-semibold text-foreground">
