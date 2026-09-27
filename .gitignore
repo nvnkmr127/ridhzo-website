@@ -15,6 +15,7 @@
 
 # misc
 .DS_Store
+.mimosa/
 *.pem
 
 # debug

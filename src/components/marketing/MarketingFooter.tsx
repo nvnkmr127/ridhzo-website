@@ -167,7 +167,7 @@ export function MarketingFooter() {
             <p>© {new Date().getFullYear()} Ridhzo CRM. All rights reserved.</p>
             <span className="hidden sm:inline text-border">•</span>
             <p>
-              Made with <span className="text-red-500 font-sans">♥</span> by{" "}
+              Made with <span className="text-foreground font-sans">♥</span> by{" "}
               <a
                 href="https://digicloudify.com/"
                 target="_blank"

@@ -15,15 +15,15 @@ export function SpeedComparison() {
   const extraRevenue = extraDeals * dealValue;
 
   return (
-    <section id="speed" className="py-16 sm:py-24 border-t border-border bg-background relative">
+    <section id="speed" className="relative overflow-hidden border-t border-border bg-background py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary px-3 py-1 text-xs font-medium text-foreground">
+          <span className="section-label">
             <Zap className="h-3.5 w-3.5 fill-current" />
-            <span>The 5-Minute Lead Rule</span>
-          </div>
-          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight">
-            Responding Within 5 Minutes Makes You 21x More Likely to Close
+            The 5-Minute Lead Rule
+          </span>
+          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight">
+            Responding Within 5 Minutes Makes You <span className="text-gradient">21x More Likely</span> to Close
           </h2>
           <p className="mt-4 text-base sm:text-lg text-muted-foreground">
             Every minute of delay causes lead interest to decay exponentially. Here is how Ridhzo replaces the broken,
@@ -34,10 +34,10 @@ export function SpeedComparison() {
         {/* Side-by-Side Comparison Cards - Strict Monochrome */}
         <div className="mt-10 sm:mt-14 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
           {/* Traditional Way */}
-          <div className="rounded-xl border border-border bg-card p-5 sm:p-8 flex flex-col justify-between">
+          <div className="rounded-2xl border border-border bg-card p-5 sm:p-8 flex flex-col justify-between transition-colors hover:border-foreground/20">
             <div>
               <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-lg bg-secondary text-muted-foreground flex items-center justify-center border border-border">
+                <div className="h-10 w-10 rounded-xl bg-white/5 border border-white/10 text-muted-foreground flex items-center justify-center">
                   <XCircle className="h-5 w-5" />
                 </div>
                 <div>
@@ -73,14 +73,14 @@ export function SpeedComparison() {
           </div>
 
           {/* The Ridhzo Velocity Engine */}
-          <div className="rounded-xl border border-border bg-card p-6 sm:p-8 flex flex-col justify-between relative shadow-xl">
-            <div className="absolute -top-2.5 right-6 bg-foreground text-background text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+          <div className="rounded-2xl border border-foreground/25 bg-white/[0.03] p-6 sm:p-8 flex flex-col justify-between relative shadow-card">
+            <div className="absolute -top-3 right-6 bg-foreground text-background text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">
               3.5x Conversion Velocity
             </div>
 
             <div>
               <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-lg bg-foreground text-background flex items-center justify-center">
+                <div className="h-10 w-10 rounded-xl bg-foreground text-background flex items-center justify-center shadow-glow-sm">
                   <CheckCircle2 className="h-5 w-5" />
                 </div>
                 <div>
@@ -117,7 +117,7 @@ export function SpeedComparison() {
         </div>
 
         {/* Interactive Speed-to-Lead ROI Calculator */}
-        <div className="mt-12 sm:mt-14 max-w-5xl mx-auto rounded-xl border border-border bg-card p-4 sm:p-8">
+        <div className="mt-12 sm:mt-14 max-w-5xl mx-auto rounded-2xl border border-border bg-card p-4 sm:p-8 shadow-card">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-border pb-6">
             <div className="flex items-center gap-3">
               <div className="h-9 w-9 rounded-lg bg-secondary text-foreground flex items-center justify-center border border-border shrink-0">

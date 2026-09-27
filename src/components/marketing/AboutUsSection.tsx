@@ -20,15 +20,15 @@ export function AboutUsSection() {
   ];
 
   return (
-    <section id="about" className="py-16 sm:py-24 border-t border-border bg-background relative">
+    <section id="about" className="relative overflow-hidden border-t border-border bg-background py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary px-3 py-1 text-xs font-medium text-foreground">
+          <span className="section-label">
             <Heart className="h-3.5 w-3.5" />
-            <span>Our Story &amp; Mission</span>
-          </div>
-          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight">
-            Why We Built Ridhzo
+            Our Story &amp; Mission
+          </span>
+          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight">
+            Why We Built <span className="text-gradient">Ridhzo</span>
           </h2>
           <p className="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
             Old CRMs were built 15 years ago for managers sitting at big desks.
@@ -37,7 +37,7 @@ export function AboutUsSection() {
         </div>
 
         {/* Narrative Box */}
-        <div className="mt-10 sm:mt-14 max-w-4xl mx-auto rounded-xl border border-border bg-card p-5 sm:p-10 shadow-lg">
+        <div className="mt-10 sm:mt-14 max-w-4xl mx-auto rounded-2xl border border-border bg-card p-5 sm:p-10 shadow-card">
           <div className="space-y-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
             <p>
               If you run Facebook ads or buy leads, you know how painful the old process is. A lead comes in, sits

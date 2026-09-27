@@ -1,6 +1,7 @@
 import { ContentCard } from "./ContentCard";
 import type { ContentSummary } from "@/lib/content";
 import type { ContentRoute } from "@/lib/content-routes";
+import { CtaBanner } from "@/components/marketing/CtaBanner";
 
 export interface ContentGroup {
   id: string;
@@ -36,12 +37,11 @@ export function ContentIndex({
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <header className="border-b border-border bg-card/40 py-12 sm:py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-            {route.eyebrow}
-          </p>
-          <h1 className="mt-2 text-2xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+      <header className="relative overflow-hidden border-b border-border bg-card/40 py-14 sm:py-20">
+        <div className="glow-blob -top-32 left-1/2 h-[26rem] w-[44rem] -translate-x-1/2 bg-white/5" aria-hidden="true" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <span className="section-label">{route.eyebrow}</span>
+          <h1 className="mt-4 text-2xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
             {route.title}
           </h1>
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground sm:mt-4 sm:text-lg">
@@ -96,6 +96,8 @@ export function ContentIndex({
           </div>
         )}
       </div>
+
+      <CtaBanner />
     </div>
   );
 }

@@ -74,7 +74,7 @@ function CellValue({ value }: { value: Cell }) {
   return value ? (
     <Check className="mx-auto h-4 w-4 text-foreground" aria-label="Included" />
   ) : (
-    <Minus className="mx-auto h-4 w-4 text-muted-foreground/40" aria-label="Not included" />
+    <Minus className="mx-auto h-4 w-4 text-muted-foreground/60" aria-label="Not included" />
   );
 }
 
@@ -83,7 +83,7 @@ export function PricingComparison() {
     <section className="border-t border-border bg-background py-16 sm:py-24">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-2xl font-extrabold tracking-tight text-foreground sm:text-3xl">
+          <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
             Compare every plan
           </h2>
           <p className="mt-3 text-sm text-muted-foreground sm:text-base">
@@ -91,7 +91,7 @@ export function PricingComparison() {
           </p>
         </div>
 
-        <div className="mt-10 overflow-x-auto rounded-xl border border-border">
+        <div className="mt-10 overflow-x-auto rounded-2xl border border-border shadow-card">
           <table className="w-full min-w-[640px] border-collapse text-left">
             <thead>
               <tr className="border-b border-border bg-card/60">

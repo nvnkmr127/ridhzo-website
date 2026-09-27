@@ -15,8 +15,9 @@ export function ArticleLayout({ item, related = [] }: { item: ContentItem; relat
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <header className="border-b border-border bg-card/40 py-8 sm:py-14">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <header className="relative overflow-hidden border-b border-border bg-card/40 py-10 sm:py-16">
+        <div className="glow-blob -top-32 left-1/2 h-[22rem] w-[36rem] -translate-x-1/2 bg-white/5" aria-hidden="true" />
+        <div className="relative mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb */}
           <nav aria-label="Breadcrumb" className="mb-5 flex items-center gap-1.5 text-[11px] text-muted-foreground">
             <Link href="/" className="focus-ring rounded-sm hover:text-foreground">
@@ -36,7 +37,7 @@ export function ArticleLayout({ item, related = [] }: { item: ContentItem; relat
             </span>
           ) : null}
 
-          <h1 className="text-2xl font-extrabold leading-tight tracking-tight text-foreground sm:text-4xl">
+          <h1 className="text-2xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl">
             {item.title}
           </h1>
 

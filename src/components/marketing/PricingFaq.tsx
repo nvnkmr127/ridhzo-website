@@ -113,7 +113,7 @@ export function PricingFaq() {
       />
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-2xl font-extrabold tracking-tight text-foreground sm:text-3xl">
+          <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
             Pricing questions, answered
           </h2>
           <p className="mt-3 text-sm text-muted-foreground sm:text-base">
@@ -125,7 +125,7 @@ export function PricingFaq() {
           </p>
         </div>
 
-        <dl className="mt-10 divide-y divide-border rounded-xl border border-border bg-card">
+        <dl className="mt-10 divide-y divide-border rounded-2xl border border-border bg-card shadow-card">
           {FAQS.map((item) => (
             <div key={item.q} className="p-5 sm:p-6">
               <dt className="text-sm font-semibold text-foreground">{item.q}</dt>

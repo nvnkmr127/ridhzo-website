@@ -72,17 +72,17 @@ export function PricingSection({ showHeader = true }: { showHeader?: boolean } =
   ];
 
   return (
-    <section id="pricing" className="py-16 sm:py-24 relative border-t border-border bg-background">
+    <section id="pricing" className="relative border-t border-border bg-background py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto">
           {showHeader && (
             <>
-              <div className="inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary px-3 py-1 text-xs font-medium text-foreground">
+              <span className="section-label">
                 <Sparkles className="h-3.5 w-3.5" />
-                <span>Simple, Transparent Pricing</span>
-              </div>
-              <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight">
-                Plans That Pay for Themselves With One Closed Deal
+                Simple, Transparent Pricing
+              </span>
+              <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight">
+                Plans That <span className="text-gradient">Pay for Themselves</span> With One Closed Deal
               </h2>
               <p className="mt-4 text-base sm:text-lg text-muted-foreground">
                 Start for free, then upgrade as your lead pipeline expands. No hidden charges, no contracts.
@@ -90,13 +90,13 @@ export function PricingSection({ showHeader = true }: { showHeader?: boolean } =
             </>
           )}
 
-          {/* Billing Cycle Toggle - Monochrome */}
-          <div className="mt-8 inline-flex items-center rounded-lg border border-border bg-secondary/70 p-1 max-w-full" role="group" aria-label="Billing cycle">
+          {/* Billing Cycle Toggle */}
+          <div className="mt-8 inline-flex items-center rounded-full border border-border bg-secondary/70 p-1 max-w-full" role="group" aria-label="Billing cycle">
             <button
               type="button"
               onClick={() => setBillingCycle("monthly")}
               aria-pressed={billingCycle === "monthly"}
-              className={`focus-ring rounded-md px-3 sm:px-3.5 py-1.5 text-xs font-medium transition-all ${
+              className={`focus-ring rounded-full px-3 sm:px-3.5 py-1.5 text-xs font-medium transition-all ${
                 billingCycle === "monthly"
                   ? "bg-foreground text-background shadow-xs font-semibold"
                   : "text-muted-foreground hover:text-foreground"
@@ -108,7 +108,7 @@ export function PricingSection({ showHeader = true }: { showHeader?: boolean } =
               type="button"
               onClick={() => setBillingCycle("yearly")}
               aria-pressed={billingCycle === "yearly"}
-              className={`focus-ring rounded-md px-3 sm:px-3.5 py-1.5 text-xs font-medium flex items-center gap-1.5 transition-all ${
+              className={`focus-ring rounded-full px-3 sm:px-3.5 py-1.5 text-xs font-medium flex items-center gap-1.5 transition-all ${
                 billingCycle === "yearly"
                   ? "bg-foreground text-background shadow-xs font-semibold"
                   : "text-muted-foreground hover:text-foreground"
@@ -131,14 +131,14 @@ export function PricingSection({ showHeader = true }: { showHeader?: boolean } =
             return (
               <div
                 key={i}
-                className={`rounded-xl p-6 sm:p-7 flex flex-col justify-between transition-all relative ${
+                className={`rounded-2xl p-6 sm:p-7 flex flex-col justify-between transition-all relative ${
                   p.popular
-                    ? "border-2 border-foreground bg-card shadow-2xl z-10"
-                    : "border border-border bg-card hover:border-foreground/30"
+                    ? "border border-foreground/40 bg-white/[0.04] shadow-card z-10"
+                    : "border border-border bg-card hover:border-foreground/25"
                 }`}
               >
                 {p.badge && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-foreground text-background text-[10px] font-bold px-3 py-0.5 shadow-sm uppercase tracking-wider">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-foreground text-background text-[10px] font-bold px-3 py-0.5 uppercase tracking-wider shadow-glow-sm">
                     {p.badge}
                   </div>
                 )}
@@ -182,9 +182,9 @@ export function PricingSection({ showHeader = true }: { showHeader?: boolean } =
                   <Button
                     asChild
                     size="sm"
-                    className={`w-full h-10 text-xs font-semibold transition-all ${
+                    className={`w-full h-10 rounded-full text-xs font-semibold transition-all ${
                       p.popular
-                        ? "bg-foreground text-background hover:bg-foreground/90 shadow-sm"
+                        ? "shadow-glow-sm"
                         : "bg-secondary text-foreground hover:bg-accent border border-border"
                     }`}
                   >

@@ -42,7 +42,7 @@ const SIMULATED_LEADS: Record<LeadSource, SimulatedLead> = {
     budget: "₹3.2 Cr",
     rep: "Ananya Sharma (Round-Robin)",
     template:
-      "Hi Vikram! 👋 Thank you for inquiring on Instagram regarding the 4BHK Sky Villa. I have the floor layout and pricing breakdown ready. Shall I send it right here on WhatsApp?",
+      "Hi Vikram! Thank you for inquiring on Instagram regarding the 4BHK Sky Villa. I have the floor layout and pricing breakdown ready. Shall I send it right here on WhatsApp?",
   },
   google: {
     source: "google",
@@ -103,21 +103,18 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative overflow-hidden pt-12 pb-20 md:pt-20 md:pb-28">
-      {/* Structural Subtle Radial Grid */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-zinc-800/15 via-transparent to-transparent pointer-events-none -z-10" />
-
+    <section className="relative overflow-hidden py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center text-center">
           {/* Top Pill Badge */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/80 px-3.5 py-1 text-xs font-medium text-foreground backdrop-blur-md">
+          <span className="section-label backdrop-blur-md">
             <span className="flex h-1.5 w-1.5 rounded-full bg-foreground animate-pulse" />
-            <span className="text-muted-foreground">The 1-Tap Mobile CRM for Fast Closers</span>
-          </div>
+            The 1-Tap Mobile CRM for Fast Closers
+          </span>
 
           {/* Headline */}
-          <h1 className="mt-6 max-w-4xl text-3xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl sm:leading-[1.15]">
-            Respond to Inbound Leads in <span className="text-foreground underline decoration-border decoration-2 underline-offset-8">12 Seconds</span>, Not 4 Hours.
+          <h1 className="mt-6 max-w-4xl text-3xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl sm:leading-[1.15]">
+            Respond to Inbound Leads in <span className="text-gradient">12 Seconds</span>, Not 4 Hours.
           </h1>
 
           {/* Subheading */}
@@ -127,12 +124,12 @@ export function HeroSection() {
             receive vibrating phone alerts, and trigger personalized WhatsApp follow-ups in one tap—even offline.
           </p>
 
-          {/* Action CTAs - CRED Style High Contrast */}
+          {/* Action CTAs */}
           <div className="mt-8 flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
             <Button
               asChild
               size="lg"
-              className="w-full sm:w-auto h-11 px-7 bg-foreground text-background hover:bg-foreground/90 font-medium text-sm transition-all shadow-sm"
+              className="w-full sm:w-auto h-11 rounded-full px-7 font-medium text-sm shadow-glow"
             >
               <Link href={appUrl("/signup")} className="flex items-center justify-center gap-2">
                 <span>Start Free Trial</span>
@@ -143,7 +140,7 @@ export function HeroSection() {
               asChild
               size="lg"
               variant="outline"
-              className="w-full sm:w-auto h-11 px-6 border-border bg-card hover:bg-accent text-foreground text-sm"
+              className="w-full sm:w-auto h-11 rounded-full px-6 border-border bg-card hover:bg-accent text-foreground text-sm"
             >
               <a href="#speed">Calculate Lost Revenue</a>
             </Button>
@@ -169,20 +166,26 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Interactive Live Lead Simulator (Strict THEME.md Monochrome Surface) */}
-          <div className="mt-12 sm:mt-14 w-full max-w-3xl rounded-xl border border-border bg-card p-4 sm:p-7 shadow-2xl transition-all">
+          {/* Interactive Live Lead Simulator */}
+          <div className="relative mt-12 sm:mt-14 w-full max-w-3xl">
+            {/* Ambient glow behind the simulator card */}
+            <div
+              className="glow-blob left-1/2 top-1/2 h-[40rem] w-[40rem] -translate-x-1/2 -translate-y-1/2 bg-white/5"
+              aria-hidden="true"
+            />
+            <div className="relative w-full rounded-2xl border border-border bg-card/80 p-4 sm:p-7 shadow-card backdrop-blur-xl">
             {/* Source Tab Selector */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-border pb-4">
               <div className="flex flex-col xs:flex-row items-start xs:items-center gap-2 w-full sm:w-auto">
                 <span className="text-[11px] sm:text-xs uppercase tracking-wider text-muted-foreground font-semibold shrink-0">
                   Simulate Channel:
                 </span>
-                <div className="grid grid-cols-3 sm:inline-flex rounded-lg border border-border bg-secondary/50 p-0.5 w-full sm:w-auto" role="group" aria-label="Simulate lead channel">
+                <div className="grid grid-cols-3 sm:inline-flex rounded-full border border-border bg-secondary/50 p-1 w-full sm:w-auto" role="group" aria-label="Simulate lead channel">
                   <button
                     type="button"
                     onClick={() => handleSourceChange("meta")}
                     aria-pressed={selectedSource === "meta"}
-                    className={`focus-ring rounded-md px-2 sm:px-2.5 py-1 text-xs font-medium transition-all text-center ${
+                    className={`focus-ring rounded-full px-2 sm:px-2.5 py-1 text-xs font-medium transition-all text-center ${
                       selectedSource === "meta"
                         ? "bg-foreground text-background shadow-xs"
                         : "text-muted-foreground hover:text-foreground"
@@ -194,7 +197,7 @@ export function HeroSection() {
                     type="button"
                     onClick={() => handleSourceChange("google")}
                     aria-pressed={selectedSource === "google"}
-                    className={`focus-ring rounded-md px-2 sm:px-2.5 py-1 text-xs font-medium transition-all text-center ${
+                    className={`focus-ring rounded-full px-2 sm:px-2.5 py-1 text-xs font-medium transition-all text-center ${
                       selectedSource === "google"
                         ? "bg-foreground text-background shadow-xs"
                         : "text-muted-foreground hover:text-foreground"
@@ -206,7 +209,7 @@ export function HeroSection() {
                     type="button"
                     onClick={() => handleSourceChange("webhook")}
                     aria-pressed={selectedSource === "webhook"}
-                    className={`focus-ring rounded-md px-2 sm:px-2.5 py-1 text-xs font-medium transition-all text-center ${
+                    className={`focus-ring rounded-full px-2 sm:px-2.5 py-1 text-xs font-medium transition-all text-center ${
                       selectedSource === "webhook"
                         ? "bg-foreground text-background shadow-xs"
                         : "text-muted-foreground hover:text-foreground"
@@ -217,16 +220,16 @@ export function HeroSection() {
                 </div>
               </div>
 
-              {/* Status Badge - Domain color exception */}
+              {/* Status Badge - monochrome state signal */}
               <div className="flex items-center gap-2 self-start sm:self-auto">
                 {hasDispatched ? (
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-0.5 text-[11px] font-medium text-emerald-400">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 border border-white/20 px-2.5 py-0.5 text-[11px] font-medium text-foreground">
+                    <span className="h-1.5 w-1.5 rounded-full bg-foreground" />
                     Status: Active (Contacted)
                   </span>
                 ) : (
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 px-2.5 py-0.5 text-[11px] font-medium text-blue-400">
-                    <span className="h-1.5 w-1.5 rounded-full bg-blue-500 animate-pulse" />
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-secondary border border-border px-2.5 py-0.5 text-[11px] font-medium text-muted-foreground">
+                    <span className="h-1.5 w-1.5 rounded-full bg-white/60 animate-pulse" />
                     Status: New (Pending)
                   </span>
                 )}
@@ -234,9 +237,9 @@ export function HeroSection() {
             </div>
 
             {/* Notification Bar */}
-            <div className="mt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 rounded-lg border border-border bg-secondary/30 p-3">
+            <div className="mt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 rounded-xl border border-border bg-secondary/30 p-3">
               <div className="flex items-center gap-3 text-left min-w-0">
-                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-secondary border border-border text-foreground shrink-0">
+                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/5 border border-white/10 text-foreground shrink-0">
                   <Bell className="h-4 w-4" />
                 </div>
                 <div className="min-w-0">
@@ -262,17 +265,17 @@ export function HeroSection() {
 
             {/* Lead Card Details */}
             <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-left text-xs">
-              <div className="rounded-lg border border-border bg-card p-3">
+              <div className="rounded-xl border border-border bg-white/[0.03] p-3">
                 <span className="text-[10px] uppercase tracking-wider text-muted-foreground">Prospect</span>
                 <p className="mt-1 font-semibold text-foreground text-sm truncate">{activeLead.name}</p>
                 <p className="text-muted-foreground font-mono text-xs">{activeLead.phone}</p>
               </div>
-              <div className="rounded-lg border border-border bg-card p-3">
+              <div className="rounded-xl border border-border bg-white/[0.03] p-3">
                 <span className="text-[10px] uppercase tracking-wider text-muted-foreground">Requirement</span>
                 <p className="mt-1 font-semibold text-foreground text-sm truncate">{activeLead.interest}</p>
                 <p className="text-muted-foreground text-xs">Budget: {activeLead.budget}</p>
               </div>
-              <div className="rounded-lg border border-border bg-card p-3">
+              <div className="rounded-xl border border-border bg-white/[0.03] p-3">
                 <span className="text-[10px] uppercase tracking-wider text-muted-foreground">Assigned Rep</span>
                 <p className="mt-1 font-semibold text-foreground text-sm truncate">{activeLead.rep.split(" ")[0]}</p>
                 <p className="text-muted-foreground text-xs">Atomic Round-Robin</p>
@@ -280,7 +283,7 @@ export function HeroSection() {
             </div>
 
             {/* 1-Tap WhatsApp Action Box */}
-            <div className="mt-4 rounded-lg border border-border bg-secondary/40 p-3.5 sm:p-4 text-left">
+            <div className="mt-4 rounded-xl border border-border bg-secondary/40 p-3.5 sm:p-4 text-left">
               <div className="flex items-center justify-between gap-2">
                 <div className="flex items-center gap-2 min-w-0">
                   <MessageSquare className="h-4 w-4 text-foreground shrink-0" />
@@ -340,6 +343,7 @@ export function HeroSection() {
                 <WifiOff className="h-3 w-3" /> Works 100% Offline with automatic outbox sync
               </span>
               <span>Encrypted &amp; Tenant-Isolated Postgres</span>
+            </div>
             </div>
           </div>
         </div>

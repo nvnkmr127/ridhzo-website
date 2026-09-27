@@ -42,12 +42,12 @@ export function PolicyLayout({
       {/* Policy Hero Header */}
       <header className="border-b border-border bg-card/40 py-10 sm:py-20 relative overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary px-3 py-1 text-xs font-medium text-foreground mb-5 sm:mb-6">
+          <span className="section-label mb-5 sm:mb-6">
             <Shield className="h-3.5 w-3.5 text-foreground" />
             <span>Legal &amp; Compliance Center</span>
-          </div>
+          </span>
 
-          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-foreground leading-tight">
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground leading-tight">
             {title}
           </h1>
 

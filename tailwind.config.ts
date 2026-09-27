@@ -44,6 +44,20 @@ const config: Config = {
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
       },
+      boxShadow: {
+        glow: "0 0 50px -12px hsl(0 0% 100% / 0.35)",
+        "glow-sm": "0 0 24px -8px hsl(0 0% 100% / 0.35)",
+        card: "0 20px 50px -20px hsl(0 0% 0% / 0.6)",
+      },
+      animation: {
+        "fade-up": "fade-up 0.6s ease-out both",
+      },
+      keyframes: {
+        "fade-up": {
+          "0%": { opacity: "0", transform: "translateY(12px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",

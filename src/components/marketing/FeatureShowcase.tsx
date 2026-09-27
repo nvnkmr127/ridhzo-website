@@ -137,15 +137,15 @@ export function FeatureShowcase() {
   ];
 
   return (
-    <section id="features" className="py-16 sm:py-24 relative border-t border-border bg-background">
+    <section id="features" className="relative overflow-hidden border-t border-border bg-background py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary px-3 py-1 text-xs font-medium text-foreground">
+          <span className="section-label">
             <Layers className="h-3.5 w-3.5" />
-            <span>Everything Included</span>
-          </div>
-          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight">
-            Built for Fast Closers, Not Spreadsheet Typists
+            Everything Included
+          </span>
+          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight">
+            Built for <span className="text-gradient">Fast Closers</span>, Not Spreadsheet Typists
           </h2>
           <p className="mt-4 text-base sm:text-lg text-muted-foreground">
             Simple, clean tools that help you talk to prospects faster, manage your pipeline on your phone,
@@ -159,14 +159,14 @@ export function FeatureShowcase() {
             <Link
               key={i}
               href={f.href}
-              className="focus-ring group rounded-xl border border-border bg-card p-5 sm:p-7 flex flex-col justify-between transition-all hover:border-foreground/30 hover:-translate-y-0.5 shadow-sm"
+              className="focus-ring group rounded-2xl border border-border bg-card p-5 sm:p-7 flex flex-col justify-between transition-all hover:border-foreground/25 hover:-translate-y-0.5 hover:shadow-card"
             >
               <div>
                 <div className="flex items-center justify-between">
-                  <div className="h-10 w-10 rounded-lg bg-secondary border border-border text-foreground flex items-center justify-center">
+                  <div className="h-10 w-10 rounded-xl bg-white/5 border border-white/10 text-foreground flex items-center justify-center">
                     <f.icon className="h-5 w-5" />
                   </div>
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground bg-secondary border border-border px-2 py-0.5 rounded">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground bg-secondary border border-border px-2 py-0.5 rounded-full">
                     {f.tag}
                   </span>
                 </div>
@@ -196,7 +196,7 @@ export function FeatureShowcase() {
         </div>
 
         {/* Extra Features Grid */}
-        <div className="mt-10 sm:mt-16 rounded-xl border border-border bg-card p-4 sm:p-8">
+        <div className="mt-10 sm:mt-16 rounded-2xl border border-border bg-card p-4 sm:p-8 shadow-card">
           <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div className="text-left">
               <h3 className="text-lg font-bold text-foreground">Even More Built-In Tools</h3>

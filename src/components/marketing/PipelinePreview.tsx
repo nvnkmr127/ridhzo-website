@@ -74,22 +74,22 @@ export function PipelinePreview() {
   };
 
   const stageColumns: { key: LeadCard["stage"]; label: string; dotColor: string }[] = [
-    { key: "new", label: "New Leads", dotColor: "bg-blue-500" },
-    { key: "active", label: "In Contact", dotColor: "bg-emerald-500" },
-    { key: "proposal", label: "Proposal Sent", dotColor: "bg-amber-500" },
-    { key: "won", label: "Won & Closed", dotColor: "bg-emerald-600" },
+    { key: "new", label: "New Leads", dotColor: "bg-white/40" },
+    { key: "active", label: "In Contact", dotColor: "bg-white/70" },
+    { key: "proposal", label: "Proposal Sent", dotColor: "bg-white" },
+    { key: "won", label: "Won & Closed", dotColor: "bg-foreground ring-2 ring-foreground/30 ring-offset-2 ring-offset-background" },
   ];
 
   return (
-    <section id="pipeline" className="py-16 sm:py-24 border-t border-border bg-background relative">
+    <section id="pipeline" className="relative overflow-hidden py-20 md:py-28 border-t border-border bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary px-3 py-1 text-xs font-medium text-foreground">
+          <span className="section-label">
             <Kanban className="h-3.5 w-3.5" />
-            <span>Velocity &amp; Reclamation</span>
-          </div>
-          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight">
-            Active Kanban Board &amp; Going Cold Radar
+            Velocity &amp; Reclamation
+          </span>
+          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight">
+            Active Kanban Board &amp; <span className="text-gradient">Going Cold Radar</span>
           </h2>
           <p className="mt-4 text-base sm:text-lg text-muted-foreground">
             Two tightly coupled surfaces: visually advance active deals across stages, while our automated
@@ -97,12 +97,12 @@ export function PipelinePreview() {
           </p>
 
           {/* Surface Tab Switcher */}
-          <div className="mt-8 flex flex-col sm:inline-flex sm:flex-row rounded-lg border border-border bg-secondary/60 p-1 w-full sm:w-auto max-w-md mx-auto" role="group" aria-label="Pipeline surface">
+          <div className="mt-8 flex flex-col sm:inline-flex sm:flex-row rounded-full border border-border bg-secondary/60 p-1 w-full sm:w-auto max-w-md mx-auto" role="group" aria-label="Pipeline surface">
             <button
               type="button"
               onClick={() => setActiveTab("kanban")}
               aria-pressed={activeTab === "kanban"}
-              className={`focus-ring flex items-center justify-center gap-2 rounded-md px-4 py-2 text-xs font-semibold transition-all ${
+              className={`focus-ring flex items-center justify-center gap-2 rounded-full px-4 py-2 text-xs font-semibold transition-all ${
                 activeTab === "kanban"
                   ? "bg-foreground text-background shadow-xs"
                   : "text-muted-foreground hover:text-foreground"
@@ -115,7 +115,7 @@ export function PipelinePreview() {
               type="button"
               onClick={() => setActiveTab("cold")}
               aria-pressed={activeTab === "cold"}
-              className={`focus-ring flex items-center justify-center gap-2 rounded-md px-4 py-2 text-xs font-semibold transition-all ${
+              className={`focus-ring flex items-center justify-center gap-2 rounded-full px-4 py-2 text-xs font-semibold transition-all ${
                 activeTab === "cold"
                   ? "bg-foreground text-background shadow-xs"
                   : "text-muted-foreground hover:text-foreground"
@@ -129,7 +129,7 @@ export function PipelinePreview() {
 
         {/* Tab 1: Interactive Pipeline Kanban */}
         {activeTab === "kanban" && (
-          <div className="mt-12 rounded-xl border border-border bg-card p-4 sm:p-7 shadow-xl">
+          <div className="mt-12 rounded-2xl border border-border bg-card p-4 sm:p-7 shadow-card">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-border pb-4">
               <div>
                 <h3 className="text-sm font-bold text-foreground">

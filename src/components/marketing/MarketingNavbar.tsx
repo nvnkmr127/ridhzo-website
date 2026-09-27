@@ -94,8 +94,8 @@ export function MarketingNavbar() {
       ref={headerRef}
       className={`sticky top-0 z-50 w-full border-b transition-colors ${
         scrolled || openMenu || mobileOpen
-          ? "border-border bg-background/95 backdrop-blur-md"
-          : "border-transparent bg-background/70 backdrop-blur-sm"
+          ? "border-white/10 bg-background/85 backdrop-blur-xl"
+          : "border-white/5 bg-background/60 backdrop-blur-md"
       }`}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -157,7 +157,7 @@ export function MarketingNavbar() {
           <Button asChild variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground hover:bg-accent text-sm">
             <Link href={appUrl("/login")}>Sign in</Link>
           </Button>
-          <Button asChild size="sm" className="bg-foreground text-background hover:bg-foreground/90 font-semibold text-sm shadow-sm">
+          <Button asChild size="sm" className="font-semibold text-sm shadow-glow-sm">
             <Link href={appUrl("/signup")} className="flex items-center gap-1.5">
               <span>Start Free</span>
               <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
@@ -166,7 +166,7 @@ export function MarketingNavbar() {
         </div>
 
         <div className="lg:hidden flex items-center gap-2">
-          <Button asChild size="sm" className="h-9 bg-foreground text-background hover:bg-foreground/90 text-xs font-semibold">
+          <Button asChild size="sm" className="h-9 text-xs font-semibold shadow-glow-sm">
             <Link href={appUrl("/signup")}>Start Free</Link>
           </Button>
           <button
@@ -271,10 +271,10 @@ export function MarketingNavbar() {
             })}
           </nav>
           <div className="pt-5 flex flex-col gap-2.5">
-            <Button asChild className="w-full h-11 bg-foreground text-background hover:bg-foreground/90 text-sm font-semibold shadow-sm">
+            <Button asChild className="w-full h-11 rounded-full text-sm font-semibold shadow-glow-sm">
               <Link href={appUrl("/signup")}>Start Free — No Card Needed</Link>
             </Button>
-            <Button asChild variant="outline" className="w-full h-11 text-sm border-border bg-secondary/50">
+            <Button asChild variant="outline" className="w-full h-11 rounded-full text-sm border-border bg-secondary/50">
               <Link href={appUrl("/login")}>Sign in</Link>
             </Button>
           </div>

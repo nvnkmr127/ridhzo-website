@@ -38,15 +38,15 @@ export function FaqSection() {
   ];
 
   return (
-    <section id="faq" className="py-16 sm:py-24 border-t border-border bg-background relative">
+    <section id="faq" className="relative border-t border-border bg-background py-20 md:py-28">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary px-3 py-1 text-xs font-medium text-foreground">
+          <span className="section-label">
             <HelpCircle className="h-3.5 w-3.5" />
-            <span>Got Questions?</span>
-          </div>
-          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight">
-            Frequently Asked Questions
+            Got Questions?
+          </span>
+          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight">
+            Frequently Asked <span className="text-gradient">Questions</span>
           </h2>
           <p className="mt-3 text-base text-muted-foreground">
             Everything you need to know about getting started, WhatsApp, your team and pricing.
@@ -59,7 +59,7 @@ export function FaqSection() {
             return (
               <div
                 key={idx}
-                className="rounded-lg border border-border bg-card overflow-hidden transition-colors hover:border-foreground/30"
+                className="rounded-2xl border border-border bg-card overflow-hidden transition-colors hover:border-foreground/25"
               >
                 <button
                   type="button"

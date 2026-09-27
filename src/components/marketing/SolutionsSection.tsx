@@ -118,15 +118,15 @@ export function SolutionsSection() {
   const activeSolution = SOLUTIONS.find((s) => s.id === activeId) || SOLUTIONS[0];
 
   return (
-    <section id="solutions" className="py-16 sm:py-24 border-t border-border bg-background relative">
+    <section id="solutions" className="relative overflow-hidden border-t border-border bg-background py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary px-3 py-1 text-xs font-medium text-foreground">
+          <span className="section-label">
             <Sparkles className="h-3.5 w-3.5" />
-            <span>Built for High-Velocity Teams</span>
-          </div>
-          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight">
-            Tailored for High-Stakes Sales Verticals
+            Built for High-Velocity Teams
+          </span>
+          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight">
+            Tailored for <span className="text-gradient">High-Stakes Sales Verticals</span>
           </h2>
           <p className="mt-4 text-base sm:text-lg text-muted-foreground">
             Whether you are closing real estate deals, running high-spend ad campaigns, or dispatching field contractors,
@@ -141,7 +141,7 @@ export function SolutionsSection() {
                 type="button"
                 onClick={() => setActiveId(sol.id)}
                 aria-pressed={activeId === sol.id}
-                className={`focus-ring flex items-center justify-center gap-2 rounded-lg px-3 sm:px-4 py-2 text-xs font-semibold transition-all ${
+                className={`focus-ring flex items-center justify-center gap-2 rounded-full px-3 sm:px-4 py-2 text-xs font-semibold transition-all ${
                   activeId === sol.id
                     ? "bg-foreground text-background shadow-xs"
                     : "border border-border bg-secondary/60 text-muted-foreground hover:text-foreground"
@@ -155,12 +155,12 @@ export function SolutionsSection() {
         </div>
 
         {/* Active Solution Deep Dive Box */}
-        <div className="mt-10 sm:mt-12 max-w-5xl mx-auto rounded-xl border border-border bg-card p-4 sm:p-6 lg:p-9 shadow-xl">
+        <div className="mt-10 sm:mt-12 max-w-5xl mx-auto rounded-2xl border border-border bg-card p-4 sm:p-6 lg:p-9 shadow-card">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Left Col: Overview & Steps */}
             <div className="lg:col-span-7 space-y-6">
               <div>
-                <span className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground bg-secondary px-2 py-0.5 rounded border border-border">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground bg-secondary px-2 py-0.5 rounded-full border border-border">
                   {activeSolution.badge}
                 </span>
                 <h3 className="mt-3 text-xl sm:text-2xl font-bold text-foreground">

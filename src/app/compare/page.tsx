@@ -18,7 +18,7 @@ export default function CompareIndexPage() {
           <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
             Comparison
           </p>
-          <h1 className="mt-2 text-2xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+          <h1 className="mt-2 text-2xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
             How Ridhzo compares
           </h1>
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground sm:mt-4 sm:text-lg">
@@ -35,7 +35,7 @@ export default function CompareIndexPage() {
             <Link
               key={c.slug}
               href={`/compare/${c.slug}`}
-              className="focus-ring group flex h-full flex-col rounded-xl border border-border bg-card p-5 transition-all hover:border-foreground/30 hover:bg-secondary/40"
+              className="focus-ring group flex h-full flex-col rounded-2xl border border-border bg-card p-5 transition-all hover:border-foreground/25 hover:shadow-card"
             >
               <div className="flex items-start justify-between gap-3">
                 <h2 className="text-sm font-bold text-foreground">{c.title}</h2>

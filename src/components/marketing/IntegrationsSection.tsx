@@ -57,15 +57,15 @@ const GROUPS: { title: string; items: Integration[] }[] = [
 
 export function IntegrationsSection() {
   return (
-    <section id="integrations" className="py-16 sm:py-24 border-t border-border bg-card/30">
+    <section id="integrations" className="border-t border-border bg-card/30 py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary px-3 py-1 text-xs font-medium text-foreground">
+          <span className="section-label">
             <Plug className="h-3.5 w-3.5" aria-hidden="true" />
-            <span>Integrations</span>
-          </div>
-          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight">
-            Plugs Into the Tools You Already Use
+            Integrations
+          </span>
+          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight">
+            Plugs Into the <span className="text-gradient">Tools You Already Use</span>
           </h2>
           <p className="mt-4 text-base sm:text-lg text-muted-foreground">
             Every lead source feeds one pipeline, and every outcome flows back to your ads, calendar and systems.
@@ -82,18 +82,18 @@ export function IntegrationsSection() {
                   <li key={it.name}>
                     <Link
                       href={it.href}
-                      className={`focus-ring group flex h-full items-start gap-3 rounded-xl border border-border bg-card p-4 transition-colors hover:border-foreground/30 ${
+                      className={`focus-ring group flex h-full items-start gap-3 rounded-2xl border border-border bg-card p-4 transition-all hover:border-foreground/25 hover:shadow-card ${
                         it.soon ? "opacity-70" : ""
                       }`}
                     >
-                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-border bg-secondary text-foreground">
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-foreground">
                         <it.icon className="h-4 w-4" aria-hidden="true" />
                       </span>
                       <span className="min-w-0">
                         <span className="flex flex-wrap items-center gap-1.5 text-sm font-semibold text-foreground">
                           {it.name}
                           {it.soon ? (
-                            <span className="rounded border border-border bg-secondary px-1.5 py-px text-[10px] font-medium text-muted-foreground">
+                            <span className="rounded-full border border-border bg-secondary px-1.5 py-px text-[10px] font-medium text-muted-foreground">
                               Coming soon
                             </span>
                           ) : null}

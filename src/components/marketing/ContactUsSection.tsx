@@ -20,15 +20,15 @@ export function ContactUsSection() {
   };
 
   return (
-    <section id="contact" className="py-24 border-t border-border bg-background relative">
+    <section id="contact" className="relative border-t border-border bg-background py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary px-3 py-1 text-xs font-medium text-foreground">
+          <span className="section-label">
             <Mail className="h-3.5 w-3.5" />
-            <span>Get in Touch</span>
-          </div>
-          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight">
-            Talk to Us — We Reply Fast
+            Get in Touch
+          </span>
+          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight">
+            Talk to Us — <span className="text-gradient">We Reply Fast</span>
           </h2>
           <p className="mt-4 text-base sm:text-lg text-muted-foreground">
             Have a question about features, need help connecting your ad account, or want a quick demo?
@@ -39,7 +39,7 @@ export function ContactUsSection() {
         <div className="mt-14 max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Direct Channels (Left) */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="rounded-xl border border-border bg-card p-6 space-y-5">
+            <div className="rounded-2xl border border-border bg-card p-6 space-y-5 shadow-card">
               <h3 className="text-base font-bold text-foreground">Direct Support</h3>
 
               {/* WhatsApp direct */}
@@ -47,9 +47,9 @@ export function ContactUsSection() {
                 href="https://wa.me/919820144520?text=Hi%20Ridhzo%20team%2C%20I%20have%20a%20question%20about%20the%20CRM."
                 target="_blank"
                 rel="noreferrer"
-                className="focus-ring flex items-start gap-3.5 p-3 rounded-lg border border-border bg-secondary/30 hover:bg-secondary transition-all group"
+                className="focus-ring flex items-start gap-3.5 p-3 rounded-xl border border-border bg-secondary/30 hover:bg-secondary transition-all group"
               >
-                <div className="h-9 w-9 rounded-lg bg-foreground text-background flex items-center justify-center shrink-0 mt-0.5">
+                <div className="h-9 w-9 rounded-xl bg-foreground text-background flex items-center justify-center shrink-0 mt-0.5">
                   <MessageSquare className="h-4 w-4" />
                 </div>
                 <div>
@@ -96,7 +96,7 @@ export function ContactUsSection() {
           </div>
 
           {/* Contact Form (Right) */}
-          <div className="lg:col-span-7 rounded-xl border border-border bg-card p-6 sm:p-8">
+          <div className="lg:col-span-7 rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-card">
             {submitted ? (
               <div className="py-12 text-center space-y-4">
                 <div className="h-12 w-12 rounded-full bg-foreground text-background flex items-center justify-center mx-auto">
