@@ -15,7 +15,7 @@ export function AboutUsSection() {
     {
       title: "Built for Your Phone",
       description:
-        "You are on the road, at client meetings, or showing properties. Ridhzo is designed for your mobile screen, lets you add leads even without signal, and never needs an app store download.",
+        "You are on the road, at client meetings, or showing properties. Ridhzo is designed for your mobile screen, lets you add leads even without signal, installs from your browser or as an Android app, and logs your Android calls for you.",
     },
   ];
 

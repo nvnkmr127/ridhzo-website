@@ -36,15 +36,15 @@ const SOLUTIONS: Solution[] = [
     problem:
       "Buyers browsing Facebook or 99acres submit an inquiry and quickly contact rival projects if they don't receive floor plans immediately.",
     solution:
-      "The instant an ad lead arrives, Ridhzo triggers a vibrating push alert. The agent taps once to send a pre-filled WhatsApp message with floor layout PDFs and calendar booking links.",
+      "The moment an ad lead arrives, the assigned agent gets a push alert. One tap opens WhatsApp with a pre-filled message, ready to send the floor plan and a site-visit booking link.",
     metrics: [
-      { value: "14s", label: "Avg. WhatsApp First Touch" },
-      { value: "3.2x", label: "More Site Visits Scheduled" },
-      { value: "100%", label: "Offline Field Property Sync" },
+      { value: "1 tap", label: "WhatsApp With Brochure Message Ready" },
+      { value: "24h + 1h", label: "Automatic Site-Visit Reminders" },
+      { value: "GPS", label: "Check-In Proof at the Site" },
     ],
     steps: [
-      "Meta Lead Ad capture -> Instant push alert with prospect budget & property preference.",
-      "1-Tap WhatsApp dispatch sends digital brochure & virtual walkthrough video.",
+      "Meta Lead Ad capture -> push alert to the assigned agent, with the form answers on the lead.",
+      "1-Tap WhatsApp opens with the brochure message ready to send.",
       "Visual Kanban tracks site visit scheduled, token paid, and registry completed.",
     ],
   },
@@ -57,11 +57,11 @@ const SOLUTIONS: Solution[] = [
     problem:
       "Agencies deliver qualified Meta & Google leads, but clients take 6 hours to call them, complain 'the leads are cold', and pause ad spend.",
     solution:
-      "Ridhzo gives agency clients a mobile PWA that buzzes the instant a lead arrives. Live executive SLA dashboards prove response times, vindicating your media spend.",
+      "Ridhzo gives agency clients a phone app that alerts them the moment a lead arrives. The Executive Dashboard shows response times and results by source, so you can show what your ad spend produced.",
     metrics: [
-      { value: "94%", label: "SLA Response Compliance" },
-      { value: "40%", label: "Lower Cost-Per-Acquisition" },
-      { value: "0%", label: "Disputed Lead Quality" },
+      { value: "Seconds", label: "Push Alert When a Lead Arrives" },
+      { value: "5 min", label: "Share of Leads Contacted Within 5 Minutes, Tracked" },
+      { value: "Per source", label: "Answer Rate & Win Rate by Campaign" },
     ],
     steps: [
       "Direct webhook sync into client workspace without Zapier costs.",
@@ -78,10 +78,10 @@ const SOLUTIONS: Solution[] = [
     problem:
       "High net-worth clients expect immediate, discreet responses. Advisors juggle multiple WhatsApp threads, dropping scheduled policy renewals.",
     solution:
-      "All client communications, call records, and follow-up tasks stay organized in an encrypted timeline with automated renewal reminders and tenant-isolated data.",
+      "All client communications, call records, and follow-up tasks stay organized on one timeline per client, with follow-up reminders for renewal dates and workspace-isolated data.",
     metrics: [
-      { value: "0", label: "Missed Policy Renewals" },
-      { value: "AES-256", label: "Tenant-Isolated Encryption" },
+      { value: "Custom fields", label: "For Policy Type & Renewal Date" },
+      { value: "1 workspace", label: "Isolated From Every Other Business" },
       { value: "1-Click", label: "Scheduled Follow-up Reminders" },
     ],
     steps: [
@@ -99,16 +99,16 @@ const SOLUTIONS: Solution[] = [
     problem:
       "Sales reps in basements, remote sites, or rural areas lose internet signal, resulting in dropped quotes and lost customer notes.",
     solution:
-      "Ridhzo's offline-first PWA queues leads, site photos, and estimate notes in an IndexedDB outbox, auto-syncing seamlessly once back online.",
+      "With no signal, Ridhzo saves newly added leads on the phone and uploads them automatically when the connection returns.",
     metrics: [
-      { value: "100%", label: "Offline Outbox Resilience" },
-      { value: "2x", label: "Faster Quote Turnaround" },
-      { value: "0", label: "Lost Field Estimates" },
+      { value: "No signal", label: "Add New Leads Anyway" },
+      { value: "Auto-sync", label: "Uploads When You're Back Online" },
+      { value: "Duplicate check", label: "Runs When Offline Leads Sync" },
     ],
     steps: [
-      "Field rep logs rooftop measurements and customer details 100% offline.",
-      "App buffers data in local outbox with zero loss or freeze.",
-      "Connection restores -> Auto-syncs to database, notifying the proposal team.",
+      "Field rep adds the customer's details with no signal.",
+      "The app saves the lead safely on the phone.",
+      "Connection restores -> the lead syncs, is assigned and the owner is alerted.",
     ],
   },
 ];

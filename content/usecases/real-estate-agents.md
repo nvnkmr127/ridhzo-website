@@ -22,6 +22,7 @@ Property buyers enquire on several projects at once. The agent who replies first
 | Buyers forget weekend site visits | **Site-visit confirmations** with a Google Maps pin, plus automatic reminders **24 hours and 1 hour before** |
 | Agents grabbing or hoarding leads | **Round-robin** per project team, and reps see **only their own leads** |
 | No proof the rep actually went | **GPS check-in** at the site |
+| Agents forget to log calls, and managers can't see who is calling | **Android call sync** logs every call with a lead — direction, talk time, answer rate — with no typing |
 
 ## Recommended setup
 1. **Sources:** one Facebook lead form per project, Google Lead Form Ads, and a hosted form with a QR code for hoardings and brochures.

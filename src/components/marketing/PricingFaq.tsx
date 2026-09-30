@@ -10,22 +10,23 @@ const FAQS: { q: string; a: React.ReactNode; plain: string }[] = [
     a: (
       <>
         Yes. The Free plan is free forever — up to 300 leads, a full mobile
-        pipeline, 1-tap WhatsApp, and offline mode. No credit card required to start.
+        pipeline, 1-tap WhatsApp, Android call logging and offline lead capture. No credit card required to start.
       </>
     ),
     plain:
-      "Yes. The Free plan is free forever — up to 300 leads, a full mobile pipeline, 1-tap WhatsApp, and offline mode. No credit card required to start.",
+      "Yes. The Free plan is free forever — up to 300 leads, a full mobile pipeline, 1-tap WhatsApp, Android call logging and offline lead capture. No credit card required to start.",
   },
   {
     q: "How does the 14-day trial work?",
     a: (
       <>
-        Paid plans start with a 14-day free trial of all their features. You&apos;re
-        only charged when the trial ends, and you can cancel any time before then.
+        Every new workspace starts with a 14-day trial of the Starter plan — no card
+        needed. When the trial ends, your workspace moves to the Free plan automatically
+        unless you subscribe, and nothing is deleted.
       </>
     ),
     plain:
-      "Paid plans start with a 14-day free trial of all their features. You're only charged when the trial ends, and you can cancel any time before then.",
+      "Every new workspace starts with a 14-day trial of the Starter plan — no card needed. When the trial ends, your workspace moves to the Free plan automatically unless you subscribe, and nothing is deleted.",
   },
   {
     q: "Is pricing per user or per company?",
@@ -81,8 +82,9 @@ const FAQS: { q: string; a: React.ReactNode; plain: string }[] = [
     q: "Is my data secure?",
     a: (
       <>
-        Yes — AES-256 encryption and strict tenant isolation mean your leads are never
-        exposed to other workspaces. Read more on our{" "}
+        Yes — every workspace is kept completely separate from others, sensitive secrets
+        such as API keys and email passwords are encrypted with AES-256, and deleted leads
+        stay in a 30-day recycle bin. Read more on our{" "}
         <Link href="/security" className="font-medium text-foreground underline underline-offset-2 hover:text-foreground/80">
           Security page
         </Link>
@@ -90,7 +92,7 @@ const FAQS: { q: string; a: React.ReactNode; plain: string }[] = [
       </>
     ),
     plain:
-      "Yes — AES-256 encryption and strict tenant isolation mean your leads are never exposed to other workspaces. Read more on our Security page.",
+      "Yes — every workspace is kept completely separate from others, sensitive secrets such as API keys and email passwords are encrypted with AES-256, and deleted leads stay in a 30-day recycle bin. Read more on our Security page.",
   },
 ];
 

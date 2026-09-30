@@ -21,6 +21,7 @@ Google Search lead forms, Instagram ads, your website form, and CSV files from e
 - **Team-based round-robin** — e.g. Hindi, Telugu and English-speaking counsellor teams, or by course.
 - Counsellors see only their own leads and get a push alert for each new one.
 - The app itself works in **English, Hindi and Telugu**.
+- On Android, every counsellor call to a parent is **logged automatically**, and an answered call closes the follow-up — so managers can see call activity per counsellor without a spreadsheet.
 
 ### Campus visits and counselling sessions
 Share your **booking page** so parents book a campus visit or counselling slot within your working hours. Confirmations and reminders go out automatically.

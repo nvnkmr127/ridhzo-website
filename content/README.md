@@ -11,17 +11,18 @@ Markdown pages rendered at `/features`, `/usecases`, `/help`, `/how-to` and `/bl
 | 2 | `whatsapp-instant-messaging.md` | `whatsapp` |
 | 3 | `team-round-robin-routing.md` | `team-routing` |
 | 4 | `mobile-pwa-push-alerts.md` | `mobile-pwa` |
-| 5 | `follow-ups-reminders.md` | `follow-ups` |
-| 6 | `pipeline-kanban-sla.md` | `pipeline-kanban` |
-| 7 | `automated-sequences.md` | `automations` |
-| 8 | `sequences.md` | `sequences` |
-| 9 | `meetings-booking.md` | `meetings` |
-| 10 | `ai-assistant.md` | `ai` |
-| 11 | `lead-management.md` | `lead-management` |
-| 12 | `dashboards-insights.md` | `dashboards` |
-| 13 | `offline-outbox-sync.md` | `offline-mode` |
-| 14 | `integrations-api.md` | `integrations` |
-| 15 | `team-roles-security.md` | `team-and-security` |
+| 5 | `android-call-sync-caller-id.md` | `call-sync` |
+| 6 | `follow-ups-reminders.md` | `follow-ups` |
+| 7 | `pipeline-kanban-sla.md` | `pipeline-kanban` |
+| 8 | `automated-sequences.md` | `automations` |
+| 9 | `sequences.md` | `sequences` |
+| 10 | `meetings-booking.md` | `meetings` |
+| 11 | `ai-assistant.md` | `ai` |
+| 12 | `lead-management.md` | `lead-management` |
+| 13 | `dashboards-insights.md` | `dashboards` |
+| 14 | `offline-outbox-sync.md` | `offline-mode` |
+| 15 | `integrations-api.md` | `integrations` |
+| 16 | `team-roles-security.md` | `team-and-security` |
 
 ## usecases/ (`/usecases/<slug>`)
 | Order | File | Slug |

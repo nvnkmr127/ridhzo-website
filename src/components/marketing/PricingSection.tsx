@@ -24,7 +24,8 @@ export function PricingSection({ showHeader = true }: { showHeader?: boolean } =
         "15 AI credits / month",
         "Instant push alerts & 1-tap WhatsApp",
         "Kanban pipeline, follow-ups & meetings",
-        "Mobile app (iOS & Android) with offline capture",
+        "Android app + web app for iPhone, with offline lead capture",
+        "Automatic Android call logging & Caller ID",
       ],
       ctaText: "Start Free Forever",
       ctaHref: appUrl("/signup"),
@@ -63,7 +64,6 @@ export function PricingSection({ showHeader = true }: { showHeader?: boolean } =
         "Unlimited lead sources",
         "Unlimited automations & sequences",
         "2,000 AI credits / month",
-        "Priority phone & WhatsApp onboarding",
       ],
       ctaText: "Upgrade to Unlimited",
       ctaHref: appUrl("/signup?plan=unlimited"),
@@ -195,6 +195,11 @@ export function PricingSection({ showHeader = true }: { showHeader?: boolean } =
             );
           })}
         </div>
+
+        <p className="mx-auto mt-8 max-w-3xl text-center text-xs leading-relaxed text-muted-foreground">
+          Prices exclude 18% GST. Yearly plans include 2 months free. Every new workspace starts on a 14-day Starter
+          trial — no card needed — and moves to Free unless you subscribe. Nothing is ever deleted.
+        </p>
       </div>
     </section>
   );

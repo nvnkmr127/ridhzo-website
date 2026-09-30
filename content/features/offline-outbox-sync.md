@@ -4,7 +4,7 @@ slug: "offline-mode"
 badge: "📶 Works Without Signal"
 summary: "Add new leads with no internet — at expos, basements or remote sites. Ridhzo saves them on your phone and syncs automatically when you're back online."
 keyMetric: "Zero Leads Lost to Bad Network"
-order: 13
+order: 14
 category: "capture"
 ---
 

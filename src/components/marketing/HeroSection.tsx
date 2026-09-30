@@ -38,7 +38,7 @@ const SIMULATED_LEADS: Record<LeadSource, SimulatedLead> = {
     sourceBadge: "Instagram & Facebook",
     campaign: "Luxury Villas & Penthouses",
     name: "Vikram Malhotra",
-    phone: "+91 98201 44520",
+    phone: "+91 98765 43210",
     interest: "4BHK Sky Villa",
     budget: "₹3.2 Cr",
     rep: "Ananya Sharma (Round-Robin)",
@@ -120,14 +120,14 @@ export function HeroSection() {
 
           {/* Headline */}
           <h1 className="mt-6 max-w-4xl text-3xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl sm:leading-[1.15]">
-            Respond to Inbound Leads in <span className="text-gradient">12 Seconds</span>, Not 4 Hours.
+            Respond to Inbound Leads in <span className="text-gradient">Seconds</span>, Not Hours.
           </h1>
 
           {/* Subheading */}
           <p className="mt-6 max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed">
             Stop losing qualified deals to slow response times. Ingest leads in real-time from{" "}
             <span className="text-foreground font-medium">Meta Lead Ads, Google Ads &amp; Web forms</span>,
-            receive vibrating phone alerts, and trigger personalized WhatsApp follow-ups in one tap—even offline.
+            get instant phone alerts, and send personalised WhatsApp follow-ups in one tap. Capture leads even without signal.
           </p>
 
           {/* Action CTAs */}
@@ -156,19 +156,19 @@ export function HeroSection() {
           <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-xs text-muted-foreground">
             <div className="flex items-center gap-1.5">
               <CheckCircle2 className="h-3.5 w-3.5 text-foreground" />
-              <span>100 Free leads forever</span>
+              <span>Free forever plan · 300 leads</span>
             </div>
             <div className="flex items-center gap-1.5">
               <CheckCircle2 className="h-3.5 w-3.5 text-foreground" />
-              <span>Zero Meta API approvals needed</span>
+              <span>14-day Starter trial, no card</span>
             </div>
             <div className="flex items-center gap-1.5">
               <CheckCircle2 className="h-3.5 w-3.5 text-foreground" />
-              <span>100% Offline PWA (iOS &amp; Android)</span>
+              <span>Android app &amp; iPhone-ready web app</span>
             </div>
             <div className="flex items-center gap-1.5">
               <CheckCircle2 className="h-3.5 w-3.5 text-foreground" />
-              <span>Row-locked atomic round-robin</span>
+              <span>Automatic Android call logging</span>
             </div>
           </div>
 

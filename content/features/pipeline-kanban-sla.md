@@ -4,7 +4,7 @@ slug: "pipeline-kanban"
 badge: "📊 See Every Deal at a Glance"
 summary: "Drag-and-drop pipeline with your own stages, a Hot Leads list of who's ready to buy, and a Going Cold list that rescues leads nobody has contacted for 14 days."
 keyMetric: "No Deal Slips Away Silently"
-order: 6
+order: 7
 category: "manage"
 ---
 

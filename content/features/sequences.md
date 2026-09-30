@@ -4,7 +4,7 @@ slug: "sequences"
 badge: "📨 Follow Up Until They Reply"
 summary: "Multi-step WhatsApp and email follow-ups that run by themselves over days — drafted by AI in seconds, and stopped automatically when the lead replies or converts."
 keyMetric: "Every Lead Gets Your Best 5 Follow-ups"
-order: 8
+order: 9
 category: "engage"
 ---
 

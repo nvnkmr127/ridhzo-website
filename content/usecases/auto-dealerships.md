@@ -17,6 +17,7 @@ Buyers send test-drive requests in the evening while comparing brands. If the de
 ### Instant alert, instant reply
 - Leads from your website, Facebook ads and portals arrive in Ridhzo and are assigned round-robin to sales consultants.
 - The consultant gets a push alert and sends colour options, on-road price and test-drive slots on WhatsApp in one tap.
+- Calls from the consultant's Android phone are logged on the lead automatically, and when a lead calls back their name shows on the incoming-call screen.
 
 ### Walk-ins captured, not forgotten
 Consultants add walk-in visitors with **Quick Add** on their phone — with custom fields like Model, Variant, Exchange vehicle and Finance required.

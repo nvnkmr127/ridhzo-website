@@ -66,7 +66,7 @@ export const COMPETITORS: Competitor[] = [
     atAGlance: [
       { dimension: "Best for", ridhzo: "Fast-closing SMB sales teams on their phones", competitor: "Teams wanting a customizable all-in-one suite" },
       { dimension: "Core focus", ridhzo: "Speed-to-lead & 1-tap WhatsApp", competitor: "Broad CRM + business apps" },
-      { dimension: "Mobile experience", ridhzo: "Mobile-first PWA, offline-capable", competitor: "Web-first with mobile apps" },
+      { dimension: "Mobile experience", ridhzo: "Mobile-first: Android app + installable web app, offline lead capture", competitor: "Web-first with mobile apps" },
       { dimension: "WhatsApp follow-up", ridhzo: "1-tap deep links, built-in", competitor: "Via integrations / add-ons" },
       { dimension: "Setup time", ridhzo: "Minutes", competitor: "Longer — more to configure" },
       { dimension: "Entry price", ridhzo: "Free plan, then ₹249/mo flat (3 users)", competitor: "Free for 3 users, then ~₹800+/user/mo" },
@@ -78,7 +78,7 @@ export const COMPETITORS: Competitor[] = [
       },
       {
         heading: "Mobile & offline",
-        body: "Ridhzo is a mobile-first PWA with an offline outbox, built for reps working from the field or a showroom floor. Zoho offers capable mobile apps, but its center of gravity is the desktop web experience.",
+        body: "Ridhzo is mobile-first — an Android app that logs calls automatically plus an installable web app, with offline lead capture — built for reps working from the field or a showroom floor. Zoho offers capable mobile apps, but its center of gravity is the desktop web experience.",
       },
       {
         heading: "Breadth vs. focus",
@@ -120,7 +120,7 @@ export const COMPETITORS: Competitor[] = [
       { dimension: "Best for", ridhzo: "Solo agents & small/mid sales teams", competitor: "Large, high-volume distributed teams" },
       { dimension: "Core focus", ridhzo: "Speed-to-lead & 1-tap WhatsApp", competitor: "Sales execution, lead scoring, field ops" },
       { dimension: "Complexity", ridhzo: "Minimal — live in minutes", competitor: "Higher — configuration & onboarding" },
-      { dimension: "Mobile experience", ridhzo: "Mobile-first PWA, offline-capable", competitor: "Strong mobile + field CRM" },
+      { dimension: "Mobile experience", ridhzo: "Mobile-first: Android app + installable web app, offline lead capture", competitor: "Strong mobile + field CRM" },
       { dimension: "Entry price", ridhzo: "Free plan, then ₹249/mo flat (3 users)", competitor: "~₹1,250–₹4,500/user/mo range" },
       { dimension: "Time to value", ridhzo: "Same day", competitor: "Weeks (implementation)" },
     ],
@@ -173,7 +173,7 @@ export const COMPETITORS: Competitor[] = [
       { dimension: "Best for", ridhzo: "Solo agents & small/mid teams; speed-first", competitor: "Larger teams wanting a broad general CRM" },
       { dimension: "Pricing model", ridhzo: "Free plan, then flat ₹249 (3 users) or ₹449/mo (unlimited users)", competitor: "Flat ~₹12,999/mo, unlimited users" },
       { dimension: "Core focus", ridhzo: "Speed-to-lead & 1-tap WhatsApp", competitor: "General SMB sales CRM" },
-      { dimension: "Mobile experience", ridhzo: "Mobile-first PWA, offline-capable", competitor: "Web + mobile apps" },
+      { dimension: "Mobile experience", ridhzo: "Mobile-first: Android app + installable web app, offline lead capture", competitor: "Web + mobile apps" },
       { dimension: "Cheapest to start", ridhzo: "Free plan", competitor: "Flat fee from day one" },
       { dimension: "Unlimited users", ridhzo: "₹449/mo", competitor: "~₹12,999/mo" },
     ],

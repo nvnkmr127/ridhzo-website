@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { PolicyLayout } from "@/components/marketing/PolicyLayout";
-import { ShieldCheck, Lock, Database, Key, Server, Cpu, AlertTriangle, CheckCircle2 } from "lucide-react";
+import { ShieldCheck, Lock, Database, Key, Server, Cpu, AlertTriangle } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Security & Data Isolation Architecture — Ridhzo CRM",
+  title: "Security & Data Isolation — Ridhzo CRM",
   description:
-    "Explore Ridhzo's security architecture: tenant-isolated Postgres, AES-256 encryption at rest, TLS 1.3 in transit, SHA-256 HMAC webhook verification, and RBAC.",
+    "How Ridhzo protects your leads: workspace isolation on every query, AES-256-GCM encrypted secrets, HTTPS everywhere, signed webhooks, role-based access and a 30-day recycle bin.",
   alternates: {
     canonical: "https://ridhzo.com/security",
   },
@@ -13,12 +13,12 @@ export const metadata: Metadata = {
 
 const SECTIONS = [
   { id: "principles", title: "1. Security Design Principles" },
-  { id: "tenant-isolation", title: "2. Multi-Tenant Database Isolation" },
-  { id: "encryption", title: "3. Cryptographic Standards (Rest & Transit)" },
+  { id: "tenant-isolation", title: "2. Workspace Isolation" },
+  { id: "encryption", title: "3. Encryption" },
   { id: "webhook-security", title: "4. Webhook Integrity & HMAC Signatures" },
-  { id: "pwa-offline", title: "5. Mobile PWA Offline Security" },
+  { id: "pwa-offline", title: "5. Mobile Apps & Offline Data" },
   { id: "rbac", title: "6. Role-Based Access Control (RBAC)" },
-  { id: "backups-dr", title: "7. Backups, Availability & Disaster Recovery" },
+  { id: "backups-dr", title: "7. Deletion, Retention & Recovery" },
   { id: "vulnerability-disclosure", title: "8. Vulnerability Reporting" },
 ];
 
@@ -26,10 +26,10 @@ export default function SecurityPolicyPage() {
   return (
     <PolicyLayout
       title="Security &amp; Data Isolation"
-      description="Sales leads represent your company's most sensitive revenue pipeline. We engineer security into every layer of Ridhzo—from row-level database partitioning to cryptographic webhook validation."
-      lastUpdated="September 20, 2026"
-      effectiveDate="September 20, 2026"
-      version="2.0"
+      description="Sales leads represent your company's most sensitive revenue pipeline. We build security into every layer of Ridhzo — from workspace-scoped queries to signed webhook validation."
+      lastUpdated="September 30, 2026"
+      effectiveDate="September 30, 2026"
+      version="2.1"
       sections={SECTIONS}
       activePath="/security"
     >
@@ -40,88 +40,85 @@ export default function SecurityPolicyPage() {
           <span>1. Security Design Principles</span>
         </h2>
         <p>
-          Ridhzo is designed on the principle of <strong>least privilege and zero cross-tenant trust</strong>. Because
-          our platform handles immediate inbound phone inquiries and deal pipelines, our architecture is hardened
-          against unauthorized access, eavesdropping, and data leakage:
+          Ridhzo is designed on the principle of <strong>least privilege and strict separation between workspaces</strong>.
+          Because the platform handles inbound enquiries and deal pipelines, every layer is built to prevent
+          unauthorized access and data leakage:
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
           <div className="p-4 rounded-xl border border-border bg-card space-y-1.5">
             <h3 className="text-xs font-bold text-foreground uppercase tracking-wider">Tenant Partitioning</h3>
             <p className="text-xs text-muted-foreground leading-relaxed">
-              Strict isolation ensures no tenant query can ever touch another organization&apos;s lead records.
+              Every query is scoped to your workspace, so one business can never see another&apos;s leads.
             </p>
           </div>
           <div className="p-4 rounded-xl border border-border bg-card space-y-1.5">
-            <h3 className="text-xs font-bold text-foreground uppercase tracking-wider">End-to-End Encryption</h3>
+            <h3 className="text-xs font-bold text-foreground uppercase tracking-wider">Encrypted Secrets</h3>
             <p className="text-xs text-muted-foreground leading-relaxed">
-              AES-256 for all stored data volumes and TLS 1.3 with HSTS for all network transmissions.
+              Email passwords, integration tokens and webhook secrets are encrypted with AES-256-GCM before they are
+              stored. All traffic uses HTTPS.
             </p>
           </div>
           <div className="p-4 rounded-xl border border-border bg-card space-y-1.5">
             <h3 className="text-xs font-bold text-foreground uppercase tracking-wider">Auditability</h3>
             <p className="text-xs text-muted-foreground leading-relaxed">
-              Comprehensive immutable audit logging for status shifts, user logins, and data exports.
+              An audit log records who changed settings, roles and users, who deleted or merged leads, and who created
+              API keys.
             </p>
           </div>
         </div>
       </section>
 
-      {/* 02. Multi-Tenant Database Isolation */}
+      {/* 02. Workspace isolation */}
       <section id="tenant-isolation" className="scroll-mt-24 space-y-4">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground flex items-center gap-2.5">
           <Database className="h-6 w-6 text-foreground" />
-          <span>2. Multi-Tenant Database Isolation</span>
+          <span>2. Workspace Isolation</span>
         </h2>
-        <p>
-          Ridhzo runs on enterprise-grade PostgreSQL with rigorous application-level and database-level boundary
-          enforcement:
-        </p>
+        <p>Ridhzo runs on PostgreSQL, with workspace boundaries enforced in the application on every request:</p>
         <ul className="list-disc pl-5 space-y-2 text-xs sm:text-sm">
           <li>
-            <strong>Mandatory Tenant Scoping:</strong> Every relational entity (leads, notes, custom fields, pipeline
-            stages, sequence automations) incorporates a cryptographically unique <code>tenant_id</code> foreign key.
+            <strong>Workspace scoping:</strong> Every lead, note, custom field, pipeline stage and sequence belongs to
+            exactly one workspace, and every query is limited to the signed-in person&apos;s workspace.
           </li>
           <li>
-            <strong>Parameterized ORM &amp; SQL Queries:</strong> All database queries are executed using strictly
-            typed, parameterized statements. Raw user strings are never concatenated into SQL commands, eliminating
-            SQL injection attack surfaces.
+            <strong>Parameterized queries:</strong> Database queries use typed, parameterized statements. Raw user
+            strings are never concatenated into SQL, which removes the SQL-injection attack surface.
           </li>
           <li>
-            <strong>Connection Pool Separation:</strong> Database connection pools validate workspace tenant context
-            prior to executing mutations, preventing multi-tenant crosstalk even during peak traffic spikes.
+            <strong>Permissions checked on the server:</strong> What a person can see or do is enforced by the server on
+            every request — not just hidden in the interface. Sales reps can open only the leads assigned to them.
           </li>
         </ul>
       </section>
 
-      {/* 03. Cryptographic Standards */}
+      {/* 03. Encryption */}
       <section id="encryption" className="scroll-mt-24 space-y-4">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground flex items-center gap-2.5">
           <Lock className="h-6 w-6 text-foreground" />
-          <span>3. Cryptographic Standards (Rest &amp; Transit)</span>
+          <span>3. Encryption</span>
         </h2>
         <div className="space-y-4">
           <div className="border border-border rounded-xl p-5 bg-card space-y-2">
             <div className="flex items-center gap-2 text-sm font-bold text-foreground">
               <Key className="h-4 w-4 text-foreground" />
-              <span>Encryption at Rest (AES-256)</span>
+              <span>Sensitive secrets: AES-256-GCM</span>
             </div>
             <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-              All physical storage volumes, database tablespaces, object caches, and snapshot backups are encrypted
-              using <strong>AES-256 GCM</strong>. Third-party integration credentials (such as Meta Page Access Tokens
-              and Google Ads Webhook Secrets) are encrypted at the application tier before persistence using unique
-              per-tenant salt vectors.
+              Credentials such as email (SMTP) passwords and integration access tokens are encrypted at the application
+              level with <strong>AES-256-GCM</strong> before they are saved, using a fresh random value for every
+              encryption. A tampered value fails to decrypt. API keys are stored hashed, so they can&apos;t be read
+              back.
             </p>
           </div>
 
           <div className="border border-border rounded-xl p-5 bg-card space-y-2">
             <div className="flex items-center gap-2 text-sm font-bold text-foreground">
               <Server className="h-4 w-4 text-foreground" />
-              <span>Encryption in Transit (TLS 1.3)</span>
+              <span>In transit: HTTPS</span>
             </div>
             <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-              All client-to-server and server-to-server traffic is encrypted using <strong>TLS 1.3</strong> (with
-              fallback to TLS 1.2 for legacy clients). We enforce HTTP Strict Transport Security (HSTS) with preloading,
-              preventing protocol downgrade attacks and cookie interception.
+              Traffic between your browser or phone and Ridhzo is encrypted with HTTPS (TLS). Account passwords are
+              stored as hashes, never in plain text.
             </p>
           </div>
         </div>
@@ -134,48 +131,58 @@ export default function SecurityPolicyPage() {
           <span>4. Webhook Integrity &amp; HMAC Verification</span>
         </h2>
         <p>
-          Because leads stream in from external advertising networks, we verify the authenticity of every incoming HTTP
-          POST request before parsing:
+          Because leads stream in from external advertising networks, we verify the authenticity of incoming requests
+          before parsing them:
         </p>
         <ul className="list-disc pl-5 space-y-2 text-xs sm:text-sm">
           <li>
             <strong>Meta Facebook Lead Ads:</strong> We inspect the <code>X-Hub-Signature-256</code> header on every
             inbound webhook, verifying the SHA-256 HMAC payload against your App Secret. Payloads with invalid or missing
-            signatures are rejected with an HTTP 403 response before database ingestion.
+            signatures are rejected before anything is saved.
           </li>
           <li>
-            <strong>Google Lead Form Webhooks:</strong> Inbound requests are matched against your configured secret key
-            in constant time (preventing timing attacks).
+            <strong>Google Lead Form and website webhooks:</strong> Inbound requests are matched against the secret key
+            configured for that source. Optional HMAC signatures are supported for custom webhooks.
           </li>
           <li>
-            <strong>Idempotency &amp; Replay Protection:</strong> Webhook events are tagged with unique event IDs and
-            cached for 48 hours to prevent duplicate lead creation caused by network retry loops.
+            <strong>Outbound webhooks are signed</strong> (HMAC-SHA256), so your systems can verify a delivery came from
+            Ridhzo. Public forms and webhooks are rate-limited against spam.
+          </li>
+          <li>
+            <strong>Duplicate protection:</strong> Retried deliveries don&apos;t create duplicate leads.
           </li>
         </ul>
       </section>
 
-      {/* 05. Mobile PWA Offline Security */}
+      {/* 05. Mobile apps & offline */}
       <section id="pwa-offline" className="scroll-mt-24 space-y-4">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground flex items-center gap-2.5">
           <Lock className="h-6 w-6 text-foreground" />
-          <span>5. Mobile PWA Offline Security</span>
+          <span>5. Mobile Apps &amp; Offline Data</span>
         </h2>
         <p>
-          Ridhzo lets reps in the field add new leads even without a network connection. Here is how that data is handled:
+          Ridhzo lets reps in the field add new leads even without a network connection. How that data is handled
+          depends on how the app is installed:
         </p>
         <ul className="list-disc pl-5 space-y-1.5 text-xs sm:text-sm">
           <li>
-            <strong>New leads only:</strong> Offline mode holds only leads a rep has just added. Existing leads are never
-            downloaded for offline use, so a lost phone does not expose your pipeline.
+            <strong>Web app (PWA):</strong> Offline mode holds only leads a rep has just added. Existing leads are not
+            downloaded for offline use. Pending leads are kept in the browser&apos;s storage for the Ridhzo app,
+            separated per workspace and not readable by other websites.
           </li>
           <li>
-            <strong>Browser-isolated storage:</strong> Pending leads are kept in the browser&apos;s storage for the Ridhzo
-            app, separated per workspace and not readable by other websites.
+            <strong>Android app:</strong> To work offline and to identify callers, the app keeps a copy of the leads that
+            person is allowed to open on the phone. We recommend a screen lock on work phones, and a lost phone&apos;s
+            access can be cut off by deactivating the user.
           </li>
           <li>
-            <strong>Normal checks on sync:</strong> When the connection returns, each lead is sent through the same
-            signed-in, permission-checked path as any other new lead — including duplicate detection — and is then
-            removed from the device.
+            <strong>Call logging stays private:</strong> The Android app matches its call log against your leads&apos;
+            numbers and sends only those calls. Personal calls never leave the phone, and nothing is read until the rep
+            grants the call-log permission.
+          </li>
+          <li>
+            <strong>Normal checks on sync:</strong> When the connection returns, each offline lead goes through the same
+            signed-in, permission-checked path as any other new lead — including duplicate detection.
           </li>
         </ul>
       </section>
@@ -186,56 +193,66 @@ export default function SecurityPolicyPage() {
           <ShieldCheck className="h-6 w-6 text-foreground" />
           <span>6. Role-Based Access Control (RBAC)</span>
         </h2>
-        <p>Workspaces enforce granular permissions across three distinct administrative tiers:</p>
+        <p>
+          Every person has a role. Ridhzo ships an Admin and a Member role, and you can create custom roles from 14
+          separate permissions:
+        </p>
         <div className="overflow-x-auto">
           <table className="w-full min-w-[500px] text-left text-xs border border-border mt-2">
             <thead className="bg-secondary/50 text-foreground border-b border-border">
               <tr>
                 <th className="p-3">Role</th>
                 <th className="p-3">Scope of Access</th>
-                <th className="p-3">Export &amp; Billing Authority</th>
+                <th className="p-3">Billing &amp; Settings</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-border text-muted-foreground">
               <tr>
-                <td className="p-3 font-bold text-foreground">Workspace Admin</td>
-                <td className="p-3">Full control: All leads, team members, integrations, webhooks, audit logs</td>
-                <td className="p-3">Full (Plan upgrade, CSV bulk export, workspace deletion)</td>
+                <td className="p-3 font-bold text-foreground">Admin</td>
+                <td className="p-3">Everything: all leads, team members, roles, integrations, webhooks, API keys, audit log</td>
+                <td className="p-3">Full (billing, settings, permanent lead deletion)</td>
               </tr>
               <tr>
-                <td className="p-3 font-bold text-foreground">Sales Manager</td>
-                <td className="p-3">Team pipeline visibility, round-robin assignments, performance metrics</td>
-                <td className="p-3">Restricted (Team CSV export only; no billing access)</td>
+                <td className="p-3 font-bold text-foreground">Member (sales rep)</td>
+                <td className="p-3">Their own assigned leads only: create, edit, call, message, change status</td>
+                <td className="p-3">None by default (cannot delete or purge leads, or change settings)</td>
               </tr>
               <tr>
-                <td className="p-3 font-bold text-foreground">Sales Agent</td>
-                <td className="p-3">Assigned leads only, 1-tap WhatsApp messaging, personal follow-up radar</td>
-                <td className="p-3">None (Cannot export full database or view other reps&apos; leads)</td>
+                <td className="p-3 font-bold text-foreground">Custom roles</td>
+                <td className="p-3">Any combination of the 14 permissions — for example a read-only Viewer for a partner</td>
+                <td className="p-3">Only what the role is explicitly granted</td>
               </tr>
             </tbody>
           </table>
         </div>
+        <p className="text-xs sm:text-sm">
+          Someone who can invite people but cannot manage roles is not able to hand out a role with more access than they
+          hold themselves.
+        </p>
       </section>
 
-      {/* 07. Backups & Disaster Recovery */}
+      {/* 07. Deletion, retention & recovery */}
       <section id="backups-dr" className="scroll-mt-24 space-y-4">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground flex items-center gap-2.5">
           <Server className="h-6 w-6 text-foreground" />
-          <span>7. Backups &amp; Disaster Recovery</span>
+          <span>7. Deletion, Retention &amp; Recovery</span>
         </h2>
-        <p>We maintain comprehensive business continuity protocols to safeguard against data loss:</p>
+        <p>You stay in control of your data, including when it leaves Ridhzo:</p>
         <ul className="list-disc pl-5 space-y-1.5 text-xs sm:text-sm">
           <li>
-            <strong>Continuous Point-in-Time Recovery (PITR):</strong> Write-ahead logs (WAL) are streamed continuously,
-            enabling database recovery to any individual second within the preceding 30 days.
+            <strong>30-day recycle bin:</strong> Deleted leads can be restored for 30 days, guarding against accidental
+            deletion.
           </li>
           <li>
-            <strong>Automated Daily Snapshots:</strong> Encrypted secondary backups are replicated across multiple
-            geographic availability zones (Multi-AZ).
+            <strong>Permanent deletion:</strong> People with the purge permission can erase leads for good, and a
+            lead&apos;s data can be exported or erased on request.
           </li>
           <li>
-            <strong>SLA Objectives:</strong> Recovery Point Objective (RPO) &lt; 5 minutes; Recovery Time Objective
-            (RTO) &lt; 1 hour.
+            <strong>Export:</strong> Leads can be exported to CSV by people with permission.
+          </li>
+          <li>
+            <strong>Audit trail:</strong> Deletions, merges and permission changes are recorded with who did them and
+            when.
           </li>
         </ul>
       </section>

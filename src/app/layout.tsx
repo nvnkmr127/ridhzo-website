@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     template: "%s — Ridhzo CRM",
   },
   description:
-    "Capture leads instantly from Meta Ads, Google and Web forms, get vibrating mobile push alerts, track deals on a visual Kanban, and contact prospects in seconds—even offline.",
+    "Capture leads instantly from Meta Ads, Google and web forms, get instant mobile push alerts, log calls automatically on Android, track deals on a visual pipeline, and follow up in one tap on WhatsApp.",
   applicationName: "Ridhzo",
   keywords: [
     "lead management CRM",
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Ridhzo — The 1-Tap Mobile CRM for Fast Closers",
     description:
-      "Capture leads instantly from all channels, receive vibrating mobile alerts, follow up in seconds via WhatsApp, and manage your entire sales pipeline offline.",
+      "Capture leads instantly from all channels, get instant mobile alerts, follow up in seconds via WhatsApp, and let your Android phone log your sales calls automatically.",
     url: "https://ridhzo.com",
     siteName: "Ridhzo",
     type: "website",
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Ridhzo — The 1-Tap Mobile CRM for Fast Closers",
     description:
-      "Respond to inbound leads in seconds, not hours. Instant multi-channel capture, vibrating push alerts, 1-tap WhatsApp follow-ups, and an offline-first pipeline.",
+      "Respond to inbound leads in seconds, not hours. Instant multi-channel capture, push alerts, 1-tap WhatsApp follow-ups, and automatic Android call logging.",
   },
   alternates: {
     canonical: "https://ridhzo.com",

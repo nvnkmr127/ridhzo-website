@@ -2,9 +2,9 @@
 title: "Dashboards & Sales Insights"
 slug: "dashboards"
 badge: "📈 Know What's Working"
-summary: "A personal dashboard for every rep, an executive dashboard for owners, and deep insights — response speed, source ROI, team leaderboard, win/loss, forecast and pipeline health."
+summary: "A personal dashboard for every rep, an executive dashboard for owners with a Today panel and morning email, and deep insights — response speed, call activity, source ROI, team leaderboard, win/loss, forecast and pipeline health."
 keyMetric: "Every Rupee of Ad Spend Traced to Revenue"
-order: 12
+order: 13
 category: "analyze"
 ---
 
@@ -12,6 +12,15 @@ category: "analyze"
 
 ## My Dashboard — for every rep
 Start each day knowing exactly what to do: leads assigned to you, new and active leads, **follow-ups due today**, **overdue** follow-ups, today's meetings, your win rate, your pipeline value and your follow-up completion rate.
+
+## Today — the team at a glance
+The top of the Executive Dashboard shows what needs attention right now, each with a **comparison to yesterday** and a click-through to exactly those leads:
+- **Overdue follow-ups** and **meetings without an outcome**
+- **New leads not contacted after 24 hours** and **unassigned leads**
+- **Meetings left today** and **new leads in the last 24 hours**
+- **Calls per rep** — how many, how long, how many were answered (from Android call sync)
+
+The same picture arrives as a **morning summary email** to admins, and each person can turn it off. Reps get their own "your day" version on My Dashboard.
 
 ## Executive Dashboard — for owners and managers
 Filter by date, team and source:
@@ -28,7 +37,8 @@ Filter by date, team and source:
 | :--- | :--- |
 | Pipeline health grade (A–D) | How healthy is our sales engine overall? |
 | Source ROI | Which ad or channel actually brings sales? |
-| Team leaderboard | Who is converting, and who needs coaching? |
+| Team leaderboard | Who is converting, who is calling, and who needs coaching? Includes calls, talk time and answer rate per rep |
+| Answer rate by source | Which lead sources actually pick up the phone? |
 | Revenue forecast | What revenue can we realistically expect? |
 | Win / loss analysis | Why are we losing deals? |
 | Stage speed & stuck deals | Where do deals slow down? |
@@ -44,3 +54,4 @@ Filter by date, team and source:
 - Insights shows Google leads close at 18% and Facebook at 6% — the owner shifts budget to Google.
 - Only 22% of leads were being contacted within 5 minutes; after turning on round-robin and push alerts, the team reaches 70%.
 - The leaderboard shows one rep with high volume and a low win rate — the manager reviews their calls.
+- Answer rate by source shows one campaign's leads rarely pick up — the owner checks the form and the ad before spending more.

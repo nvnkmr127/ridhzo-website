@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const alt =
-  "Ridhzo — Respond to inbound leads in 12 seconds, not 4 hours. The 1-tap mobile CRM for fast closers.";
+  "Ridhzo — Respond to inbound leads in seconds, not hours. The 1-tap mobile CRM for fast closers.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -66,7 +66,7 @@ export default function OpengraphImage() {
               maxWidth: 1000,
             }}
           >
-            Respond to Inbound Leads in 12 Seconds, Not 4 Hours.
+            Respond to Inbound Leads in Seconds, Not Hours.
           </div>
         </div>
 

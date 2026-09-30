@@ -218,8 +218,8 @@ export default function CookiePolicyPage() {
             privacy@ridhzo.com
           </a>{" "}
           or{" "}
-          <a href="mailto:support@ridhzo.com" className="text-foreground underline font-medium">
-            support@ridhzo.com
+          <a href="mailto:hello@ridhzo.com" className="text-foreground underline font-medium">
+            hello@ridhzo.com
           </a>
           .
         </p>

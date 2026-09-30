@@ -8,8 +8,12 @@ export function FaqSection() {
 
   const faqs = [
     {
-      q: "Does Ridhzo install like a native mobile app on iPhone and Android?",
-      a: "Yes. Yes. Tap 'Add to Home Screen' in Safari (iPhone) or Chrome (Android) and Ridhzo opens full-screen with its own icon and push notifications — no app-store download needed. The app is available in English, Hindi and Telugu.",
+      q: "Is there a mobile app for iPhone and Android?",
+      a: "Android users can install the Ridhzo Android app, which adds automatic call logging and Caller ID. On iPhone (or Android), tap 'Add to Home Screen' in Safari or Chrome and Ridhzo opens full-screen with its own icon and push notifications. The app is available in English, Hindi and Telugu.",
+    },
+    {
+      q: "Does Ridhzo log my sales calls automatically?",
+      a: "Yes, on Android. With call-log permission granted, calls with your leads are logged with direction and talk time, and an answered call closes the matching follow-up. Only calls with your leads are sent — personal calls stay on the phone. It works on every plan, including Free.",
     },
     {
       q: "Do I need the WhatsApp Business API to start?",
@@ -33,7 +37,7 @@ export function FaqSection() {
     },
     {
       q: "Can I use Ridhzo for free without a credit card?",
-      a: "Yes! The Free forever plan includes up to 300 leads, 1 user, 1 lead source, 2 automations, 1 sequence, 15 AI credits a month, 1-tap WhatsApp, push alerts, the mobile app and offline capture. You can upgrade to Starter (₹249/mo) or Unlimited (₹449/mo) as your lead volume expands.",
+      a: "Yes! The Free forever plan includes up to 300 leads, 1 user, 1 lead source, 2 automations, 1 sequence, 15 AI credits a month, 1-tap WhatsApp, push alerts, Android call logging, the mobile app and offline lead capture. New workspaces also get a 14-day Starter trial. You can upgrade to Starter (₹249/mo) or Unlimited (₹449/mo) as your lead volume expands. Prices exclude GST.",
     },
   ];
 

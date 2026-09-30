@@ -23,7 +23,7 @@ const POLICY_PAGES = [
   { href: "/terms", label: "Terms of Service", desc: "User agreements, acceptable use & liability" },
   { href: "/refund-policy", label: "Cancellation & Refund", desc: "14-day policy, billing & turnaround" },
   { href: "/shipping-policy", label: "Shipping & Delivery", desc: "Digital SaaS delivery & instant provisioning" },
-  { href: "/security", label: "Security & Isolation", desc: "AES-256 encryption & zero cross-tenant leak" },
+  { href: "/security", label: "Security & Isolation", desc: "Workspace isolation & encrypted secrets" },
   { href: "/cookie-policy", label: "Cookie Policy", desc: "Session auth, local storage & analytics" },
 ];
 

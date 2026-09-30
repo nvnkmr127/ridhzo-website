@@ -4,7 +4,7 @@ slug: "follow-ups"
 badge: "⏰ Never Forget a Callback"
 summary: "Set a follow-up on any lead and your phone reminds you on time. Today, upcoming and overdue lists, a calendar view, and alerts for managers when follow-ups slip."
 keyMetric: "Every Lead Always Has a Next Step"
-order: 5
+order: 6
 category: "engage"
 ---
 
@@ -19,6 +19,7 @@ Forgotten callbacks are the most common reason leads are lost. Ridhzo makes sure
 - **Follow-ups list** — Today, Upcoming, Overdue and Done.
 - **Calendar view** — see the week or month at a glance.
 - **One tap to complete** — the lead's "last contacted" and "next follow-up" update automatically.
+- **Closes itself on a real call** — with the Android app, when a call to the lead connects, the matching follow-up is marked done. If the call goes unanswered, the follow-up stays open so you try again. See [Call Sync & Caller ID](/features/call-sync).
 - **Overdue escalation** — overdue follow-ups are marked High (24h+) or Critical (48h+) so managers can step in.
 - **Automatic follow-ups** — automations can schedule them for you ("new lead → follow up tomorrow at 10 AM").
 - **After a meeting** — record the outcome and set the next follow-up in the same step.

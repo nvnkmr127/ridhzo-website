@@ -17,7 +17,7 @@ Your leads come from Facebook Lead Center, Google Ads, your website, WhatsApp, w
 
 | Source | How it works |
 | :--- | :--- |
-| **Facebook & Instagram Lead Ads** | Click Connect, log in to Facebook, pick your Page. New leads arrive within seconds. Choose which forms to import and **sync past leads** too. |
+| **Facebook & Instagram Lead Ads** | Click Connect, log in to Facebook, pick your Page. New leads arrive within seconds. Choose which forms to import and **sync past leads** too. One Facebook Page can feed several workspaces — handy for agencies running ads for franchises or clients. |
 | **Google Lead Form Ads** | Paste your Ridhzo webhook URL and key into the Google Ads lead form. Campaign details are kept with each lead. |
 | **Hosted web forms** | Build a form visually (multi-step if you like), then share the link — Instagram bio, WhatsApp status, QR code on a flyer — or embed it on WordPress, Wix, Webflow, Shopify or any site. |
 | **Website webhook** | Connect your existing contact form or tools like Zapier, Make or Pabbly with a secure, signed webhook. |

@@ -70,12 +70,12 @@ export function ContactUsSection() {
                 </div>
                 <div>
                   <span className="text-xs font-bold text-foreground">Email Support</span>
-                  <p className="text-xs text-muted-foreground mt-0.5">Replies within 2 hours</p>
+                  <p className="text-xs text-muted-foreground mt-0.5">Urgent issues within 2 hours · everything else within 24 hours</p>
                   <a
-                    href="mailto:support@ridhzo.com"
+                    href="mailto:hello@ridhzo.com"
                     className="focus-ring rounded-sm text-xs font-mono text-foreground hover:underline mt-1 block"
                   >
-                    support@ridhzo.com
+                    hello@ridhzo.com
                   </a>
                 </div>
               </div>

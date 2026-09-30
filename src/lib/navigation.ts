@@ -27,6 +27,7 @@ import {
   Compass,
   LifeBuoy,
   Scale,
+  PhoneCall,
 } from "lucide-react";
 
 /**
@@ -80,7 +81,8 @@ function feature(
 
 export const FEATURE_NAV: readonly FeatureNavItem[] = [
   feature("lead-capture", "capture", "Lead Capture", "Meta, Google, web forms, webhooks & CSV", Inbox),
-  feature("mobile-pwa", "capture", "Mobile App & Alerts", "Installable app with instant lead alerts", Smartphone),
+  feature("mobile-pwa", "capture", "Mobile App & Alerts", "Android app & installable web app with instant alerts", Smartphone),
+  feature("call-sync", "capture", "Call Sync & Caller ID", "Android calls logged automatically, lead names on incoming calls", PhoneCall, "New"),
   feature("offline-mode", "capture", "Offline Mode", "Add leads with zero signal, auto-sync later", WifiOff),
   feature("whatsapp", "engage", "WhatsApp Messaging", "1-tap personal or Business API messaging", MessageSquare),
   feature("follow-ups", "engage", "Follow-ups & Reminders", "On-time reminders & overdue alerts", CalendarCheck),

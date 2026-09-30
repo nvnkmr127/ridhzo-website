@@ -10,7 +10,7 @@ import {
   Bot,
   CalendarCheck,
   UserPlus,
-  Sliders,
+  PhoneCall,
   Send,
   MapPin,
   BarChart3,
@@ -57,7 +57,7 @@ export function FeatureShowcase() {
       title: "No-Code Automation Rules",
       description:
         "Build simple 'When → If → Then' rules. Automatically send a WhatsApp welcome, assign the right rep, book a follow-up, or start a drip sequence.",
-      bullets: ["4 ready-made templates to start", "Filter by source, budget, tags or custom fields", "Loop-proof and safe behind the scenes"],
+      bullets: ["6 ready-made templates to start", "Filter by source, budget, tags or custom fields", "Loop-proof and safe behind the scenes"],
     },
     {
       icon: Users,
@@ -75,7 +75,7 @@ export function FeatureShowcase() {
       title: "Mobile App That Works Offline",
       description:
         "Working in a basement, elevator, or site with poor signal? You can still add new leads. Ridhzo saves them on your phone and uploads them the second you are back online.",
-      bullets: ["Installs directly on iPhone & Android", "No internet needed to add leads", "Auto-syncs when signal returns"],
+      bullets: ["Android app, or add to your iPhone home screen", "No internet needed to add leads", "Auto-syncs when signal returns"],
     },
   ];
 
@@ -84,7 +84,7 @@ export function FeatureShowcase() {
       icon: Bot,
       href: "/features/ai",
       title: "AI Assistant, Summaries & Reply Drafts",
-      description: "AI sums up what the buyer wants and drafts your next WhatsApp in their language. Ask the AI Assistant to find leads, update them or set reminders.",
+      description: "AI sums up what the buyer wants, suggests the next update in one tap and drafts your next WhatsApp in their language. Ask the AI Assistant to find leads or set reminders.",
       badge: "New",
     },
     {
@@ -109,19 +109,20 @@ export function FeatureShowcase() {
       icon: BarChart3,
       href: "/features/dashboards",
       title: "Dashboards & Insights",
-      description: "Speed to first response, source ROI, team leaderboard, win/loss, forecast and a pipeline health grade.",
+      description: "A Today panel with a morning email, speed to first response, call activity, source ROI, team leaderboard, forecast and a pipeline health grade.",
     },
     {
       icon: UserPlus,
       href: "/features/lead-management",
       title: "Search, Filters & Bulk Actions",
-      description: "Saved views, bulk assign and status changes, duplicate merging and a 30-day recycle bin.",
+      description: "Reference numbers, saved views, custom fields, bulk assign and status changes, duplicate merging and a 30-day recycle bin.",
     },
     {
-      icon: Sliders,
-      href: "/features/lead-management",
-      title: "Custom Fields for Any Business",
-      description: "Add custom boxes for budget, property type, location, loan status, or any detail your team needs.",
+      icon: PhoneCall,
+      href: "/features/call-sync",
+      title: "Android Call Sync & Caller ID",
+      description: "Calls with your leads are logged automatically — direction, talk time, outcome — and an answered call closes the follow-up. Leads' names show when they ring you.",
+      badge: "New",
     },
     {
       icon: Layers,

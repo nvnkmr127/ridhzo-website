@@ -4,7 +4,7 @@ slug: "meetings"
 badge: "📍 From Lead to Face-to-Face"
 summary: "Schedule online meetings and site visits, send confirmations with map links, remind leads automatically, check in with GPS, and let leads book slots themselves."
 keyMetric: "Fewer No-Shows, More Visits"
-order: 9
+order: 10
 category: "engage"
 ---
 

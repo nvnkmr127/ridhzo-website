@@ -25,7 +25,7 @@ const TRUST = [
   { icon: Sparkles, label: "Free plan forever" },
   { icon: CreditCard, label: "No card to start" },
   { icon: XCircle, label: "Cancel anytime" },
-  { icon: ShieldCheck, label: "AES-256 encrypted" },
+  { icon: ShieldCheck, label: "Workspace-isolated data" },
 ];
 
 // Product + Offers structured data (prices mirror PricingSection monthly rates).

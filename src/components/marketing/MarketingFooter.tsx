@@ -89,7 +89,7 @@ export function MarketingFooter() {
             </p>
             <div className="flex items-center gap-2 text-[11px] text-muted-foreground pt-1">
               <ShieldCheck className="h-3.5 w-3.5 text-foreground" />
-              <span>AES-256 Encrypted &amp; Tenant-Isolated Postgres</span>
+              <span>Workspace-isolated data &amp; encrypted secrets</span>
             </div>
             <SocialIcons className="pt-2" />
           </div>

@@ -168,8 +168,8 @@ export default function RefundPolicyPage() {
         <div className="rounded-xl border border-border bg-card p-5 space-y-3 text-xs sm:text-sm">
           <p className="text-foreground">
             Send an email to{" "}
-            <a href="mailto:support@ridhzo.com" className="text-foreground font-semibold underline">
-              support@ridhzo.com
+            <a href="mailto:hello@ridhzo.com" className="text-foreground font-semibold underline">
+              hello@ridhzo.com
             </a>{" "}
             or message our team on WhatsApp at{" "}
             <a

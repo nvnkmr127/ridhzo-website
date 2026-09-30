@@ -51,6 +51,8 @@ const GROUPS: Group[] = [
       { label: "Instant push notifications", free: true, starter: true, unlimited: true },
       { label: "Round-robin lead assignment", free: true, starter: true, unlimited: true },
       { label: "1-tap WhatsApp, call & email", free: true, starter: true, unlimited: true },
+      { label: "Android call sync & Caller ID", free: true, starter: true, unlimited: true },
+      { label: "Pre-call brief & next best action", free: true, starter: true, unlimited: true },
       { label: "Follow-ups, reminders & meetings", free: true, starter: true, unlimited: true },
       { label: "Custom fields & lead tags", free: true, starter: true, unlimited: true },
       { label: "AI auto-tagging of incoming replies", free: false, starter: true, unlimited: true },
@@ -62,7 +64,6 @@ const GROUPS: Group[] = [
       { label: "Kanban pipeline, Hot & Going Cold lists", free: true, starter: true, unlimited: true },
       { label: "Dashboards, SLA tracking & team leaderboards", free: true, starter: true, unlimited: true },
       { label: "Outbound webhooks (Zapier / Make)", free: true, starter: true, unlimited: true },
-      { label: "Priority phone & WhatsApp onboarding", free: false, starter: false, unlimited: true },
     ],
   },
 ];

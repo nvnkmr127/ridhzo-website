@@ -157,12 +157,12 @@ export default function ShippingPolicyPage() {
           <p className="text-foreground">Please reach out through our rapid resolution channels:</p>
           <ul className="list-disc pl-5 space-y-1 text-muted-foreground">
             <li>
-              Check your spam or promotions email folder for the activation link from <code>no-reply@ridhzo.com</code>.
+              Check your spam or promotions email folder for your payment receipt and GST invoice email from Ridhzo Billing.
             </li>
             <li>
               Email our technical operations desk at{" "}
-              <a href="mailto:support@ridhzo.com" className="text-foreground font-semibold underline">
-                support@ridhzo.com
+              <a href="mailto:hello@ridhzo.com" className="text-foreground font-semibold underline">
+                hello@ridhzo.com
               </a>{" "}
               with your transaction reference ID.
             </li>

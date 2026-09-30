@@ -4,7 +4,7 @@ slug: "integrations"
 badge: "🔌 Connects to Your Tools"
 summary: "Facebook, Instagram and Google Lead Ads, WhatsApp, Google Calendar, your email, Meta Conversions API, telephony, and a REST API with signed webhooks for everything else."
 keyMetric: "Plug Ridhzo into Your Existing Stack"
-order: 14
+order: 15
 category: "platform"
 ---
 
@@ -13,14 +13,14 @@ category: "platform"
 ## Built-in integrations
 | Integration | What it does |
 | :--- | :--- |
-| **Facebook & Instagram Lead Ads** | Leads in seconds, form filtering, past-lead sync, automatic reconnect warnings |
+| **Facebook & Instagram Lead Ads** | Leads in seconds, form filtering, past-lead sync, one Page shared across workspaces, automatic reconnect warnings |
 | **Google Lead Form Ads** | Leads in seconds with campaign details |
 | **WhatsApp** | One-tap personal WhatsApp, or the official WhatsApp Business API for automation |
 | **Google Calendar** | Meetings and bookings sync to your calendar; Google Meet links |
 | **Your email (SMTP)** | Send from your own address — Gmail, Google Workspace, Zoho, Outlook, Amazon SES or any SMTP |
-| **Meta Conversions API** | Tell Meta which leads became qualified or won, so your ads find better leads |
+| **Meta Conversions API** | Tell Meta which leads became qualified or won, so your ads find better leads — with a delivery status (sent, pending, failed) and a test button in **Settings → Lead Intelligence** |
 | **Lead enrichment** | Fill in missing lead details from your data provider |
-| **Inbound email** | Log email replies from leads on their timeline |
+| **Inbound email** | Log email replies from leads on their timeline — auto-replies and out-of-office messages are ignored, and repeats aren't logged twice |
 | **Telephony** | Missed call → instant WhatsApp, with Exotel, Knowlarity, Twilio and others |
 
 ## REST API

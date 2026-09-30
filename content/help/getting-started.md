@@ -13,7 +13,7 @@ order: 1
 This guide gets you from signup to your first real lead in about 10 minutes. No card is needed — every new workspace starts with a **14-day Starter trial**.
 
 ## 1. Sign up
-Sign up with email, **Google**, or your **phone number and OTP**. Set your business name, timezone and working hours in **Settings → General**.
+Sign up with email, **Google**, or your **mobile number and a one-time code**. Set your business name, timezone and working hours in **Settings → General**.
 
 ## 2. Connect a lead source
 Go to **Settings → Lead Sources** and pick one:
@@ -25,11 +25,12 @@ Go to **Settings → Lead Sources** and pick one:
 - **CSV import** — upload your existing leads from Excel or Google Sheets.
 
 ## 3. Invite your team
-Go to **Settings → Users**, invite by email, and choose a role (Admin, Member, or a custom role). Reps see only the leads assigned to them.
+Go to **Settings → Users** and add teammates by email invite, invite link, or just their mobile number — then choose a role (Admin, Member, or a custom role). Reps see only the leads assigned to them.
 
 ## 4. Turn on assignment and alerts
 - Turn on **round-robin** for your source so every new lead gets an owner instantly.
-- On your phone, open Ridhzo and tap **Add to Home Screen**, then **allow notifications** — you'll be alerted the second a lead arrives.
+- On your phone, install the **Android app**, or open Ridhzo in your browser and tap **Add to Home Screen** (works on iPhone too), then **allow notifications** — you'll be alerted the second a lead arrives.
+- On Android, allow **call-log access** in the app and your calls with leads are logged automatically — see [Call Sync & Caller ID](/features/call-sync).
 - Optional: set up **New-lead alerts** to email or WhatsApp a manager or partner.
 
 ## 5. Set up your WhatsApp templates

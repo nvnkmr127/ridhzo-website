@@ -210,6 +210,10 @@ export function SpeedComparison() {
                   <span className="font-mono font-bold text-foreground">+254%</span>
                 </div>
               </div>
+              <p className="mt-3 text-[10px] leading-relaxed text-muted-foreground">
+                Illustrative estimate only, assuming a 2.2% close rate for a ~4-hour response and 7.8% for under 5 minutes.
+                Your results will vary.
+              </p>
             </div>
           </div>
         </div>
