@@ -5,6 +5,7 @@ import { MarketingNavbar } from "@/components/marketing/MarketingNavbar";
 import { MarketingFooter } from "@/components/marketing/MarketingFooter";
 import { Analytics } from "@/components/analytics/Analytics";
 import { CookieConsent } from "@/components/analytics/CookieConsent";
+import { AttributionLinks } from "@/components/analytics/AttributionLinks";
 import { SOCIAL_LINKS } from "@/lib/config";
 
 const ORGANIZATION_JSON_LD = {
@@ -114,6 +115,7 @@ export default function RootLayout({
         <MarketingFooter />
         <CookieConsent />
         <Analytics />
+        <AttributionLinks />
       </body>
     </html>
   );
