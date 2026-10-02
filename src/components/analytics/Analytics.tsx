@@ -15,7 +15,11 @@ import { MetaPixel } from "./MetaPixel";
  */
 export function Analytics() {
   const consent = useConsent();
-  const { gaId, gtmId, metaPixelId } = analyticsConfig;
+  const { gtmId } = analyticsConfig;
+  // GTM is the hub: when it's set, GA4 and the Pixel belong inside the container. Loading them here too
+  // would count every page view twice, so the direct IDs are ignored.
+  const gaId = gtmId ? "" : analyticsConfig.gaId;
+  const metaPixelId = gtmId ? "" : analyticsConfig.metaPixelId;
 
   if (consent !== "granted") return null;
 
