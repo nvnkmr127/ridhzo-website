@@ -17,6 +17,28 @@ export function AttributionLinks() {
     const now = new URLSearchParams(window.location.search);
     const fresh: Record<string, string> = {};
     for (const k of KEYS) if (now.get(k)) fresh[k] = now.get(k)!;
+    // Untagged visitors (organic search, social, other sites): remember the first external referrer
+    // host so the app can tell them apart from truly direct traffic. Host only — no paths or queries.
+    if (!Object.keys(fresh).length && !saved.ref && document.referrer) {
+      try {
+        const host = new URL(document.referrer).hostname.replace(/^www\./, "");
+        if (host && !/(^|\.)ridhzo\.com$/.test(host)) {
+          saved = { ...saved, ref: host };
+          localStorage.setItem(STORE, JSON.stringify(saved));
+        }
+      } catch {}
+    }
+    // Untagged visitors (organic search, social, other sites): remember the first external referrer
+    // host so the app can tell them apart from truly direct traffic. Host only — no paths or queries.
+    if (!Object.keys(fresh).length && !saved.ref && document.referrer) {
+      try {
+        const host = new URL(document.referrer).hostname.replace(/^www\./, "");
+        if (host && !/(^|\.)ridhzo\.com$/.test(host)) {
+          saved = { ...saved, ref: host };
+          localStorage.setItem(STORE, JSON.stringify(saved));
+        }
+      } catch {}
+    }
     if (Object.keys(fresh).length) {
       saved = fresh;
       try {
