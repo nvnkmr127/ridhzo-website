@@ -3,7 +3,7 @@ import { Eyebrow, SectionTitle, Accent, Lead, HomeSection } from "./primitives";
 
 export function JourneySection() {
   return (
-    <HomeSection id="journey">
+    <HomeSection id="journey" texture>
       <div className="flex flex-col items-center gap-2 text-center">
         <Eyebrow>See Ridhzo in action</Eyebrow>
         <SectionTitle className="mt-2 max-w-[560px]">

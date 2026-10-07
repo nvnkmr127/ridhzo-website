@@ -83,14 +83,18 @@ export function HomeSection({
   children,
   className,
   innerClassName,
+  texture,
 }: {
   id?: string;
   children: React.ReactNode;
   className?: string;
   innerClassName?: string;
+  /** Figma "Frame 6": grain photo at 40% with an overlay blend. */
+  texture?: boolean;
 }) {
   return (
     <section id={id} className={cn("relative overflow-hidden py-16 sm:py-20", className)}>
+      {texture && <GrainTexture />}
       <div
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(60rem_28rem_at_50%_50%,rgba(94,232,120,0.05),transparent_70%)] [mask-image:linear-gradient(to_bottom,transparent,black_30%,black_70%,transparent)]"
         aria-hidden="true"
@@ -176,5 +180,18 @@ export function ShotPanel({
         className={cn("h-auto w-full rounded-xl sm:rounded-2xl", flush && "rounded-b-none")}
       />
     </div>
+  );
+}
+
+/** Grain photo from the Figma frames, blended as overlay at 40%. Decorative only. */
+export function GrainTexture({ className }: { className?: string }) {
+  return (
+    <div
+      className={cn(
+        "pointer-events-none absolute inset-0 bg-[url('/home/texture.webp')] bg-cover bg-center opacity-40 mix-blend-overlay",
+        className,
+      )}
+      aria-hidden="true"
+    />
   );
 }

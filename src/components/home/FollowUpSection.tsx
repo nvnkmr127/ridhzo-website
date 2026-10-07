@@ -1,7 +1,8 @@
 import Image from "next/image";
-import type { LucideIcon } from "lucide-react";
-import { UserCheck, Workflow } from "lucide-react";
+import type { ComponentType } from "react";
+import { UserCheck } from "lucide-react";
 import { Eyebrow, SectionTitle, Accent, Lead, HomeSection } from "./primitives";
+import { WorkflowGraphIcon } from "./icons";
 
 const SIGNALS = [
   { label: "OVERDUE", count: 8, note: "Needs attention" },
@@ -19,7 +20,7 @@ function Panel({
   children,
   preview,
 }: {
-  Icon: LucideIcon;
+  Icon: ComponentType<{ className?: string }>;
   title: string;
   subtitle: string;
   children: React.ReactNode;
@@ -84,7 +85,7 @@ export function FollowUpSection() {
         </Panel>
 
         <Panel
-          Icon={Workflow}
+          Icon={WorkflowGraphIcon}
           title="Automate the handoffs"
           subtitle="Build consistent workflows around real sales actions."
           preview={

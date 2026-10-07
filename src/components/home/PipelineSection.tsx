@@ -2,7 +2,7 @@ import { Eyebrow, SectionTitle, Accent, Lead, HomeSection, ShotPanel } from "./p
 
 export function PipelineSection() {
   return (
-    <HomeSection id="pipeline">
+    <HomeSection id="pipeline" texture>
       <div className="mx-auto flex max-w-[672px] flex-col items-center gap-3 text-center">
         <Eyebrow>Pipeline management</Eyebrow>
         <SectionTitle className="mt-1">

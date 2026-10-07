@@ -9,7 +9,7 @@ const POINTS = [
 
 export function LeadManagementSection() {
   return (
-    <HomeSection id="lead-management">
+    <HomeSection id="lead-management" texture>
       <div className="grid items-center gap-10 lg:grid-cols-[1fr_488px] lg:gap-14">
         <div className="relative">
           <FloatingChip

@@ -112,7 +112,7 @@ const STEPS = [
 
 export function FlowSection() {
   return (
-    <HomeSection id="flow">
+    <HomeSection id="flow" texture>
       <div className="mx-auto flex max-w-[672px] flex-col items-center gap-3 text-center">
         <Eyebrow>The flow</Eyebrow>
         <SectionTitle className="mt-1">

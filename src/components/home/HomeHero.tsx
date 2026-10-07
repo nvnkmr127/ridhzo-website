@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Gift, Smartphone } from "lucide-react";
 import { appUrl } from "@/lib/config";
-import { Eyebrow, HomeButton, FloatingChip, ShotPanel } from "./primitives";
+import { Eyebrow, HomeButton, FloatingChip, ShotPanel, GrainTexture } from "./primitives";
 import { NoCardIcon } from "./icons";
 
 const WORDS = ["action.", "conversation.", "opportunity.", "revenue."];
@@ -85,6 +85,7 @@ export function HomeHero() {
         className="pointer-events-none absolute inset-x-0 top-0 h-[982px] bg-[url('/home/hero-bg.webp')] bg-cover bg-top [mask-image:linear-gradient(to_bottom,black_70%,transparent)]"
         aria-hidden="true"
       />
+      <GrainTexture className="top-auto h-[858px]" />
       <div className="relative mx-auto flex max-w-[1272px] flex-col items-center gap-8 px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center gap-4 text-center">
           <Eyebrow>Mobile-first sales CRM</Eyebrow>

@@ -1,5 +1,5 @@
 import { appUrl } from "@/lib/config";
-import { Eyebrow, SectionTitle, Accent, Lead, HomeButton } from "./primitives";
+import { Eyebrow, SectionTitle, Accent, Lead, HomeButton, GrainTexture } from "./primitives";
 
 export function FinalCtaSection() {
   return (
@@ -8,6 +8,7 @@ export function FinalCtaSection() {
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_168%_at_50%_118%,#0d2710_0%,rgba(13,39,16,0)_50%),radial-gradient(65%_157%_at_50%_0%,rgba(94,232,120,0.09)_0%,rgba(94,232,120,0)_40%)]"
         aria-hidden="true"
       />
+      <GrainTexture />
       <div className="relative mx-auto flex max-w-[700px] flex-col items-center gap-10 px-4 text-center sm:px-6">
         <div className="flex flex-col items-center gap-3">
           <Eyebrow>Ready when you are</Eyebrow>
