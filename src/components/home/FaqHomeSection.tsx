@@ -74,9 +74,9 @@ export function FaqHomeSection() {
                   >
                     {f.q}
                     {isOpen ? (
-                      <Minus className="h-5 w-5 shrink-0" aria-hidden="true" />
+                      <Minus className="h-5 w-5 shrink-0 text-highlight" aria-hidden="true" />
                     ) : (
-                      <Plus className="h-5 w-5 shrink-0" aria-hidden="true" />
+                      <Plus className="h-5 w-5 shrink-0 text-highlight" aria-hidden="true" />
                     )}
                   </button>
                 </h3>

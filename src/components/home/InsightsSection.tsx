@@ -1,5 +1,5 @@
 import { CheckCircle2 } from "lucide-react";
-import { Eyebrow, SectionTitle, Accent, Lead, HomeButton, HomeSection, GlassPanel } from "./primitives";
+import { Eyebrow, SectionTitle, Accent, Lead, HomeButton, HomeSection, GlassPanel, FloatingChip } from "./primitives";
 
 const POINTS = [
   "Monitor response speed and team activity",
@@ -39,10 +39,16 @@ export function InsightsSection() {
           </HomeButton>
         </div>
 
-        <GlassPanel className="order-1 lg:order-2">
+        <div className="relative order-1 lg:order-2">
+        <FloatingChip
+          title="₹ 10.23 Cr"
+          subtitle="Revenue forecast"
+          className="absolute -bottom-5 left-4 z-10 hidden sm:flex"
+        />
+        <GlassPanel>
           <div className="p-5">
-            <p className="text-xs text-white/50">Revenue forecast</p>
-            <p className="mt-1 text-3xl font-semibold tracking-tight text-white">₹ 10.23 Cr</p>
+            <p className="text-sm font-medium text-white/80">Pipeline overview</p>
+            <p className="text-xs text-white/45">Leads over the last 12 weeks</p>
             <svg viewBox="0 0 300 100" className="mt-5 h-32 w-full" role="img" aria-label="Revenue forecast trending upward" preserveAspectRatio="none">
               <path d={`${path} L300,100 L0,100 Z`} fill="rgba(94,232,120,0.10)" />
               <path d={path} fill="none" stroke="#5ee878" strokeWidth="2" vectorEffect="non-scaling-stroke" />
@@ -59,6 +65,7 @@ export function InsightsSection() {
             </div>
           </div>
         </GlassPanel>
+        </div>
       </div>
     </HomeSection>
   );

@@ -1,6 +1,10 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { Eyebrow, SectionTitle, Accent, Lead, HomeSection } from "./primitives";
+import { cn } from "@/lib/utils";
+import { Eyebrow, SectionTitle, Accent, Lead } from "./primitives";
 
 const CASES = [
   { title: "Real Estate", body: "Route property enquiries and keep every site visit moving.", href: "/usecases/real-estate" },
@@ -10,35 +14,79 @@ const CASES = [
   { title: "Clinics & Healthcare", body: "Organize patient enquiries and make follow-up dependable.", href: "/usecases/clinics" },
 ];
 
+const STEP_MS = 5000;
+
+/** Figma "Frame 29": skyline backdrop, bottom-aligned copy and five cards that autoplay with a progress bar. */
 export function UseCasesHomeSection() {
+  const [active, setActive] = useState(0);
+  const [autoplay, setAutoplay] = useState(true);
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) setAutoplay(false);
+  }, []);
+
+  useEffect(() => {
+    if (!autoplay) return;
+    const t = setTimeout(() => setActive((n) => (n + 1) % CASES.length), STEP_MS);
+    return () => clearTimeout(t);
+  }, [active, autoplay]);
+
   return (
-    <HomeSection id="solutions">
-      <div className="mx-auto flex max-w-[760px] flex-col items-center gap-3 text-center">
-        <Eyebrow>Built for your sales motion</Eyebrow>
-        <SectionTitle className="mt-1">
-          One CRM. Different ways to <Accent>sell.</Accent>
-        </SectionTitle>
-        <Lead>
-          Ridhzo adapts to businesses where inbound leads and fast follow-up matter. The workflow stays simple while the
-          sales process can change around it.
-        </Lead>
+    <section
+      id="solutions"
+      className="relative flex min-h-[696px] flex-col justify-end overflow-hidden bg-[linear-gradient(180deg,#2a2c2e_0%,#0d0e0f_70%)] py-16 sm:py-20"
+    >
+      <div
+        className="pointer-events-none absolute inset-0 bg-[linear-gradient(0deg,#000_2.33%,rgba(0,0,0,0.64)_37.67%,transparent_62.79%)]"
+        aria-hidden="true"
+      />
+      <div className="relative mx-auto flex w-full max-w-[1272px] flex-col gap-5 px-4 sm:px-6 lg:px-0">
+        <div className="flex flex-col gap-3">
+          <Eyebrow className="w-fit">Built for your sales motion</Eyebrow>
+          <SectionTitle className="max-w-[546px]">
+            One CRM. Different ways to <Accent>sell.</Accent>
+          </SectionTitle>
+          <Lead className="max-w-[676px]">
+            Ridhzo adapts to businesses where inbound leads and fast follow-up matter. The workflow stays simple while the
+            sales process can change around it.
+          </Lead>
+        </div>
+
+        <ul className="grid gap-x-6 gap-y-4 sm:grid-cols-2 lg:grid-cols-5">
+          {CASES.map((c, idx) => {
+            const isActive = idx === active;
+            return (
+              <li key={c.title} className="flex flex-col gap-4 pb-5">
+                <span className="relative block h-[3px] w-full bg-white/30" aria-hidden="true">
+                  {isActive && (
+                    <span
+                      key={`${active}-${autoplay}`}
+                      className={cn("absolute inset-y-0 left-0 bg-highlight", autoplay ? "animate-progress-fill" : "w-full")}
+                    />
+                  )}
+                </span>
+                <Link
+                  href={c.href}
+                  onMouseEnter={() => setActive(idx)}
+                  onFocus={() => setActive(idx)}
+                  className="focus-ring group flex flex-col gap-0.5"
+                >
+                  <span className="flex items-center justify-between text-lg font-semibold leading-[26px] tracking-[-0.015em] text-white">
+                    {c.title}
+                    <ArrowRight
+                      className={cn("h-5 w-5 transition-opacity", isActive ? "text-highlight opacity-100" : "opacity-0")}
+                      aria-hidden="true"
+                    />
+                  </span>
+                  <span className={cn("text-base leading-6 transition-colors", isActive ? "text-white/64" : "text-white/32")}>
+                    {c.body}
+                  </span>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
       </div>
-      <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-        {CASES.map((c) => (
-          <li key={c.title}>
-            <Link
-              href={c.href}
-              className="focus-ring group flex h-full flex-col justify-between gap-8 rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition-colors hover:border-highlight/40 hover:bg-white/[0.07]"
-            >
-              <div>
-                <h3 className="text-lg font-semibold tracking-[-0.015em] text-white">{c.title}</h3>
-                <p className="mt-2 text-sm leading-[22px] text-white/55">{c.body}</p>
-              </div>
-              <ArrowRight className="h-5 w-5 text-white/50 transition-colors group-hover:text-highlight" aria-hidden="true" />
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </HomeSection>
+    </section>
   );
 }

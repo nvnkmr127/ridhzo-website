@@ -58,8 +58,20 @@ const config: Config = {
       animation: {
         "fade-up": "fade-up 0.6s ease-out both",
         "word-in": "word-in 0.5s ease-out both",
+        "progress-fill": "progress-fill 5s linear both",
+        "flow-dash": "flow-dash 3.2s ease-in-out infinite",
       },
       keyframes: {
+        "progress-fill": {
+          "0%": { width: "0%" },
+          "100%": { width: "100%" },
+        },
+        "flow-dash": {
+          "0%": { strokeDashoffset: "14", opacity: "0" },
+          "15%": { opacity: "1" },
+          "85%": { opacity: "1" },
+          "100%": { strokeDashoffset: "-100", opacity: "0" },
+        },
         "word-in": {
           "0%": { opacity: "0", transform: "translateY(10px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },

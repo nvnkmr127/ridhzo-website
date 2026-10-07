@@ -5,7 +5,7 @@ export function FinalCtaSection() {
   return (
     <section className="relative overflow-hidden border-t border-brand-deep bg-[#050d07] py-24 sm:py-40">
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(40rem_16rem_at_50%_100%,rgba(13,39,16,1),transparent_70%),radial-gradient(40rem_16rem_at_50%_0%,rgba(94,232,120,0.09),transparent_70%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_168%_at_50%_118%,#0d2710_0%,rgba(13,39,16,0)_50%),radial-gradient(65%_157%_at_50%_0%,rgba(94,232,120,0.09)_0%,rgba(94,232,120,0)_40%)]"
         aria-hidden="true"
       />
       <div className="relative mx-auto flex max-w-[700px] flex-col items-center gap-10 px-4 text-center sm:px-6">

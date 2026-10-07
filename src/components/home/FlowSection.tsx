@@ -131,7 +131,7 @@ export function FlowSection() {
           >
             <div className="flex items-center justify-between">
               <span className="text-base text-highlight">{n}</span>
-              <ArrowRight className="h-6 w-6 text-white" aria-hidden="true" />
+              <ArrowRight className="h-6 w-6 text-white/30" aria-hidden="true" />
             </div>
             <Mini />
             <div className="flex flex-col gap-1">

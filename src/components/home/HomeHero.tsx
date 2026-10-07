@@ -7,21 +7,42 @@ import { Eyebrow, HomeButton, FloatingChip } from "./primitives";
 
 const WORDS = ["action.", "conversation.", "opportunity.", "revenue."];
 
-/** Rotating accent word (Figma: "Text animate — Letter by letter"). Static when motion is reduced. */
+/**
+ * Letter-by-letter headline accent (Figma: "Text animate — Letter by letter"):
+ * a green highlight sweeps across each word, then the next word takes over.
+ * Static and fully green when motion is reduced.
+ */
 function RotatingWord() {
+  const [w, setW] = useState(0);
   const [i, setI] = useState(0);
+  const [reduced, setReduced] = useState(false);
 
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const t = setInterval(() => setI((n) => (n + 1) % WORDS.length), 2600);
-    return () => clearInterval(t);
-  }, []);
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setReduced(true);
+      return;
+    }
+    const word = WORDS[w];
+    const t =
+      i < word.length - 1
+        ? setTimeout(() => setI(i + 1), 90)
+        : setTimeout(() => {
+            setW((n) => (n + 1) % WORDS.length);
+            setI(0);
+          }, 1500);
+    return () => clearTimeout(t);
+  }, [w, i]);
 
-  const word = WORDS[i];
+  const word = reduced ? WORDS[0] : WORDS[w];
   return (
-    <span className="relative block h-[1.06em] overflow-hidden" aria-live="off">
-      <span key={word} className="block animate-word-in text-highlight">
-        {word}
+    <span className="relative block h-[1.06em] overflow-hidden">
+      <span className="sr-only">action.</span>
+      <span key={word} aria-hidden="true" className="block animate-word-in whitespace-nowrap">
+        {word.split("").map((ch, idx) => (
+          <span key={idx} className={reduced || idx === i ? "text-highlight" : "text-white"}>
+            {ch}
+          </span>
+        ))}
       </span>
     </span>
   );

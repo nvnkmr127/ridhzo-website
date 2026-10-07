@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import { appUrl } from "@/lib/config";
 import { cn } from "@/lib/utils";
 import { Eyebrow, SectionTitle, Accent, Lead, HomeSection } from "./primitives";
@@ -147,7 +147,9 @@ export function PricingHomeSection() {
                 <ul className="flex flex-col gap-3 px-6 pb-10">
                   {p.features.map((f) => (
                     <li key={f} className="flex items-start gap-2 text-sm leading-5 text-white/65">
-                      <CheckCircle2 className="h-5 w-5 shrink-0 text-highlight" aria-hidden="true" />
+                      <span className="mt-px grid h-5 w-5 shrink-0 place-items-center rounded-full bg-white/30 text-black" aria-hidden="true">
+                        <Check className="h-3.5 w-3.5" strokeWidth={3} />
+                      </span>
                       {f}
                     </li>
                   ))}
