@@ -1,211 +1,160 @@
-"use client";
-
 import { appUrl } from "@/lib/config";
-import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ShieldCheck, ChevronDown } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { SocialIcons } from "./SocialIcons";
-import { FEATURE_NAV, SOLUTION_NAV, RESOURCE_NAV } from "@/lib/navigation";
 
 interface FooterSection {
   title: string;
   links: { label: string; href: string }[];
 }
 
+/** Figma "Ridhzo / Navigation / Footer" columns, mapped to the site's real routes. */
 const FOOTER_SECTIONS: FooterSection[] = [
   {
     title: "Product",
     links: [
-      ...FEATURE_NAV.filter((f) =>
-        ["lead-capture", "whatsapp", "follow-ups", "meetings", "sequences", "ai"].includes(f.slug),
-      ).map(({ label, href }) => ({ label, href })),
-      { label: "All Features", href: "/features" },
+      { label: "Lead Management", href: "/features/lead-management" },
+      { label: "Pipeline", href: "/features/pipeline-kanban" },
+      { label: "Follow-ups", href: "/features/follow-ups" },
+      { label: "Automations", href: "/features/automations" },
+      { label: "Insights", href: "/features/dashboards" },
       { label: "Pricing", href: "/pricing" },
     ],
   },
   {
-    title: "Platform",
-    links: [
-      ...FEATURE_NAV.filter((f) =>
-        ["automations", "team-routing", "lead-management", "dashboards", "integrations", "team-and-security"].includes(f.slug),
-      ).map(({ label, href }) => ({ label, href })),
-      { label: "Security", href: "/security" },
-    ],
-  },
-  {
     title: "Solutions",
-    links: [...SOLUTION_NAV.map(({ label, href }) => ({ label, href })), { label: "All Industries", href: "/usecases" }],
+    links: [
+      { label: "Real Estate", href: "/usecases/real-estate" },
+      { label: "Marketing Agencies", href: "/usecases/marketing-agencies" },
+      { label: "Finance & Insurance", href: "/usecases/financial-advisors" },
+      { label: "Education", href: "/usecases/education" },
+      { label: "Clinics", href: "/usecases/clinics" },
+      { label: "Home Services", href: "/usecases/solar-contractors" },
+    ],
   },
   {
     title: "Resources",
     links: [
-      ...RESOURCE_NAV.map(({ label, href }) => ({ label, href })),
+      { label: "Blog", href: "/blog" },
+      { label: "Help Center", href: "/help" },
+      { label: "How-To Guides", href: "/how-to" },
       { label: "FAQ", href: "/#faq" },
+      { label: "Contact", href: "/contact" },
     ],
   },
   {
     title: "Company",
     links: [
-      { label: "About Us", href: "/about" },
-      { label: "Contact Us", href: "/contact" },
-      { label: "Sign In", href: appUrl("/login") },
-      { label: "Create Workspace", href: appUrl("/signup") },
-      { label: "Reset Password", href: appUrl("/forgot-password") },
+      { label: "About", href: "/about" },
+      { label: "Security", href: "/security" },
+      { label: "Contact", href: "/contact" },
     ],
   },
 ];
 
+const LEGAL_LINKS = [
+  { label: "Privacy", href: "/privacy" },
+  { label: "Terms", href: "/terms" },
+  { label: "Refunds", href: "/refund-policy" },
+  { label: "Shipping", href: "/shipping-policy" },
+  { label: "Security", href: "/security" },
+  { label: "Cookies", href: "/cookie-policy" },
+];
+
+const LINK = "focus-ring rounded-sm text-base leading-6 text-white/[0.41] transition-colors hover:text-white";
+
 export function MarketingFooter() {
-  const [openSection, setOpenSection] = useState<string | null>(null);
-
-  const toggleSection = (title: string) => {
-    setOpenSection((prev) => (prev === title ? null : title));
-  };
-
   return (
-    <footer className="border-t border-border bg-card text-muted-foreground text-xs">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
-        <div className="grid grid-cols-1 lg:grid-cols-7 gap-8 sm:gap-10">
-          {/* Brand Col */}
-          <div className="lg:col-span-2 space-y-4">
-            <Link
-              href="/"
-              aria-label="Ridhzo home"
-              className="focus-ring rounded-md inline-flex items-center group py-0.5"
-            >
+    <footer className="relative overflow-hidden bg-black bg-[linear-gradient(122deg,rgba(13,39,16,0.2)_0%,rgba(94,232,120,0.16)_102.8%)] px-4 py-16 sm:px-6 sm:py-20 lg:px-[84px]">
+      {/* Figma Frame 6: grain photo, overlay blend at 40% */}
+      <div
+        className="pointer-events-none absolute inset-0 bg-[url('/home/texture.webp')] bg-cover bg-center opacity-40 mix-blend-overlay"
+        aria-hidden="true"
+      />
+      {/* Giant faded wordmark bleeding off the bottom edge */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/home/footer-wordmark.svg"
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 -bottom-[0.46%] h-auto w-full select-none"
+      />
+
+      <div className="relative mx-auto max-w-[1272px] rounded-3xl border border-white/12 bg-white/[0.04] px-6 pb-8 pt-10 sm:px-12 sm:pt-12">
+        {/* Brand + CTA */}
+        <div className="flex flex-col items-start justify-between gap-8 sm:flex-row">
+          <div className="flex max-w-[300px] flex-col gap-4">
+            <Link href="/" aria-label="Ridhzo home" className="focus-ring inline-flex w-fit rounded-md">
               <Image
                 src="/logo/Ridhzo-Logo-Final_Horizontal-Light.png"
                 alt="Ridhzo — Leads Move Faster"
                 width={130}
                 height={42}
-                className="h-9 w-auto object-contain transition-opacity group-hover:opacity-90"
+                className="h-9 w-auto object-contain"
                 unoptimized
               />
             </Link>
-            <p className="text-muted-foreground text-xs max-w-sm leading-relaxed">
-              The mobile-first lead CRM for fast closers. Capture every lead in seconds, reply on WhatsApp in
-              one tap, and let automations, drip sequences and an AI copilot handle the follow-up.
+            <p className="text-base leading-6 text-white/[0.64]">
+              The mobile-first CRM built to help sales teams respond faster and follow through.
             </p>
-            <div className="flex items-center gap-2 text-[11px] text-muted-foreground pt-1">
-              <ShieldCheck className="h-3.5 w-3.5 text-foreground" />
-              <span>Workspace-isolated data &amp; encrypted secrets</span>
-            </div>
-            <SocialIcons className="pt-2" />
           </div>
-
-          {/* Mobile Accordion (md:hidden) */}
-          <div className="md:hidden space-y-1">
-            {FOOTER_SECTIONS.map((section) => {
-              const isOpen = openSection === section.title;
-              return (
-                <div key={section.title} className="border-b border-border/70 first:border-t">
-                  <button
-                    type="button"
-                    onClick={() => toggleSection(section.title)}
-                    aria-expanded={isOpen}
-                    aria-controls={`footer-accordion-${section.title}`}
-                    className="focus-ring flex w-full items-center justify-between py-3.5 text-left text-xs font-semibold uppercase tracking-wider text-foreground transition-colors hover:text-foreground/80"
-                  >
-                    <span>{section.title}</span>
-                    <ChevronDown
-                      className={`h-4 w-4 text-muted-foreground transition-transform duration-200 ${
-                        isOpen ? "rotate-180 text-foreground" : ""
-                      }`}
-                      aria-hidden="true"
-                    />
-                  </button>
-                  {isOpen && (
-                    <ul
-                      id={`footer-accordion-${section.title}`}
-                      className="pb-4 pt-1 space-y-2 text-xs text-muted-foreground"
-                    >
-                      {section.links.map((link) => (
-                        <li key={link.label}>
-                          <Link
-                            href={link.href}
-                            className="focus-ring block py-1 hover:text-foreground transition-colors"
-                          >
-                            {link.label}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Desktop Grid Columns (hidden md:grid) */}
-          <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-5 lg:col-span-5 gap-x-6 gap-y-10">
-            {FOOTER_SECTIONS.map((section) => (
-              <div key={section.title} className="space-y-2.5">
-                <p className="text-xs font-semibold text-foreground uppercase tracking-wider">
-                  {section.title}
-                </p>
-                <ul className="space-y-2 text-xs">
-                  {section.links.map((link) => (
-                    <li key={link.label}>
-                      <Link
-                        href={link.href}
-                        className="focus-ring rounded-sm hover:text-foreground transition-colors"
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          <div className="flex flex-col items-center gap-3">
+            <Link
+              href={appUrl("/signup")}
+              className="focus-ring inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-white bg-white/80 px-5 text-sm font-medium text-black transition-colors hover:bg-white"
+            >
+              Start Free <ArrowRight className="h-5 w-5" aria-hidden="true" />
+            </Link>
+            <p className="whitespace-nowrap text-xs leading-[18px] text-white/[0.64]">No credit card · Free forever</p>
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="mt-10 sm:mt-12 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-muted-foreground text-center sm:text-left">
-          <div className="flex flex-col sm:flex-row items-center gap-1.5 sm:gap-3">
-            <p>© {new Date().getFullYear()} Ridhzo CRM. All rights reserved.</p>
-            <span className="hidden sm:inline text-border">•</span>
+        {/* Navigation */}
+        <nav aria-label="Footer" className="grid grid-cols-2 gap-x-6 gap-y-10 pt-12 sm:pt-16 lg:grid-cols-4 lg:gap-x-12">
+          {FOOTER_SECTIONS.map((section, i) => (
+            <div key={section.title} className="flex flex-col gap-6">
+              <p className="text-sm font-semibold uppercase leading-5 text-white">{section.title}</p>
+              <ul className="flex flex-col gap-3">
+                {section.links.map((link) => (
+                  <li key={link.label}>
+                    <Link href={link.href} className={LINK}>
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              {i === FOOTER_SECTIONS.length - 1 && <SocialIcons className="pt-2" />}
+            </div>
+          ))}
+        </nav>
+
+        {/* Legal */}
+        <div className="mt-12 flex flex-col gap-6 border-t border-white/10 pt-8 sm:mt-14 sm:pt-12">
+          <div className="flex flex-col items-start justify-between gap-4 text-xs leading-[18px] text-white/[0.64] sm:flex-row sm:items-center">
             <p>
-              Made with <span className="text-foreground font-sans">♥</span> by{" "}
+              © {new Date().getFullYear()} Ridhzo. All rights reserved. Made with ♥ by{" "}
               <a
                 href="https://digicloudify.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-medium text-foreground underline underline-offset-2 hover:text-foreground/80 transition-colors"
+                className="focus-ring rounded-sm underline underline-offset-2 hover:text-white"
               >
                 Digicloudify
               </a>
             </p>
-          </div>
-          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-2">
-            <Link href="/privacy" className="focus-ring rounded-sm hover:text-foreground transition-colors">
-              Privacy
-            </Link>
-            <span>•</span>
-            <Link href="/terms" className="focus-ring rounded-sm hover:text-foreground transition-colors">
-              Terms
-            </Link>
-            <span>•</span>
-            <Link href="/refund-policy" className="focus-ring rounded-sm hover:text-foreground transition-colors">
-              Refunds
-            </Link>
-            <span>•</span>
-            <Link href="/shipping-policy" className="focus-ring rounded-sm hover:text-foreground transition-colors">
-              Shipping
-            </Link>
-            <span>•</span>
-            <Link href="/security" className="focus-ring rounded-sm hover:text-foreground transition-colors">
-              Security
-            </Link>
-            <span>•</span>
-            <Link href="/cookie-policy" className="focus-ring rounded-sm hover:text-foreground transition-colors">
-              Cookies
-            </Link>
+            <ul className="flex flex-wrap gap-x-6 gap-y-3">
+              {LEGAL_LINKS.map((l) => (
+                <li key={l.label}>
+                  <Link href={l.href} className="focus-ring rounded-sm transition-colors hover:text-white">
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
     </footer>
   );
 }
-

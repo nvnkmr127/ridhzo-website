@@ -14,7 +14,7 @@ const PATHS: Record<SocialId, string> = {
 
 export function SocialIcons({ className = "" }: { className?: string }) {
   return (
-    <ul className={`flex items-center gap-2 ${className}`} aria-label="Ridhzo on social media">
+    <ul className={`flex flex-wrap items-center gap-2 ${className}`} aria-label="Ridhzo on social media">
       {SOCIAL_LINKS.map((s) => (
         <li key={s.id}>
           <a
