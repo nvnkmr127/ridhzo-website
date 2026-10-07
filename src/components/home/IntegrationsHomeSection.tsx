@@ -74,9 +74,30 @@ function Connectors() {
   );
 }
 
+/**
+ * Figma "Layer_1": blueprint grid (13 rows ~67px, 15 columns ~91px, 0.64px strokes) at 40% opacity,
+ * revealed through a radial mask (white centre fading to #231F20 at the edges).
+ */
+function GridBackdrop() {
+  return (
+    <div
+      className="pointer-events-none absolute inset-0 hidden opacity-40 sm:block"
+      style={{
+        backgroundImage:
+          "linear-gradient(to right, rgba(255,255,255,0.65) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.65) 1px, transparent 1px)",
+        backgroundSize: "91.05px 67.1px",
+        backgroundPosition: "83px 68px",
+        WebkitMaskImage: "radial-gradient(ellipse 50% 50% at 50% 50%, #000 0%, rgba(0,0,0,0.14) 100%)",
+        maskImage: "radial-gradient(ellipse 50% 50% at 50% 50%, #000 0%, rgba(0,0,0,0.14) 100%)",
+      }}
+      aria-hidden="true"
+    />
+  );
+}
+
 export function IntegrationsHomeSection() {
   return (
-    <HomeSection id="integrations">
+    <HomeSection id="integrations" backdrop={<GridBackdrop />}>
       <div className="mx-auto flex max-w-[692px] flex-col items-center gap-8 text-center">
         <div className="flex flex-col items-center gap-3">
           <Eyebrow>Fits your stack</Eyebrow>

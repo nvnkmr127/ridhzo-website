@@ -84,6 +84,7 @@ export function HomeSection({
   className,
   innerClassName,
   texture,
+  backdrop,
 }: {
   id?: string;
   children: React.ReactNode;
@@ -91,10 +92,13 @@ export function HomeSection({
   innerClassName?: string;
   /** Figma "Frame 6": grain photo at 40% with an overlay blend. */
   texture?: boolean;
+  /** Extra decorative layer rendered behind the content. */
+  backdrop?: React.ReactNode;
 }) {
   return (
     <section id={id} className={cn("relative overflow-hidden py-16 sm:py-20", className)}>
       {texture && <GrainTexture />}
+      {backdrop}
       <div
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(60rem_28rem_at_50%_50%,rgba(94,232,120,0.05),transparent_70%)] [mask-image:linear-gradient(to_bottom,transparent,black_30%,black_70%,transparent)]"
         aria-hidden="true"
