@@ -1,31 +1,33 @@
-import { HeroSection } from "@/components/marketing/HeroSection";
-import { SpeedComparison } from "@/components/marketing/SpeedComparison";
-import { FeatureShowcase } from "@/components/marketing/FeatureShowcase";
-import { IntegrationsSection } from "@/components/marketing/IntegrationsSection";
-import { PipelinePreview } from "@/components/marketing/PipelinePreview";
-import { SolutionsSection } from "@/components/marketing/SolutionsSection";
-import { AboutUsSection } from "@/components/marketing/AboutUsSection";
-import { PricingSection } from "@/components/marketing/PricingSection";
-import { FaqSection } from "@/components/marketing/FaqSection";
-import { ContactUsSection } from "@/components/marketing/ContactUsSection";
-import { CtaBanner } from "@/components/marketing/CtaBanner";
+import { HomeHero } from "@/components/home/HomeHero";
+import { JourneySection } from "@/components/home/JourneySection";
+import { FlowSection } from "@/components/home/FlowSection";
+import { LeadManagementSection } from "@/components/home/LeadManagementSection";
+import { PipelineSection } from "@/components/home/PipelineSection";
+import { FollowUpSection } from "@/components/home/FollowUpSection";
+import { IntegrationsHomeSection } from "@/components/home/IntegrationsHomeSection";
+import { InsightsSection } from "@/components/home/InsightsSection";
+import { WhySection } from "@/components/home/WhySection";
+import { UseCasesHomeSection } from "@/components/home/UseCasesHomeSection";
+import { PricingHomeSection } from "@/components/home/PricingHomeSection";
+import { FaqHomeSection } from "@/components/home/FaqHomeSection";
+import { FinalCtaSection } from "@/components/home/FinalCtaSection";
 
 export default function HomePage() {
   return (
     <>
-      <HeroSection />
-      <SpeedComparison />
-      <FeatureShowcase />
-      <IntegrationsSection />
-      <PipelinePreview />
-      <SolutionsSection />
-      <AboutUsSection />
-      <PricingSection />
-      <FaqSection />
-      <ContactUsSection />
-      <CtaBanner />
+      <HomeHero />
+      <JourneySection />
+      <FlowSection />
+      <LeadManagementSection />
+      <PipelineSection />
+      <FollowUpSection />
+      <IntegrationsHomeSection />
+      <InsightsSection />
+      <WhySection />
+      <UseCasesHomeSection />
+      <PricingHomeSection />
+      <FaqHomeSection />
+      <FinalCtaSection />
     </>
   );
 }
-
-

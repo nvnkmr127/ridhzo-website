@@ -43,6 +43,12 @@ const config: Config = {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
+        // Ridhzo homepage palette (Figma: highlight-green / green-100).
+        highlight: {
+          DEFAULT: "#5ee878",
+          soft: "#99f6aa",
+        },
+        "brand-deep": "#0d2710",
       },
       boxShadow: {
         glow: "0 0 50px -12px hsl(0 0% 100% / 0.35)",
@@ -51,8 +57,13 @@ const config: Config = {
       },
       animation: {
         "fade-up": "fade-up 0.6s ease-out both",
+        "word-in": "word-in 0.5s ease-out both",
       },
       keyframes: {
+        "word-in": {
+          "0%": { opacity: "0", transform: "translateY(10px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
         "fade-up": {
           "0%": { opacity: "0", transform: "translateY(12px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
