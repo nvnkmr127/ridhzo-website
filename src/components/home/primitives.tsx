@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -138,6 +139,42 @@ export function FloatingChip({
         <p className="text-[11px] font-bold leading-[16px] text-[#f7f7f5]">{title}</p>
         <p className="text-[9px] leading-[14px] text-[#7d7d81]">{subtitle}</p>
       </div>
+    </div>
+  );
+}
+
+/** Glass frame around a product screenshot exported from Figma (white/12, 24px radius, 32px padding). */
+export function ShotPanel({
+  src,
+  alt,
+  width,
+  height,
+  priority,
+  flush,
+  sizes,
+  className,
+}: {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  priority?: boolean;
+  /** Bleed the screenshot off the bottom edge (pipeline section). */
+  flush?: boolean;
+  sizes?: string;
+  className?: string;
+}) {
+  return (
+    <div className={cn("rounded-3xl bg-white/[0.12] p-3 sm:p-8", flush && "rounded-b-none pb-0 sm:pb-0", className)}>
+      <Image
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        priority={priority}
+        sizes={sizes ?? "(min-width: 1024px) 50vw, 100vw"}
+        className={cn("h-auto w-full rounded-xl sm:rounded-2xl", flush && "rounded-b-none")}
+      />
     </div>
   );
 }

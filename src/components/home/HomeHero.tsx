@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Gift, Smartphone, CreditCard } from "lucide-react";
+import { Gift, Smartphone } from "lucide-react";
 import { appUrl } from "@/lib/config";
-import { Eyebrow, HomeButton, FloatingChip } from "./primitives";
+import { Eyebrow, HomeButton, FloatingChip, ShotPanel } from "./primitives";
+import { NoCardIcon } from "./icons";
 
 const WORDS = ["action.", "conversation.", "opportunity.", "revenue."];
 
@@ -22,14 +23,16 @@ function RotatingWord() {
       setReduced(true);
       return;
     }
+    // Figma timeline: 40 frames over 3120ms (78ms per letter), no pause between words.
     const word = WORDS[w];
-    const t =
-      i < word.length - 1
-        ? setTimeout(() => setI(i + 1), 90)
-        : setTimeout(() => {
-            setW((n) => (n + 1) % WORDS.length);
-            setI(0);
-          }, 1500);
+    const t = setTimeout(() => {
+      if (i < word.length - 1) {
+        setI(i + 1);
+      } else {
+        setW((n) => (n + 1) % WORDS.length);
+        setI(0);
+      }
+    }, 78);
     return () => clearTimeout(t);
   }, [w, i]);
 
@@ -37,7 +40,7 @@ function RotatingWord() {
   return (
     <span className="relative block h-[1.06em] overflow-hidden">
       <span className="sr-only">action.</span>
-      <span key={word} aria-hidden="true" className="block animate-word-in whitespace-nowrap">
+      <span key={word} aria-hidden="true" className="block whitespace-nowrap">
         {word.split("").map((ch, idx) => (
           <span key={idx} className={reduced || idx === i ? "text-highlight" : "text-white"}>
             {ch}
@@ -47,14 +50,6 @@ function RotatingWord() {
     </span>
   );
 }
-
-const KPIS = [
-  { label: "New today", value: "12", tone: "text-white" },
-  { label: "Follow-ups due", value: "7", tone: "text-highlight" },
-  { label: "Overdue", value: "8", tone: "text-red-300" },
-  { label: "Won this month", value: "34", tone: "text-white" },
-];
-const BARS = [32, 54, 41, 68, 59, 82, 47, 74, 63, 90, 71, 96];
 
 function ProductPreview() {
   return (
@@ -71,54 +66,14 @@ function ProductPreview() {
         <p className="text-[10px] text-[#77777c]">Visible before they slip</p>
       </div>
 
-      <div className="rounded-3xl bg-white/[0.12] p-3 sm:p-8">
-        <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#090a0b] p-4 sm:p-6">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-sm font-semibold text-white">Today</p>
-              <p className="text-xs text-white/40">Your pipeline at a glance</p>
-            </div>
-            <span className="rounded-full border border-highlight/40 bg-highlight/10 px-2.5 py-1 text-[11px] font-medium text-highlight">
-              Avg. first response 4m 19s
-            </span>
-          </div>
-
-          <div className="mt-5 grid grid-cols-2 gap-3 lg:grid-cols-4">
-            {KPIS.map((k) => (
-              <div key={k.label} className="rounded-xl border border-white/8 bg-white/[0.03] p-4">
-                <p className="text-[11px] text-white/45">{k.label}</p>
-                <p className={`mt-1 text-2xl font-semibold tracking-tight ${k.tone}`}>{k.value}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-3 grid gap-3 lg:grid-cols-[2fr_1fr]">
-            <div className="rounded-xl border border-white/8 bg-white/[0.03] p-4">
-              <p className="text-xs font-medium text-white/70">Leads in the last 12 days</p>
-              <div className="mt-4 flex h-32 items-end gap-2" role="img" aria-label="Bar chart of leads per day">
-                {BARS.map((h, idx) => (
-                  <span
-                    key={idx}
-                    className={`flex-1 rounded-t ${idx === BARS.length - 1 ? "bg-highlight" : "bg-white/20"}`}
-                    style={{ height: `${h}%` }}
-                  />
-                ))}
-              </div>
-            </div>
-            <div className="rounded-xl border border-white/8 bg-white/[0.03] p-4">
-              <p className="text-xs font-medium text-white/70">Today&apos;s priorities</p>
-              <ul className="mt-3 space-y-2.5 text-xs">
-                {["Call Aarav about site visit", "WhatsApp Neha the brochure", "Send quote to Priya"].map((t) => (
-                  <li key={t} className="flex items-center gap-2 text-white/70">
-                    <span className="h-1.5 w-1.5 rounded-full bg-highlight" />
-                    {t}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
+      <ShotPanel
+        src="/home/hero-dashboard.webp"
+        alt="Ridhzo dashboard showing today's follow-ups, response speed, priorities and leads per day"
+        width={1208}
+        height={1200}
+        priority
+        sizes="(min-width: 1280px) 1208px, 100vw"
+      />
     </div>
   );
 }
@@ -127,7 +82,7 @@ export function HomeHero() {
   return (
     <section className="relative overflow-hidden pb-16 pt-14 sm:pb-20 sm:pt-20">
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(70rem_36rem_at_50%_0%,rgba(94,232,120,0.14),transparent_65%),radial-gradient(40rem_24rem_at_50%_30%,rgba(13,39,16,0.8),transparent_70%)] [mask-image:linear-gradient(to_bottom,black_60%,transparent)]"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[982px] bg-[url('/home/hero-bg.webp')] bg-cover bg-top [mask-image:linear-gradient(to_bottom,black_70%,transparent)]"
         aria-hidden="true"
       />
       <div className="relative mx-auto flex max-w-[1272px] flex-col items-center gap-8 px-4 sm:px-6 lg:px-8">
@@ -151,7 +106,7 @@ export function HomeHero() {
               <Gift className="h-4 w-4" aria-hidden="true" /> 14-day free trial
             </li>
             <li className="flex items-center gap-1">
-              <CreditCard className="h-4 w-4" aria-hidden="true" /> No card required
+              <NoCardIcon className="h-4 w-4 text-white/80" /> No card required
             </li>
             <li className="flex items-center gap-1">
               <Smartphone className="h-4 w-4" aria-hidden="true" /> Mobile-first

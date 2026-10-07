@@ -1,5 +1,6 @@
+import Image from "next/image";
 import type { LucideIcon } from "lucide-react";
-import { UserCheck, Zap } from "lucide-react";
+import { UserCheck, Workflow } from "lucide-react";
 import { Eyebrow, SectionTitle, Accent, Lead, HomeSection } from "./primitives";
 
 const SIGNALS = [
@@ -36,23 +37,10 @@ function Panel({
         </div>
       </div>
       <div className="flex gap-2 py-4 sm:gap-4">{children}</div>
-      <div className="flex-1 overflow-hidden rounded-xl border border-[#252525] bg-[#0b0c0d] p-4 drop-shadow-[0_28px_65px_rgba(0,0,0,0.46)]">
+      <div className="flex-1 overflow-hidden rounded-xl border border-[#252525] bg-[#0b0c0d] drop-shadow-[0_28px_65px_rgba(0,0,0,0.46)]">
         {preview}
       </div>
     </div>
-  );
-}
-
-function MiniRows({ rows }: { rows: [string, string, boolean?][] }) {
-  return (
-    <ul className="space-y-2 text-xs">
-      {rows.map(([name, meta, hot]) => (
-        <li key={name} className="flex items-center justify-between rounded-lg border border-white/8 bg-white/[0.03] px-3 py-2.5">
-          <span className="text-white/85">{name}</span>
-          <span className={hot ? "text-highlight" : "text-white/45"}>{meta}</span>
-        </li>
-      ))}
-    </ul>
   );
 }
 
@@ -76,13 +64,13 @@ export function FollowUpSection() {
           title="Every next action in view"
           subtitle="Stay ahead of calls, messages and meetings."
           preview={
-            <MiniRows
-              rows={[
-                ["Call about site visit", "Today · 10:30 AM", true],
-                ["Send brochure on WhatsApp", "Today · 12:00 PM", true],
-                ["Follow up on quote", "Tomorrow"],
-                ["Confirm demo", "Thu"],
-              ]}
+            <Image
+              src="/home/follow-ups.webp"
+              alt="Ridhzo follow-ups list with overdue, later today and upcoming counts"
+              width={560}
+              height={373}
+              sizes="(min-width: 1024px) 560px, 100vw"
+              className="h-full w-full object-cover object-top"
             />
           }
         >
@@ -96,17 +84,17 @@ export function FollowUpSection() {
         </Panel>
 
         <Panel
-          Icon={Zap}
+          Icon={Workflow}
           title="Automate the handoffs"
           subtitle="Build consistent workflows around real sales actions."
           preview={
-            <MiniRows
-              rows={[
-                ["When lead arrives", "Meta Lead Ads"],
-                ["Assign owner", "Round-robin", true],
-                ["Send WhatsApp template", "Instantly", true],
-                ["Create follow-up", "In 1 day"],
-              ]}
+            <Image
+              src="/home/automations.webp"
+              alt="Ridhzo automation templates such as welcome WhatsApp on new lead"
+              width={560}
+              height={375}
+              sizes="(min-width: 1024px) 560px, 100vw"
+              className="h-full w-full object-cover object-top"
             />
           }
         >

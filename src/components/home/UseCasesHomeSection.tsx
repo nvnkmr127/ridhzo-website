@@ -34,10 +34,11 @@ export function UseCasesHomeSection() {
   return (
     <section
       id="solutions"
-      className="relative flex min-h-[696px] flex-col justify-end overflow-hidden bg-[linear-gradient(180deg,#2a2c2e_0%,#0d0e0f_70%)] py-16 sm:py-20"
+      className="relative flex min-h-[696px] flex-col justify-end overflow-hidden bg-black py-16 sm:py-20"
     >
+      {/* Skyline photo from Figma (gradient already baked in); faded into the black section below it. */}
       <div
-        className="pointer-events-none absolute inset-0 bg-[linear-gradient(0deg,#000_2.33%,rgba(0,0,0,0.64)_37.67%,transparent_62.79%)]"
+        className="pointer-events-none absolute inset-x-0 top-0 aspect-[1440/340] bg-[url('/home/skyline.webp')] bg-cover bg-top [mask-image:linear-gradient(to_bottom,black_75%,transparent)]"
         aria-hidden="true"
       />
       <div className="relative mx-auto flex w-full max-w-[1272px] flex-col gap-5 px-4 sm:px-6 lg:px-0">

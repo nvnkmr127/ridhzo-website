@@ -1,13 +1,5 @@
-import { CheckCircle2, Search } from "lucide-react";
-import { Eyebrow, SectionTitle, Accent, Lead, HomeButton, HomeSection, GlassPanel, FloatingChip } from "./primitives";
-
-const LEADS = [
-  { name: "Aarav Mehta", source: "Meta", owner: "Neha S.", status: "New" },
-  { name: "P Subramanya Shetty", source: "Google", owner: "Rohan V.", status: "Contacted" },
-  { name: "Ananya Rao", source: "Web form", owner: "Neha S.", status: "Qualified" },
-  { name: "Manoj Lakshmanan", source: "Webhook", owner: "Ishaan K.", status: "New" },
-  { name: "Kavya Nair", source: "Meta", owner: "Rohan V.", status: "Follow-up" },
-];
+import { CheckCircle2 } from "lucide-react";
+import { Eyebrow, SectionTitle, Accent, Lead, HomeButton, HomeSection, ShotPanel, FloatingChip } from "./primitives";
 
 const POINTS = [
   "One organized view across every lead source",
@@ -26,29 +18,13 @@ export function LeadManagementSection() {
             subtitle="Owner, source and next action stay together"
             className="absolute -top-6 left-3 z-10 hidden sm:flex"
           />
-          <GlassPanel className="lg:min-h-[480px]">
-            <div className="p-4 sm:p-5">
-              <div className="flex items-center gap-2 rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2 text-xs text-white/40">
-                <Search className="h-3.5 w-3.5" aria-hidden="true" /> Search leads, phone, source…
-              </div>
-              <div className="mt-4 divide-y divide-white/8 text-xs">
-                <div className="grid grid-cols-[1.6fr_1fr_1fr] gap-2 pb-2 text-[11px] uppercase tracking-wider text-white/35 sm:grid-cols-[1.6fr_1fr_1fr_1fr]">
-                  <span>Lead</span>
-                  <span>Source</span>
-                  <span className="hidden sm:block">Owner</span>
-                  <span>Status</span>
-                </div>
-                {LEADS.map((l) => (
-                  <div key={l.name} className="grid grid-cols-[1.6fr_1fr_1fr] items-center gap-2 py-3 sm:grid-cols-[1.6fr_1fr_1fr_1fr]">
-                    <span className="truncate text-white/85">{l.name}</span>
-                    <span className="text-white/50">{l.source}</span>
-                    <span className="hidden text-white/50 sm:block">{l.owner}</span>
-                    <span className="w-fit rounded-full bg-highlight/10 px-2 py-0.5 text-[11px] text-highlight">{l.status}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </GlassPanel>
+          <ShotPanel
+            src="/home/lead-management.webp"
+            alt="Ridhzo lead list with status filters, search and contact details"
+            width={664}
+            height={496}
+            sizes="(min-width: 1024px) 664px, 100vw"
+          />
           <FloatingChip
             title="Ready to respond"
             subtitle="Call · WhatsApp · Email"
