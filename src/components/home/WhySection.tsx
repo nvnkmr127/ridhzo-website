@@ -1,4 +1,4 @@
-import { Eyebrow, SectionTitle, Accent, Lead, HomeSection } from "./primitives";
+import { Eyebrow, SectionTitle, Accent, Lead, HomeSection } from "@/components/site/primitives";
 
 const ROWS = [
   { n: "01", title: "Speed matters", body: "Inbound intent fades quickly. Ridhzo is designed to help teams act while a lead is ready to talk." },

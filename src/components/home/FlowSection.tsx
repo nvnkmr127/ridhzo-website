@@ -1,5 +1,5 @@
 import { ArrowRight, CheckCircle2 } from "lucide-react";
-import { Eyebrow, SectionTitle, Accent, Lead, HomeSection } from "./primitives";
+import { Eyebrow, SectionTitle, Accent, Lead, HomeSection } from "@/components/site/primitives";
 
 const MINI = "relative h-[118px] w-full max-w-[269px] overflow-hidden rounded-[14px] border border-white/8 bg-[#0b0c0d]";
 const AVATAR =

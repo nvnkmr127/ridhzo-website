@@ -1,8 +1,8 @@
 import Image from "next/image";
 import type { ComponentType } from "react";
 import { UserCheck } from "lucide-react";
-import { Eyebrow, SectionTitle, Accent, Lead, HomeSection } from "./primitives";
-import { WorkflowGraphIcon } from "./icons";
+import { Eyebrow, SectionTitle, Accent, Lead, HomeSection } from "@/components/site/primitives";
+import { WorkflowGraphIcon } from "@/components/site/icons";
 
 const SIGNALS = [
   { label: "OVERDUE", count: 8, note: "Needs attention" },

@@ -6,14 +6,14 @@ import { MarketingFooter } from "@/components/marketing/MarketingFooter";
 import { Analytics } from "@/components/analytics/Analytics";
 import { CookieConsent } from "@/components/analytics/CookieConsent";
 import { AttributionLinks } from "@/components/analytics/AttributionLinks";
-import { SOCIAL_LINKS } from "@/lib/config";
+import { SITE_URL, SOCIAL_LINKS } from "@/lib/config";
 
 const ORGANIZATION_JSON_LD = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Ridhzo",
-  url: "https://ridhzo.com",
-  logo: "https://ridhzo.com/ridhzo_logo.png",
+  url: SITE_URL,
+  logo: `${SITE_URL}/ridhzo_logo.png`,
   sameAs: SOCIAL_LINKS.map((s) => s.href),
 };
 
@@ -36,7 +36,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ridhzo.com"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Ridhzo — Mobile-First Lead Management CRM for Fast Closers",
     template: "%s — Ridhzo CRM",
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     title: "Ridhzo — The 1-Tap Mobile CRM for Fast Closers",
     description:
       "Capture leads instantly from all channels, get instant mobile alerts, follow up in seconds via WhatsApp, and let your Android phone log your sales calls automatically.",
-    url: "https://ridhzo.com",
+    url: SITE_URL,
     siteName: "Ridhzo",
     type: "website",
     locale: "en_US",
@@ -81,9 +81,6 @@ export const metadata: Metadata = {
     title: "Ridhzo — The 1-Tap Mobile CRM for Fast Closers",
     description:
       "Respond to inbound leads in seconds, not hours. Instant multi-channel capture, push alerts, 1-tap WhatsApp follow-ups, and automatic Android call logging.",
-  },
-  alternates: {
-    canonical: "https://ridhzo.com",
   },
   verification: process.env.NEXT_PUBLIC_GSC_VERIFICATION
     ? { google: process.env.NEXT_PUBLIC_GSC_VERIFICATION }

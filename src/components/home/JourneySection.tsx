@@ -1,5 +1,5 @@
 import { Play } from "lucide-react";
-import { Eyebrow, SectionTitle, Accent, Lead, HomeSection } from "./primitives";
+import { Eyebrow, SectionTitle, Accent, Lead, HomeSection } from "@/components/site/primitives";
 
 export function JourneySection() {
   return (

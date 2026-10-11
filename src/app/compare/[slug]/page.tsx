@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getCompetitor, getCompetitorSlugs } from "@/lib/competitors";
 import { ComparePage } from "@/components/compare/ComparePage";
-
-const SITE_URL = "https://ridhzo.com";
+import { pageMetadata } from "@/lib/metadata";
 
 export function generateStaticParams() {
   return getCompetitorSlugs().map((slug) => ({ slug }));
@@ -17,17 +16,10 @@ export async function generateMetadata({
   const { slug } = await params;
   const c = getCompetitor(slug);
   if (!c) return {};
-  const canonical = `/compare/${c.slug}`;
   return {
-    title: c.metaTitle,
-    description: c.metaDescription,
-    alternates: { canonical },
-    openGraph: {
-      title: c.metaTitle,
-      description: c.metaDescription,
-      type: "article",
-      url: `${SITE_URL}${canonical}`,
-    },
+    ...pageMetadata({ description: c.metaDescription, path: `/compare/${c.slug}`, ogTitle: c.metaTitle, type: "article" }),
+    // Competitor titles are complete; skip the brand template.
+    title: { absolute: c.metaTitle },
   };
 }
 

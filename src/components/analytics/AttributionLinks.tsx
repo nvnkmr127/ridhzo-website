@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { APP_HOST } from "@/lib/config";
 
 const KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "gclid", "fbclid"];
 const STORE = "ridhzo.attr";
@@ -28,17 +29,6 @@ export function AttributionLinks() {
         }
       } catch {}
     }
-    // Untagged visitors (organic search, social, other sites): remember the first external referrer
-    // host so the app can tell them apart from truly direct traffic. Host only — no paths or queries.
-    if (!Object.keys(fresh).length && !saved.ref && document.referrer) {
-      try {
-        const host = new URL(document.referrer).hostname.replace(/^www\./, "");
-        if (host && !/(^|\.)ridhzo\.com$/.test(host)) {
-          saved = { ...saved, ref: host };
-          localStorage.setItem(STORE, JSON.stringify(saved));
-        }
-      } catch {}
-    }
     if (Object.keys(fresh).length) {
       saved = fresh;
       try {
@@ -55,7 +45,7 @@ export function AttributionLinks() {
       } catch {
         return;
       }
-      if (url.hostname !== "app.ridhzo.com") return;
+      if (url.hostname !== APP_HOST) return;
       for (const [k, v] of Object.entries(saved)) if (!url.searchParams.has(k)) url.searchParams.set(k, v);
       a.href = url.toString();
     };

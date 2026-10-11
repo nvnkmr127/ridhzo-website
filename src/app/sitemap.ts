@@ -2,8 +2,11 @@ import type { MetadataRoute } from "next";
 import { getAllContentPaths } from "@/lib/content";
 import { CONTENT_ROUTES, CONTENT_ROUTE_LIST } from "@/lib/content-routes";
 import { getCompetitorSlugs } from "@/lib/competitors";
+import { SITE_URL } from "@/lib/config";
 
-const SITE_URL = "https://ridhzo.com";
+// When /blog is proxied to WordPress (see src/middleware.ts), WordPress owns those URLs and publishes its
+// own sitemap, so the Markdown blog posts would be unreachable here and must not be listed.
+const BLOG_ON_WORDPRESS = Boolean(process.env.WORDPRESS_ORIGIN);
 
 /** Static marketing + legal routes that always exist. */
 const STATIC_PATHS = [
@@ -30,14 +33,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: path === "/" ? 1 : 0.6,
   }));
 
-  const indexEntries: MetadataRoute.Sitemap = CONTENT_ROUTE_LIST.map((route) => ({
+  const indexEntries: MetadataRoute.Sitemap = CONTENT_ROUTE_LIST.filter((r) => !(BLOG_ON_WORDPRESS && r.type === "blog")).map((route) => ({
     url: `${SITE_URL}${route.path}`,
     lastModified: now,
     changeFrequency: "weekly",
     priority: 0.7,
   }));
 
-  const contentEntries: MetadataRoute.Sitemap = getAllContentPaths().map(({ type, slug }) => ({
+  const contentEntries: MetadataRoute.Sitemap = getAllContentPaths()
+    .filter(({ type }) => !(BLOG_ON_WORDPRESS && type === "blog"))
+    .map(({ type, slug }) => ({
     url: `${SITE_URL}${CONTENT_ROUTES[type].path}/${slug}`,
     lastModified: now,
     changeFrequency: "monthly",

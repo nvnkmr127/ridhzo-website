@@ -1,4 +1,4 @@
-import { Eyebrow, SectionTitle, Accent, Lead, HomeSection, ShotPanel } from "./primitives";
+import { Eyebrow, SectionTitle, Accent, Lead, HomeSection, ShotPanel } from "@/components/site/primitives";
 
 export function PipelineSection() {
   return (

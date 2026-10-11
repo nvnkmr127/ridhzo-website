@@ -1,231 +1,256 @@
 "use client";
 
-import { useState } from "react";
-import { MessageSquare, Mail, Clock, Send, CheckCircle2 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { startTransition, useActionState, useEffect, useRef, useState } from "react";
+import { MessageSquare, Mail, Clock, Send, CheckCircle2, AlertCircle, ArrowRight } from "lucide-react";
+import { submitContact, type ContactState } from "@/app/contact/actions";
+import { SUPPORT, whatsappUrl } from "@/lib/config";
+import { SOLUTION_NAV } from "@/lib/navigation";
+import { cn } from "@/lib/utils";
+import { HomeSection } from "@/components/site/primitives";
+
+const INPUT =
+  "w-full rounded-xl border border-white/12 bg-white/[0.04] px-4 py-3 text-base text-white placeholder:text-white/40 transition-colors focus:border-highlight/60 focus:outline-none focus:ring-2 focus:ring-highlight/30 aria-[invalid=true]:border-red-400/70";
+const LABEL = "mb-1.5 block text-sm font-medium text-white";
+
+const BUSINESS_TYPES = [...SOLUTION_NAV.map((s) => s.label), "Other sales team"];
+
+function FieldError({ id, message }: { id: string; message?: string }) {
+  if (!message) return null;
+  return (
+    <p id={id} className="mt-1.5 text-sm text-red-300">
+      {message}
+    </p>
+  );
+}
 
 export function ContactUsSection() {
-  const [submitted, setSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    businessType: "Real Estate",
-    message: "",
-  });
+  const [state, formAction, pending] = useActionState<ContactState, FormData>(submitContact, { status: "idle" });
+  const [startedAt, setStartedAt] = useState(0);
+  const [dismissed, setDismissed] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
+  useEffect(() => setStartedAt(Date.now()), []);
+  useEffect(() => {
+    if (state.status === "success") {
+      formRef.current?.reset();
+      setDismissed(false);
+    }
+  }, [state]);
+
+  const errors = state.status === "error" ? state.fieldErrors ?? {} : {};
+  const showSuccess = state.status === "success" && !dismissed;
 
   return (
-    <section id="contact" className="relative border-t border-border bg-background py-20 md:py-28">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto">
-          <span className="section-label">
-            <Mail className="h-3.5 w-3.5" />
-            Get in Touch
-          </span>
-          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight">
-            Talk to Us — <span className="text-gradient">We Reply Fast</span>
-          </h2>
-          <p className="mt-4 text-base sm:text-lg text-muted-foreground">
-            Have a question about features, need help connecting your ad account, or want a quick demo?
-            Send us a message or reach us directly on WhatsApp.
-          </p>
+    <HomeSection className="pt-4 sm:pt-6">
+      <div className="grid items-start gap-6 lg:grid-cols-12 lg:gap-10">
+        {/* Direct channels */}
+        <div className="flex flex-col gap-4 lg:col-span-5">
+          <a
+            href={whatsappUrl("Hi Ridhzo team, I have a question about the CRM.")}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="focus-ring group flex items-start gap-4 rounded-3xl border-2 border-highlight/50 bg-white/[0.04] p-6 transition-colors hover:bg-white/[0.07]"
+          >
+            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-[12px] bg-highlight text-black">
+              <MessageSquare className="h-6 w-6" aria-hidden="true" />
+            </span>
+            <span className="flex-1">
+              <span className="flex items-center justify-between gap-2 text-lg font-semibold text-white">
+                Chat on WhatsApp
+                <ArrowRight className="h-5 w-5 text-highlight transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+              </span>
+              <span className="mt-1 block text-sm text-white/65">Fastest way to reach us during business hours.</span>
+              <span className="mt-2 block text-sm font-medium text-highlight">{SUPPORT.whatsappDisplay}</span>
+            </span>
+          </a>
+
+          <a
+            href={`mailto:${SUPPORT.email}`}
+            className="focus-ring group flex items-start gap-4 rounded-3xl border border-white/12 bg-white/[0.04] p-6 transition-colors hover:bg-white/[0.07]"
+          >
+            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-[12px] border border-white/12 bg-white/[0.06] text-white">
+              <Mail className="h-6 w-6" aria-hidden="true" />
+            </span>
+            <span>
+              <span className="block text-lg font-semibold text-white">Email us</span>
+              <span className="mt-1 block text-sm text-white/65">We reply within one business day.</span>
+              <span className="mt-2 block text-sm font-medium text-white">{SUPPORT.email}</span>
+            </span>
+          </a>
+
+          <div className="flex items-start gap-4 rounded-3xl border border-white/12 bg-white/[0.04] p-6">
+            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-[12px] border border-white/12 bg-white/[0.06] text-white">
+              <Clock className="h-6 w-6" aria-hidden="true" />
+            </span>
+            <span>
+              <span className="block text-lg font-semibold text-white">Hours</span>
+              <span className="mt-1 block text-sm text-white/65">{SUPPORT.hours}</span>
+            </span>
+          </div>
         </div>
 
-        <div className="mt-14 max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Direct Channels (Left) */}
-          <div className="lg:col-span-5 space-y-6">
-            <div className="rounded-2xl border border-border bg-card p-6 space-y-5 shadow-card">
-              <h3 className="text-base font-bold text-foreground">Direct Support</h3>
-
-              {/* WhatsApp direct */}
-              <a
-                href="https://wa.me/919820144520?text=Hi%20Ridhzo%20team%2C%20I%20have%20a%20question%20about%20the%20CRM."
-                target="_blank"
-                rel="noreferrer"
-                className="focus-ring flex items-start gap-3.5 p-3 rounded-xl border border-border bg-secondary/30 hover:bg-secondary transition-all group"
-              >
-                <div className="h-9 w-9 rounded-xl bg-foreground text-background flex items-center justify-center shrink-0 mt-0.5">
-                  <MessageSquare className="h-4 w-4" />
-                </div>
-                <div>
-                  <span className="text-xs font-bold text-foreground group-hover:underline">
-                    Chat on WhatsApp
-                  </span>
-                  <p className="text-xs text-muted-foreground mt-0.5">
-                    Fastest response · Usually within 5 minutes
-                  </p>
-                  <p className="text-xs font-mono text-foreground mt-1">+91 98201 44520</p>
-                </div>
-              </a>
-
-              {/* Email direct */}
-              <div className="flex items-start gap-3.5 p-3 rounded-lg border border-border bg-secondary/30">
-                <div className="h-9 w-9 rounded-lg bg-secondary border border-border text-foreground flex items-center justify-center shrink-0 mt-0.5">
-                  <Mail className="h-4 w-4" />
-                </div>
-                <div>
-                  <span className="text-xs font-bold text-foreground">Email Support</span>
-                  <p className="text-xs text-muted-foreground mt-0.5">Urgent issues within 2 hours · everything else within 24 hours</p>
-                  <a
-                    href="mailto:hello@ridhzo.com"
-                    className="focus-ring rounded-sm text-xs font-mono text-foreground hover:underline mt-1 block"
-                  >
-                    hello@ridhzo.com
-                  </a>
-                </div>
-              </div>
-
-              {/* Hours */}
-              <div className="flex items-start gap-3.5 p-3 rounded-lg border border-border bg-secondary/30">
-                <div className="h-9 w-9 rounded-lg bg-secondary border border-border text-foreground flex items-center justify-center shrink-0 mt-0.5">
-                  <Clock className="h-4 w-4" />
-                </div>
-                <div>
-                  <span className="text-xs font-bold text-foreground">Hours</span>
-                  <p className="text-xs text-muted-foreground mt-0.5">
-                    Monday to Saturday, 9:00 AM – 8:00 PM IST
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Contact Form (Right) */}
-          <div className="lg:col-span-7 rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-card">
-            {submitted ? (
-              <div className="py-12 text-center space-y-4">
-                <div className="h-12 w-12 rounded-full bg-foreground text-background flex items-center justify-center mx-auto">
-                  <CheckCircle2 className="h-6 w-6" />
-                </div>
-                <h3 className="text-xl font-bold text-foreground">Thank You!</h3>
-                <p className="text-sm text-muted-foreground max-w-sm mx-auto">
-                  We received your message. One of our team members will reach out to you via WhatsApp or email
-                  within 15 minutes.
+        {/* Form */}
+        <div className="rounded-3xl bg-white/[0.12] p-3 sm:p-4 lg:col-span-7">
+          <div className="rounded-2xl border border-white/10 bg-[#0a0b0c] p-6 sm:p-8">
+            {showSuccess ? (
+              <div className="py-12 text-center" role="status">
+                <span className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-highlight text-black">
+                  <CheckCircle2 className="h-7 w-7" aria-hidden="true" />
+                </span>
+                <h2 className="mt-5 text-2xl font-semibold text-white">Message sent</h2>
+                <p className="mx-auto mt-2 max-w-sm text-base text-white/65">
+                  Thanks for reaching out. Our team will get back to you on WhatsApp or email within one business day.
                 </p>
-                <Button
+                <button
                   type="button"
-                  onClick={() => setSubmitted(false)}
-                  variant="outline"
-                  size="sm"
-                  className="text-xs border-border mt-4"
+                  onClick={() => setDismissed(true)}
+                  className="focus-ring mt-6 inline-flex h-12 items-center justify-center rounded-xl border border-white/12 bg-white/[0.04] px-5 text-sm font-medium text-white transition-colors hover:bg-white/10"
                 >
                   Send another message
-                </Button>
+                </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4 text-left">
-                <h3 className="text-base font-bold text-foreground">Send Us a Quick Message</h3>
-                <p className="text-xs text-muted-foreground">
-                  Fill this out and our team will get back to you directly.
-                </p>
+              <form
+                ref={formRef}
+                // Submitted via onSubmit (not the action prop) so React doesn't clear the fields when validation fails.
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const data = new FormData(e.currentTarget);
+                  startTransition(() => formAction(data));
+                }}
+                noValidate className="space-y-5" aria-describedby="contact-form-status">
+                <div>
+                  <h2 className="text-2xl font-semibold tracking-[-0.015em] text-white">Send us a message</h2>
+                  <p className="mt-1 text-sm text-white/65">Tell us about your team and we&apos;ll get back to you directly.</p>
+                </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                {state.status === "error" ? (
+                  <p
+                    id="contact-form-status"
+                    role="alert"
+                    className="flex items-start gap-2 rounded-xl border border-red-400/40 bg-red-500/10 px-4 py-3 text-sm text-red-200"
+                  >
+                    <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
+                    <span>
+                      {state.message}{" "}
+                      {!state.fieldErrors ? (
+                        <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">
+                          Open WhatsApp
+                        </a>
+                      ) : null}
+                    </span>
+                  </p>
+                ) : null}
+
+                {/* Spam guards: hidden honeypot + time-to-fill */}
+                <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
+                  <label htmlFor="contact-company">Company</label>
+                  <input id="contact-company" name="company" type="text" tabIndex={-1} autoComplete="off" />
+                </div>
+                <input type="hidden" name="startedAt" value={startedAt} />
+
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                   <div>
-                    <label htmlFor="contact-name" className="block text-xs font-medium text-foreground mb-1">
-                      Your Name *
+                    <label htmlFor="contact-name" className={LABEL}>
+                      Your name *
                     </label>
                     <input
                       id="contact-name"
                       name="name"
                       type="text"
                       required
+                      maxLength={100}
                       autoComplete="name"
                       placeholder="e.g. Rahul Sharma"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full rounded-md border border-border bg-secondary/50 px-3 py-2 text-base sm:text-xs text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-foreground"
+                      aria-invalid={!!errors.name}
+                      aria-describedby={errors.name ? "contact-name-error" : undefined}
+                      className={INPUT}
                     />
+                    <FieldError id="contact-name-error" message={errors.name} />
                   </div>
-
                   <div>
-                    <label htmlFor="contact-phone" className="block text-xs font-medium text-foreground mb-1">
-                      WhatsApp Phone Number *
+                    <label htmlFor="contact-phone" className={LABEL}>
+                      WhatsApp number *
                     </label>
                     <input
                       id="contact-phone"
                       name="phone"
                       type="tel"
                       required
+                      maxLength={25}
                       autoComplete="tel"
                       placeholder="e.g. +91 98765 43210"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full rounded-md border border-border bg-secondary/50 px-3 py-2 text-base sm:text-xs text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-foreground"
+                      aria-invalid={!!errors.phone}
+                      aria-describedby={errors.phone ? "contact-phone-error" : undefined}
+                      className={INPUT}
                     />
+                    <FieldError id="contact-phone-error" message={errors.phone} />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                   <div>
-                    <label htmlFor="contact-email" className="block text-xs font-medium text-foreground mb-1">
-                      Email Address *
+                    <label htmlFor="contact-email" className={LABEL}>
+                      Email address *
                     </label>
                     <input
                       id="contact-email"
                       name="email"
                       type="email"
                       required
+                      maxLength={200}
                       autoComplete="email"
                       placeholder="rahul@company.com"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full rounded-md border border-border bg-secondary/50 px-3 py-2 text-base sm:text-xs text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-foreground"
+                      aria-invalid={!!errors.email}
+                      aria-describedby={errors.email ? "contact-email-error" : undefined}
+                      className={INPUT}
                     />
+                    <FieldError id="contact-email-error" message={errors.email} />
                   </div>
-
                   <div>
-                    <label htmlFor="contact-business-type" className="block text-xs font-medium text-foreground mb-1">
-                      Your Business Type
+                    <label htmlFor="contact-business-type" className={LABEL}>
+                      Industry
                     </label>
-                    <select
-                      id="contact-business-type"
-                      name="businessType"
-                      value={formData.businessType}
-                      onChange={(e) => setFormData({ ...formData, businessType: e.target.value })}
-                      className="w-full rounded-md border border-border bg-secondary/50 px-3 py-2 text-base sm:text-xs text-foreground focus:outline-none focus:ring-1 focus:ring-foreground"
-                    >
-                      <option value="Real Estate">Real Estate Broker / Developer</option>
-                      <option value="Marketing Agency">Performance Marketing Agency</option>
-                      <option value="Financial Services">Financial &amp; Insurance Advisor</option>
-                      <option value="Solar & Services">Solar &amp; Home Contractor</option>
-                      <option value="Other">Other Sales Team</option>
+                    <select id="contact-business-type" name="businessType" defaultValue="" className={cn(INPUT, "appearance-none")}>
+                      <option value="" className="bg-[#0a0b0c]">
+                        Select (optional)
+                      </option>
+                      {BUSINESS_TYPES.map((t) => (
+                        <option key={t} value={t} className="bg-[#0a0b0c]">
+                          {t}
+                        </option>
+                      ))}
                     </select>
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="contact-message" className="block text-xs font-medium text-foreground mb-1">
-                    How can we help your team?
+                  <label htmlFor="contact-message" className={LABEL}>
+                    How can we help?
                   </label>
                   <textarea
                     id="contact-message"
                     name="message"
                     rows={4}
-                    placeholder="Tell us about your lead sources, monthly lead volume, or questions..."
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full rounded-md border border-border bg-secondary/50 px-3 py-2 text-base sm:text-xs text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-foreground resize-none"
+                    maxLength={3000}
+                    placeholder="Tell us about your lead sources, monthly lead volume, or questions…"
+                    className={cn(INPUT, "resize-none")}
                   />
                 </div>
 
-                <Button
+                <button
                   type="submit"
-                  size="sm"
-                  className="w-full rounded-full font-semibold text-xs h-10 shadow-glow-sm"
+                  disabled={pending}
+                  className="focus-ring inline-flex h-14 w-full items-center justify-center gap-2 rounded-[14px] border border-white bg-white/80 px-6 text-sm font-medium text-black transition-colors hover:bg-white disabled:cursor-wait disabled:opacity-60"
                 >
-                  <Send className="h-3.5 w-3.5 mr-1.5" />
-                  <span>Send Message</span>
-                </Button>
+                  <Send className="h-4 w-4" aria-hidden="true" />
+                  {pending ? "Sending…" : "Send Message"}
+                </button>
               </form>
             )}
           </div>
         </div>
       </div>
-    </section>
+    </HomeSection>
   );
 }

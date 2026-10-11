@@ -5,7 +5,6 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Button } from "@/components/ui/button";
 import { Menu, X, ArrowRight, ChevronDown, Sparkles } from "lucide-react";
 import {
   TOP_NAV,
@@ -98,7 +97,7 @@ export function MarketingNavbar() {
           : "border-white/5 bg-background/60 backdrop-blur-md"
       }`}
     >
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-16 max-w-[1272px] items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" aria-label="Ridhzo home" className="focus-ring rounded-md flex items-center group py-1">
           <Image
             src="/logo/Ridhzo-Logo-Final_Horizontal-Light.png"
@@ -154,21 +153,28 @@ export function MarketingNavbar() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-2">
-          <Button asChild variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground hover:bg-accent text-sm">
-            <Link href={appUrl("/login")}>Sign in</Link>
-          </Button>
-          <Button asChild size="sm" className="font-semibold text-sm shadow-glow-sm">
-            <Link href={appUrl("/signup")} className="flex items-center gap-1.5">
-              <span>Start Free</span>
-              <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
-            </Link>
-          </Button>
+          <Link
+            href={appUrl("/login")}
+            className="focus-ring inline-flex h-10 items-center rounded-xl px-4 text-sm font-medium text-white/80 transition-colors hover:text-white"
+          >
+            Sign in
+          </Link>
+          <Link
+            href={appUrl("/signup")}
+            className="focus-ring inline-flex h-10 items-center gap-1.5 rounded-xl border border-white bg-white/80 px-4 text-sm font-medium text-black transition-colors hover:bg-white"
+          >
+            Start Free
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
         </div>
 
         <div className="lg:hidden flex items-center gap-2">
-          <Button asChild size="sm" className="h-9 text-xs font-semibold shadow-glow-sm">
-            <Link href={appUrl("/signup")}>Start Free</Link>
-          </Button>
+          <Link
+            href={appUrl("/signup")}
+            className="focus-ring inline-flex h-9 items-center rounded-[10px] border border-white bg-white/80 px-3 text-xs font-medium text-black transition-colors hover:bg-white"
+          >
+            Start Free
+          </Link>
           <button
             type="button"
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -188,9 +194,9 @@ export function MarketingNavbar() {
           id={`nav-panel-${openMenu}`}
           onMouseEnter={() => hoverOpen(openMenu)}
           onMouseLeave={hoverClose}
-          className="hidden lg:block absolute inset-x-0 top-full border-b border-border bg-background shadow-2xl"
+          className="hidden lg:block absolute inset-x-0 top-full border-b border-white/10 bg-[#070908]/95 shadow-2xl backdrop-blur-xl"
         >
-          <div className="mx-auto max-w-7xl px-8 py-8">
+          <div className="mx-auto max-w-[1272px] px-8 py-8">
             {openMenu === "product" ? <ProductPanel /> : null}
             {openMenu === "solutions" ? (
               <LinkGridPanel
@@ -271,12 +277,19 @@ export function MarketingNavbar() {
             })}
           </nav>
           <div className="pt-5 flex flex-col gap-2.5">
-            <Button asChild className="w-full h-11 rounded-full text-sm font-semibold shadow-glow-sm">
-              <Link href={appUrl("/signup")}>Start Free — No Card Needed</Link>
-            </Button>
-            <Button asChild variant="outline" className="w-full h-11 rounded-full text-sm border-border bg-secondary/50">
-              <Link href={appUrl("/login")}>Sign in</Link>
-            </Button>
+            <Link
+              href={appUrl("/signup")}
+              className="focus-ring inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl border border-white bg-white/80 text-sm font-medium text-black transition-colors hover:bg-white"
+            >
+              Start Free — No Card Needed
+              <ArrowRight className="h-5 w-5" aria-hidden="true" />
+            </Link>
+            <Link
+              href={appUrl("/login")}
+              className="focus-ring inline-flex h-12 w-full items-center justify-center rounded-xl border border-white/12 bg-white/[0.04] text-sm font-medium text-white transition-colors hover:bg-white/10"
+            >
+              Sign in
+            </Link>
           </div>
         </div>
       )}
@@ -313,10 +326,10 @@ function ProductPanel() {
       <div className="flex flex-col gap-3">
         <Link
           href="/features/ai"
-          className="focus-ring group flex flex-col rounded-xl border border-border bg-card p-5 transition-colors hover:border-foreground/30"
+          className="focus-ring group flex flex-col rounded-3xl border border-white/12 bg-white/[0.04] p-5 transition-colors hover:border-highlight/40"
         >
           <div>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary px-2.5 py-0.5 text-[11px] font-medium text-foreground">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-highlight/60 bg-highlight/20 px-2.5 py-0.5 text-[11px] font-medium uppercase text-white">
               <Sparkles className="h-3 w-3" aria-hidden="true" /> New
             </span>
             <p className="mt-3 text-sm font-bold text-foreground">Meet your AI Assistant</p>
@@ -325,13 +338,13 @@ function ProductPanel() {
               update leads. You approve before anything is sent.
             </p>
           </div>
-          <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-foreground">
+          <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-highlight">
             See how it works <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
           </span>
         </Link>
         <Link
           href="/features"
-          className="focus-ring flex items-center justify-between rounded-lg border border-border px-4 py-3 text-xs font-semibold text-foreground transition-colors hover:bg-secondary/60"
+          className="focus-ring flex items-center justify-between rounded-xl border border-white/12 bg-white/[0.04] px-4 py-3 text-xs font-semibold text-white transition-colors hover:bg-white/10"
         >
           View all features
           <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
@@ -377,7 +390,7 @@ function MenuLink({ item }: { item: NavItem }) {
       className="focus-ring group flex items-start gap-3 rounded-lg p-2 -mx-2 transition-colors hover:bg-secondary/60"
     >
       {Icon ? (
-        <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-border bg-secondary text-foreground">
+        <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-[9px] border border-highlight/30 bg-highlight/10 text-highlight transition-colors group-hover:bg-highlight group-hover:text-black">
           <Icon className="h-4 w-4" aria-hidden="true" />
         </span>
       ) : null}
@@ -385,7 +398,7 @@ function MenuLink({ item }: { item: NavItem }) {
         <span className="flex items-center gap-1.5 text-sm font-semibold text-foreground">
           {item.label}
           {item.badge ? (
-            <span className="rounded border border-border bg-secondary px-1.5 py-px text-[10px] font-medium text-muted-foreground">
+            <span className="rounded-full border border-highlight/60 bg-highlight/20 px-1.5 py-px text-[10px] font-medium uppercase text-white">
               {item.badge}
             </span>
           ) : null}
@@ -409,10 +422,10 @@ function MobileLinks({ items }: { items: readonly NavItem[] }) {
               href={item.href}
               className="focus-ring flex min-h-[44px] items-center gap-3 rounded-lg px-2 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
             >
-              {Icon ? <Icon className="h-4 w-4 shrink-0 text-foreground" aria-hidden="true" /> : null}
+              {Icon ? <Icon className="h-4 w-4 shrink-0 text-highlight" aria-hidden="true" /> : null}
               <span>{item.label}</span>
               {item.badge ? (
-                <span className="rounded border border-border bg-secondary px-1.5 py-px text-[10px] font-medium">{item.badge}</span>
+                <span className="rounded-full border border-highlight/60 bg-highlight/20 px-1.5 py-px text-[10px] font-medium uppercase text-white">{item.badge}</span>
               ) : null}
             </Link>
           </li>

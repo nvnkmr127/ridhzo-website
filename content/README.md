@@ -2,7 +2,7 @@
 
 Markdown pages rendered at `/features`, `/usecases`, `/help`, `/how-to` and `/blog`. Each file has YAML frontmatter (`title`, `slug`, `summary`/`targetAudience`, `badge`, `keyMetric`, `order`; features also set `category`: capture · engage · automate · manage · analyze · platform). The navbar, footer and home feature grid read from `src/lib/navigation.ts`, so add new feature slugs there too. The URL comes from `slug`, not the filename.
 
-**Source of truth for product facts:** `ridhzo/docs/product-kb/` in the app repo. Only describe features that exist there; mark anything else "coming soon". Prices: Free ₹0, Starter ₹249/month, Unlimited ₹449/month — flat per workspace, not per user.
+**Source of truth for product facts:** `ridhzo/docs/product-kb/` in the app repo. Only describe features that exist there; mark anything else "coming soon". Prices: Free ₹0, Starter ₹249/month, Unlimited ₹449/month — flat per workspace, not per user. Plan prices and entitlements on the site come from `src/lib/plans.ts`; update it (not individual pages) when plans change.
 
 ## features/ (`/features/<slug>`)
 | Order | File | Slug |

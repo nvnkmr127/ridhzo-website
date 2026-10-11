@@ -27,12 +27,26 @@ export function readConsent(): ConsentValue {
 
 export function setConsent(value: Exclude<ConsentValue, "unset">): void {
   if (typeof window === "undefined") return;
+  const previous = readConsent();
   try {
     window.localStorage.setItem(STORAGE_KEY, value);
   } catch {
     // Ignore — private mode / blocked storage. Consent simply won't persist.
   }
   window.dispatchEvent(new CustomEvent<ConsentValue>(EVENT_NAME, { detail: value }));
+  // Tag scripts can't be unloaded once they've run, so withdrawing consent needs a fresh page.
+  if (previous === "granted" && value === "denied") window.location.reload();
+}
+
+/** Forget the stored choice so the banner asks again (footer "Cookie settings"). */
+export function resetConsent(): void {
+  if (typeof window === "undefined") return;
+  try {
+    window.localStorage.removeItem(STORAGE_KEY);
+  } catch {
+    // Ignore — storage blocked.
+  }
+  window.dispatchEvent(new CustomEvent<ConsentValue>(EVENT_NAME, { detail: "unset" }));
 }
 
 /** React hook: current consent value, kept live across banner interactions. */

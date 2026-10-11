@@ -199,3 +199,22 @@ export function GrainTexture({ className }: { className?: string }) {
     />
   );
 }
+
+/** Glass card used for content tiles across the site (Figma: white/4 fill, white/12 hairline). */
+export function GlassCard({ children, className }: { children: React.ReactNode; className?: string }) {
+  return (
+    <div className={cn("rounded-3xl border border-white/12 bg-white/[0.04] p-6 sm:p-8", className)}>{children}</div>
+  );
+}
+
+/** Atmospheric dark-green glows from the Figma page background (Ellipse 5, Vector 4/5/6). */
+export function PageGlows({ className }: { className?: string }) {
+  return (
+    <div className={cn("pointer-events-none absolute inset-0 hidden overflow-hidden [mask-image:linear-gradient(to_bottom,black_75%,transparent)] lg:block", className)} aria-hidden="true">
+      <div className="absolute left-[56%] top-[32%] h-[527px] w-[956px] rotate-[29deg] bg-brand-deep blur-[150px]" />
+      <div className="absolute left-[40%] top-[31.5%] h-[328px] w-[622px] rotate-[37deg] bg-brand-deep blur-[150px]" />
+      <div className="absolute left-[43%] top-[32.5%] h-[273px] w-[517px] rotate-[37deg] bg-brand-deep blur-[100px]" />
+      <div className="absolute -left-[22%] top-[19%] h-[527px] w-[800px] rotate-[171deg] bg-brand-deep blur-[150px]" />
+    </div>
+  );
+}

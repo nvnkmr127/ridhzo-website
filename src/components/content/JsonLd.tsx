@@ -1,8 +1,7 @@
-import { SOCIAL_LINKS } from "@/lib/config";
+import { SITE_URL, SOCIAL_LINKS } from "@/lib/config";
 import type { ContentItem } from "@/lib/content";
 import { CONTENT_ROUTES } from "@/lib/content-routes";
 
-const SITE_URL = "https://ridhzo.com";
 
 /**
  * Emits schema.org structured data for a content item so search engines can

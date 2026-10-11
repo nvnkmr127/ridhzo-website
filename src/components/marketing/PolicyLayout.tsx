@@ -1,6 +1,9 @@
 import Link from "next/link";
-import { Shield, Clock, FileText, ArrowUpRight, Mail, Phone, HelpCircle } from "lucide-react";
-import { ReactNode } from "react";
+import { Clock, FileText, ArrowUpRight, Mail, Phone, HelpCircle } from "lucide-react";
+import type { ReactNode } from "react";
+import { SUPPORT, whatsappUrl } from "@/lib/config";
+import { PageHero } from "@/components/site/PageHero";
+import { PageGlows } from "@/components/site/primitives";
 
 export interface PolicySection {
   id: string;
@@ -27,6 +30,55 @@ const POLICY_PAGES = [
   { href: "/cookie-policy", label: "Cookie Policy", desc: "Session auth, local storage & analytics" },
 ];
 
+function SupportCard({ className = "" }: { className?: string }) {
+  return (
+    <div className={`space-y-3 rounded-3xl border border-white/12 bg-white/[0.04] p-5 ${className}`}>
+      <div className="flex items-center gap-2 text-sm font-semibold text-white">
+        <HelpCircle className="h-4 w-4 text-highlight" aria-hidden="true" />
+        <span>Questions or inquiries?</span>
+      </div>
+      <p className="text-sm leading-6 text-white/65">
+        Our compliance and data protection team responds to all inquiries within 24 hours.
+      </p>
+      <div className="space-y-2 pt-1 text-sm">
+        <a
+          href={`mailto:${SUPPORT.legalEmail}`}
+          className="focus-ring flex items-center gap-2 rounded-sm text-white/65 hover:text-white hover:underline"
+        >
+          <Mail className="h-4 w-4 shrink-0" aria-hidden="true" />
+          <span>{SUPPORT.legalEmail}</span>
+        </a>
+        <a
+          href={whatsappUrl()}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="focus-ring flex items-center gap-2 rounded-sm text-white/65 hover:text-white hover:underline"
+        >
+          <Phone className="h-4 w-4 shrink-0" aria-hidden="true" />
+          <span>{SUPPORT.whatsappDisplay} (WhatsApp)</span>
+        </a>
+      </div>
+    </div>
+  );
+}
+
+function TocLinks({ sections, className = "" }: { sections: PolicySection[]; className?: string }) {
+  return (
+    <nav aria-label="Table of contents" className={`space-y-0.5 ${className}`}>
+      {sections.map((section, idx) => (
+        <a
+          key={section.id}
+          href={`#${section.id}`}
+          className="focus-ring block rounded-lg px-2.5 py-2 text-sm leading-snug text-white/65 transition-colors hover:bg-white/[0.06] hover:text-white"
+        >
+          <span className="mr-2 text-xs text-highlight">{String(idx + 1).padStart(2, "0")}</span>
+          {section.title.replace(/^\d+\.\s*/, "")}
+        </a>
+      ))}
+    </nav>
+  );
+}
+
 export function PolicyLayout({
   title,
   description,
@@ -38,168 +90,61 @@ export function PolicyLayout({
   activePath,
 }: PolicyLayoutProps) {
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      {/* Policy Hero Header */}
-      <header className="border-b border-border bg-card/40 py-10 sm:py-20 relative overflow-hidden">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-          <span className="section-label mb-5 sm:mb-6">
-            <Shield className="h-3.5 w-3.5 text-foreground" />
-            <span>Legal &amp; Compliance Center</span>
+    <div className="relative">
+      <PageGlows />
+      <PageHero
+        eyebrow="Legal & compliance"
+        title={title}
+        lead={description}
+        crumbs={[{ label: "Home", href: "/" }, { label: title }]}
+      >
+        <div className="mt-2 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-white/10 pt-5 text-sm text-white/50">
+          <span className="flex items-center gap-1.5">
+            <Clock className="h-4 w-4 text-highlight" aria-hidden="true" />
+            Last updated: <strong className="font-medium text-white">{lastUpdated}</strong>
           </span>
-
-          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground leading-tight">
-            {title}
-          </h1>
-
-          <p className="mt-3 sm:mt-4 text-sm sm:text-lg text-muted-foreground max-w-3xl leading-relaxed">
-            {description}
-          </p>
-
-          <div className="mt-6 sm:mt-8 flex flex-wrap items-center gap-3 sm:gap-6 text-xs text-muted-foreground pt-4 sm:pt-6 border-t border-border/80">
-            <div className="flex items-center gap-1.5">
-              <Clock className="h-3.5 w-3.5 text-foreground" />
-              <span>Last updated: <strong className="text-foreground font-medium">{lastUpdated}</strong></span>
-            </div>
-            <span className="hidden sm:inline">•</span>
-            <div>
-              <span>Effective: <strong className="text-foreground font-medium">{effectiveDate}</strong></span>
-            </div>
-            <span className="hidden sm:inline">•</span>
-            <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-muted text-foreground font-mono text-[11px]">
-              v{version}
-            </div>
-          </div>
+          <span>
+            Effective: <strong className="font-medium text-white">{effectiveDate}</strong>
+          </span>
+          <span className="rounded-full border border-white/12 bg-white/[0.04] px-2.5 py-0.5 text-xs text-white">v{version}</span>
         </div>
-      </header>
+      </PageHero>
 
-      {/* Main Content Area */}
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 sm:py-16">
-        {/* Mobile Collapsible Quick-Jump Table of Contents */}
-        <div className="lg:hidden mb-8 rounded-2xl border border-border bg-card p-4">
-          <details className="group">
-            <summary className="flex items-center justify-between text-xs font-semibold text-foreground uppercase tracking-wider cursor-pointer list-none select-none">
-              <span className="flex items-center gap-2">
-                <FileText className="h-3.5 w-3.5 text-foreground" />
-                <span>Jump to Section ({sections.length})</span>
-              </span>
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-secondary text-muted-foreground group-open:hidden">
-                Tap to expand
-              </span>
-            </summary>
-            <nav className="mt-3 pt-3 border-t border-border space-y-1">
-              {sections.map((section, idx) => (
-                <a
-                  key={section.id}
-                  href={`#${section.id}`}
-                  className="focus-ring block text-xs py-2 px-2.5 rounded-lg hover:bg-secondary hover:text-foreground text-muted-foreground transition-colors"
-                >
-                  <span className="font-mono text-[10px] text-muted-foreground mr-1.5 opacity-70">
-                    {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}.
-                  </span>
-                  {section.title}
-                </a>
-              ))}
-            </nav>
-          </details>
-        </div>
+      <div className="relative mx-auto max-w-[1272px] px-4 pb-20 sm:px-6 lg:px-8">
+        {/* Mobile table of contents */}
+        <details className="group mb-8 rounded-3xl border border-white/12 bg-white/[0.04] p-4 lg:hidden">
+          <summary className="flex cursor-pointer list-none items-center justify-between text-sm font-semibold text-white">
+            <span className="flex items-center gap-2">
+              <FileText className="h-4 w-4 text-highlight" aria-hidden="true" />
+              Jump to section ({sections.length})
+            </span>
+            <span className="text-xs text-white/50 group-open:hidden">Tap to expand</span>
+          </summary>
+          <TocLinks sections={sections} className="mt-3 border-t border-white/10 pt-3" />
+        </details>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-          {/* Sticky Table of Contents (Desktop Only) */}
-          <aside className="hidden lg:block lg:col-span-4">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
+          <aside className="hidden lg:col-span-4 lg:block">
             <div className="sticky top-24 space-y-6">
-              <div className="rounded-2xl border border-border bg-card p-5">
-                <p className="text-xs font-semibold text-foreground uppercase tracking-wider mb-3 flex items-center gap-2">
-                  <FileText className="h-3.5 w-3.5" />
-                  Table of Contents
+              <div className="rounded-3xl border border-white/12 bg-white/[0.04] p-5">
+                <p className="mb-3 flex items-center gap-2 text-[13px] font-medium uppercase tracking-[0.04em] text-white">
+                  <FileText className="h-4 w-4 text-highlight" aria-hidden="true" />
+                  Table of contents
                 </p>
-                <nav className="space-y-1">
-                  {sections.map((section, idx) => (
-                    <a
-                      key={section.id}
-                      href={`#${section.id}`}
-                      className="focus-ring block text-xs py-1.5 px-2 rounded hover:bg-secondary hover:text-foreground text-muted-foreground transition-colors leading-snug"
-                    >
-                      <span className="font-mono text-[10px] text-muted-foreground mr-1.5 opacity-70">
-                        {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}.
-                      </span>
-                      {section.title}
-                    </a>
-                  ))}
-                </nav>
+                <TocLinks sections={sections} />
               </div>
-
-              {/* Direct Support Card */}
-              <div className="rounded-xl border border-border bg-secondary/30 p-5 space-y-3">
-                <div className="flex items-center gap-2 text-xs font-semibold text-foreground">
-                  <HelpCircle className="h-4 w-4" />
-                  <span>Questions or Inquiries?</span>
-                </div>
-                <p className="text-xs text-muted-foreground leading-relaxed">
-                  Our compliance and data protection team responds to all inquiries within 24 hours.
-                </p>
-                <div className="space-y-2 pt-1 text-xs">
-                  <a
-                    href="mailto:legal@ridhzo.com"
-                    className="focus-ring rounded-sm flex items-center gap-2 text-muted-foreground hover:text-foreground hover:underline"
-                  >
-                    <Mail className="h-3.5 w-3.5 shrink-0" />
-                    <span>legal@ridhzo.com</span>
-                  </a>
-                  <a
-                    href="https://wa.me/919820144520"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="focus-ring rounded-sm flex items-center gap-2 text-muted-foreground hover:text-foreground hover:underline"
-                  >
-                    <Phone className="h-3.5 w-3.5 shrink-0" />
-                    <span>+91 98201 44520 (WhatsApp)</span>
-                  </a>
-                </div>
-              </div>
+              <SupportCard />
             </div>
           </aside>
 
-          {/* Policy Text (Prose content) */}
-          <main className="lg:col-span-8">
-            <div className="space-y-10 sm:space-y-12 text-muted-foreground text-xs sm:text-sm md:text-base leading-relaxed break-words">
-              {children}
-            </div>
+          <div className="lg:col-span-8">
+            <div className="space-y-12 break-words text-base leading-7 text-white/65">{children}</div>
 
-            {/* Support Card on Mobile */}
-            <div className="lg:hidden mt-10 rounded-xl border border-border bg-secondary/30 p-4 space-y-3">
-              <div className="flex items-center gap-2 text-xs font-semibold text-foreground">
-                <HelpCircle className="h-4 w-4" />
-                <span>Questions or Inquiries?</span>
-              </div>
-              <p className="text-xs text-muted-foreground leading-relaxed">
-                Our compliance and data protection team responds to all inquiries within 24 hours.
-              </p>
-              <div className="space-y-2 pt-1 text-xs">
-                <a
-                  href="mailto:legal@ridhzo.com"
-                  className="focus-ring rounded-sm flex items-center gap-2 text-muted-foreground hover:text-foreground hover:underline"
-                >
-                  <Mail className="h-3.5 w-3.5 shrink-0" />
-                  <span>legal@ridhzo.com</span>
-                </a>
-                <a
-                  href="https://wa.me/919820144520"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="focus-ring rounded-sm flex items-center gap-2 text-muted-foreground hover:text-foreground hover:underline"
-                >
-                  <Phone className="h-3.5 w-3.5 shrink-0" />
-                  <span>+91 98201 44520 (WhatsApp)</span>
-                </a>
-              </div>
-            </div>
+            <SupportCard className="mt-10 lg:hidden" />
 
-            {/* Cross-Policy Directory Footer */}
-            <div className="mt-16 pt-12 border-t border-border">
-              <h2 className="text-base font-bold text-foreground mb-4">
-                Other Policies &amp; Legal Frameworks
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="mt-16 border-t border-white/10 pt-12">
+              <h2 className="mb-5 text-xl font-semibold tracking-[-0.015em] text-white">Other policies</h2>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {POLICY_PAGES.map((policy) => {
                   const isCurrent = policy.href === activePath;
                   return (
@@ -207,33 +152,29 @@ export function PolicyLayout({
                       key={policy.href}
                       href={policy.href}
                       aria-current={isCurrent ? "page" : undefined}
-                      className={`focus-ring p-4 rounded-xl border transition-all ${
+                      className={`focus-ring rounded-3xl border p-5 transition-colors ${
                         isCurrent
-                          ? "border-foreground/40 bg-muted/60 pointer-events-none"
-                          : "border-border bg-card hover:border-foreground/30 hover:bg-secondary/40"
+                          ? "pointer-events-none border-highlight/50 bg-white/[0.06]"
+                          : "border-white/12 bg-white/[0.04] hover:border-highlight/40 hover:bg-white/[0.07]"
                       }`}
                     >
                       <div className="flex items-center justify-between">
-                        <span className="text-xs font-bold text-foreground">
-                          {policy.label}
-                        </span>
+                        <span className="text-base font-semibold text-white">{policy.label}</span>
                         {isCurrent ? (
-                          <span className="text-[10px] uppercase font-mono px-1.5 py-0.5 rounded bg-foreground text-background font-medium">
+                          <span className="rounded-full bg-highlight px-2 py-0.5 text-[11px] font-medium uppercase text-black">
                             Current
                           </span>
                         ) : (
-                          <ArrowUpRight className="h-3.5 w-3.5 text-muted-foreground" />
+                          <ArrowUpRight className="h-4 w-4 text-white/50" aria-hidden="true" />
                         )}
                       </div>
-                      <p className="text-xs text-muted-foreground mt-1 leading-snug">
-                        {policy.desc}
-                      </p>
+                      <p className="mt-1 text-sm leading-snug text-white/65">{policy.desc}</p>
                     </Link>
                   );
                 })}
               </div>
             </div>
-          </main>
+          </div>
         </div>
       </div>
     </div>

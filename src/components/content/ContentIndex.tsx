@@ -1,7 +1,9 @@
 import { ContentCard } from "./ContentCard";
 import type { ContentSummary } from "@/lib/content";
 import type { ContentRoute } from "@/lib/content-routes";
-import { CtaBanner } from "@/components/marketing/CtaBanner";
+import { PageHero } from "@/components/site/PageHero";
+import { SiteCta } from "@/components/site/SiteCta";
+import { HomeSection, PageGlows } from "@/components/site/primitives";
 
 export interface ContentGroup {
   id: string;
@@ -36,51 +38,48 @@ export function ContentIndex({
     : null;
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <header className="relative overflow-hidden border-b border-border bg-card/40 py-14 sm:py-20">
-        <div className="glow-blob -top-32 left-1/2 h-[26rem] w-[44rem] -translate-x-1/2 bg-white/5" aria-hidden="true" />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <span className="section-label">{route.eyebrow}</span>
-          <h1 className="mt-4 text-2xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-            {route.title}
-          </h1>
-          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground sm:mt-4 sm:text-lg">
-            {route.description}
-          </p>
-        </div>
-      </header>
+    <div className="relative">
+      <PageGlows />
+      <PageHero
+        eyebrow={route.eyebrow}
+        title={route.title}
+        lead={route.description}
+        crumbs={[{ label: "Home", href: "/" }, { label: route.label }]}
+      >
+        {sections ? (
+          <nav aria-label="Jump to section" className="mt-4 flex flex-wrap gap-2">
+            {sections.map((s) => (
+              <a
+                key={s.id}
+                href={`#${s.id}`}
+                className="focus-ring rounded-full border border-white/12 bg-white/[0.04] px-4 py-2 text-sm text-white/80 transition-colors hover:border-highlight/50 hover:text-white"
+              >
+                {s.label}
+              </a>
+            ))}
+          </nav>
+        ) : null}
+      </PageHero>
 
-      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
+      <HomeSection className="pt-4 sm:pt-6">
         {items.length === 0 ? (
-          <p className="rounded-xl border border-dashed border-border bg-card/40 p-8 text-center text-sm text-muted-foreground">
+          <p className="rounded-3xl border border-dashed border-white/20 bg-white/[0.04] p-10 text-center text-base text-white/65">
             New content is on the way. Check back soon.
           </p>
         ) : sections ? (
-          <div className="space-y-12 sm:space-y-16">
-            {groups ? (
-              <nav aria-label="Jump to section" className="-mt-2 flex flex-wrap gap-2">
-                {sections.map((s) => (
-                  <a
-                    key={s.id}
-                    href={`#${s.id}`}
-                    className="focus-ring rounded-full border border-border bg-secondary/60 px-3 py-1 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
-                  >
-                    {s.label}
-                  </a>
-                ))}
-              </nav>
-            ) : null}
+          <div className="space-y-16 sm:space-y-20">
             {sections.map((section) => (
               <section key={section.id} id={section.id} aria-labelledby={`${section.id}-heading`} className="scroll-mt-24">
-                <div className="mb-5 flex flex-col gap-1 border-b border-border pb-3 sm:flex-row sm:items-end sm:justify-between">
-                  <h2 id={`${section.id}-heading`} className="text-lg font-bold tracking-tight text-foreground sm:text-xl">
+                <div className="mb-6 flex flex-col gap-1 border-b border-white/20 pb-4 sm:flex-row sm:items-end sm:justify-between">
+                  <h2
+                    id={`${section.id}-heading`}
+                    className="text-2xl font-semibold tracking-[-0.02em] text-white sm:text-[28px]"
+                  >
                     {section.label}
                   </h2>
-                  {section.description ? (
-                    <p className="text-xs text-muted-foreground sm:text-sm">{section.description}</p>
-                  ) : null}
+                  {section.description ? <p className="text-sm text-white/65 sm:text-base">{section.description}</p> : null}
                 </div>
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                   {section.items.map((item) => (
                     <ContentCard key={item.slug} item={item} />
                   ))}
@@ -89,15 +88,15 @@ export function ContentIndex({
             ))}
           </div>
         ) : (
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {items.map((item) => (
-              <ContentCard key={item.slug} item={item} />
+              <ContentCard key={item.slug} item={item} headingLevel="h2" />
             ))}
           </div>
         )}
-      </div>
+      </HomeSection>
 
-      <CtaBanner />
+      <SiteCta />
     </div>
   );
 }

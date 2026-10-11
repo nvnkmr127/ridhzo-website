@@ -1,52 +1,51 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { COMPETITORS } from "@/lib/competitors";
+import { pageMetadata } from "@/lib/metadata";
+import { PageHero } from "@/components/site/PageHero";
+import { SiteCta } from "@/components/site/SiteCta";
+import { HomeSection, PageGlows } from "@/components/site/primitives";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Compare Ridhzo",
   description:
     "Honest comparisons of Ridhzo vs Zoho CRM, LeadSquared, Kylas, and AiSensy — see how a mobile-first, WhatsApp-native speed-to-lead CRM stacks up, and which tool fits you.",
-  alternates: { canonical: "/compare" },
-};
+  path: "/compare",
+});
 
 export default function CompareIndexPage() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <header className="relative overflow-hidden border-b border-border bg-card/40 py-14 sm:py-20">
-        <div className="glow-blob -top-32 left-[30%] h-[22rem] w-[36rem] -translate-x-1/2 bg-white/5" aria-hidden="true" />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <span className="section-label">Comparison</span>
-          <h1 className="mt-4 text-2xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-            How Ridhzo compares
-          </h1>
-          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground sm:mt-4 sm:text-lg">
-            Straight, honest comparisons — including where each tool wins. See how Ridhzo&apos;s
-            mobile-first, WhatsApp-native, speed-to-lead approach stacks up against popular CRMs
-            and messaging platforms.
-          </p>
-        </div>
-      </header>
-
-      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="relative">
+      <PageGlows />
+      <PageHero
+        eyebrow="Comparison"
+        title="How Ridhzo compares"
+        lead="Straight, honest comparisons — including where each tool wins. See how Ridhzo's mobile-first, WhatsApp-native, speed-to-lead approach stacks up against popular CRMs and messaging platforms."
+        crumbs={[{ label: "Home", href: "/" }, { label: "Compare" }]}
+      />
+      <HomeSection className="pt-4 sm:pt-6">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {COMPETITORS.map((c) => (
             <Link
               key={c.slug}
               href={`/compare/${c.slug}`}
-              className="focus-ring group flex h-full flex-col rounded-2xl border border-border bg-card p-5 transition-all hover:border-foreground/25 hover:shadow-card"
+              className="focus-ring group flex h-full flex-col rounded-3xl border border-white/12 bg-white/[0.04] p-6 transition-colors hover:border-highlight/40 hover:bg-white/[0.07]"
             >
               <div className="flex items-start justify-between gap-3">
-                <h2 className="text-sm font-bold text-foreground">{c.title}</h2>
-                <ArrowUpRight className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <h2 className="text-lg font-semibold leading-[26px] tracking-[-0.015em] text-white">{c.title}</h2>
+                <ArrowUpRight
+                  className="mt-1 h-5 w-5 shrink-0 text-white/50 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-highlight"
+                  aria-hidden="true"
+                />
               </div>
-              <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+              <p className="mt-2 text-sm leading-6 text-white/65">
                 {c.competitorShort} is {c.competitorCategory}.
               </p>
             </Link>
           ))}
         </div>
-      </div>
+      </HomeSection>
+      <SiteCta />
     </div>
   );
 }

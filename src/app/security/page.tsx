@@ -1,15 +1,13 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { PolicyLayout } from "@/components/marketing/PolicyLayout";
 import { ShieldCheck, Lock, Database, Key, Server, Cpu, AlertTriangle } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Security & Data Isolation — Ridhzo CRM",
+export const metadata = pageMetadata({
+  title: "Security & Data Isolation",
   description:
     "How Ridhzo protects your leads: workspace isolation on every query, AES-256-GCM encrypted secrets, HTTPS everywhere, signed webhooks, role-based access and a 30-day recycle bin.",
-  alternates: {
-    canonical: "https://ridhzo.com/security",
-  },
-};
+  path: "/security",
+});
 
 const SECTIONS = [
   { id: "principles", title: "1. Security Design Principles" },
@@ -35,8 +33,8 @@ export default function SecurityPolicyPage() {
     >
       {/* 01. Principles */}
       <section id="principles" className="scroll-mt-24 space-y-4">
-        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground flex items-center gap-2.5">
-          <ShieldCheck className="h-6 w-6 text-foreground" />
+        <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
+          <ShieldCheck className="h-6 w-6 shrink-0 text-highlight" />
           <span>1. Security Design Principles</span>
         </h2>
         <p>
@@ -45,22 +43,22 @@ export default function SecurityPolicyPage() {
           unauthorized access and data leakage:
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-          <div className="p-4 rounded-xl border border-border bg-card space-y-1.5">
-            <h3 className="text-xs font-bold text-foreground uppercase tracking-wider">Tenant Partitioning</h3>
-            <p className="text-xs text-muted-foreground leading-relaxed">
+          <div className="p-4 rounded-2xl border border-white/12 bg-white/[0.04] space-y-1.5">
+            <h3 className="text-xs font-semibold text-white uppercase tracking-wider">Tenant Partitioning</h3>
+            <p className="text-sm text-white/65 leading-relaxed">
               Every query is scoped to your workspace, so one business can never see another&apos;s leads.
             </p>
           </div>
-          <div className="p-4 rounded-xl border border-border bg-card space-y-1.5">
-            <h3 className="text-xs font-bold text-foreground uppercase tracking-wider">Encrypted Secrets</h3>
-            <p className="text-xs text-muted-foreground leading-relaxed">
+          <div className="p-4 rounded-2xl border border-white/12 bg-white/[0.04] space-y-1.5">
+            <h3 className="text-xs font-semibold text-white uppercase tracking-wider">Encrypted Secrets</h3>
+            <p className="text-sm text-white/65 leading-relaxed">
               Email passwords, integration tokens and webhook secrets are encrypted with AES-256-GCM before they are
               stored. All traffic uses HTTPS.
             </p>
           </div>
-          <div className="p-4 rounded-xl border border-border bg-card space-y-1.5">
-            <h3 className="text-xs font-bold text-foreground uppercase tracking-wider">Auditability</h3>
-            <p className="text-xs text-muted-foreground leading-relaxed">
+          <div className="p-4 rounded-2xl border border-white/12 bg-white/[0.04] space-y-1.5">
+            <h3 className="text-xs font-semibold text-white uppercase tracking-wider">Auditability</h3>
+            <p className="text-sm text-white/65 leading-relaxed">
               An audit log records who changed settings, roles and users, who deleted or merged leads, and who created
               API keys.
             </p>
@@ -70,12 +68,12 @@ export default function SecurityPolicyPage() {
 
       {/* 02. Workspace isolation */}
       <section id="tenant-isolation" className="scroll-mt-24 space-y-4">
-        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground flex items-center gap-2.5">
-          <Database className="h-6 w-6 text-foreground" />
+        <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
+          <Database className="h-6 w-6 shrink-0 text-highlight" />
           <span>2. Workspace Isolation</span>
         </h2>
         <p>Ridhzo runs on PostgreSQL, with workspace boundaries enforced in the application on every request:</p>
-        <ul className="list-disc pl-5 space-y-2 text-xs sm:text-sm">
+        <ul className="list-disc pl-5 space-y-2 text-sm sm:text-base">
           <li>
             <strong>Workspace scoping:</strong> Every lead, note, custom field, pipeline stage and sequence belongs to
             exactly one workspace, and every query is limited to the signed-in person&apos;s workspace.
@@ -93,17 +91,17 @@ export default function SecurityPolicyPage() {
 
       {/* 03. Encryption */}
       <section id="encryption" className="scroll-mt-24 space-y-4">
-        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground flex items-center gap-2.5">
-          <Lock className="h-6 w-6 text-foreground" />
+        <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
+          <Lock className="h-6 w-6 shrink-0 text-highlight" />
           <span>3. Encryption</span>
         </h2>
         <div className="space-y-4">
-          <div className="border border-border rounded-xl p-5 bg-card space-y-2">
-            <div className="flex items-center gap-2 text-sm font-bold text-foreground">
-              <Key className="h-4 w-4 text-foreground" />
+          <div className="border border-white/12 rounded-2xl p-5 bg-white/[0.04] space-y-2">
+            <div className="flex items-center gap-2 text-sm font-semibold text-white">
+              <Key className="h-4 w-4 text-highlight" />
               <span>Sensitive secrets: AES-256-GCM</span>
             </div>
-            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+            <p className="text-sm sm:text-base text-white/65 leading-relaxed">
               Credentials such as email (SMTP) passwords and integration access tokens are encrypted at the application
               level with <strong>AES-256-GCM</strong> before they are saved, using a fresh random value for every
               encryption. A tampered value fails to decrypt. API keys are stored hashed, so they can&apos;t be read
@@ -111,12 +109,12 @@ export default function SecurityPolicyPage() {
             </p>
           </div>
 
-          <div className="border border-border rounded-xl p-5 bg-card space-y-2">
-            <div className="flex items-center gap-2 text-sm font-bold text-foreground">
-              <Server className="h-4 w-4 text-foreground" />
+          <div className="border border-white/12 rounded-2xl p-5 bg-white/[0.04] space-y-2">
+            <div className="flex items-center gap-2 text-sm font-semibold text-white">
+              <Server className="h-4 w-4 text-highlight" />
               <span>In transit: HTTPS</span>
             </div>
-            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+            <p className="text-sm sm:text-base text-white/65 leading-relaxed">
               Traffic between your browser or phone and Ridhzo is encrypted with HTTPS (TLS). Account passwords are
               stored as hashes, never in plain text.
             </p>
@@ -126,15 +124,15 @@ export default function SecurityPolicyPage() {
 
       {/* 04. Webhook Integrity */}
       <section id="webhook-security" className="scroll-mt-24 space-y-4">
-        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground flex items-center gap-2.5">
-          <Cpu className="h-6 w-6 text-foreground" />
+        <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
+          <Cpu className="h-6 w-6 shrink-0 text-highlight" />
           <span>4. Webhook Integrity &amp; HMAC Verification</span>
         </h2>
         <p>
           Because leads stream in from external advertising networks, we verify the authenticity of incoming requests
           before parsing them:
         </p>
-        <ul className="list-disc pl-5 space-y-2 text-xs sm:text-sm">
+        <ul className="list-disc pl-5 space-y-2 text-sm sm:text-base">
           <li>
             <strong>Meta Facebook Lead Ads:</strong> We inspect the <code>X-Hub-Signature-256</code> header on every
             inbound webhook, verifying the SHA-256 HMAC payload against your App Secret. Payloads with invalid or missing
@@ -156,15 +154,15 @@ export default function SecurityPolicyPage() {
 
       {/* 05. Mobile apps & offline */}
       <section id="pwa-offline" className="scroll-mt-24 space-y-4">
-        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground flex items-center gap-2.5">
-          <Lock className="h-6 w-6 text-foreground" />
+        <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
+          <Lock className="h-6 w-6 shrink-0 text-highlight" />
           <span>5. Mobile Apps &amp; Offline Data</span>
         </h2>
         <p>
           Ridhzo lets reps in the field add new leads even without a network connection. How that data is handled
           depends on how the app is installed:
         </p>
-        <ul className="list-disc pl-5 space-y-1.5 text-xs sm:text-sm">
+        <ul className="list-disc pl-5 space-y-1.5 text-sm sm:text-base">
           <li>
             <strong>Web app (PWA):</strong> Offline mode holds only leads a rep has just added. Existing leads are not
             downloaded for offline use. Pending leads are kept in the browser&apos;s storage for the Ridhzo app,
@@ -189,8 +187,8 @@ export default function SecurityPolicyPage() {
 
       {/* 06. RBAC */}
       <section id="rbac" className="scroll-mt-24 space-y-4">
-        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground flex items-center gap-2.5">
-          <ShieldCheck className="h-6 w-6 text-foreground" />
+        <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
+          <ShieldCheck className="h-6 w-6 shrink-0 text-highlight" />
           <span>6. Role-Based Access Control (RBAC)</span>
         </h2>
         <p>
@@ -198,34 +196,34 @@ export default function SecurityPolicyPage() {
           separate permissions:
         </p>
         <div className="overflow-x-auto">
-          <table className="w-full min-w-[500px] text-left text-xs border border-border mt-2">
-            <thead className="bg-secondary/50 text-foreground border-b border-border">
+          <table className="w-full min-w-[500px] text-left text-xs border border-white/12 mt-2">
+            <thead className="bg-white/[0.08]/50 text-white border-b border-white/12">
               <tr>
                 <th className="p-3">Role</th>
                 <th className="p-3">Scope of Access</th>
                 <th className="p-3">Billing &amp; Settings</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-border text-muted-foreground">
+            <tbody className="divide-y divide-border text-white/65">
               <tr>
-                <td className="p-3 font-bold text-foreground">Admin</td>
+                <td className="p-3 font-semibold text-white">Admin</td>
                 <td className="p-3">Everything: all leads, team members, roles, integrations, webhooks, API keys, audit log</td>
                 <td className="p-3">Full (billing, settings, permanent lead deletion)</td>
               </tr>
               <tr>
-                <td className="p-3 font-bold text-foreground">Member (sales rep)</td>
+                <td className="p-3 font-semibold text-white">Member (sales rep)</td>
                 <td className="p-3">Their own assigned leads only: create, edit, call, message, change status</td>
                 <td className="p-3">None by default (cannot delete or purge leads, or change settings)</td>
               </tr>
               <tr>
-                <td className="p-3 font-bold text-foreground">Custom roles</td>
+                <td className="p-3 font-semibold text-white">Custom roles</td>
                 <td className="p-3">Any combination of the 14 permissions — for example a read-only Viewer for a partner</td>
                 <td className="p-3">Only what the role is explicitly granted</td>
               </tr>
             </tbody>
           </table>
         </div>
-        <p className="text-xs sm:text-sm">
+        <p className="text-sm sm:text-base">
           Someone who can invite people but cannot manage roles is not able to hand out a role with more access than they
           hold themselves.
         </p>
@@ -233,12 +231,12 @@ export default function SecurityPolicyPage() {
 
       {/* 07. Deletion, retention & recovery */}
       <section id="backups-dr" className="scroll-mt-24 space-y-4">
-        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground flex items-center gap-2.5">
-          <Server className="h-6 w-6 text-foreground" />
+        <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
+          <Server className="h-6 w-6 shrink-0 text-highlight" />
           <span>7. Deletion, Retention &amp; Recovery</span>
         </h2>
         <p>You stay in control of your data, including when it leaves Ridhzo:</p>
-        <ul className="list-disc pl-5 space-y-1.5 text-xs sm:text-sm">
+        <ul className="list-disc pl-5 space-y-1.5 text-sm sm:text-base">
           <li>
             <strong>30-day recycle bin:</strong> Deleted leads can be restored for 30 days, guarding against accidental
             deletion.
@@ -259,24 +257,24 @@ export default function SecurityPolicyPage() {
 
       {/* 08. Vulnerability Reporting */}
       <section id="vulnerability-disclosure" className="scroll-mt-24 space-y-4">
-        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground flex items-center gap-2.5">
-          <AlertTriangle className="h-6 w-6 text-foreground" />
+        <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
+          <AlertTriangle className="h-6 w-6 shrink-0 text-highlight" />
           <span>8. Responsible Vulnerability Disclosure</span>
         </h2>
         <p>
           We welcome collaboration with independent security researchers to uncover potential flaws. If you discover a
           security vulnerability in Ridhzo:
         </p>
-        <div className="rounded-xl border border-border bg-card p-5 space-y-2 text-xs sm:text-sm">
-          <p className="font-semibold text-foreground">Vulnerability Disclosure Protocol</p>
-          <p className="text-muted-foreground">
+        <div className="rounded-2xl border border-white/12 bg-white/[0.04] p-5 space-y-2 text-sm sm:text-base">
+          <p className="font-semibold text-white">Vulnerability Disclosure Protocol</p>
+          <p className="text-white/65">
             Please report all potential security issues directly to{" "}
-            <a href="mailto:security@ridhzo.com" className="text-foreground font-semibold underline">
+            <a href="mailto:security@ridhzo.com" className="text-highlight font-semibold underline underline-offset-4">
               security@ridhzo.com
             </a>{" "}
             with reproduction steps and proof-of-concept logs.
           </p>
-          <ul className="list-disc pl-5 space-y-1 text-muted-foreground pt-1">
+          <ul className="list-disc pl-5 space-y-1 text-white/65 pt-1">
             <li>We acknowledge verified reports within 24 hours.</li>
             <li>We commit to not pursuing legal action against researchers acting in good faith.</li>
             <li>Please allow reasonable time for remediation before public disclosure.</li>

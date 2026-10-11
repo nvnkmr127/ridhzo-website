@@ -1,9 +1,11 @@
 import { Fragment } from "react";
 import { Check, Minus } from "lucide-react";
+import { PLANS, getPlan, inr } from "@/lib/plans";
+import { Eyebrow, SectionTitle, Accent, Lead, HomeSection } from "@/components/site/primitives";
 
 /**
- * Full feature-comparison matrix for the dedicated pricing page. Values mirror
- * the plan cards in PricingSection so the two never contradict each other.
+ * Full feature-comparison matrix for the dedicated pricing page. Prices come from
+ * src/lib/plans.ts; entitlements must match the plan cards there.
  * A boolean renders a check/dash; a string renders as-is.
  */
 type Cell = boolean | string;
@@ -20,13 +22,16 @@ interface Group {
   rows: Row[];
 }
 
-const PLANS = ["Free", "Starter", "Unlimited"] as const;
+const price = (id: "free" | "starter" | "unlimited") => {
+  const p = getPlan(id);
+  return p.monthly === 0 ? inr(0) : `${inr(p.monthly)}/mo`;
+};
 
 const GROUPS: Group[] = [
   {
     title: "Plan limits",
     rows: [
-      { label: "Price", free: "₹0", starter: "₹249/mo", unlimited: "₹449/mo" },
+      { label: "Price", free: price("free"), starter: price("starter"), unlimited: price("unlimited") },
       { label: "Leads", free: "300", starter: "5,000", unlimited: "Unlimited" },
       { label: "Team seats", free: "1", starter: "3", unlimited: "Unlimited" },
       { label: "Lead sources", free: "1", starter: "5", unlimited: "Unlimited" },
@@ -70,80 +75,77 @@ const GROUPS: Group[] = [
 
 function CellValue({ value }: { value: Cell }) {
   if (typeof value === "string") {
-    return <span className="font-mono text-xs text-foreground">{value}</span>;
+    return <span className="text-sm font-medium text-white">{value}</span>;
   }
   return value ? (
-    <Check className="mx-auto h-4 w-4 text-foreground" aria-label="Included" />
+    <Check className="mx-auto h-5 w-5 text-highlight" aria-label="Included" />
   ) : (
-    <Minus className="mx-auto h-4 w-4 text-muted-foreground/60" aria-label="Not included" />
+    <Minus className="mx-auto h-5 w-5 text-white/30" aria-label="Not included" />
   );
 }
 
 export function PricingComparison() {
   return (
-    <section className="border-t border-border bg-background py-16 sm:py-24">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-            Compare every plan
-          </h2>
-          <p className="mt-3 text-sm text-muted-foreground sm:text-base">
-            Every feature, side by side. Upgrade only when your pipeline outgrows the plan.
-          </p>
-        </div>
-
-        <div className="mt-10 overflow-x-auto rounded-2xl border border-border shadow-card">
-          <table className="w-full min-w-[640px] border-collapse text-left">
-            <thead>
-              <tr className="border-b border-border bg-card/60">
-                <th scope="col" className="px-4 py-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                  Features
-                </th>
-                {PLANS.map((plan) => (
-                  <th
-                    key={plan}
-                    scope="col"
-                    className="px-4 py-4 text-center text-sm font-bold text-foreground"
-                  >
-                    {plan}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {GROUPS.map((group) => (
-                <Fragment key={group.title}>
-                  <tr className="bg-secondary/30">
-                    <th
-                      scope="colgroup"
-                      colSpan={4}
-                      className="px-4 py-2.5 text-left text-[11px] font-semibold uppercase tracking-wider text-foreground"
-                    >
-                      {group.title}
-                    </th>
-                  </tr>
-                  {group.rows.map((row) => (
-                    <tr key={row.label} className="border-t border-border/70">
-                      <th scope="row" className="px-4 py-3 text-xs font-normal text-muted-foreground">
-                        {row.label}
-                      </th>
-                      <td className="px-4 py-3 text-center">
-                        <CellValue value={row.free} />
-                      </td>
-                      <td className="px-4 py-3 text-center">
-                        <CellValue value={row.starter} />
-                      </td>
-                      <td className="px-4 py-3 text-center">
-                        <CellValue value={row.unlimited} />
-                      </td>
-                    </tr>
-                  ))}
-                </Fragment>
-              ))}
-            </tbody>
-          </table>
-        </div>
+    <HomeSection id="compare-plans">
+      <div className="mx-auto flex max-w-[704px] flex-col items-center gap-3 text-center">
+        <Eyebrow>Compare plans</Eyebrow>
+        <SectionTitle className="mt-1">
+          Every feature, side by <Accent>side.</Accent>
+        </SectionTitle>
+        <Lead>Upgrade only when your pipeline outgrows the plan.</Lead>
       </div>
-    </section>
+
+      <div className="mx-auto mt-10 max-w-[1000px] overflow-x-auto rounded-3xl border border-white/12 bg-white/[0.04]">
+        <table className="w-full min-w-[640px] border-collapse text-left">
+          <thead>
+            <tr className="border-b border-white/12">
+              <th scope="col" className="px-5 py-5 text-xs font-medium uppercase tracking-[0.04em] text-white/50">
+                Features
+              </th>
+              {PLANS.map((plan) => (
+                <th
+                  key={plan.id}
+                  scope="col"
+                  className={`px-5 py-5 text-center text-base font-semibold uppercase ${plan.primary ? "text-highlight" : "text-white"}`}
+                >
+                  {plan.name}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {GROUPS.map((group) => (
+              <Fragment key={group.title}>
+                <tr className="bg-white/[0.04]">
+                  <th
+                    scope="colgroup"
+                    colSpan={4}
+                    className="px-5 py-3 text-left text-[13px] font-medium uppercase tracking-[0.04em] text-highlight"
+                  >
+                    {group.title}
+                  </th>
+                </tr>
+                {group.rows.map((row) => (
+                  <tr key={row.label} className="border-t border-white/10">
+                    <th scope="row" className="px-5 py-3.5 text-sm font-normal text-white/65">
+                      {row.label}
+                    </th>
+                    <td className="px-5 py-3.5 text-center">
+                      <CellValue value={row.free} />
+                    </td>
+                    <td className="px-5 py-3.5 text-center">
+                      <CellValue value={row.starter} />
+                    </td>
+                    <td className="px-5 py-3.5 text-center">
+                      <CellValue value={row.unlimited} />
+                    </td>
+                  </tr>
+                ))}
+              </Fragment>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </HomeSection>
   );
 }

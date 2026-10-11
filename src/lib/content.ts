@@ -62,23 +62,33 @@ export function getSlugs(type: ContentType): string[] {
     .map((file) => file.replace(/\.md$/, ""));
 }
 
+/** slug -> filename per type, built once per process (content is static at build time). */
+const slugIndexCache = new Map<ContentType, Map<string, string>>();
+
+function slugIndex(type: ContentType): Map<string, string> {
+  const cached = slugIndexCache.get(type);
+  if (cached) return cached;
+  const index = new Map<string, string>();
+  const dir = typeDir(type);
+  if (fs.existsSync(dir)) {
+    for (const file of fs.readdirSync(dir).filter((f) => f.endsWith(".md"))) {
+      const { data } = matter(fs.readFileSync(path.join(dir, file), "utf8"));
+      const fileSlug = file.replace(/\.md$/, "");
+      // Frontmatter slug wins; the filename still resolves as a fallback.
+      if (typeof data?.slug === "string") index.set(data.slug, file);
+      if (!index.has(fileSlug)) index.set(fileSlug, file);
+    }
+  }
+  slugIndexCache.set(type, index);
+  return index;
+}
+
 /**
  * Resolve a frontmatter `slug` (which may differ from the filename) to its
  * source filename for a given type. Falls back to matching the filename.
  */
 function resolveFileForSlug(type: ContentType, slug: string): string | null {
-  const dir = typeDir(type);
-  if (!fs.existsSync(dir)) return null;
-
-  const files = fs.readdirSync(dir).filter((f) => f.endsWith(".md"));
-  // Prefer an explicit frontmatter slug match, then a filename match.
-  for (const file of files) {
-    const raw = fs.readFileSync(path.join(dir, file), "utf8");
-    const { data } = matter(raw);
-    if (data?.slug === slug) return file;
-  }
-  const byName = `${slug}.md`;
-  return files.includes(byName) ? byName : null;
+  return slugIndex(type).get(slug) ?? null;
 }
 
 function estimateReadingTime(text: string): number {

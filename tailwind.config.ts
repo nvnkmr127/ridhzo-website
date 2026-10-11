@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import typography from "@tailwindcss/typography";
 
 const config: Config = {
   darkMode: "class",
@@ -50,11 +51,6 @@ const config: Config = {
         },
         "brand-deep": "#0d2710",
       },
-      boxShadow: {
-        glow: "0 0 50px -12px hsl(0 0% 100% / 0.35)",
-        "glow-sm": "0 0 24px -8px hsl(0 0% 100% / 0.35)",
-        card: "0 20px 50px -20px hsl(0 0% 0% / 0.6)",
-      },
       animation: {
         "fade-up": "fade-up 0.6s ease-out both",
         "word-in": "word-in 0.5s ease-out both",
@@ -92,6 +88,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [typography],
 };
 export default config;

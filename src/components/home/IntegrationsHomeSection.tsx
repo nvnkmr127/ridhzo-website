@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { LucideIcon } from "lucide-react";
 import { Braces, Calendar, FileSpreadsheet, Mail, Megaphone, MessageCircle, Search, Webhook } from "lucide-react";
-import { Eyebrow, SectionTitle, Accent, Lead, HomeButton, HomeSection } from "./primitives";
+import { Eyebrow, SectionTitle, Accent, Lead, HomeButton, HomeSection } from "@/components/site/primitives";
 
 type NodeDef = { name: string; note: string; Icon: LucideIcon; y: number };
 

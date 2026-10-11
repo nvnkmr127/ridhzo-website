@@ -1,15 +1,13 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { PolicyLayout } from "@/components/marketing/PolicyLayout";
 import { ShieldCheck, Lock, Database, UserCheck, Bell, Server, CheckCircle2 } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy — Ridhzo CRM",
+export const metadata = pageMetadata({
+  title: "Privacy Policy",
   description:
     "Learn how Ridhzo protects your data, handles lead ingestion from Meta and Google Ads, enforces strict tenant isolation, and complies with DPDP and GDPR standards.",
-  alternates: {
-    canonical: "https://ridhzo.com/privacy",
-  },
-};
+  path: "/privacy",
+});
 
 const SECTIONS = [
   { id: "overview", title: "Overview & Scope" },
@@ -37,14 +35,14 @@ export default function PrivacyPolicyPage() {
     >
       {/* 01. Overview & Scope */}
       <section id="overview" className="scroll-mt-24 space-y-4">
-        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground flex items-center gap-2.5">
-          <ShieldCheck className="h-6 w-6 text-foreground" />
+        <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
+          <ShieldCheck className="h-6 w-6 shrink-0 text-highlight" />
           <span>1. Overview &amp; Scope</span>
         </h2>
         <p>
           This Privacy Policy governs the access to and usage of the <strong>Ridhzo CRM platform</strong>,
           including our marketing website (
-          <a href="https://ridhzo.com" className="text-foreground underline">
+          <a href="https://ridhzo.com" className="text-highlight underline underline-offset-4">
             ridhzo.com
           </a>
           ), the Ridhzo Mobile Progressive Web Application (PWA), cloud workspace instances, webhooks, and REST
@@ -55,8 +53,8 @@ export default function PrivacyPolicyPage() {
           automated lead ingestion, pipeline tracking, and instant WhatsApp follow-up tooling for sales professionals,
           real estate brokers, marketing agencies, financial advisors, and independent business owners.
         </p>
-        <div className="rounded-xl border border-border bg-card p-4 sm:p-5">
-          <p className="text-xs sm:text-sm font-medium text-foreground">
+        <div className="rounded-2xl border border-white/12 bg-white/[0.04] p-4 sm:p-5">
+          <p className="text-sm sm:text-base font-medium text-white">
             Core Commitment: We never sell, rent, monetize, or cross-train machine learning models on your lead data.
             Your leads belong exclusively to your tenant workspace.
           </p>
@@ -65,26 +63,26 @@ export default function PrivacyPolicyPage() {
 
       {/* 02. Data Controller vs. Data Processor */}
       <section id="roles" className="scroll-mt-24 space-y-4">
-        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground flex items-center gap-2.5">
-          <UserCheck className="h-6 w-6 text-foreground" />
+        <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
+          <UserCheck className="h-6 w-6 shrink-0 text-highlight" />
           <span>2. Data Controller vs. Data Processor</span>
         </h2>
         <p>Under international data protection frameworks, our role depends on the category of data being processed:</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
-          <div className="p-4 rounded-lg border border-border bg-secondary/30 space-y-2">
-            <h3 className="text-xs sm:text-sm font-bold text-foreground uppercase tracking-wider">
+          <div className="p-4 rounded-2xl border border-white/12 bg-white/[0.04] space-y-2">
+            <h3 className="text-sm sm:text-base font-semibold text-white uppercase tracking-wider">
               Ridhzo as Data Controller
             </h3>
-            <p className="text-xs text-muted-foreground leading-relaxed">
+            <p className="text-sm text-white/65 leading-relaxed">
               We act as the Data Controller for your workspace administrative data: subscriber account registration,
               team member email addresses, billing invoices, and website usage telemetry.
             </p>
           </div>
-          <div className="p-4 rounded-lg border border-border bg-secondary/30 space-y-2">
-            <h3 className="text-xs sm:text-sm font-bold text-foreground uppercase tracking-wider">
+          <div className="p-4 rounded-2xl border border-white/12 bg-white/[0.04] space-y-2">
+            <h3 className="text-sm sm:text-base font-semibold text-white uppercase tracking-wider">
               Ridhzo as Data Processor
             </h3>
-            <p className="text-xs text-muted-foreground leading-relaxed">
+            <p className="text-sm text-white/65 leading-relaxed">
               For the end-customer leads you capture (prospect names, phone numbers, notes, ad attributes),{" "}
               <strong>you (the subscriber) are the Data Controller</strong>, and Ridhzo acts strictly as a Data
               Processor under your operational instructions.
@@ -95,14 +93,14 @@ export default function PrivacyPolicyPage() {
 
       {/* 03. Information We Collect */}
       <section id="information-collected" className="scroll-mt-24 space-y-4">
-        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground flex items-center gap-2.5">
-          <Database className="h-6 w-6 text-foreground" />
+        <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
+          <Database className="h-6 w-6 shrink-0 text-highlight" />
           <span>3. Information We Collect</span>
         </h2>
         <p>We collect information in three distinct categories:</p>
 
-        <h3 className="text-base font-semibold text-foreground pt-2">A. Workspace Account &amp; Billing Data</h3>
-        <ul className="list-disc pl-5 space-y-1 text-xs sm:text-sm">
+        <h3 className="text-base font-semibold text-white pt-2">A. Workspace Account &amp; Billing Data</h3>
+        <ul className="list-disc pl-5 space-y-1 text-sm sm:text-base">
           <li>Name, professional email address, and mobile phone number for authentication.</li>
           <li>Workspace business name, industry vertical, and team seat allocations.</li>
           <li>
@@ -111,19 +109,19 @@ export default function PrivacyPolicyPage() {
           </li>
         </ul>
 
-        <h3 className="text-base font-semibold text-foreground pt-2">B. Ingested Lead Data</h3>
-        <p className="text-xs sm:text-sm">
+        <h3 className="text-base font-semibold text-white pt-2">B. Ingested Lead Data</h3>
+        <p className="text-sm sm:text-base">
           Data captured automatically from your connected lead acquisition sources or uploaded manually:
         </p>
-        <ul className="list-disc pl-5 space-y-1 text-xs sm:text-sm">
+        <ul className="list-disc pl-5 space-y-1 text-sm sm:text-base">
           <li>Full name, phone number (standardized into E.164 format), and email address.</li>
           <li>Ad campaign metadata: Form ID, Page ID, Ad Set ID, Platform Source (Meta, Google, Webhook, Form).</li>
           <li>Custom fields defined by you (e.g., budget range, property type, location, consultation notes).</li>
           <li>Pipeline progression timestamps, status transitions, and response latency SLA timers.</li>
         </ul>
 
-        <h3 className="text-base font-semibold text-foreground pt-2">C. Technical &amp; Device Data</h3>
-        <ul className="list-disc pl-5 space-y-1 text-xs sm:text-sm">
+        <h3 className="text-base font-semibold text-white pt-2">C. Technical &amp; Device Data</h3>
+        <ul className="list-disc pl-5 space-y-1 text-sm sm:text-base">
           <li>Browser user agent, IP address, operating system, and screen resolution.</li>
           <li>Web Push notification subscription endpoint tokens for vibrating instant alerts.</li>
           <li>Local device IndexedDB / Cache storage tokens used for offline outbox synchronization.</li>
@@ -132,8 +130,8 @@ export default function PrivacyPolicyPage() {
 
       {/* 04. Meta, Google & WhatsApp Integrations */}
       <section id="integrations" className="scroll-mt-24 space-y-4">
-        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground flex items-center gap-2.5">
-          <Server className="h-6 w-6 text-foreground" />
+        <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
+          <Server className="h-6 w-6 shrink-0 text-highlight" />
           <span>4. Meta, Google &amp; WhatsApp Integrations</span>
         </h2>
         <p>
@@ -141,26 +139,26 @@ export default function PrivacyPolicyPage() {
           respective platform provider policies:
         </p>
         <div className="space-y-4 pt-1">
-          <div className="border border-border rounded-lg p-4 bg-card">
-            <h4 className="font-semibold text-foreground text-sm">Meta (Facebook &amp; Instagram) Lead Ads</h4>
-            <p className="text-xs text-muted-foreground mt-1">
+          <div className="border border-white/12 rounded-2xl p-4 bg-white/[0.04]">
+            <h4 className="font-semibold text-white text-sm">Meta (Facebook &amp; Instagram) Lead Ads</h4>
+            <p className="text-sm text-white/65 mt-1">
               When you connect Meta Lead Ads via OAuth or incoming webhooks, we verify incoming SHA-256 HMAC payload
               signatures. We extract the ad form responses and route them directly to your isolated workspace. We do
               not utilize Facebook lead data for ad retargeting or third-party profiling.
             </p>
           </div>
 
-          <div className="border border-border rounded-lg p-4 bg-card">
-            <h4 className="font-semibold text-foreground text-sm">Google Ads Lead Form Extensions</h4>
-            <p className="text-xs text-muted-foreground mt-1">
+          <div className="border border-white/12 rounded-2xl p-4 bg-white/[0.04]">
+            <h4 className="font-semibold text-white text-sm">Google Ads Lead Form Extensions</h4>
+            <p className="text-sm text-white/65 mt-1">
               We process webhook payloads authenticated via Google Ads Webhook Keys. Lead records are stored solely in
               your tenant account to facilitate your sales team&apos;s follow-up.
             </p>
           </div>
 
-          <div className="border border-border rounded-lg p-4 bg-card">
-            <h4 className="font-semibold text-foreground text-sm">WhatsApp Messaging (`wa.me` &amp; Watxio API)</h4>
-            <p className="text-xs text-muted-foreground mt-1">
+          <div className="border border-white/12 rounded-2xl p-4 bg-white/[0.04]">
+            <h4 className="font-semibold text-white text-sm">WhatsApp Messaging (`wa.me` &amp; Watxio API)</h4>
+            <p className="text-sm text-white/65 mt-1">
               When reps tap &quot;Contact on WhatsApp&quot;, Ridhzo initiates a secure client-side deep link (
               <code>wa.me/&lt;number&gt;?text=&lt;encoded_template&gt;</code>) or transmits through official WhatsApp Cloud
               APIs. You are responsible for ensuring consent from prospects prior to outbound messaging in compliance
@@ -172,12 +170,12 @@ export default function PrivacyPolicyPage() {
 
       {/* 05. How We Use Your Information */}
       <section id="how-we-use" className="scroll-mt-24 space-y-4">
-        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground flex items-center gap-2.5">
-          <CheckCircle2 className="h-6 w-6 text-foreground" />
+        <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
+          <CheckCircle2 className="h-6 w-6 shrink-0 text-highlight" />
           <span>5. How We Use Your Information</span>
         </h2>
         <p>We process data exclusively for legitimate operational purposes:</p>
-        <ul className="list-disc pl-5 space-y-1.5 text-xs sm:text-sm">
+        <ul className="list-disc pl-5 space-y-1.5 text-sm sm:text-base">
           <li>Ingesting and routing leads within sub-minute SLAs to your designated sales reps.</li>
           <li>Dispatching push notifications to your mobile phone when a new inquiry arrives.</li>
           <li>Synchronizing pipeline deal progression and flagging inactive prospects with &quot;Going Cold&quot; alerts.</li>
@@ -189,15 +187,15 @@ export default function PrivacyPolicyPage() {
 
       {/* 06. Data Isolation & Security */}
       <section id="tenant-isolation" className="scroll-mt-24 space-y-4">
-        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground flex items-center gap-2.5">
-          <Lock className="h-6 w-6 text-foreground" />
+        <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
+          <Lock className="h-6 w-6 shrink-0 text-highlight" />
           <span>6. Data Isolation &amp; Cryptographic Security</span>
         </h2>
         <p>
           We employ defense-in-depth architectural safeguards to protect your business information from unauthorized
           access, data leaks, or cross-tenant exposure:
         </p>
-        <ul className="list-disc pl-5 space-y-2 text-xs sm:text-sm">
+        <ul className="list-disc pl-5 space-y-2 text-sm sm:text-base">
           <li>
             <strong>Tenant-Isolated Postgres:</strong> All SQL read and write operations are strictly partitioned by
             tenant identifier. No workspace can ever inspect, query, or mutate records belonging to another tenant.
@@ -220,8 +218,8 @@ export default function PrivacyPolicyPage() {
 
       {/* 07. Data Sharing & Third-Party Processors */}
       <section id="sharing" className="scroll-mt-24 space-y-4">
-        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground flex items-center gap-2.5">
-          <Server className="h-6 w-6 text-foreground" />
+        <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
+          <Server className="h-6 w-6 shrink-0 text-highlight" />
           <span>7. Data Sharing &amp; Third-Party Sub-Processors</span>
         </h2>
         <p>
@@ -229,32 +227,32 @@ export default function PrivacyPolicyPage() {
           sub-processors who adhere to stringent security obligations:
         </p>
         <div className="overflow-x-auto">
-          <table className="w-full min-w-[500px] text-left text-xs border border-border mt-2">
-            <thead className="bg-secondary/50 text-foreground border-b border-border">
+          <table className="w-full min-w-[500px] text-left text-xs border border-white/12 mt-2">
+            <thead className="bg-white/[0.08]/50 text-white border-b border-white/12">
               <tr>
                 <th className="p-3">Sub-Processor</th>
                 <th className="p-3">Purpose</th>
                 <th className="p-3">Security Safeguards</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-border text-muted-foreground">
+            <tbody className="divide-y divide-border text-white/65">
               <tr>
-                <td className="p-3 font-medium text-foreground">AWS / Neon Cloud</td>
+                <td className="p-3 font-medium text-white">AWS / Neon Cloud</td>
                 <td className="p-3">Encrypted Cloud Hosting &amp; Serverless Postgres</td>
                 <td className="p-3">SOC 2 Type II, ISO 27001, AES-256</td>
               </tr>
               <tr>
-                <td className="p-3 font-medium text-foreground">Razorpay / Stripe</td>
+                <td className="p-3 font-medium text-white">Razorpay / Stripe</td>
                 <td className="p-3">Subscription Billing &amp; Payment Gateway</td>
                 <td className="p-3">PCI-DSS Level 1 Compliant</td>
               </tr>
               <tr>
-                <td className="p-3 font-medium text-foreground">Cloudflare</td>
+                <td className="p-3 font-medium text-white">Cloudflare</td>
                 <td className="p-3">DDoS Protection, CDN &amp; WAF Defense</td>
                 <td className="p-3">Edge encryption, TLS 1.3, SOC 2</td>
               </tr>
               <tr>
-                <td className="p-3 font-medium text-foreground">Web Push Services (Google FCM / Apple APNs)</td>
+                <td className="p-3 font-medium text-white">Web Push Services (Google FCM / Apple APNs)</td>
                 <td className="p-3">Cryptographic Mobile Push Notifications</td>
                 <td className="p-3">VAPID payload encryption</td>
               </tr>
@@ -265,15 +263,15 @@ export default function PrivacyPolicyPage() {
 
       {/* 08. Data Retention & Deletion */}
       <section id="retention-deletion" className="scroll-mt-24 space-y-4">
-        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground flex items-center gap-2.5">
-          <Database className="h-6 w-6 text-foreground" />
+        <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
+          <Database className="h-6 w-6 shrink-0 text-highlight" />
           <span>8. Data Retention &amp; Permanent Deletion</span>
         </h2>
         <p>
           We retain workspace data for as long as your subscription is active. Upon cancellation or non-renewal of your
           account:
         </p>
-        <ul className="list-disc pl-5 space-y-1.5 text-xs sm:text-sm">
+        <ul className="list-disc pl-5 space-y-1.5 text-sm sm:text-base">
           <li>
             <strong>Grace Period:</strong> Your data remains accessible in read-only mode for 30 days to permit CSV
             export of your pipeline and contacts.
@@ -292,8 +290,8 @@ export default function PrivacyPolicyPage() {
 
       {/* 09. Your Rights & Choices (DPDP / GDPR / CCPA) */}
       <section id="your-rights" className="scroll-mt-24 space-y-4">
-        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground flex items-center gap-2.5">
-          <UserCheck className="h-6 w-6 text-foreground" />
+        <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
+          <UserCheck className="h-6 w-6 shrink-0 text-highlight" />
           <span>9. Your Rights &amp; Choices</span>
         </h2>
         <p>
@@ -301,7 +299,7 @@ export default function PrivacyPolicyPage() {
           Data Protection Act (DPDP Act 2023), the EU General Data Protection Regulation (GDPR), and the California
           Consumer Privacy Act (CCPA/CPRA):
         </p>
-        <ul className="list-disc pl-5 space-y-1.5 text-xs sm:text-sm">
+        <ul className="list-disc pl-5 space-y-1.5 text-sm sm:text-base">
           <li>
             <strong>Right to Access &amp; Portability:</strong> You can export all leads, pipeline statuses, and notes in
             standard CSV/JSON format at any time directly from workspace settings.
@@ -322,27 +320,27 @@ export default function PrivacyPolicyPage() {
 
       {/* 10. Grievance Officer & Inquiries */}
       <section id="grievance" className="scroll-mt-24 space-y-4">
-        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground flex items-center gap-2.5">
-          <Bell className="h-6 w-6 text-foreground" />
+        <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
+          <Bell className="h-6 w-6 shrink-0 text-highlight" />
           <span>10. Grievance Officer &amp; Regulatory Inquiries</span>
         </h2>
         <p>
           In accordance with the Information Technology Act, 2000, and the Digital Personal Data Protection Act, 2023,
           the designated Grievance Officer for Ridhzo is:
         </p>
-        <div className="rounded-xl border border-border bg-card p-5 space-y-2 text-xs sm:text-sm">
-          <p className="font-bold text-foreground">Grievance &amp; Data Protection Officer</p>
-          <p className="text-muted-foreground">Ridhzo Technologies Pvt. Ltd.</p>
-          <p className="text-muted-foreground">
+        <div className="rounded-2xl border border-white/12 bg-white/[0.04] p-5 space-y-2 text-sm sm:text-base">
+          <p className="font-semibold text-white">Grievance &amp; Data Protection Officer</p>
+          <p className="text-white/65">Ridhzo Technologies Pvt. Ltd.</p>
+          <p className="text-white/65">
             Email:{" "}
-            <a href="mailto:legal@ridhzo.com" className="text-foreground underline">
+            <a href="mailto:legal@ridhzo.com" className="text-highlight underline underline-offset-4">
               legal@ridhzo.com
             </a>{" "}
             (Attn: Data Grievance)
           </p>
-          <p className="text-muted-foreground">Phone: +91 98201 44520</p>
-          <p className="text-muted-foreground">Hours: Monday – Saturday, 9:00 AM – 8:00 PM IST</p>
-          <p className="text-xs text-muted-foreground pt-2">
+          <p className="text-white/65">Phone: +91 98201 44520</p>
+          <p className="text-white/65">Hours: Monday – Saturday, 9:00 AM – 8:00 PM IST</p>
+          <p className="text-sm text-white/65 pt-2">
             Grievances are formally acknowledged within 24 hours and addressed within 15 business days.
           </p>
         </div>

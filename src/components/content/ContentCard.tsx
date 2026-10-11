@@ -3,55 +3,47 @@ import { ArrowUpRight } from "lucide-react";
 import type { ContentSummary } from "@/lib/content";
 import { CONTENT_ROUTES } from "@/lib/content-routes";
 import { getFeatureNav } from "@/lib/navigation";
+import { formatDate, stripEmoji } from "@/lib/utils";
 
-/** A single card on a content index/listing page. */
-export function ContentCard({ item }: { item: ContentSummary }) {
+/** A single card on a content index/listing page, in the homepage glass-card style. */
+export function ContentCard({ item, headingLevel = "h3" }: { item: ContentSummary; headingLevel?: "h2" | "h3" }) {
   const href = `${CONTENT_ROUTES[item.type].path}/${item.slug}`;
   const Icon = item.type === "features" ? getFeatureNav(item.slug)?.icon : undefined;
-  // Badges carry emojis in some frontmatter; strip them so pills stay strictly monochrome.
-  const badge = item.badge?.replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}\u{2B00}-\u{2BFF}]/gu, "").trim();
+  const badge = item.badge ? stripEmoji(item.badge) : undefined;
+  const Heading = headingLevel;
 
   return (
     <Link
       href={href}
-      className="focus-ring group flex h-full flex-col rounded-2xl border border-border bg-card p-5 transition-all hover:border-foreground/25 hover:shadow-card"
+      className="focus-ring group flex h-full flex-col rounded-3xl border border-white/12 bg-white/[0.04] p-6 transition-colors hover:border-highlight/40 hover:bg-white/[0.07]"
     >
       {Icon ? (
-        <span className="icon-chip mb-4">
-          <Icon className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
+        <span className="mb-5 grid h-10 w-10 place-items-center rounded-[10px] bg-highlight text-black">
+          <Icon className="h-5 w-5" aria-hidden="true" />
         </span>
       ) : badge ? (
-        <span className="mb-3 inline-flex w-fit items-center rounded-full border border-border bg-secondary px-2.5 py-0.5 text-[11px] font-medium text-foreground">
+        <span className="mb-4 inline-flex w-fit items-center rounded-full border border-highlight/60 bg-highlight/20 px-3 py-1 text-xs font-medium uppercase tracking-[0.04em] text-white">
           {badge}
         </span>
       ) : null}
 
       <div className="flex items-start justify-between gap-3">
-        <h2 className="text-sm font-bold leading-snug text-foreground group-hover:text-foreground">
-          {item.title}
-        </h2>
-        <ArrowUpRight className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        <Heading className="text-lg font-semibold leading-[26px] tracking-[-0.015em] text-white">{item.title}</Heading>
+        <ArrowUpRight
+          className="mt-1 h-5 w-5 shrink-0 text-white/50 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-highlight"
+          aria-hidden="true"
+        />
       </div>
 
-      {item.summary ? (
-        <p className="mt-2 line-clamp-3 text-xs leading-relaxed text-muted-foreground">
-          {item.summary}
-        </p>
-      ) : null}
+      {item.summary ? <p className="mt-2 line-clamp-3 text-sm leading-6 text-white/65">{item.summary}</p> : null}
 
-      <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 pt-3 text-[11px] text-muted-foreground border-t border-border/70">
-        {item.keyMetric ? (
-          <span className="font-mono text-foreground">{item.keyMetric}</span>
-        ) : null}
-        {item.date ? <span>{formatDate(item.date)}</span> : null}
-        <span>{item.readingTime} min read</span>
+      <div className="mt-auto pt-5">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 border-t border-white/10 pt-4 text-xs text-white/50">
+          {item.keyMetric ? <span className="text-highlight">{item.keyMetric}</span> : null}
+          {item.date ? <span>{formatDate(item.date, "short")}</span> : null}
+          <span>{item.readingTime} min read</span>
+        </div>
       </div>
     </Link>
   );
-}
-
-function formatDate(date: string): string {
-  const parsed = new Date(date);
-  if (Number.isNaN(parsed.getTime())) return date;
-  return parsed.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
 }

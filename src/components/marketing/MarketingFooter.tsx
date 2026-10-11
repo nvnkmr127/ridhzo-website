@@ -3,6 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { SocialIcons } from "./SocialIcons";
+import { CookieSettingsButton } from "@/components/analytics/CookieSettingsButton";
+import { hasAnyTag } from "@/lib/analytics-config";
 
 interface FooterSection {
   title: string;
@@ -39,15 +41,14 @@ const FOOTER_SECTIONS: FooterSection[] = [
       { label: "Blog", href: "/blog" },
       { label: "Help Center", href: "/help" },
       { label: "How-To Guides", href: "/how-to" },
+      { label: "Compare", href: "/compare" },
       { label: "FAQ", href: "/#faq" },
-      { label: "Contact", href: "/contact" },
     ],
   },
   {
     title: "Company",
     links: [
       { label: "About", href: "/about" },
-      { label: "Security", href: "/security" },
       { label: "Contact", href: "/contact" },
     ],
   },
@@ -151,6 +152,11 @@ export function MarketingFooter() {
                   </Link>
                 </li>
               ))}
+              {hasAnyTag && (
+                <li>
+                  <CookieSettingsButton className="focus-ring rounded-sm transition-colors hover:text-white" />
+                </li>
+              )}
             </ul>
           </div>
         </div>

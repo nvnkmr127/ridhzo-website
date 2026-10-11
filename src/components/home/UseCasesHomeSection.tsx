@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Eyebrow, SectionTitle, Accent, Lead } from "./primitives";
+import { Eyebrow, SectionTitle, Accent, Lead } from "@/components/site/primitives";
 
 const CASES = [
   { title: "Real Estate", body: "Route property enquiries and keep every site visit moving.", href: "/usecases/real-estate" },
@@ -20,16 +20,19 @@ const STEP_MS = 5000;
 export function UseCasesHomeSection() {
   const [active, setActive] = useState(0);
   const [autoplay, setAutoplay] = useState(true);
+  // Hover or keyboard focus inside the list pauses autoplay (WCAG 2.2.2).
+  const [paused, setPaused] = useState(false);
+  const running = autoplay && !paused;
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) setAutoplay(false);
   }, []);
 
   useEffect(() => {
-    if (!autoplay) return;
+    if (!running) return;
     const t = setTimeout(() => setActive((n) => (n + 1) % CASES.length), STEP_MS);
     return () => clearTimeout(t);
-  }, [active, autoplay]);
+  }, [active, running]);
 
   return (
     <section
@@ -41,7 +44,7 @@ export function UseCasesHomeSection() {
         className="pointer-events-none absolute inset-x-0 top-0 aspect-[1440/340] bg-[url('/home/skyline.webp')] bg-cover bg-top [mask-image:linear-gradient(to_bottom,black_75%,transparent)]"
         aria-hidden="true"
       />
-      <div className="relative mx-auto flex w-full max-w-[1272px] flex-col gap-5 px-4 sm:px-6 lg:px-0">
+      <div className="relative mx-auto flex w-full max-w-[1272px] flex-col gap-5 px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-3">
           <Eyebrow className="w-fit">Built for your sales motion</Eyebrow>
           <SectionTitle className="max-w-[546px]">
@@ -53,7 +56,15 @@ export function UseCasesHomeSection() {
           </Lead>
         </div>
 
-        <ul className="grid gap-x-6 gap-y-4 sm:grid-cols-2 lg:grid-cols-5">
+        <ul
+          className="grid gap-x-6 gap-y-4 sm:grid-cols-2 lg:grid-cols-5"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+          onFocus={() => setPaused(true)}
+          onBlur={(e) => {
+            if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setPaused(false);
+          }}
+        >
           {CASES.map((c, idx) => {
             const isActive = idx === active;
             return (
@@ -61,8 +72,8 @@ export function UseCasesHomeSection() {
                 <span className="relative block h-[3px] w-full bg-white/30" aria-hidden="true">
                   {isActive && (
                     <span
-                      key={`${active}-${autoplay}`}
-                      className={cn("absolute inset-y-0 left-0 bg-highlight", autoplay ? "animate-progress-fill" : "w-full")}
+                      key={`${active}-${running}`}
+                      className={cn("absolute inset-y-0 left-0 bg-highlight", running ? "animate-progress-fill" : "w-full")}
                     />
                   )}
                 </span>
@@ -79,7 +90,7 @@ export function UseCasesHomeSection() {
                       aria-hidden="true"
                     />
                   </span>
-                  <span className={cn("text-base leading-6 transition-colors", isActive ? "text-white/64" : "text-white/32")}>
+                  <span className={cn("text-base leading-6 transition-colors", isActive ? "text-white/65" : "text-white/50")}>
                     {c.body}
                   </span>
                 </Link>

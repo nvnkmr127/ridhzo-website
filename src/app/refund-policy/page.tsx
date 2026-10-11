@@ -1,15 +1,13 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { PolicyLayout } from "@/components/marketing/PolicyLayout";
 import { RotateCcw, CheckCircle2, Clock, CreditCard, AlertCircle, HelpCircle } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Cancellation & Refund Policy — Ridhzo CRM",
+export const metadata = pageMetadata({
+  title: "Cancellation & Refund Policy",
   description:
     "Review Ridhzo's clear 14-day money-back guarantee, self-serve subscription cancellation, and 5-7 business day refund turnaround SLA.",
-  alternates: {
-    canonical: "https://ridhzo.com/refund-policy",
-  },
-};
+  path: "/refund-policy",
+});
 
 const SECTIONS = [
   { id: "guarantee", title: "1. 14-Day Money-Back Guarantee" },
@@ -33,20 +31,20 @@ export default function RefundPolicyPage() {
     >
       {/* 01. 14-Day Money-Back Guarantee */}
       <section id="guarantee" className="scroll-mt-24 space-y-4">
-        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground flex items-center gap-2.5">
-          <RotateCcw className="h-6 w-6 text-foreground" />
+        <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
+          <RotateCcw className="h-6 w-6 shrink-0 text-highlight" />
           <span>1. 14-Day Money-Back Guarantee</span>
         </h2>
         <p>
           We offer an unconditional <strong>14-Day Money-Back Guarantee</strong> on all first-time paid subscriptions
           (both Monthly and Annual plans).
         </p>
-        <div className="rounded-xl border border-border bg-card p-5 space-y-2">
-          <div className="flex items-center gap-2 text-foreground font-semibold text-sm">
-            <CheckCircle2 className="h-4 w-4 text-foreground" />
+        <div className="rounded-2xl border border-white/12 bg-white/[0.04] p-5 space-y-2">
+          <div className="flex items-center gap-2 text-white font-semibold text-sm">
+            <CheckCircle2 className="h-4 w-4 text-highlight" />
             <span>Risk-Free Onboarding</span>
           </div>
-          <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+          <p className="text-sm sm:text-base text-white/65 leading-relaxed">
             If you subscribe to Ridhzo and decide within 14 calendar days of your initial payment that our mobile CRM does
             not fit your sales team&apos;s workflow, simply message support or request a refund from your dashboard. We will
             issue a full 100% refund of your subscription fee with no hassle and no mandatory retention interrogation.
@@ -56,12 +54,12 @@ export default function RefundPolicyPage() {
 
       {/* 02. How to Cancel */}
       <section id="cancellation" className="scroll-mt-24 space-y-4">
-        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground flex items-center gap-2.5">
-          <Clock className="h-6 w-6 text-foreground" />
+        <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
+          <Clock className="h-6 w-6 shrink-0 text-highlight" />
           <span>2. How to Cancel Your Subscription</span>
         </h2>
         <p>You may cancel your Ridhzo subscription at any time with zero friction:</p>
-        <ul className="list-disc pl-5 space-y-2 text-xs sm:text-sm">
+        <ul className="list-disc pl-5 space-y-2 text-sm sm:text-base">
           <li>
             <strong>1-Tap Self-Serve Cancellation:</strong> Navigate to <code>Workspace Settings &gt; Billing &gt; Manage Plan</code>,
             and click &quot;Cancel Subscription&quot;. Cancellation takes effect immediately without requiring email
@@ -80,23 +78,23 @@ export default function RefundPolicyPage() {
 
       {/* 03. Refund Eligibility & Rules */}
       <section id="eligibility" className="scroll-mt-24 space-y-4">
-        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground flex items-center gap-2.5">
-          <CreditCard className="h-6 w-6 text-foreground" />
+        <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
+          <CreditCard className="h-6 w-6 shrink-0 text-highlight" />
           <span>3. Refund Eligibility &amp; Criteria</span>
         </h2>
         <p>Refunds are evaluated under the following transparent rules:</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
-          <div className="p-4 rounded-xl border border-border bg-card space-y-2">
-            <h3 className="text-sm font-bold text-foreground">Monthly Subscriptions</h3>
-            <p className="text-xs text-muted-foreground leading-relaxed">
+          <div className="p-4 rounded-2xl border border-white/12 bg-white/[0.04] space-y-2">
+            <h3 className="text-sm font-semibold text-white">Monthly Subscriptions</h3>
+            <p className="text-sm text-white/65 leading-relaxed">
               Eligible for a 100% refund if requested within 14 days of the initial subscription purchase. Subsequent
               monthly renewals are non-refundable once the billing month has commenced, but can be cancelled to prevent
               all future billings.
             </p>
           </div>
-          <div className="p-4 rounded-xl border border-border bg-card space-y-2">
-            <h3 className="text-sm font-bold text-foreground">Annual Subscriptions</h3>
-            <p className="text-xs text-muted-foreground leading-relaxed">
+          <div className="p-4 rounded-2xl border border-white/12 bg-white/[0.04] space-y-2">
+            <h3 className="text-sm font-semibold text-white">Annual Subscriptions</h3>
+            <p className="text-sm text-white/65 leading-relaxed">
               Eligible for a 100% refund within 14 days of purchase. If you cancel an annual plan after 14 days, you may
               request a pro-rated refund for the remaining unused full months, adjusted to the standard non-discounted
               monthly rate for the consumed months.
@@ -107,12 +105,12 @@ export default function RefundPolicyPage() {
 
       {/* 04. Non-Refundable Items */}
       <section id="non-refundable" className="scroll-mt-24 space-y-4">
-        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground flex items-center gap-2.5">
-          <AlertCircle className="h-6 w-6 text-foreground" />
+        <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
+          <AlertCircle className="h-6 w-6 shrink-0 text-highlight" />
           <span>4. Non-Refundable Items</span>
         </h2>
         <p>The following categories are strictly non-refundable:</p>
-        <ul className="list-disc pl-5 space-y-1.5 text-xs sm:text-sm">
+        <ul className="list-disc pl-5 space-y-1.5 text-sm sm:text-base">
           <li>
             <strong>Usage-Based Telecom / API Credits:</strong> Any third-party WhatsApp Business API conversation
             charges, cloud telephony fees, or SMS fees billed at cost by telecommunication carriers.
@@ -131,17 +129,17 @@ export default function RefundPolicyPage() {
 
       {/* 05. Timeline & Payout Mode */}
       <section id="timeline" className="scroll-mt-24 space-y-4">
-        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground flex items-center gap-2.5">
-          <Clock className="h-6 w-6 text-foreground" />
+        <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
+          <Clock className="h-6 w-6 shrink-0 text-highlight" />
           <span>5. Processing Timeline &amp; Payment Mode</span>
         </h2>
-        <div className="rounded-xl border border-border bg-secondary/30 p-5 space-y-3">
-          <p className="text-sm font-bold text-foreground">5 to 7 Business Days Turnaround SLA</p>
-          <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+        <div className="rounded-2xl border border-white/12 bg-white/[0.04] p-5 space-y-3">
+          <p className="text-sm font-semibold text-white">5 to 7 Business Days Turnaround SLA</p>
+          <p className="text-sm sm:text-base text-white/65 leading-relaxed">
             Once your refund request is approved by our billing desk, the refund is initiated immediately through our
             payment gateway partner (Razorpay or Stripe).
           </p>
-          <ul className="list-disc pl-5 space-y-1 text-xs text-muted-foreground">
+          <ul className="list-disc pl-5 space-y-1 text-sm text-white/65">
             <li>
               <strong>Original Payment Source:</strong> All refunds are routed exclusively back to the original source
               used for the transaction (original credit card, debit card, UPI VPA, or Net Banking account).
@@ -160,15 +158,15 @@ export default function RefundPolicyPage() {
 
       {/* 06. How to Request a Refund */}
       <section id="how-to-request" className="scroll-mt-24 space-y-4">
-        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground flex items-center gap-2.5">
-          <HelpCircle className="h-6 w-6 text-foreground" />
+        <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
+          <HelpCircle className="h-6 w-6 shrink-0 text-highlight" />
           <span>6. How to Request a Refund</span>
         </h2>
         <p>To request a refund under our guarantee policy:</p>
-        <div className="rounded-xl border border-border bg-card p-5 space-y-3 text-xs sm:text-sm">
-          <p className="text-foreground">
+        <div className="rounded-2xl border border-white/12 bg-white/[0.04] p-5 space-y-3 text-sm sm:text-base">
+          <p className="text-white">
             Send an email to{" "}
-            <a href="mailto:hello@ridhzo.com" className="text-foreground font-semibold underline">
+            <a href="mailto:hello@ridhzo.com" className="text-highlight font-semibold underline underline-offset-4">
               hello@ridhzo.com
             </a>{" "}
             or message our team on WhatsApp at{" "}
@@ -176,18 +174,18 @@ export default function RefundPolicyPage() {
               href="https://wa.me/919820144520"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground font-semibold underline"
+              className="text-highlight font-semibold underline underline-offset-4"
             >
               +91 98201 44520
             </a>{" "}
             with the following details:
           </p>
-          <ol className="list-decimal pl-5 space-y-1 text-muted-foreground">
+          <ol className="list-decimal pl-5 space-y-1 text-white/65">
             <li>Your Workspace Name or Registered Admin Email</li>
             <li>The Invoice ID or Transaction Date</li>
             <li>A brief reason for cancellation (helps us improve our product, but not mandatory)</li>
           </ol>
-          <p className="text-xs text-muted-foreground pt-1">
+          <p className="text-sm text-white/65 pt-1">
             Our billing team will review and confirm your refund within 24 hours during working days.
           </p>
         </div>

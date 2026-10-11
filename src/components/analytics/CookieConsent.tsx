@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useConsent, setConsent } from "@/lib/consent";
 import { hasAnyTag } from "@/lib/analytics-config";
-import { Button } from "@/components/ui/button";
 import { Cookie } from "lucide-react";
 
 /**
@@ -25,15 +24,15 @@ export function CookieConsent() {
       aria-label="Cookie consent"
       className="fixed inset-x-0 bottom-0 z-[90] px-4 pb-[max(1rem,env(safe-area-inset-bottom))] sm:px-6"
     >
-      <div className="mx-auto max-w-3xl rounded-2xl border border-border bg-card/95 backdrop-blur-md p-4 sm:p-5 shadow-lg">
+      <div className="mx-auto max-w-3xl rounded-3xl border border-white/12 bg-[rgba(10,12,11,0.92)] p-4 shadow-[0_20px_50px_rgba(0,0,0,0.5)] backdrop-blur-md sm:p-5">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-start gap-3">
-            <Cookie className="mt-0.5 h-5 w-5 shrink-0 text-foreground" aria-hidden="true" />
-            <p className="text-xs sm:text-sm leading-relaxed text-muted-foreground">
+            <Cookie className="mt-0.5 h-5 w-5 shrink-0 text-highlight" aria-hidden="true" />
+            <p className="text-sm leading-6 text-white/65">
               We use cookies for analytics and to improve your experience. See our{" "}
               <Link
                 href="/cookie-policy"
-                className="focus-ring rounded-sm font-medium text-foreground underline underline-offset-2 hover:text-foreground/80"
+                className="focus-ring rounded-sm font-medium text-highlight underline underline-offset-2 hover:text-highlight-soft"
               >
                 Cookie Policy
               </Link>
@@ -41,23 +40,20 @@ export function CookieConsent() {
             </p>
           </div>
           <div className="flex shrink-0 items-center gap-2.5">
-            <Button
+            <button
               type="button"
-              variant="outline"
-              size="sm"
-              className="h-9 flex-1 border-border bg-secondary/50 text-xs sm:flex-none"
+              className="focus-ring inline-flex h-10 flex-1 items-center justify-center rounded-xl border border-white/12 bg-white/[0.04] px-4 text-sm font-medium text-white transition-colors hover:bg-white/10 sm:flex-none"
               onClick={() => setConsent("denied")}
             >
               Decline
-            </Button>
-            <Button
+            </button>
+            <button
               type="button"
-              size="sm"
-              className="h-9 flex-1 bg-foreground text-background hover:bg-foreground/90 text-xs font-medium sm:flex-none"
+              className="focus-ring inline-flex h-10 flex-1 items-center justify-center rounded-xl border border-white bg-white/80 px-4 text-sm font-medium text-black transition-colors hover:bg-white sm:flex-none"
               onClick={() => setConsent("granted")}
             >
               Accept
-            </Button>
+            </button>
           </div>
         </div>
       </div>

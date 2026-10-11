@@ -1,7 +1,15 @@
 import { appUrl } from "@/lib/config";
 import { Eyebrow, SectionTitle, Accent, Lead, HomeButton, GrainTexture } from "./primitives";
 
-export function FinalCtaSection() {
+/**
+ * Closing call-to-action used at the bottom of every page (Figma: final CTA frame).
+ * The secondary action is configurable because "#journey" only exists on the homepage.
+ */
+export function SiteCta({
+  secondary = { href: "/pricing", label: "See Pricing" },
+}: {
+  secondary?: { href: string; label: string };
+}) {
   return (
     <section className="relative overflow-hidden border-t border-brand-deep bg-[#050d07] py-24 sm:py-40">
       <div
@@ -21,8 +29,8 @@ export function FinalCtaSection() {
           </Lead>
         </div>
         <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:gap-6">
-          <HomeButton href="#journey" variant="secondary">
-            See How It Works
+          <HomeButton href={secondary.href} variant="secondary">
+            {secondary.label}
           </HomeButton>
           <HomeButton href={appUrl("/signup")}>Start Free</HomeButton>
         </div>

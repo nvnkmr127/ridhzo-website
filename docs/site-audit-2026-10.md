@@ -2,6 +2,8 @@
 
 Scope: every route in `src/app` (60 statically generated pages), shared layout, navigation, content pipeline, analytics/consent, and SEO plumbing. **Design benchmark: the homepage** (`src/app/page.tsx` + `src/components/home/*`), which is the only part of the site rebuilt to the Figma design.
 
+> **Status (follow-up commit): all P0–P2 items below are implemented.** See "Implementation notes" at the end for decisions made and the two things that still need a human: contact-form env vars and confirming the dashboards entitlement.
+
 Method: read every route and shared component, traced each CTA/form to its destination, ran `tsc --noEmit` (clean) and `next build` (clean, 60/60 pages), then inspected the built HTML for titles, canonicals and H1s.
 
 ---
@@ -234,3 +236,16 @@ Pages on the legacy system: `/pricing`, `/about`, `/contact`, `/compare`, `/comp
 2. **What is incomplete or unclear?** The design migration: only the homepage and footer follow Figma, and 20+ routes plus the navbar CTAs and cookie banner are still legacy monochrome. Also the blog source of truth, consent withdrawal, and the thin About page.
 3. **What should be added?** Shared brand primitives and page shells, `plans.ts`, a contact backend, a metadata helper, a branded 404, and cookie settings.
 4. **What should be removed or simplified?** About 1,900 lines of dead and legacy components, `CtaBanner`, legacy CSS utilities, duplicate pricing implementations, duplicate footer links and duplicated attribution code.
+
+---
+
+## Implementation notes
+
+All P0, P1 and P2 items are fixed. P3 product screenshots and per-collection OG images are not done.
+
+- **Design system:** the homepage primitives now live in `src/components/site/` (`primitives.tsx` with `GlassCard` and `PageGlows`, `PageHero`, `SiteCta`, `FaqAccordion`, `PricingPlans`, `icons.tsx`). Every route, plus the navbar, cookie banner and a new 404, uses them. The legacy components, `ui/button`, the legacy CSS utilities and the unused `class-variance-authority` and `@radix-ui/react-slot` dependencies are removed. The focus ring, text selection and ambient wash are now brand green.
+- **Contact form:** `src/app/contact/actions.ts` validates input on the server, filters spam (a honeypot field, a minimum fill time and a per-IP throttle) and delivers to `CONTACT_WEBHOOK_URL` and/or Resend (`RESEND_API_KEY` + `CONTACT_TO_EMAIL`). **Set at least one in production.** Until then the form shows a clear "use WhatsApp/email" error and never a fake success. Tested locally: validation errors keep the typed values, a valid submit reaches the webhook, and an unconfigured server shows the fallback message.
+- **Pricing:** `src/lib/plans.ts` is the single source. Decision: *Dashboards + SLA tracking + leaderboards* are on all plans, because the comparison table and the dashboards feature page both say so; only the old homepage card disagreed. **Please confirm this against the product KB.** Both pages now default to yearly billing.
+- **Metadata:** `pageMetadata()` in `src/lib/metadata.ts` gives every page a self-canonical, `og:url`, OG/Twitter title and description, and a title without a repeated brand. The root canonical is gone. Every page has exactly one H1 (checked in the build output).
+- **Blog:** both sources stay. When `WORDPRESS_ORIGIN` is set, Markdown blog URLs are dropped from the sitemap. The variable is now documented in `.env.example`.
+- **Repo:** `npm run lint` now runs ESLint 9 with `next/core-web-vitals` and is clean. `.DS_Store` and `.env.local` are untracked. `.env.local` only held the default `NEXT_PUBLIC_APP_URL`, which the code already falls back to.

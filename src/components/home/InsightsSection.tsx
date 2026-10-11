@@ -1,5 +1,5 @@
 import { CheckCircle2 } from "lucide-react";
-import { Eyebrow, SectionTitle, Accent, Lead, HomeButton, HomeSection, ShotPanel, FloatingChip } from "./primitives";
+import { Eyebrow, SectionTitle, Accent, Lead, HomeButton, HomeSection, ShotPanel, FloatingChip } from "@/components/site/primitives";
 
 const POINTS = [
   "Monitor response speed and team activity",

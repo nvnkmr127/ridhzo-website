@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 import { Gift, Smartphone } from "lucide-react";
 import { appUrl } from "@/lib/config";
-import { Eyebrow, HomeButton, FloatingChip, ShotPanel, GrainTexture } from "./primitives";
-import { NoCardIcon } from "./icons";
+import { Eyebrow, HomeButton, FloatingChip, ShotPanel, GrainTexture } from "@/components/site/primitives";
+import { NoCardIcon } from "@/components/site/icons";
 
 const WORDS = ["action.", "conversation.", "opportunity.", "revenue."];
 

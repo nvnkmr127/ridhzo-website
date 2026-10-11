@@ -3,6 +3,7 @@ import { NextResponse, type NextRequest } from "next/server";
 // Proxy /blog to WordPress. Done here (not in next.config rewrites) because rewrites drop the trailing
 // slash from the proxied path, and WordPress 301s every slash-less permalink back to the slashed one,
 // which loops. nextUrl.pathname keeps the slash because of skipTrailingSlashRedirect.
+// Without WORDPRESS_ORIGIN the Markdown blog in content/blog is served instead (and listed in the sitemap).
 export function middleware(req: NextRequest) {
   const origin = process.env.WORDPRESS_ORIGIN;
   if (!origin) return NextResponse.next();
