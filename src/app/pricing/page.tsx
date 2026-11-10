@@ -1,13 +1,12 @@
-import { ShieldCheck, CreditCard, XCircle, Gift } from "lucide-react";
 import { SITE_URL } from "@/lib/config";
 import { pageMetadata } from "@/lib/metadata";
 import { PLANS } from "@/lib/plans";
-import { PageHero } from "@/components/site/PageHero";
-import { PricingPlans } from "@/components/site/PricingPlans";
-import { SiteCta } from "@/components/site/SiteCta";
-import { Accent, PageGlows } from "@/components/site/primitives";
+import { PricingHeroSection } from "@/components/pricing/PricingHeroSection";
+import { PricingPlansSection } from "@/components/pricing/PricingPlansSection";
 import { PricingComparison } from "@/components/marketing/PricingComparison";
+import { PricingLogicSection } from "@/components/pricing/PricingLogicSection";
 import { PricingFaq } from "@/components/marketing/PricingFaq";
+import { ClosingCtaSection } from "@/components/home/ClosingCtaSection";
 
 export const metadata = pageMetadata({
   title: "Pricing",
@@ -16,13 +15,6 @@ export const metadata = pageMetadata({
   path: "/pricing",
   ogTitle: "Ridhzo Pricing — Plans That Pay for Themselves",
 });
-
-const TRUST = [
-  { icon: Gift, label: "Free plan forever" },
-  { icon: CreditCard, label: "No card to start" },
-  { icon: XCircle, label: "Cancel anytime" },
-  { icon: ShieldCheck, label: "Workspace-isolated data" },
-];
 
 const productJsonLd = {
   "@context": "https://schema.org",
@@ -46,30 +38,12 @@ export default function PricingPage() {
   return (
     <div className="relative">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }} />
-      <PageGlows />
-      <PageHero
-        align="center"
-        eyebrow="Simple pricing"
-        title={
-          <>
-            Start free. Upgrade when you <Accent>grow.</Accent>
-          </>
-        }
-        lead="One flat price for your whole team, not per user. Upgrade when you need more leads, teammates, lead sources and automations."
-      >
-        <ul className="mt-2 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm text-white">
-          {TRUST.map(({ icon: Icon, label }) => (
-            <li key={label} className="flex items-center gap-1.5">
-              <Icon className="h-4 w-4 text-highlight" aria-hidden="true" />
-              {label}
-            </li>
-          ))}
-        </ul>
-      </PageHero>
-      <PricingPlans showHeader={false} />
+      <PricingHeroSection />
+      <PricingPlansSection />
       <PricingComparison />
+      <PricingLogicSection />
       <PricingFaq />
-      <SiteCta secondary={{ href: "/contact", label: "Talk to Sales" }} />
+      <ClosingCtaSection showEyebrow={false} />
     </div>
   );
 }

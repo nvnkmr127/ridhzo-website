@@ -1,57 +1,103 @@
-import { FaqAccordion, type FaqItem } from "@/components/site/FaqAccordion";
-import { Accent } from "@/components/site/primitives";
-import { getPlan, inr } from "@/lib/plans";
+"use client";
+
+import { useState } from "react";
+import { PRICING_SUMMARY, getPlan, inr } from "@/lib/plans";
 
 const starter = getPlan("starter");
 const unlimited = getPlan("unlimited");
 
-/** Objection-handling FAQ for the pricing page (FAQPage JSON-LD comes from FaqAccordion). */
-const FAQS: FaqItem[] = [
+const PRICING_FAQS = [
   {
-    q: "Is there really a free plan?",
-    a: "Yes. The Free plan is free forever — up to 300 leads, a full mobile pipeline, 1-tap WhatsApp, Android call logging and offline lead capture. No credit card required to start.",
+    q: "Can I drag leads between stages?",
+    a: "Yes. The Ridhzo pipeline interface shows draggable cards and a list view.",
   },
   {
-    q: "How does the 14-day trial work?",
-    a: "Every new workspace starts with a 14-day trial of the Starter plan — no card needed. When the trial ends, your workspace moves to the Free plan automatically unless you subscribe, and nothing is deleted.",
+    q: "Can I open a lead from the board?",
+    a: "Yes. Tap any card on the pipeline board to open the full lead profile, call history, notes, and follow-up actions.",
   },
   {
-    q: "Is pricing per user or per company?",
+    q: "How does Ridhzo pricing work?",
+    a: PRICING_SUMMARY,
+  },
+  {
+    q: "Is pricing per company or per user?",
     a: `Per company. You pay one flat monthly price for your workspace, not per user. Starter (${inr(
       starter.monthly,
     )}/month) includes up to 3 seats; Unlimited (${inr(unlimited.monthly)}/month) has unlimited seats for larger brokerages and agencies.`,
   },
   {
-    q: "What counts toward my lead limit?",
-    a: "Every lead in your workspace counts, whatever its status. Leads you delete (to the recycle bin) don't count. If you reach the limit, nothing is deleted — you just can't add new leads until you upgrade.",
+    q: "Can my team use WhatsApp with Ridhzo?",
+    a: "Yes. Tap WhatsApp on any lead and your own WhatsApp opens with the chat and a personalised template ready. You can connect the official WhatsApp Business API later for automatic welcome messages, sequences and bulk campaigns.",
   },
-  {
-    q: "Can I switch plans or cancel later?",
-    a: "Any time. Upgrade, downgrade, or cancel from your workspace billing settings.",
-    link: { href: "/refund-policy", label: "Cancellation & Refund Policy" },
-  },
-  {
-    q: "What payment methods do you accept?",
-    a: "UPI, credit and debit cards, and net banking, handled securely by Razorpay. Prices exclude 18% GST, and every payment gets a GST invoice. Your card details are never stored on our servers.",
-  },
-  {
-    q: "Is my data secure?",
-    a: "Yes — every workspace is kept completely separate from others, sensitive secrets such as API keys and email passwords are encrypted with AES-256, and deleted leads stay in a 30-day recycle bin.",
-    link: { href: "/security", label: "Read about security" },
-  },
-];
+] as const;
 
+const PRICING_FAQ_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: PRICING_FAQS.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
+/** Figma Pricing FAQ section (639:15030): "GOOD QUESTIONS. CLEAR ANSWERS." */
 export function PricingFaq() {
+  const [open, setOpen] = useState<number | null>(0);
+
   return (
-    <FaqAccordion
-      items={FAQS}
-      eyebrow="Pricing FAQ"
-      title={
-        <>
-          Pricing questions, <Accent>answered.</Accent>
-        </>
-      }
-      lead="Still unsure? Our team is happy to help you pick the right plan."
-    />
+    <section
+      id="faq"
+      className="relative z-[1] overflow-hidden bg-white px-4 py-16 text-black sm:px-8 lg:px-[84px] lg:py-[80px]"
+    >
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(PRICING_FAQ_JSON_LD) }} />
+      <div className="mx-auto flex w-full max-w-[1272px] flex-col items-start gap-[44px] lg:flex-row lg:gap-[48px]">
+        <div className="flex shrink-0 flex-col items-start lg:w-[589px]">
+          <p className="text-[12px] font-normal leading-[18px] text-black">COMMON QUESTIONS</p>
+          <h2 className="pt-[20px] font-inter text-[44px] font-extrabold uppercase leading-[normal] tracking-[-0.05em] sm:text-[64px] lg:text-[72px] lg:tracking-[-5.7px]">
+            <span className="block text-black">GOOD</span>
+            <span className="block text-black">QUESTIONS.</span>
+            <span className="block text-[#5ee878] lg:whitespace-pre">CLEAR  ANSWERS.</span>
+          </h2>
+        </div>
+
+        <div className="w-full flex-1 border-t border-black/20">
+          {PRICING_FAQS.map((item, idx) => {
+            const isOpen = open === idx;
+            return (
+              <div key={item.q} className="w-full border-b border-black/20 py-[20px]">
+                <div className="flex flex-col gap-[4px] px-[8px]">
+                  <button
+                    type="button"
+                    aria-expanded={isOpen}
+                    aria-controls={`pricing-faq-panel-${idx}`}
+                    onClick={() => setOpen(isOpen ? null : idx)}
+                    className="focus-ring flex w-full cursor-pointer items-center justify-between gap-4 text-left"
+                  >
+                    <span className="text-[16px] font-normal leading-[24px] text-black">{item.q}</span>
+                    <span className="relative size-[20px] shrink-0" aria-hidden="true">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        alt=""
+                        src={isOpen ? "/figma/3918f.svg" : "/figma/e4128.svg"}
+                        className="block size-full max-w-none"
+                      />
+                    </span>
+                  </button>
+                  {isOpen ? (
+                    <p
+                      id={`pricing-faq-panel-${idx}`}
+                      className="text-[14px] font-normal leading-[20px] text-black/[0.48]"
+                    >
+                      {item.a}
+                    </p>
+                  ) : null}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
   );
 }

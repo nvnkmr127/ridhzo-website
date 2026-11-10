@@ -1,156 +1,149 @@
-import Image from "next/image";
-import type { LucideIcon } from "lucide-react";
-import { Braces, Calendar, FileSpreadsheet, Mail, Megaphone, MessageCircle, Search, Webhook } from "lucide-react";
-import { Eyebrow, SectionTitle, Accent, Lead, HomeButton, HomeSection } from "@/components/site/primitives";
+import Link from "next/link";
+import { SectionEyebrowBar } from "./SectionEyebrowBar";
 
-type NodeDef = { name: string; note: string; Icon: LucideIcon; y: number };
+const INTEGRATIONS = [
+  {
+    name: "Meta Lead Ads",
+    tag: "CAPTURE",
+    icon: "/figma/b35d4.svg",
+    href: "/features/lead-capture",
+    cornerClass: "lg:rounded-tl-[16px]",
+    borderClass: "border-t border-l border-r lg:border-r-0",
+  },
+  {
+    name: "Google Lead Forms",
+    tag: "CAPTURE",
+    icon: "/figma/cef7a.svg",
+    href: "/features/lead-capture",
+    cornerClass: "",
+    borderClass: "border-t border-l border-r lg:border-r-0",
+  },
+  {
+    name: "WhatsApp",
+    tag: "CONVERSATION",
+    icon: "/figma/8a045.svg",
+    href: "/features/whatsapp",
+    cornerClass: "",
+    borderClass: "border-t border-l border-r lg:border-r-0",
+  },
+  {
+    name: "Webhooks & API",
+    tag: "CUSTOM FLOWS",
+    icon: "/figma/110d3.svg",
+    href: "/features/integrations",
+    cornerClass: "lg:rounded-tr-[16px]",
+    borderClass: "border-t border-l border-r",
+  },
+  {
+    name: "Google Calendar",
+    tag: "SCHEDULING",
+    icon: "/figma/ac6c1.svg",
+    href: "/features/meetings",
+    cornerClass: "lg:rounded-bl-[16px]",
+    borderClass: "border-t border-l border-r lg:border-b lg:border-r-0",
+  },
+  {
+    name: "Email (SMTP)",
+    tag: "OUTREACH",
+    icon: "/figma/026ae.svg",
+    href: "/features/sequences",
+    cornerClass: "",
+    borderClass: "border-t border-l border-r lg:border-b lg:border-r-0",
+  },
+  {
+    name: "Web forms",
+    tag: "CAPTURE",
+    icon: "/figma/91853.svg",
+    href: "/features/lead-capture",
+    cornerClass: "",
+    borderClass: "border-t border-l border-r lg:border-b lg:border-r-0",
+  },
+  {
+    name: "CSV Import",
+    tag: "BRING IT ALL IN",
+    icon: "/figma/e7f6a.svg",
+    href: "/features/lead-capture",
+    cornerClass: "rounded-b-[16px] lg:rounded-bl-none lg:rounded-br-[16px]",
+    borderClass: "border",
+  },
+] as const;
 
-// y = vertical centre of the node inside the 1200 x 560 diagram.
-const LEFT: NodeDef[] = [
-  { name: "Facebook & Instagram Lead Ads", note: "Leads in seconds", Icon: Megaphone, y: 70 },
-  { name: "Google Lead Forms", note: "Capture campaign leads", Icon: Search, y: 205 },
-  { name: "Web Forms & Webhooks", note: "Your website, Zapier, Make", Icon: Webhook, y: 345 },
-  { name: "CSV Import", note: "Bring in existing leads", Icon: FileSpreadsheet, y: 480 },
-];
-const RIGHT: NodeDef[] = [
-  { name: "WhatsApp", note: "Conversations & follow-ups", Icon: MessageCircle, y: 70 },
-  { name: "Your Email (SMTP)", note: "Gmail, Outlook, Zoho", Icon: Mail, y: 205 },
-  { name: "Google Calendar", note: "Sync meetings & events", Icon: Calendar, y: 345 },
-  { name: "REST API", note: "Build custom workflows", Icon: Braces, y: 480 },
-];
-
-const W = 1200;
-const H = 560;
-const HUB = { x: 600, y: 270 };
-const NODE_W = 262;
-
-function NodeCard({ node }: { node: NodeDef }) {
-  const { Icon } = node;
-  return (
-    <div className="flex items-center gap-2 rounded-lg border border-white/12 bg-white/65 p-2 text-black">
-      <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-black text-white">
-        <Icon className="h-5 w-5" aria-hidden="true" />
-      </span>
-      <div className="min-w-0">
-        <p className="text-sm font-medium leading-5">{node.name}</p>
-        <p className="text-xs leading-[18px] text-black/65">{node.note}</p>
-      </div>
-    </div>
-  );
-}
-
-function Hub() {
-  return (
-    <div className="grid h-[109px] w-[110px] place-items-center rounded-3xl bg-white p-2">
-      <Image src="/logo/Ridhzo-Logo-Final_Logo-Icon-Dark.png" alt="Ridhzo" width={56} height={56} className="h-14 w-14" />
-    </div>
-  );
-}
-
-/** Connector from a node edge to the hub. Direction matters for the animated green flow. */
-function Connectors() {
-  const paths = [
-    ...LEFT.map((n, i) => ({ d: `M${NODE_W},${n.y} C${NODE_W + 190},${n.y} ${HUB.x - 190},${HUB.y} ${HUB.x - 55},${HUB.y}`, delay: i * 0.4 })),
-    ...RIGHT.map((n, i) => ({ d: `M${HUB.x + 55},${HUB.y} C${HUB.x + 190},${HUB.y} ${W - NODE_W - 190},${n.y} ${W - NODE_W},${n.y}`, delay: 1.6 + i * 0.4 })),
-  ];
-  return (
-    <svg viewBox={`0 0 ${W} ${H}`} className="absolute inset-0 h-full w-full" aria-hidden="true" fill="none">
-      {paths.map((p, i) => (
-        <g key={i}>
-          <path d={p.d} stroke="rgba(255,255,255,0.28)" strokeWidth="2" opacity="0.9" />
-          <path
-            d={p.d}
-            pathLength={100}
-            stroke="#5EE878"
-            strokeWidth="3"
-            strokeLinecap="round"
-            strokeDasharray="14 86"
-            className="animate-flow-dash motion-reduce:hidden"
-            style={{ animationDelay: `${p.delay}s` }}
-          />
-        </g>
-      ))}
-    </svg>
-  );
-}
-
-/**
- * Figma "Layer_1": blueprint grid (13 rows ~67px, 15 columns ~91px, 0.64px strokes) at 40% opacity,
- * revealed through a radial mask (white centre fading to #231F20 at the edges).
- */
-function GridBackdrop() {
-  return (
-    <div
-      className="pointer-events-none absolute inset-0 hidden opacity-40 sm:block"
-      style={{
-        backgroundImage:
-          "linear-gradient(to right, rgba(255,255,255,0.65) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.65) 1px, transparent 1px)",
-        backgroundSize: "91.05px 67.1px",
-        backgroundPosition: "83px 68px",
-        WebkitMaskImage: "radial-gradient(ellipse 50% 50% at 50% 50%, #000 0%, rgba(0,0,0,0.14) 100%)",
-        maskImage: "radial-gradient(ellipse 50% 50% at 50% 50%, #000 0%, rgba(0,0,0,0.14) 100%)",
-      }}
-      aria-hidden="true"
-    />
-  );
-}
-
+/** Figma Integrations Grid section (573:24662 + hover 587:8339): "ALL YOUR SOURCES. IN SYNC." */
 export function IntegrationsHomeSection() {
   return (
-    <HomeSection id="integrations" backdrop={<GridBackdrop />}>
-      <div className="mx-auto flex max-w-[692px] flex-col items-center gap-8 text-center">
-        <div className="flex flex-col items-center gap-3">
-          <Eyebrow>Fits your stack</Eyebrow>
-          <SectionTitle className="mt-1">
-            Plugs into the tools you <Accent>already use.</Accent>
-          </SectionTitle>
-          <Lead>
-            A lead should never disappear after the first conversation. Move opportunities through clear stages, understand
-            what is active or stalled, and give your team a shared view of the pipeline.
-          </Lead>
-        </div>
-        <HomeButton href="/features/integrations" variant="secondary" size="md" arrow>
-          Explore All Integrations
-        </HomeButton>
-      </div>
+    <section
+      id="integrations"
+      className="relative z-[1] overflow-hidden bg-white px-4 py-16 text-black sm:px-8 lg:px-[84px] lg:py-[80px]"
+    >
+      <div className="mx-auto flex w-full max-w-[1272px] flex-col items-start">
+        <SectionEyebrowBar left="IT PLAYS WELL WITH OTHERS" right="CONNECTED BY DESIGN" theme="light" />
 
-      {/* Desktop: hub-and-spoke diagram */}
-      <div className="relative mx-auto mt-14 hidden aspect-[1200/560] w-full max-w-[1200px] lg:block">
-        <Connectors />
-        {LEFT.map((n) => (
-          <div key={n.name} className="absolute left-0 -translate-y-1/2" style={{ top: `${(n.y / H) * 100}%`, width: `${(NODE_W / W) * 100}%` }}>
-            <NodeCard node={n} />
-          </div>
-        ))}
-        {RIGHT.map((n) => (
-          <div key={n.name} className="absolute right-0 -translate-y-1/2" style={{ top: `${(n.y / H) * 100}%`, width: `${(NODE_W / W) * 100}%` }}>
-            <NodeCard node={n} />
-          </div>
-        ))}
-        <div className="absolute -translate-x-1/2 -translate-y-1/2" style={{ left: `${(HUB.x / W) * 100}%`, top: `${(HUB.y / H) * 100}%` }}>
-          <Hub />
-        </div>
-        <p
-          className="absolute -translate-x-1/2 text-lg font-semibold leading-[26px] tracking-[-0.015em] text-white/65"
-          style={{ left: `${(HUB.x / W) * 100}%`, top: `${((HUB.y + 85) / H) * 100}%` }}
-        >
-          +7 more integrations
-        </p>
-      </div>
+        <div className="flex w-full flex-col items-start justify-between gap-6 pt-[48px] lg:flex-row lg:items-end">
+          <h2 className="max-w-[920px] font-inter text-[44px] font-black uppercase leading-[1.08] sm:text-[64px] lg:text-[80px] lg:leading-[1.15]">
+            <span className="flex items-start gap-[0.18em] tracking-[-0.05em] text-black lg:gap-[18px] lg:tracking-[-5px]">
+              <span>ALL</span>
+              <span>YOUR</span>
+            </span>
+            <span className="text-outline-black block tracking-normal">SOURCES.</span>
+            <span className="flex items-start gap-[0.14em] lg:gap-[14px]">
+              <span className="text-black">in</span>
+              <span className="text-outline-black">SYNC.</span>
+            </span>
+          </h2>
 
-      {/* Mobile / tablet: stacked cards around the hub */}
-      <div className="mx-auto mt-12 flex max-w-[480px] flex-col items-stretch gap-3 lg:hidden">
-        {LEFT.map((n) => (
-          <NodeCard key={n.name} node={n} />
-        ))}
-        <div className="flex flex-col items-center gap-2 py-3">
-          <Hub />
-          <p className="text-lg font-semibold text-white/65">+7 more integrations</p>
+          <p className="w-full max-w-[323px] pb-[12px] text-[16px] font-normal leading-[26px] text-black/[0.64] sm:text-[18px] sm:leading-[28px]">
+            Link the platforms that generate enquiries to the workspace where your team manages them. No exports or
+            scattered spreadsheets.
+          </p>
         </div>
-        {RIGHT.map((n) => (
-          <NodeCard key={n.name} node={n} />
-        ))}
+
+        {/* 4×2 Bordered Grid */}
+        <div className="w-full pt-[48px] lg:pt-[72px]">
+          <div className="grid w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+            {INTEGRATIONS.map((item, idx) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={`focus-ring group flex h-[231px] flex-col items-start justify-between border-black/20 p-[20px] transition-colors hover:bg-[#5ee878]/[0.12] hover:shadow-[inset_0_0_0_1px_rgba(94,232,120,0.32)] ${
+                  idx === 0 ? "max-lg:rounded-t-[16px]" : ""
+                } ${item.cornerClass} ${item.borderClass}`}
+              >
+                <span className="relative size-[48px] shrink-0" aria-hidden="true">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img alt="" src={item.icon} className="block size-full max-w-none" />
+                </span>
+
+                <div className="flex w-full items-start gap-[16px]">
+                  <div className="flex min-w-0 flex-1 flex-col items-start">
+                    <h3 className="py-[2px] font-inter text-[24px] font-semibold leading-[normal] tracking-[-0.36px] text-black">
+                      {item.name}
+                    </h3>
+                    <p className="pt-[12px] text-[16px] font-normal leading-[24px] text-black/[0.64]">
+                      {item.tag}
+                    </p>
+                  </div>
+
+                  {/* Arrow swaps from dark arrow-up-right to green arrow-right per Figma 587:8339 */}
+                  <span className="relative size-[32px] shrink-0" aria-hidden="true">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      alt=""
+                      src="/figma/cd658.svg"
+                      className="block size-full max-w-none transition-opacity group-hover:opacity-0"
+                    />
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      alt=""
+                      src="/figma/hover-19107.svg"
+                      className="absolute inset-0 block size-full max-w-none opacity-0 transition-opacity group-hover:opacity-100"
+                    />
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
       </div>
-    </HomeSection>
+    </section>
   );
 }

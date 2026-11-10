@@ -1,0 +1,9 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="CSV">
+<path id="Vector" d="M28 6V14C28 14.5304 28.2107 15.0391 28.5858 15.4142C28.9609 15.7893 29.4696 16 30 16H38" stroke-width="3" stroke="black"/>
+<path id="Vector_2" d="M10 24V10C10 8.93913 10.4214 7.92172 11.1716 7.17157C11.9217 6.42143 12.9391 6 14 6H28L38 16V24" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke="black"/>
+<path id="Vector_3" d="M14 33C14 32.2044 13.6839 31.4413 13.1213 30.8787C12.5587 30.3161 11.7956 30 11 30C10.2044 30 9.44129 30.3161 8.87868 30.8787C8.31607 31.4413 8 32.2044 8 33V39C8 39.7956 8.31607 40.5587 8.87868 41.1213C9.44129 41.6839 10.2044 42 11 42C11.7956 42 12.5587 41.6839 13.1213 41.1213C13.6839 40.5587 14 39.7956 14 39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke="black"/>
+<path id="Vector_4" d="M20 40.5C20 41.328 20.672 42 21.5 42H24C24.5304 42 25.0391 41.7893 25.4142 41.4142C25.7893 41.0391 26 40.5304 26 40V38C26 37.4696 25.7893 36.9609 25.4142 36.5858C25.0391 36.2107 24.5304 36 24 36H22C21.4696 36 20.9609 35.7893 20.5858 35.4142C20.2107 35.0391 20 34.5304 20 34V32C20 31.4696 20.2107 30.9609 20.5858 30.5858C20.9609 30.2107 21.4696 30 22 30H24.5C24.8978 30 25.2794 30.158 25.5607 30.4393C25.842 30.7206 26 31.1022 26 31.5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke="black"/>
+<path id="Vector_5" d="M32 30L36 42L40 30" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke="black"/>
+</g>
+</svg>

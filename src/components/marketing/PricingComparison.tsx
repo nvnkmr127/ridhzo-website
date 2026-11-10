@@ -1,13 +1,6 @@
 import { Fragment } from "react";
-import { Check, Minus } from "lucide-react";
-import { PLANS, getPlan, inr } from "@/lib/plans";
-import { Eyebrow, SectionTitle, Accent, Lead, HomeSection } from "@/components/site/primitives";
+import { getPlan, inr } from "@/lib/plans";
 
-/**
- * Full feature-comparison matrix for the dedicated pricing page. Prices come from
- * src/lib/plans.ts; entitlements must match the plan cards there.
- * A boolean renders a check/dash; a string renders as-is.
- */
 type Cell = boolean | string;
 
 interface Row {
@@ -29,7 +22,7 @@ const price = (id: "free" | "starter" | "unlimited") => {
 
 const GROUPS: Group[] = [
   {
-    title: "Plan limits",
+    title: "PLAN LIMITS",
     rows: [
       { label: "Price", free: price("free"), starter: price("starter"), unlimited: price("unlimited") },
       { label: "Leads", free: "300", starter: "5,000", unlimited: "Unlimited" },
@@ -41,17 +34,17 @@ const GROUPS: Group[] = [
     ],
   },
   {
-    title: "Lead capture",
+    title: "LEAD CAPTURE",
     rows: [
       { label: "Meta (Facebook & Instagram) Lead Ads sync", free: true, starter: true, unlimited: true },
       { label: "Google Lead Form Ads, webhooks & API", free: true, starter: true, unlimited: true },
       { label: "Hosted & embeddable web forms", free: true, starter: true, unlimited: true },
-      { label: "No \"Powered by Ridhzo\" on forms", free: false, starter: true, unlimited: true },
+      { label: 'No "Powered by Ridhzo" on forms', free: false, starter: true, unlimited: true },
       { label: "CSV import & offline lead capture", free: true, starter: true, unlimited: true },
     ],
   },
   {
-    title: "Speed & follow-up",
+    title: "SPEED & FOLLOW-UP",
     rows: [
       { label: "Instant push notifications", free: true, starter: true, unlimited: true },
       { label: "Round-robin lead assignment", free: true, starter: true, unlimited: true },
@@ -64,7 +57,7 @@ const GROUPS: Group[] = [
     ],
   },
   {
-    title: "Insight & scale",
+    title: "INSIGHT & SCALE",
     rows: [
       { label: "Kanban pipeline, Hot & Going Cold lists", free: true, starter: true, unlimited: true },
       { label: "Dashboards, SLA tracking & team leaderboards", free: true, starter: true, unlimited: true },
@@ -75,77 +68,151 @@ const GROUPS: Group[] = [
 
 function CellValue({ value }: { value: Cell }) {
   if (typeof value === "string") {
-    return <span className="text-sm font-medium text-white">{value}</span>;
+    return <span className="text-[14px] font-medium leading-[20px] text-black">{value}</span>;
   }
-  return value ? (
-    <Check className="mx-auto h-5 w-5 text-highlight" aria-label="Included" />
-  ) : (
-    <Minus className="mx-auto h-5 w-5 text-white/30" aria-label="Not included" />
+  return (
+    <span className="mx-auto block size-[20px]">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        alt={value ? "Included" : "Not included"}
+        src={value ? "/figma/f7359.svg" : "/figma/0b003.svg"}
+        className="block size-[20px] max-w-none"
+      />
+    </span>
   );
 }
 
+/** Figma Compare in Detail section (639:14710): "WHAT ACTUALLY CHANGES?" */
 export function PricingComparison() {
   return (
-    <HomeSection id="compare-plans">
-      <div className="mx-auto flex max-w-[704px] flex-col items-center gap-3 text-center">
-        <Eyebrow>Compare plans</Eyebrow>
-        <SectionTitle className="mt-1">
-          Every feature, side by <Accent>side.</Accent>
-        </SectionTitle>
-        <Lead>Upgrade only when your pipeline outgrows the plan.</Lead>
-      </div>
+    <section
+      id="compare-plans"
+      className="relative z-[1] overflow-hidden bg-black px-4 py-16 sm:px-8 lg:px-[84px] lg:py-[88px]"
+    >
+      <div className="relative mx-auto flex w-full max-w-[1272px] flex-col items-start gap-[48px] lg:gap-[72px]">
+        {/* Ambient right-edge green glow (639:14711) */}
+        <div
+          className="pointer-events-none absolute left-[1040px] top-[41px] flex h-[827.619px] w-[461.044px] items-center justify-center"
+          aria-hidden="true"
+        >
+          <div className="flex-none rotate-[71.12deg]">
+            <div className="relative h-[213.078px] w-[801.807px]">
+              <div className="absolute inset-[-150.18%_-39.91%] [mask-image:radial-gradient(closest-side,black_70%,transparent_100%)]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img alt="" src="/figma/b3750.svg" className="block size-full max-w-none" />
+              </div>
+            </div>
+          </div>
+        </div>
 
-      <div className="mx-auto mt-10 max-w-[1000px] overflow-x-auto rounded-3xl border border-white/12 bg-white/[0.04]">
-        <table className="w-full min-w-[640px] border-collapse text-left">
-          <thead>
-            <tr className="border-b border-white/12">
-              <th scope="col" className="px-5 py-5 text-xs font-medium uppercase tracking-[0.04em] text-white/50">
-                Features
-              </th>
-              {PLANS.map((plan) => (
-                <th
-                  key={plan.id}
-                  scope="col"
-                  className={`px-5 py-5 text-center text-base font-semibold uppercase ${plan.primary ? "text-highlight" : "text-white"}`}
-                >
-                  {plan.name}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {GROUPS.map((group) => (
-              <Fragment key={group.title}>
-                <tr className="bg-white/[0.04]">
+        {/* Heading row (639:14713) */}
+        <div className="relative flex w-full flex-col items-start justify-between gap-6 lg:flex-row lg:items-end">
+          <div className="flex flex-col items-start gap-[16px]">
+            <p className="text-[12px] font-normal leading-[18px] text-[#5ee878]">COMPARE IN DETAIL</p>
+            <h2 className="font-inter text-[44px] font-extrabold uppercase leading-[normal] tracking-[-0.05em] sm:text-[64px] lg:text-[72px] lg:tracking-[-5px]">
+              <span className="block text-white">WHAT ACTUALLY</span>
+              <span className="block text-[#5ee878]">CHANGES?</span>
+            </h2>
+          </div>
+
+          <p className="w-full max-w-[443px] pb-[12px] pt-[8px] text-[16px] font-normal leading-[26px] text-white/[0.64] sm:text-[18px] sm:leading-[28px] lg:pt-[32px]">
+            What changes as you grow—from lead limits to automations and AI credits.
+          </p>
+        </div>
+
+        {/* Comparison Table Card (639:14722) */}
+        <div className="relative w-full overflow-hidden rounded-[16px] border border-white/[0.64] bg-white text-black">
+          <div className="w-full overflow-x-auto">
+            <table className="w-full min-w-[760px] table-fixed border-collapse text-left">
+              <colgroup>
+                <col className="w-auto" />
+                <col className="w-[121.65px]" />
+                <col className="w-[166.27px]" />
+                <col className="w-[190.06px]" />
+              </colgroup>
+              <thead>
+                <tr className="bg-black">
                   <th
-                    scope="colgroup"
-                    colSpan={4}
-                    className="px-5 py-3 text-left text-[13px] font-medium uppercase tracking-[0.04em] text-highlight"
+                    scope="col"
+                    className="pb-[24.75px] pl-[24px] pr-[20px] pt-[23.75px] text-[16px] font-semibold uppercase leading-[16px] tracking-[0.48px] text-white lg:pl-[40px]"
                   >
-                    {group.title}
+                    Features
+                  </th>
+                  <th
+                    scope="col"
+                    className="p-[20px] text-center text-[16px] font-semibold uppercase leading-[24px] text-white"
+                  >
+                    Free
+                  </th>
+                  <th
+                    scope="col"
+                    className="bg-[#5ee878]/[0.24] p-[20px] text-center text-[16px] font-semibold uppercase leading-[24px] text-[#5ee878]"
+                  >
+                    Starter
+                  </th>
+                  <th
+                    scope="col"
+                    className="p-[20px] text-center text-[16px] font-semibold uppercase leading-[24px] text-white"
+                  >
+                    Unlimited
                   </th>
                 </tr>
-                {group.rows.map((row) => (
-                  <tr key={row.label} className="border-t border-white/10">
-                    <th scope="row" className="px-5 py-3.5 text-sm font-normal text-white/65">
-                      {row.label}
-                    </th>
-                    <td className="px-5 py-3.5 text-center">
-                      <CellValue value={row.free} />
-                    </td>
-                    <td className="px-5 py-3.5 text-center">
-                      <CellValue value={row.starter} />
-                    </td>
-                    <td className="px-5 py-3.5 text-center">
-                      <CellValue value={row.unlimited} />
-                    </td>
-                  </tr>
-                ))}
-              </Fragment>
-            ))}
-          </tbody>
-        </table>
+              </thead>
+              <tbody>
+                {GROUPS.map((group) => {
+                  const isLimits = group.title === "PLAN LIMITS";
+                  return (
+                    <Fragment key={group.title}>
+                      <tr className="bg-[#5ee878]/[0.12]">
+                        <th
+                          scope="colgroup"
+                          colSpan={4}
+                          className="px-[24px] py-[12px] text-left text-[14px] font-normal leading-[20px] text-black lg:px-[40px]"
+                        >
+                          {group.title}
+                        </th>
+                      </tr>
+                      {group.rows.map((row) => (
+                        <tr key={row.label} className="border-t border-black/20">
+                          <th
+                            scope="row"
+                            className={`pl-[24px] pr-[20px] text-[14px] font-normal leading-[20px] text-black/80 lg:pl-[40px] ${
+                              isLimits ? "py-[16.5px]" : "py-[14.5px]"
+                            }`}
+                          >
+                            {row.label}
+                          </th>
+                          <td
+                            className={`px-[20px] text-center ${
+                              isLimits ? "pb-[16px] pt-[17px]" : "py-[14.5px]"
+                            }`}
+                          >
+                            <CellValue value={row.free} />
+                          </td>
+                          <td
+                            className={`bg-[#5ee878]/[0.24] px-[20px] text-center ${
+                              isLimits ? "pb-[16px] pt-[17px]" : "py-[14.5px]"
+                            }`}
+                          >
+                            <CellValue value={row.starter} />
+                          </td>
+                          <td
+                            className={`px-[20px] text-center ${
+                              isLimits ? "pb-[16px] pt-[17px]" : "py-[14.5px]"
+                            }`}
+                          >
+                            <CellValue value={row.unlimited} />
+                          </td>
+                        </tr>
+                      ))}
+                    </Fragment>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
-    </HomeSection>
+    </section>
   );
 }

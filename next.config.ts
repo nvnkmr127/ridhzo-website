@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  distDir: process.env.NEXT_DIST_DIR || ".next",
   reactStrictMode: true,
 
   // WordPress permalinks end in "/". Without this Next 308-redirects /blog/post/ -> /blog/post and WP

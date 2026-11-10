@@ -1,8 +1,5 @@
-import { appUrl } from "@/lib/config";
+import { appUrl, SOCIAL_LINKS } from "@/lib/config";
 import Link from "next/link";
-import Image from "next/image";
-import { ArrowRight } from "lucide-react";
-import { SocialIcons } from "./SocialIcons";
 import { CookieSettingsButton } from "@/components/analytics/CookieSettingsButton";
 import { hasAnyTag } from "@/lib/analytics-config";
 
@@ -11,10 +8,9 @@ interface FooterSection {
   links: { label: string; href: string }[];
 }
 
-/** Figma "Ridhzo / Navigation / Footer" columns, mapped to the site's real routes. */
 const FOOTER_SECTIONS: FooterSection[] = [
   {
-    title: "Product",
+    title: "PRODUCT",
     links: [
       { label: "Lead Management", href: "/features/lead-management" },
       { label: "Pipeline", href: "/features/pipeline-kanban" },
@@ -25,7 +21,7 @@ const FOOTER_SECTIONS: FooterSection[] = [
     ],
   },
   {
-    title: "Solutions",
+    title: "SOLUTIONS",
     links: [
       { label: "Real Estate", href: "/usecases/real-estate" },
       { label: "Marketing Agencies", href: "/usecases/marketing-agencies" },
@@ -36,19 +32,21 @@ const FOOTER_SECTIONS: FooterSection[] = [
     ],
   },
   {
-    title: "Resources",
+    title: "RESOURCES",
     links: [
       { label: "Blog", href: "/blog" },
       { label: "Help Center", href: "/help" },
       { label: "How-To Guides", href: "/how-to" },
-      { label: "Compare", href: "/compare" },
       { label: "FAQ", href: "/#faq" },
+      { label: "Contact", href: "/contact" },
     ],
   },
   {
-    title: "Company",
+    title: "COMPANY",
     links: [
       { label: "About", href: "/about" },
+      { label: "Security", href: "/security" },
+      { label: "Careers", href: "/contact" },
       { label: "Contact", href: "/contact" },
     ],
   },
@@ -58,93 +56,115 @@ const LEGAL_LINKS = [
   { label: "Privacy", href: "/privacy" },
   { label: "Terms", href: "/terms" },
   { label: "Refunds", href: "/refund-policy" },
-  { label: "Shipping", href: "/shipping-policy" },
   { label: "Security", href: "/security" },
-  { label: "Cookies", href: "/cookie-policy" },
 ];
 
-const LINK = "focus-ring rounded-sm text-base leading-6 text-white/[0.41] transition-colors hover:text-white";
+const FIGMA_SOCIALS = [
+  { label: "LinkedIn", icon: "/figma/23338.svg", href: SOCIAL_LINKS.find((s) => s.id === "linkedin")?.href ?? "https://www.linkedin.com/company/ridhzoapp/" },
+  { label: "Instagram", icon: "/figma/70788.svg", href: SOCIAL_LINKS.find((s) => s.id === "instagram")?.href ?? "https://www.instagram.com/ridhzoapp" },
+  { label: "X", icon: "/figma/1a0ad.svg", href: "https://x.com/ridhzoapp" },
+  { label: "Product Hunt", icon: "/figma/c094d.svg", href: SOCIAL_LINKS.find((s) => s.id === "producthunt")?.href ?? "https://www.producthunt.com/products/ridhzo" },
+];
 
 export function MarketingFooter() {
   return (
-    <footer className="relative overflow-hidden bg-black bg-[linear-gradient(122deg,rgba(13,39,16,0.2)_0%,rgba(94,232,120,0.16)_102.8%)] px-4 py-16 sm:px-6 sm:py-20 lg:px-[84px]">
-      {/* Figma Frame 6: grain photo, overlay blend at 40% */}
-      <div
-        className="pointer-events-none absolute inset-0 bg-[url('/home/texture.webp')] bg-cover bg-center opacity-40 mix-blend-overlay"
-        aria-hidden="true"
-      />
-      {/* Giant faded wordmark bleeding off the bottom edge */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/home/footer-wordmark.svg"
-        alt=""
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 -bottom-[0.46%] h-auto w-full select-none"
-      />
+    <footer className="relative z-[1] overflow-hidden border-t border-white/[0.32] bg-black px-4 py-16 sm:px-6 sm:py-20 lg:h-[760px] lg:px-[84px] lg:py-[80px]">
+      {/* Figma grain photo overlay */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-40 mix-blend-overlay" aria-hidden="true">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img alt="" src="/figma/acd60.png" className="absolute left-0 top-[-7.77%] h-[126.48%] w-full max-w-none object-cover" />
+      </div>
 
-      <div className="relative mx-auto max-w-[1272px] rounded-3xl border border-white/12 bg-white/[0.04] px-6 pb-8 pt-10 sm:px-12 sm:pt-12">
+      {/* Giant faded Ridhzo wordmark bleeding off the bottom edge (554:7650) */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-[-0.53%] top-[57.76%]" aria-hidden="true">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img alt="" src="/figma/a6b6d.svg" className="block size-full max-w-none" />
+      </div>
+
+      <div className="relative mx-auto flex max-w-[1272px] flex-col items-start rounded-[24px] py-[32px]">
         {/* Brand + CTA */}
-        <div className="flex flex-col items-start justify-between gap-8 sm:flex-row">
-          <div className="flex max-w-[300px] flex-col gap-4">
-            <Link href="/" aria-label="Ridhzo home" className="focus-ring inline-flex w-fit rounded-md">
-              <Image
-                src="/logo/Ridhzo-Logo-Final_Horizontal-Light.png"
-                alt="Ridhzo — Leads Move Faster"
-                width={130}
-                height={42}
-                className="h-9 w-auto object-contain"
-                unoptimized
-              />
+        <div className="flex w-full flex-col items-start justify-between gap-8 sm:flex-row">
+          <div className="flex w-full max-w-[300px] flex-col gap-[16px]">
+            <Link href="/" aria-label="Ridhzo home" className="focus-ring inline-flex w-fit items-center gap-[6.857px] rounded-md">
+              <span className="relative h-[35.657px] w-[38.4px] shrink-0">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img alt="" src="/figma/d7f3e.svg" className="block size-full max-w-none" />
+              </span>
+              <span className="relative h-[24px] w-[104.571px] shrink-0">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img alt="Ridhzo" src="/figma/10920.svg" className="block size-full max-w-none" />
+              </span>
             </Link>
-            <p className="text-base leading-6 text-white/[0.64]">
+            <p className="text-[16px] font-normal leading-[24px] text-white/[0.41]">
               The mobile-first CRM built to help sales teams respond faster and follow through.
             </p>
           </div>
-          <div className="flex flex-col items-center gap-3">
+
+          <div className="flex flex-col items-start gap-[12px] sm:items-center">
             <Link
               href={appUrl("/signup")}
-              className="focus-ring inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-white bg-white/80 px-5 text-sm font-medium text-black transition-colors hover:bg-white"
+              className="focus-ring inline-flex h-[48px] items-center justify-center gap-[8px] rounded-[12px] border border-white bg-white px-[20px] text-[14px] font-medium leading-[20px] text-black transition-colors hover:bg-white/90"
             >
-              Start Free <ArrowRight className="h-5 w-5" aria-hidden="true" />
+              Start Free
+              <span className="relative size-[24px] shrink-0" aria-hidden="true">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img alt="" src="/figma/7e649.svg" className="block size-full max-w-none" />
+              </span>
             </Link>
-            <p className="whitespace-nowrap text-xs leading-[18px] text-white/[0.64]">No credit card · Free forever</p>
+            <p className="whitespace-nowrap text-[12px] font-normal leading-[18px] text-white/[0.41]">
+              No credit card · Free forever
+            </p>
           </div>
         </div>
 
-        {/* Navigation */}
-        <nav aria-label="Footer" className="grid grid-cols-2 gap-x-6 gap-y-10 pt-12 sm:pt-16 lg:grid-cols-4 lg:gap-x-12">
-          {FOOTER_SECTIONS.map((section, i) => (
-            <div key={section.title} className="flex flex-col gap-6">
-              <p className="text-sm font-semibold uppercase leading-5 text-white">{section.title}</p>
-              <ul className="flex flex-col gap-3">
-                {section.links.map((link) => (
-                  <li key={link.label}>
-                    <Link href={link.href} className={LINK}>
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-              {i === FOOTER_SECTIONS.length - 1 && <SocialIcons className="pt-2" />}
+        {/* Navigation columns */}
+        <nav aria-label="Footer" className="grid w-full grid-cols-2 gap-x-[48px] gap-y-10 pt-[64px] lg:grid-cols-4">
+          {FOOTER_SECTIONS.map((section, idx) => (
+            <div key={section.title} className="flex flex-col gap-[32px]">
+              <div className="flex flex-col gap-[24px]">
+                <p className="text-[14px] font-semibold uppercase leading-[20px] text-white">{section.title}</p>
+                <ul className="flex flex-col gap-[12px]">
+                  {section.links.map((link) => (
+                    <li key={link.label}>
+                      <Link
+                        href={link.href}
+                        className="focus-ring rounded-sm text-[16px] font-normal leading-[24px] text-white/[0.41] transition-colors hover:text-white"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              {idx === FOOTER_SECTIONS.length - 1 ? (
+                <ul className="flex items-center gap-[16px]" aria-label="Ridhzo on social media">
+                  {FIGMA_SOCIALS.map((s) => (
+                    <li key={s.label}>
+                      <a
+                        href={s.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Ridhzo on ${s.label}`}
+                        title={s.label}
+                        className="focus-ring relative block size-[24px] shrink-0 opacity-85 transition-opacity hover:opacity-100"
+                      >
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img alt="" src={s.icon} className="block size-full max-w-none" />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
             </div>
           ))}
         </nav>
 
         {/* Legal */}
-        <div className="mt-12 flex flex-col gap-6 border-t border-white/10 pt-8 sm:mt-14 sm:pt-12">
-          <div className="flex flex-col items-start justify-between gap-4 text-xs leading-[18px] text-white/[0.64] sm:flex-row sm:items-center">
-            <p>
-              © {new Date().getFullYear()} Ridhzo. All rights reserved. Made with ♥ by{" "}
-              <a
-                href="https://digicloudify.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="focus-ring rounded-sm underline underline-offset-2 hover:text-white"
-              >
-                Digicloudify
-              </a>
-            </p>
-            <ul className="flex flex-wrap gap-x-6 gap-y-3">
+        <div className="flex w-full flex-col gap-[24px] pt-[56px]">
+          <div className="h-px w-full bg-white/10" aria-hidden="true" />
+          <div className="flex w-full flex-col items-start justify-between gap-4 text-[12px] font-normal leading-[18px] text-white/[0.64] sm:flex-row sm:items-center">
+            <p>© {new Date().getFullYear()} Ridhzo. All rights reserved.</p>
+            <ul className="flex flex-wrap items-center gap-x-[24px] gap-y-3">
               {LEGAL_LINKS.map((l) => (
                 <li key={l.label}>
                   <Link href={l.href} className="focus-ring rounded-sm transition-colors hover:text-white">

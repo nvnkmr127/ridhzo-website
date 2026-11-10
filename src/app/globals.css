@@ -6,7 +6,7 @@
    navbar so section headings aren't hidden underneath it when jumping to #anchors. */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
+  scroll-padding-top: 6rem;
 }
 
 /* Consistent, keyboard-only focus ring (brand green). Applied to custom interactive controls
@@ -101,10 +101,46 @@ body::before {
     radial-gradient(50rem 35rem at 0% 110%, rgba(13, 39, 16, 0.5), transparent 60%);
 }
 
-/* Prevent image and iframe blowouts on mobile screens */
-img, svg, video, canvas, audio, iframe, embed, object {
-  max-width: 100%;
-  height: auto;
+/* Prevent image and iframe blowouts on mobile screens without overriding Tailwind utility classes */
+@layer base {
+  img, svg, video, canvas, audio, iframe, embed, object {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Figma outlined display headings and marquee outline text */
+@layer utilities {
+  .text-outline-white {
+    color: #000000;
+    -webkit-text-fill-color: #000000;
+    -webkit-text-stroke: 2.5px #ffffff;
+    paint-order: stroke fill;
+  }
+  .text-outline-hero {
+    color: #010402;
+    -webkit-text-fill-color: #010402;
+    -webkit-text-stroke: 2.5px #ffffff;
+    paint-order: stroke fill;
+  }
+  .text-outline-pricing {
+    color: #070807;
+    -webkit-text-fill-color: #070807;
+    -webkit-text-stroke: 2.5px #ffffff;
+    paint-order: stroke fill;
+  }
+  .text-outline-black {
+    color: #ffffff;
+    -webkit-text-fill-color: #ffffff;
+    -webkit-text-stroke: 2.8px #000000;
+    paint-order: stroke fill;
+  }
+  .text-outline-marquee {
+    color: #ffffff;
+    -webkit-text-fill-color: #ffffff;
+    -webkit-text-stroke: 1.75px #000000;
+    paint-order: stroke fill;
+  }
 }
 
 /* Thin, unobtrusive scrollbars to match the minimalist surface. */
