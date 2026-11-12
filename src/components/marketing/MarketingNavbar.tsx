@@ -116,9 +116,9 @@ export function MarketingNavbar() {
   const active = activeMenuFor(pathname);
 
   return (
-    <>
+    <div className="sticky top-0 z-50 w-full">
       {/* Figma Homepage/Announcement bar (554:6624) */}
-      <div className="relative z-50 flex min-h-[40px] w-full items-center justify-center bg-black px-3 py-1.5 [font-feature-settings:normal] sm:h-[40px] sm:py-0">
+      <div className="relative flex min-h-[40px] w-full items-center justify-center bg-black px-3 py-1.5 [font-feature-settings:normal] sm:h-[40px] sm:py-0">
         <div className="flex flex-wrap items-center justify-center gap-x-[16px] gap-y-1">
           <div className="flex flex-wrap items-center justify-center gap-x-[12px] gap-y-0.5">
             <span className="text-[12px] font-normal leading-[18px] text-white sm:text-[14px] sm:leading-[20px]">
@@ -147,7 +147,7 @@ export function MarketingNavbar() {
       </div>
 
       {/* Figma Homepage/Navigation (570:10654) */}
-      <header ref={headerRef} className="sticky top-0 z-50 w-full border-b border-black/[0.08] bg-white text-black [font-feature-settings:normal] lg:h-[88px]">
+      <header ref={headerRef} className="relative w-full border-b border-black/[0.08] bg-white text-black [font-feature-settings:normal] lg:h-[88px]">
         <div className="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between px-4 sm:px-6 lg:h-full lg:px-[32px]">
           <Link href="/" aria-label="Ridhzo home" className="focus-ring flex shrink-0 items-center rounded-md py-1">
             <span className="flex h-[32px] items-center gap-[6.154px]">
@@ -313,7 +313,7 @@ export function MarketingNavbar() {
         {mobileOpen && (
           <div
             id="mobile-nav-drawer"
-            className="h-[calc(100dvh-72px)] overflow-y-auto overscroll-contain border-t border-black/10 bg-white px-4 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-2 text-black lg:hidden"
+            className="h-[calc(100dvh-112px)] overflow-y-auto overscroll-contain border-t border-black/10 bg-white px-4 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-2 text-black lg:hidden"
           >
             <nav aria-label="Primary" className="flex flex-col text-sm font-medium text-black">
               {(
@@ -395,7 +395,7 @@ export function MarketingNavbar() {
           </div>
         )}
       </header>
-    </>
+    </div>
   );
 }
 

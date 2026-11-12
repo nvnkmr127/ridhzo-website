@@ -41,7 +41,7 @@ export function HowToTocSidebar({ headings }: HowToTocSidebarProps) {
   return (
     <aside
       aria-label="Guide contents"
-      className="w-full shrink-0 border-b border-black/10 pb-[24px] lg:sticky lg:top-[104px] lg:w-auto lg:pr-[40px]"
+      className="w-full shrink-0 border-b border-black/10 pb-[24px] lg:sticky lg:top-[144px] lg:w-auto lg:pr-[40px]"
     >
       <div className="flex w-full flex-col items-start pt-[10px] lg:w-[220px]">
         <p className="font-sans text-[12px] font-normal leading-[18px] text-[#111]">

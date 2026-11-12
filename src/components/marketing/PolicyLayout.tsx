@@ -134,7 +134,7 @@ export function PolicyLayout({
 
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
             <aside className="hidden lg:col-span-4 lg:block">
-              <div className="sticky top-24 space-y-6">
+              <div className="sticky top-36 space-y-6">
                 <div className="rounded-[16px] border border-white/[0.12] bg-white/[0.04] p-5">
                   <p className="type-label mb-3 flex items-center gap-2 text-white">
                     <FeatherFileText className="h-4 w-4 text-[#5ee878]" />

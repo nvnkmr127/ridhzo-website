@@ -2,11 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Smooth in-page anchor navigation. scroll-padding-top offsets the sticky 4rem (h-16)
-   navbar so section headings aren't hidden underneath it when jumping to #anchors. */
+/* Smooth in-page anchor navigation. scroll-padding-top offsets the sticky announcement bar (40px)
+   + navbar (72px mobile / 88px desktop) so section headings aren't hidden underneath when jumping to #anchors. */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 6rem;
+  scroll-padding-top: 8.5rem;
 }
 
 /* Consistent, keyboard-only focus ring (brand green). Applied to custom interactive controls
