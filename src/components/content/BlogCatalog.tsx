@@ -5,6 +5,7 @@ import Link from "next/link";
 import type { ContentSummary } from "@/lib/content";
 import { appUrl } from "@/lib/config";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/site/Button";
 
 const PREFERRED_CATEGORY_ORDER = [
   "Sales Management",
@@ -162,7 +163,7 @@ export function BlogCatalog({ items }: { items: ContentSummary[] }) {
                       "focus-ring shrink-0 whitespace-nowrap rounded-[99px] border px-[16px] py-[8px] font-sans text-[14px] font-medium leading-[20px] transition-colors",
                       active
                         ? "border-[#5ee878] bg-[#5ee878] text-black"
-                        : "border-white/[0.32] bg-black/[0.64] text-white hover:border-white/60",
+                        : "border-white/[0.32] bg-black/[0.64] text-white hover:border-white/[0.64]",
                     )}
                   >
                     {cat}
@@ -211,7 +212,7 @@ export function BlogCatalog({ items }: { items: ContentSummary[] }) {
           </div>
 
           {/* Search Box (639:13886) */}
-          <label className="relative flex h-[48px] w-full shrink-0 items-center gap-[10px] rounded-[12px] border border-white/[0.32] bg-white px-[16px] py-[8px] transition-shadow focus-within:border-[#5ee878] focus-within:ring-2 focus-within:ring-[#5ee878]/60 md:w-[304px]">
+          <label className="relative flex h-[48px] w-full shrink-0 items-center gap-[10px] rounded-[12px] border border-white/[0.32] bg-white px-[16px] py-[8px] transition-shadow focus-within:border-[#5ee878] focus-within:ring-2 focus-within:ring-[#5ee878]/[0.48] md:w-[304px]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               alt=""
@@ -300,13 +301,15 @@ export function BlogCatalog({ items }: { items: ContentSummary[] }) {
                   </div>
 
                   {visibleCount < latestPosts.length && (
-                    <button
+                    <Button
                       type="button"
+                      size="md"
+                      variant="primary-dark"
                       onClick={() => setVisibleCount((prev) => prev + LATEST_PAGE_SIZE)}
-                      className="focus-ring inline-flex h-[48px] items-center justify-center rounded-[12px] border border-black bg-black px-[48px] font-sans text-[14px] font-medium leading-[20px] text-white transition-colors hover:bg-black/85"
+                      className="px-[48px]"
                     >
                       Load More
-                    </button>
+                    </Button>
                   )}
                 </div>
               </div>
@@ -339,7 +342,7 @@ export function BlogCatalog({ items }: { items: ContentSummary[] }) {
                     setQuery("");
                     setVisibleCount(LATEST_PAGE_SIZE);
                   }}
-                  className="focus-ring rounded-full border border-black/20 px-4 py-2 font-sans text-[13px] font-medium text-black transition-colors hover:border-black"
+                  className="focus-ring focus-ring-light rounded-full border border-black/20 px-4 py-2 font-sans text-[13px] font-medium text-black transition-colors hover:border-black"
                 >
                   Clear filters
                 </button>
@@ -363,13 +366,15 @@ export function BlogCatalog({ items }: { items: ContentSummary[] }) {
                   </div>
 
                   {visibleCount < filtered.length && (
-                    <button
+                    <Button
                       type="button"
+                      size="md"
+                      variant="primary-dark"
                       onClick={() => setVisibleCount((prev) => prev + LATEST_PAGE_SIZE)}
-                      className="focus-ring inline-flex h-[48px] items-center justify-center rounded-[12px] border border-black bg-black px-[48px] font-sans text-[14px] font-medium leading-[20px] text-white transition-colors hover:bg-black/85"
+                      className="px-[48px]"
                     >
                       Load More
-                    </button>
+                    </Button>
                   )}
                 </div>
               )}
@@ -399,7 +404,7 @@ function HorizontalFeaturedCard({
     <Link
       href={`/blog/${post.slug}`}
       className={cn(
-        "focus-ring group flex w-full flex-col gap-6 overflow-hidden rounded-[20px] border border-black/20 bg-white p-5 transition-colors hover:border-black/50 sm:p-6 lg:items-center lg:gap-[32px] lg:p-[32px]",
+        "focus-ring focus-ring-light group flex w-full flex-col gap-6 overflow-hidden rounded-[20px] border border-black/20 bg-white p-5 transition-colors hover:border-black/[0.48] sm:p-6 lg:items-center lg:gap-[32px] lg:p-[32px]",
         imageRight ? "lg:flex-row-reverse" : "lg:flex-row",
       )}
     >
@@ -427,7 +432,7 @@ function HorizontalFeaturedCard({
             {post.author ? (
               <span className="inline-flex items-center gap-[4px]">
                 <span>by</span>
-                <span className="text-[#0075cf] underline [text-underline-position:from-font]">
+                <span className="text-black underline decoration-[#5ee878] [text-underline-position:from-font]">
                   {post.author}
                 </span>
               </span>
@@ -453,7 +458,7 @@ function VerticalBlogCard({ post }: { post: ContentSummary }) {
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className="focus-ring group flex w-full flex-col items-start gap-[24px] overflow-hidden rounded-[20px] border border-black/20 bg-white p-[24px] transition-colors hover:border-black/50"
+      className="focus-ring focus-ring-light group flex w-full flex-col items-start gap-[24px] overflow-hidden rounded-[20px] border border-black/20 bg-white p-[24px] transition-colors hover:border-black/[0.48]"
     >
       <div className="relative h-[220px] w-full shrink-0 overflow-hidden rounded-[16px] sm:h-[280px] lg:h-[320px]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -479,7 +484,7 @@ function VerticalBlogCard({ post }: { post: ContentSummary }) {
             {post.author ? (
               <span className="inline-flex items-center gap-[4px]">
                 <span>by</span>
-                <span className="text-[#0075cf] underline [text-underline-position:from-font]">
+                <span className="text-black underline decoration-[#5ee878] [text-underline-position:from-font]">
                   {post.author}
                 </span>
               </span>
@@ -512,22 +517,15 @@ function InlineTrialBanner() {
           </p>
         </div>
 
-        <Link
+        <Button
           href={appUrl("/signup")}
-          className="focus-ring inline-flex h-[56px] shrink-0 items-center justify-center gap-[8px] rounded-[14px] border border-white/80 bg-white px-[24px] font-sans text-[14px] font-medium leading-[20px] text-black transition-colors hover:bg-white/90"
+          size="lg"
+          variant="primary"
+          icon="trailing"
+          className="shrink-0"
         >
           Start 14-Day Free Trial
-          <span className="relative size-[24px] shrink-0" aria-hidden="true">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              alt=""
-              src="/figma/1ef4f.svg"
-              width={24}
-              height={24}
-              className="block size-full max-w-none"
-            />
-          </span>
-        </Link>
+        </Button>
       </div>
     </section>
   );

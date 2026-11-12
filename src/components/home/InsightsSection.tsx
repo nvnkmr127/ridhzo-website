@@ -25,7 +25,7 @@ export function InsightsSection() {
             </div>
             <ul className="mt-4 space-y-3.5 py-4">
               {POINTS.map((p) => (
-                <li key={p} className="flex items-start gap-[11px] text-sm leading-5 text-white/65">
+                <li key={p} className="flex items-start gap-[11px] text-sm leading-5 text-white/[0.64]">
                   <FeatherCheckCircle className="h-5 w-5 shrink-0 text-[#5ee878]" />
                   {p}
                 </li>

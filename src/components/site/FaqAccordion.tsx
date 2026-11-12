@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { appUrl } from "@/lib/config";
-import { FeatherArrowRight, FeatherMinus, FeatherPlus } from "@/components/site/icons";
+import { Button } from "@/components/site/Button";
+import { FeatherMinus, FeatherPlus } from "@/components/site/icons";
 
 export interface FaqItem {
   q: string;
@@ -73,18 +73,15 @@ export function FaqAccordion({
               </>
             )}
           </h2>
-          <Link
+          <Button
             href={resolvedCta.href}
-            className={cn(
-              "focus-ring type-button mt-8 inline-flex h-[48px] items-center justify-center gap-[8px] rounded-[12px] border px-[20px] transition-colors",
-              isLight
-                ? "border-black/80 bg-black text-white hover:border-black hover:bg-black/80"
-                : "border-white/80 bg-white text-black hover:border-white hover:bg-white/80",
-            )}
+            size="md"
+            variant={isLight ? "primary-dark" : "primary"}
+            icon="trailing"
+            className="mt-8"
           >
             {resolvedCta.label}
-            <FeatherArrowRight className="h-5 w-5" />
-          </Link>
+          </Button>
         </div>
 
         <ul className={cn("border-t", isLight ? "border-black/20" : "border-white/[0.16]")}>
@@ -105,7 +102,7 @@ export function FaqAccordion({
                   onClick={() => setOpen(isOpen ? -1 : i)}
                   className={cn(
                     "focus-ring flex w-full items-center justify-between gap-4 px-2 py-5 text-left font-sans text-[16px] font-normal leading-[24px] transition-colors",
-                    isLight ? "text-black hover:text-black/75" : "text-white hover:text-[#5ee878]",
+                    isLight ? "focus-ring-light text-black hover:text-black/[0.64]" : "text-white hover:text-[#5ee878]",
                   )}
                 >
                   <span>{item.q}</span>
@@ -113,7 +110,7 @@ export function FaqAccordion({
                     aria-hidden="true"
                     className={cn(
                       "shrink-0 transition-colors",
-                      isOpen ? "text-[#5ee878]" : isLight ? "text-black/60" : "text-white/60",
+                      isOpen ? "text-[#5ee878]" : isLight ? "text-black/[0.64]" : "text-white/[0.64]",
                     )}
                   >
                     {isOpen ? <FeatherMinus className="h-5 w-5" /> : <FeatherPlus className="h-5 w-5" />}

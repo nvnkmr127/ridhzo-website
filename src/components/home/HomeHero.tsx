@@ -1,8 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import { motion, useReducedMotion } from "motion/react";
 import { appUrl } from "@/lib/config";
+import { Button } from "@/components/site/Button";
+import { FeatherArrowUpRight } from "@/components/site/icons";
 import { PhoneDashboardScreen } from "./PhoneDashboardMockup";
 
 const SIDEBAR_GROUPS = [
@@ -679,26 +680,17 @@ export function HomeHero() {
             </p>
 
             <div className="mt-[40px] flex w-full flex-col items-stretch gap-[16px] sm:w-auto sm:flex-row sm:items-center sm:gap-[24px] lg:mt-[72px]">
-              <Link
+              <Button
                 href="#flow"
-                className="focus-ring type-button inline-flex h-[56px] items-center justify-center gap-[8px] rounded-[14px] border border-white px-[24px] text-white transition-colors hover:bg-white/10"
+                size="lg"
+                variant="secondary-outline"
+                trailingIcon={<FeatherArrowUpRight className="h-6 w-6" />}
               >
                 See How It Works
-                <span className="relative size-[24px] shrink-0" aria-hidden="true">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img alt="" src="/figma/d9b5b.svg" className="block size-full max-w-none" />
-                </span>
-              </Link>
-              <Link
-                href={appUrl("/signup")}
-                className="focus-ring type-button inline-flex h-[56px] items-center justify-center gap-[8px] rounded-[14px] border border-white/80 bg-white px-[24px] text-black transition-colors hover:bg-white/90"
-              >
+              </Button>
+              <Button href={appUrl("/signup")} size="lg" variant="primary" icon="trailing">
                 Start 14-Day Free Trial
-                <span className="relative size-[24px] shrink-0" aria-hidden="true">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img alt="" src="/figma/1ef4f.svg" className="block size-full max-w-none" />
-                </span>
-              </Link>
+              </Button>
             </div>
 
             <ul className="mt-[24px] flex flex-wrap items-center gap-x-[32px] gap-y-3">

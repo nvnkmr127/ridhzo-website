@@ -15,9 +15,9 @@ export default function OpengraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#0a0a0a",
+          background: "#000000",
           padding: 80,
-          border: "1px solid #292929",
+          border: "1px solid rgba(255, 255, 255, 0.12)",
         }}
       >
         {/* Brand mark + wordmark */}
@@ -30,14 +30,14 @@ export default function OpengraphImage() {
               width: 72,
               height: 72,
               borderRadius: 16,
-              background: "#f5f5f5",
+              background: "#ffffff",
             }}
           >
             <svg width="40" height="40" viewBox="0 0 24 24">
-              <polygon points="13,2 3,14 12,14 11,22 21,10 12,10" fill="#0a0a0a" />
+              <polygon points="13,2 3,14 12,14 11,22 21,10 12,10" fill="#000000" />
             </svg>
           </div>
-          <span style={{ fontSize: 40, fontWeight: 700, color: "#f5f5f5" }}>
+          <span style={{ fontSize: 40, fontWeight: 700, color: "#ffffff" }}>
             Ridhzo
           </span>
         </div>
@@ -50,7 +50,7 @@ export default function OpengraphImage() {
               alignItems: "center",
               gap: 10,
               fontSize: 22,
-              color: "#999999",
+              color: "#5ee878",
               textTransform: "uppercase",
               letterSpacing: 2,
             }}
@@ -61,7 +61,7 @@ export default function OpengraphImage() {
             style={{
               fontSize: 68,
               fontWeight: 800,
-              color: "#f5f5f5",
+              color: "#ffffff",
               lineHeight: 1.1,
               maxWidth: 1000,
             }}
@@ -77,13 +77,13 @@ export default function OpengraphImage() {
             justifyContent: "space-between",
             alignItems: "center",
             fontSize: 24,
-            color: "#999999",
-            borderTop: "1px solid #292929",
+            color: "rgba(255, 255, 255, 0.64)",
+            borderTop: "1px solid rgba(255, 255, 255, 0.12)",
             paddingTop: 28,
           }}
         >
           <span>Instant capture · Push alerts · 1-tap WhatsApp · Offline pipeline</span>
-          <span style={{ color: "#f5f5f5", fontWeight: 600 }}>ridhzo.com</span>
+          <span style={{ color: "#ffffff", fontWeight: 600 }}>ridhzo.com</span>
         </div>
       </div>
     ),

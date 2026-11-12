@@ -8,8 +8,8 @@ export default function manifest(): MetadataRoute.Manifest {
       "Capture leads instantly, get vibrating push alerts, follow up in one tap on WhatsApp, and manage your pipeline offline.",
     start_url: "/",
     display: "standalone",
-    background_color: "#0a0a0a",
-    theme_color: "#0a0a0a",
+    background_color: "#000000",
+    theme_color: "#000000",
     categories: ["business", "productivity"],
     icons: [
       {

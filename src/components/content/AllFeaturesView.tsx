@@ -80,10 +80,10 @@ export function AllFeaturesView() {
   return (
     <>
       {/* Hero section (573:22295) — no z-index on inner container so hero-outline-cutout blends with glow */}
-      <section className="relative overflow-hidden bg-[#080908] px-4 py-14 text-white sm:px-8 lg:px-[84px] lg:py-[80px]">
+      <section className="relative overflow-hidden bg-black px-4 py-14 text-white sm:px-8 lg:px-[84px] lg:py-[80px]">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(760px_540px_at_6%_78%,rgba(94,232,120,0.22),rgba(94,232,120,0.07)_46%,transparent_76%)]"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(760px_540px_at_6%_78%,rgba(94,232,120,0.24),rgba(94,232,120,0.06)_50%,transparent_100%)]"
         />
 
         <div className="relative mx-auto w-full max-w-[1272px]">
@@ -153,7 +153,7 @@ export function AllFeaturesView() {
               <Link
                 key={chapter.href}
                 href={chapter.href}
-                className="focus-ring group flex flex-col items-start justify-between gap-12 rounded-[16px] border border-black/20 bg-white p-6 transition-colors hover:border-black/50 sm:p-[32px] lg:gap-[104px]"
+                className="focus-ring focus-ring-light group flex flex-col items-start justify-between gap-12 rounded-[16px] border border-black/20 bg-white p-6 transition-colors hover:border-black/[0.48] sm:p-[32px] lg:gap-[104px]"
               >
                 <div className="flex w-full items-start justify-between gap-4">
                   <span className="type-label text-black/[0.48]">
@@ -163,7 +163,7 @@ export function AllFeaturesView() {
                 </div>
 
                 <div className="flex w-full flex-col items-start">
-                  <h3 className="pb-[12px] font-inter text-[28px] font-extrabold leading-[1.08] tracking-[-0.035em] text-[#111] sm:text-[36px] lg:text-[40px] xl:text-[44px] xl:leading-[44px] xl:tracking-[-2px]">
+                  <h3 className="pb-[12px] font-inter text-[28px] font-extrabold leading-[1.08] tracking-[-0.035em] text-black sm:text-[36px] lg:text-[40px] xl:text-[44px] xl:leading-[44px] xl:tracking-[-2px]">
                     {chapter.title}
                   </h3>
                   <p className="type-body text-black/[0.48]">
@@ -180,7 +180,7 @@ export function AllFeaturesView() {
       <section className="relative z-[1] overflow-hidden bg-black px-4 py-16 text-white sm:px-8 lg:px-[84px] lg:py-[88px]">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(720px_500px_at_94%_16%,rgba(94,232,120,0.22),rgba(94,232,120,0.07)_46%,transparent_76%)]"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(720px_500px_at_94%_16%,rgba(94,232,120,0.24),rgba(94,232,120,0.06)_50%,transparent_100%)]"
         />
 
         <div className="relative mx-auto w-full max-w-[1272px]">
@@ -205,7 +205,7 @@ export function AllFeaturesView() {
               <Link
                 key={tool.href}
                 href={tool.href}
-                className="focus-ring group flex min-h-[160px] flex-col justify-between gap-[12px] rounded-[16px] border border-[#424742] bg-[#1a1e1a] p-[24px] transition-colors hover:border-[#5ee878]/70"
+                className="focus-ring group flex min-h-[160px] flex-col justify-between gap-[12px] rounded-[16px] border border-white/[0.16] bg-white/[0.06] p-[24px] transition-colors hover:border-[#5ee878]/[0.48] hover:bg-white/[0.08]"
               >
                 <div className="flex w-full flex-col items-start gap-[24px]">
                   <span className="type-label text-[#5ee878]">

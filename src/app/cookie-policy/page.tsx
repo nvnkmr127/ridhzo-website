@@ -88,44 +88,44 @@ export default function CookiePolicyPage() {
           <span>3. Categories of Cookies We Deploy</span>
         </h2>
         <div className="space-y-4 pt-1">
-          <div className="border border-white/12 rounded-2xl p-5 bg-white/[0.04] space-y-2">
+          <div className="border border-white/[0.12] rounded-2xl p-5 bg-white/[0.04] space-y-2">
             <div className="flex items-center justify-between">
               <span className="font-semibold text-white text-sm">Strictly Necessary / Essential Cookies</span>
               <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-white/[0.08] text-white">
                 Mandatory
               </span>
             </div>
-            <p className="text-sm text-white/65 leading-relaxed">
+            <p className="text-sm text-white/[0.64] leading-relaxed">
               These cookies are strictly indispensable for the core operation of Ridhzo. They maintain your encrypted
               session token, bind you to your isolated tenant database partition, and ensure payment forms process
               securely. Because the platform cannot function without them, they cannot be toggled off.
             </p>
-            <div className="text-[11px] font-mono text-white/65 pt-1">
+            <div className="text-[11px] font-mono text-white/[0.64] pt-1">
               Examples: <code>__Host-ridhzo_session</code>, <code>ridhzo_csrf</code>, <code>tenant_ctx</code>
             </div>
           </div>
 
-          <div className="border border-white/12 rounded-2xl p-5 bg-white/[0.04] space-y-2">
+          <div className="border border-white/[0.12] rounded-2xl p-5 bg-white/[0.04] space-y-2">
             <div className="flex items-center justify-between">
               <span className="font-semibold text-white text-sm">Functional &amp; Preference Cookies</span>
               <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-white/[0.08] text-white">
                 Configurable
               </span>
             </div>
-            <p className="text-sm text-white/65 leading-relaxed">
+            <p className="text-sm text-white/[0.64] leading-relaxed">
               These tokens allow the web application to recall choices you have made, such as your selected pipeline view
               (Kanban board vs. List view), notification ringtone settings, and lead filter presets.
             </p>
           </div>
 
-          <div className="border border-white/12 rounded-2xl p-5 bg-white/[0.04] space-y-2">
+          <div className="border border-white/[0.12] rounded-2xl p-5 bg-white/[0.04] space-y-2">
             <div className="flex items-center justify-between">
               <span className="font-semibold text-white text-sm">Performance &amp; Diagnostics Cookies</span>
               <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-white/[0.08] text-white">
                 Anonymized
               </span>
             </div>
-            <p className="text-sm text-white/65 leading-relaxed">
+            <p className="text-sm text-white/[0.64] leading-relaxed">
               We collect privacy-preserving, aggregated technical metrics regarding page load speed, webhook delivery
               latency, and JavaScript error logs. This telemetry never contains individual lead phone numbers or customer
               names.
@@ -169,7 +169,7 @@ export default function CookiePolicyPage() {
           advertising conversion tags (e.g., Meta Pixel or Google Tag) to measure the effectiveness of our own marketing
           campaigns.
         </p>
-        <div className="rounded-2xl border border-white/12 bg-white/[0.04] p-4">
+        <div className="rounded-2xl border border-white/[0.12] bg-white/[0.04] p-4">
           <p className="text-sm sm:text-base text-white font-medium">
             Strict Boundary: Third-party advertising pixels are never embedded inside authenticated workspace dashboards
             or pipeline views where confidential lead records are visible.
@@ -201,7 +201,7 @@ export default function CookiePolicyPage() {
             <strong>Microsoft Edge:</strong> Settings &gt; Cookies and site permissions &gt; Manage and delete cookies.
           </li>
         </ul>
-        <p className="text-sm text-white/65 pt-1">
+        <p className="text-sm text-white/[0.64] pt-1">
           Please note: If you choose to block all cookies (including strictly necessary authentication cookies), you
           will not be able to log in to your Ridhzo CRM workspace.
         </p>

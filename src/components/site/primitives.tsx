@@ -1,7 +1,8 @@
 import Image from "next/image";
-import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { FeatherArrowRight } from "@/components/site/icons";
+import { Button, buttonVariants, type ButtonProps, type ButtonSize, type ButtonVariant } from "@/components/site/Button";
+
+export { Button, buttonVariants, type ButtonProps, type ButtonSize, type ButtonVariant };
 
 /**
  * Ridhzo Design System Eyebrow label with glowing Highlight-Green halo indicator
@@ -22,7 +23,7 @@ export function Eyebrow({
     return (
       <span
         className={cn(
-          "type-label inline-flex items-center justify-center rounded-full border border-[#5ee878]/60 bg-[#5ee878]/20 px-4 py-1.5",
+          "type-label inline-flex items-center justify-center rounded-full border border-[#5ee878]/[0.48] bg-[#5ee878]/[0.16] px-4 py-1.5",
           theme === "dark" ? "text-white" : "text-black",
           className,
         )}
@@ -258,48 +259,41 @@ export function Microcopy({
   );
 }
 
-type BtnVariant = "primary" | "primary-dark" | "secondary" | "secondary-outline" | "secondary-light" | "text";
-
 type BtnProps = {
   href: string;
   children: React.ReactNode;
-  size?: "sm" | "md" | "lg";
-  variant?: BtnVariant;
+  size?: ButtonSize;
+  variant?: ButtonVariant;
   arrow?: boolean;
+  disabled?: boolean;
   className?: string;
 };
 
 /**
- * Ridhzo Design System Button component (Figma node 50:590).
- * Sizes: sm (40px / R10), md (48px / R12), lg (56px / R14).
+ * Ridhzo Design System Button link wrapper (Figma node 264:32808 / 50:590).
+ * Preserves `size = "lg"` and auto-arrow defaults for existing callers while delegating to `Button`.
  */
-export function HomeButton({ href, children, size = "lg", variant = "primary", arrow, className }: BtnProps) {
+export function HomeButton({
+  href,
+  children,
+  size = "lg",
+  variant = "primary",
+  arrow,
+  disabled,
+  className,
+}: BtnProps) {
   const showArrow = arrow ?? (variant === "primary" || variant === "primary-dark" || variant === "text");
   return (
-    <Link
+    <Button
       href={href}
-      className={cn(
-        "focus-ring type-button inline-flex items-center justify-center gap-[8px] whitespace-nowrap transition-colors",
-        size === "sm" && "h-[40px] rounded-[10px] px-[16px]",
-        size === "md" && "h-[48px] rounded-[12px] px-[20px]",
-        size === "lg" && "h-[56px] rounded-[14px] px-[24px]",
-        variant === "primary" &&
-        "border border-white/80 bg-white text-black hover:border-white hover:bg-white/80 active:border-white active:bg-white/90",
-        variant === "primary-dark" &&
-        "border border-black/80 bg-black text-white hover:border-black hover:bg-black/80 active:border-black active:bg-black/90",
-        variant === "secondary" &&
-        "border border-white/[0.12] bg-white/[0.04] text-white hover:border-white/[0.16] hover:bg-white/[0.08] active:border-white/[0.12] active:bg-white/[0.06]",
-        variant === "secondary-outline" &&
-        "border border-white bg-transparent text-white hover:bg-white/10 active:bg-white/[0.06]",
-        variant === "secondary-light" &&
-        "border border-black bg-transparent text-black hover:bg-black/[0.04] active:bg-black/[0.08]",
-        variant === "text" && "text-white/80 hover:text-white active:text-white/80",
-        className,
-      )}
+      size={size}
+      variant={variant}
+      icon={showArrow ? "trailing" : "none"}
+      disabled={disabled}
+      className={className}
     >
       {children}
-      {showArrow && <FeatherArrowRight className="h-5 w-5" />}
-    </Link>
+    </Button>
   );
 }
 
@@ -332,12 +326,12 @@ export function HomeSection({
   );
 }
 
-/** Glassmorphism frame used across showcase screenshots. */
+/** Glassmorphism frame used across showcase screenshots (uses Figma Glass Reflection). */
 export function GlassPanel({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded-[24px] border border-white/[0.12] bg-white/[0.04] backdrop-blur-md",
+        "relative overflow-hidden rounded-[24px] border border-white/[0.12] bg-white/[0.04] bg-glass-reflection backdrop-blur-md",
         className,
       )}
     >
@@ -362,7 +356,7 @@ export function FloatingChip({
   return (
     <div
       className={cn(
-        "flex items-center gap-3 rounded-xl border border-white/[0.12] bg-black/90 px-4 py-3 shadow-[0_20px_50px_rgba(0,0,0,0.5)] backdrop-blur-md",
+        "flex items-center gap-3 rounded-xl border border-white/[0.12] bg-black/80 px-4 py-3 shadow-[0_20px_50px_rgba(0,0,0,0.48)] backdrop-blur-md",
         className,
       )}
     >
@@ -371,11 +365,11 @@ export function FloatingChip({
       ) : (
         <>
           {badge ? (
-            <span className="grid h-[30px] w-[30px] shrink-0 place-items-center rounded-[9px] border border-[#28a263] bg-[#5ee878] text-[10px] font-bold text-black">
+            <span className="grid h-[30px] w-[30px] shrink-0 place-items-center rounded-[9px] border border-[#5ee878]/[0.48] bg-[#5ee878] text-[10px] font-bold text-black">
               {badge}
             </span>
           ) : (
-            <span className="h-[9px] w-[9px] shrink-0 rounded-full bg-[#5ee878] shadow-[0_0_0_5px_rgba(94,232,120,0.12),0_0_16px_rgba(94,232,120,0.45)]" />
+            <span className="h-[9px] w-[9px] shrink-0 rounded-full bg-[#5ee878] shadow-[0_0_0_5px_rgba(94,232,120,0.12),0_0_16px_rgba(94,232,120,0.48)]" />
           )}
           <div>
             {title ? <p className="text-[11px] font-bold leading-[16px] text-white">{title}</p> : null}
@@ -417,7 +411,7 @@ export function ShotPanel({
         priority={priority}
         sizes={sizes ?? "(min-width: 1024px) 50vw, 100vw"}
         className={cn(
-          "h-auto w-full rounded-[14px] border border-white/10",
+          "h-auto w-full rounded-[14px] border border-white/[0.12]",
           flush && "rounded-b-none shadow-2xl",
         )}
       />
@@ -452,8 +446,8 @@ export function GlassCard({
       className={cn(
         "rounded-[16px] border p-6 transition-colors",
         theme === "dark"
-          ? "border-white/[0.12] bg-white/[0.04] hover:border-white/[0.24] hover:bg-white/[0.06]"
-          : "border-black/20 bg-white hover:border-black/40",
+          ? "border-white/[0.12] bg-white/[0.04] hover:border-white/[0.20] hover:bg-white/[0.06]"
+          : "border-black/20 bg-white hover:border-black/[0.48]",
         className,
       )}
     >
@@ -462,15 +456,20 @@ export function GlassCard({
   );
 }
 
-/** Highlight-Green radial ambient glow (Figma Color System node 264:33003 — replaces retired #0d2710). */
+/**
+ * Highlight-Green radial ambient glow + Atmospheric Noise
+ * (Figma Color System node 264:33003: Hero Glow + Section Glow + Atmospheric Noise).
+ */
 export function PageGlows({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "pointer-events-none absolute inset-0 overflow-hidden bg-[radial-gradient(620px_420px_at_92%_6%,rgba(94,232,120,0.18),rgba(94,232,120,0.05)_48%,transparent_76%),radial-gradient(560px_420px_at_6%_76%,rgba(94,232,120,0.12),rgba(94,232,120,0.03)_50%,transparent_76%)]",
+        "pointer-events-none absolute inset-0 overflow-hidden bg-[radial-gradient(620px_420px_at_92%_6%,rgba(94,232,120,0.24),rgba(94,232,120,0.06)_50%,transparent_100%),radial-gradient(560px_420px_at_6%_76%,rgba(94,232,120,0.10),rgba(94,232,120,0.04)_50%,transparent_100%)]",
         className,
       )}
       aria-hidden="true"
-    />
+    >
+      <div className="atmospheric-noise absolute inset-0" />
+    </div>
   );
 }

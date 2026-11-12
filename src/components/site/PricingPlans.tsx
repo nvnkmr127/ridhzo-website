@@ -1,10 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import { FeatherArrowRight } from "@/components/site/icons";
 import { cn } from "@/lib/utils";
 import { PLANS, SHARED_FEATURES, PRICING_FOOTNOTE, inr } from "@/lib/plans";
+import { Button } from "./Button";
 import { Eyebrow, SectionTitle, Accent, Lead, HomeSection } from "./primitives";
 import { CheckCircleFilled } from "./icons";
 
@@ -37,7 +36,7 @@ export function PricingPlans({ showHeader = true }: { showHeader?: boolean }) {
               onClick={() => setCycle(c)}
               className={cn(
                 "focus-ring flex h-12 items-center justify-center gap-1 rounded-full px-5 text-base transition-colors sm:px-6 sm:text-lg",
-                cycle === c ? "bg-[#f5f5f5] font-semibold text-black" : "text-white",
+                cycle === c ? "bg-white font-semibold text-black" : "text-white",
               )}
             >
               <span className="capitalize">{c}</span>
@@ -59,7 +58,7 @@ export function PricingPlans({ showHeader = true }: { showHeader?: boolean }) {
               key={p.id}
               className={cn(
                 "flex flex-col justify-between overflow-hidden rounded-[30px] bg-white/[0.04]",
-                p.primary && "border-2 border-highlight/50",
+                p.primary && "border-2 border-[#5ee878]/[0.48]",
               )}
             >
               <div>
@@ -77,7 +76,7 @@ export function PricingPlans({ showHeader = true }: { showHeader?: boolean }) {
                   <h3 className="text-lg font-semibold uppercase leading-[26px] tracking-[-0.015em] text-white">{p.name}</h3>
                   <div className="flex items-center gap-2">
                     <p className="text-4xl font-extrabold leading-[42px] tracking-[-0.015em] text-white">{inr(monthlyEquivalent)}</p>
-                    <div className="text-xs leading-[18px] text-white/50">
+                    <div className="text-xs leading-[18px] text-white/[0.48]">
                       {p.monthly === 0 ? (
                         <p>Forever Free</p>
                       ) : (
@@ -91,7 +90,7 @@ export function PricingPlans({ showHeader = true }: { showHeader?: boolean }) {
                 </div>
                 <ul className="flex flex-col gap-3 px-6 pb-10">
                   {[...p.highlights, ...SHARED_FEATURES].map((f) => (
-                    <li key={f} className="flex items-start gap-2 text-sm leading-5 text-white/65">
+                    <li key={f} className="flex items-start gap-2 text-sm leading-5 text-white/[0.64]">
                       <CheckCircleFilled className="h-5 w-5 shrink-0" />
                       {f}
                     </li>
@@ -99,25 +98,22 @@ export function PricingPlans({ showHeader = true }: { showHeader?: boolean }) {
                 </ul>
               </div>
               <div className="px-6 pb-8">
-                <Link
+                <Button
                   href={p.href}
-                  className={cn(
-                    "focus-ring flex h-12 w-full items-center justify-center gap-2 rounded-xl border text-sm font-medium transition-colors",
-                    p.primary
-                      ? "border-white bg-white/80 text-black hover:bg-white"
-                      : "border-white/12 bg-white/[0.04] text-white hover:bg-white/10",
-                  )}
+                  size="md"
+                  variant={p.primary ? "primary" : "secondary"}
+                  icon="trailing"
+                  className="w-full"
                 >
                   {p.cta}
-                  <FeatherArrowRight className="h-5 w-5" />
-                </Link>
+                </Button>
               </div>
             </div>
           );
         })}
       </div>
 
-      <p className="mx-auto mt-8 max-w-[992px] text-center text-sm leading-5 text-white/50">{PRICING_FOOTNOTE}</p>
+      <p className="mx-auto mt-8 max-w-[992px] text-center text-sm leading-5 text-white/[0.48]">{PRICING_FOOTNOTE}</p>
     </HomeSection>
   );
 }

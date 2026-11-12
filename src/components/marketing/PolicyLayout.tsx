@@ -166,8 +166,8 @@ export function PolicyLayout({
                         href={policy.href}
                         aria-current={isCurrent ? "page" : undefined}
                         className={`focus-ring rounded-[16px] border p-5 transition-colors ${isCurrent
-                          ? "pointer-events-none border-[#5ee878]/50 bg-white/[0.06]"
-                          : "border-white/[0.12] bg-white/[0.04] hover:border-[#5ee878]/40 hover:bg-white/[0.07]"
+                          ? "pointer-events-none border-[#5ee878]/[0.48] bg-white/[0.06]"
+                          : "border-white/[0.12] bg-white/[0.04] hover:border-[#5ee878]/[0.48] hover:bg-white/[0.06]"
                           }`}
                       >
                         <div className="flex items-center justify-between">

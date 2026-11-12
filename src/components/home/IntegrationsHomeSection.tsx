@@ -104,7 +104,7 @@ export function IntegrationsHomeSection() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`focus-ring group flex h-[231px] flex-col items-start justify-between border-black/20 p-[20px] transition-colors hover:bg-[#5ee878]/[0.12] hover:shadow-[inset_0_0_0_1px_rgba(94,232,120,0.32)] ${
+                className={`focus-ring focus-ring-light group flex h-[231px] flex-col items-start justify-between border-black/20 p-[20px] transition-colors hover:bg-[#5ee878]/[0.12] hover:shadow-[inset_0_0_0_1px_rgba(94,232,120,0.32)] ${
                   idx === 0 ? "max-lg:rounded-t-[16px]" : ""
                 } ${item.cornerClass} ${item.borderClass}`}
               >

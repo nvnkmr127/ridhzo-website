@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { appUrl } from "@/lib/config";
 import { PRICING_FOOTNOTE, inr } from "@/lib/plans";
+import { Button } from "@/components/site/Button";
 import { FeatherX } from "@/components/site/icons";
 import { cn } from "@/lib/utils";
 
@@ -118,7 +118,7 @@ export function BillingFrequencyToggle({
         aria-pressed={cycle === "monthly"}
         onClick={() => onChange("monthly")}
         className={cn(
-          "focus-ring flex items-center justify-center rounded-[30px] px-[17px] py-[10px] font-inter text-[12px] leading-[normal] transition-colors",
+          "focus-ring focus-ring-light flex items-center justify-center rounded-[30px] px-[17px] py-[10px] font-inter text-[12px] leading-[normal] transition-colors",
           cycle === "monthly" ? "bg-black font-extrabold text-white" : "font-bold text-black/80 hover:text-black",
         )}
       >
@@ -129,7 +129,7 @@ export function BillingFrequencyToggle({
         aria-pressed={cycle === "yearly"}
         onClick={() => onChange("yearly")}
         className={cn(
-          "focus-ring flex items-center justify-center rounded-[30px] px-[17px] py-[10px] font-inter text-[12px] leading-[normal] transition-colors",
+          "focus-ring focus-ring-light flex items-center justify-center rounded-[30px] px-[17px] py-[10px] font-inter text-[12px] leading-[normal] transition-colors",
           cycle === "yearly" ? "bg-black font-extrabold text-white" : "font-bold text-black/80 hover:text-black",
         )}
       >
@@ -246,7 +246,7 @@ export function PricingCardsGrid({
                         <span
                           className={cn(
                             "flex-1 text-[14px] font-normal leading-[20px]",
-                            included ? "text-white/[0.64]" : "text-white/[0.36] line-through",
+                            included ? "text-white/[0.64]" : "text-white/[0.32] line-through",
                           )}
                         >
                           {label}
@@ -258,25 +258,15 @@ export function PricingCardsGrid({
               </div>
 
               <div className="px-[32px] pb-[32px]">
-                <Link
+                <Button
                   href={plan.href}
-                  className={cn(
-                    "focus-ring flex h-[56px] w-full items-center justify-center gap-[8px] rounded-[14px] border px-[24px] text-[14px] font-medium leading-[20px] transition-colors",
-                    plan.featured
-                      ? "border-white/80 bg-white text-black hover:bg-white/90"
-                      : "border-white text-white hover:bg-white/10",
-                  )}
+                  size="lg"
+                  variant={plan.featured ? "primary" : "secondary-outline"}
+                  icon="trailing"
+                  className="w-full"
                 >
                   {plan.cta}
-                  <span className="relative size-[24px] shrink-0" aria-hidden="true">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      alt=""
-                      src={plan.featured ? "/figma/1ef4f.svg" : "/figma/d9b5b.svg"}
-                      className="block size-full max-w-none"
-                    />
-                  </span>
-                </Link>
+                </Button>
               </div>
             </div>
           );

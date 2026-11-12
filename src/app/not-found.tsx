@@ -40,7 +40,7 @@ export default function NotFound() {
             <li key={l.href}>
               <Link
                 href={l.href}
-                className="focus-ring group flex h-full items-start justify-between gap-4 rounded-[16px] border border-black/20 bg-white p-6 transition-colors hover:border-black/50 sm:p-8"
+                className="focus-ring focus-ring-light group flex h-full items-start justify-between gap-4 rounded-[16px] border border-black/20 bg-white p-6 transition-colors hover:border-black/[0.48] sm:p-8"
               >
                 <span>
                   <span className="type-h4 block text-black">

@@ -86,7 +86,7 @@ export function FaqHomeSection() {
                       aria-expanded={isOpen}
                       aria-controls={`home-faq-panel-${idx}`}
                       onClick={() => setOpen(isOpen ? null : idx)}
-                      className="focus-ring flex w-full cursor-pointer items-center justify-between gap-4 text-left"
+                      className="focus-ring focus-ring-light flex w-full cursor-pointer items-center justify-between gap-4 text-left"
                     >
                       <span className="text-[16px] font-normal leading-[24px] text-black">{item.q}</span>
                       <span className="relative size-[20px] shrink-0" aria-hidden="true">

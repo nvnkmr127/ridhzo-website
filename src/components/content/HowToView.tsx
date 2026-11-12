@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { ContentSummary } from "@/lib/content";
 import { appUrl } from "@/lib/config";
+import { Button } from "@/components/site/Button";
 import { SiteCta } from "@/components/site/SiteCta";
 import { ContentCard } from "./ContentCard";
 
@@ -14,7 +15,7 @@ export function HowToView({ items }: { items: ContentSummary[] }) {
   return (
     <>
       {/* Section 1: How-to Hero (Figma 682:25914) — isolate on section so outlined text blends with hero glow */}
-      <section className="relative z-[1] isolate overflow-hidden bg-[#070807] px-4 py-14 text-white [font-feature-settings:normal] sm:px-8 lg:px-[84px] lg:py-[80px]">
+      <section className="relative z-[1] isolate overflow-hidden bg-black px-4 py-14 text-white [font-feature-settings:normal] sm:px-8 lg:px-[84px] lg:py-[80px]">
         {/* Bottom-left ambient green glow (682:25937, Ellipse 2) */}
         <div
           aria-hidden="true"
@@ -117,22 +118,9 @@ export function HowToView({ items }: { items: ContentSummary[] }) {
                 </p>
               </div>
 
-              <Link
-                href={appUrl("/signup")}
-                className="focus-ring inline-flex h-[56px] items-center justify-center gap-[8px] rounded-[14px] border border-white bg-white px-[24px] font-sans text-[14px] font-medium leading-[20px] text-black transition-colors hover:bg-white/90"
-              >
+              <Button href={appUrl("/signup")} size="lg" variant="primary" icon="trailing">
                 Start 14-Day Free Trial
-                <span className="relative size-[24px] shrink-0" aria-hidden="true">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    alt=""
-                    src="/figma/1ef4f.svg"
-                    width={24}
-                    height={24}
-                    className="block size-full max-w-none"
-                  />
-                </span>
-              </Link>
+              </Button>
             </div>
           </div>
         </div>

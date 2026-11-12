@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { appUrl } from "@/lib/config";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/site/Button";
 import { SectionEyebrowBar } from "@/components/home/SectionEyebrowBar";
 
 /**
@@ -53,23 +53,13 @@ export function SiteCta({
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
-              <Link
-                href={appUrl("/signup")}
-                className="focus-ring type-button inline-flex h-[56px] items-center justify-center gap-[8px] rounded-[14px] border border-white bg-white px-[24px] text-black transition-colors hover:bg-white/90"
-              >
+              <Button href={appUrl("/signup")} size="lg" variant="primary" icon="trailing">
                 Start 14-Day Free Trial
-                <span className="relative size-[24px] shrink-0" aria-hidden="true">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img alt="" src="/figma/1ef4f.svg" width={24} height={24} className="block size-full max-w-none" />
-                </span>
-              </Link>
+              </Button>
               {secondary ? (
-                <Link
-                  href={secondary.href}
-                  className="focus-ring type-button inline-flex h-[56px] items-center justify-center gap-[8px] rounded-[14px] border border-white bg-transparent px-[24px] text-white transition-colors hover:bg-white/10"
-                >
+                <Button href={secondary.href} size="lg" variant="secondary-outline">
                   {secondary.label}
-                </Link>
+                </Button>
               ) : null}
             </div>
           </div>

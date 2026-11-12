@@ -4,6 +4,7 @@ import { startTransition, useActionState, useEffect, useRef, useState } from "re
 import { submitContact, type ContactState } from "@/app/contact/actions";
 import { SUPPORT, whatsappUrl } from "@/lib/config";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/site/Button";
 import { FeatherAlertCircle, FeatherCheckCircle } from "@/components/site/icons";
 
 const LABEL = "block font-sans text-[12px] font-normal leading-[18px] text-black";
@@ -89,7 +90,7 @@ export function ContactUsSection() {
                   />
                 </span>
                 <span className="min-w-0 flex-1">
-                  <span className="block font-sans text-[18px] font-semibold leading-[25px] tracking-[-0.27px] text-[#111]">
+                  <span className="block font-sans text-[18px] font-semibold leading-[25px] tracking-[-0.27px] text-black">
                     Chat on WhatsApp
                   </span>
                   <span className="mt-[4px] block font-sans text-[12px] font-normal leading-[18px] text-black/[0.64]">
@@ -128,7 +129,7 @@ export function ContactUsSection() {
                   />
                 </span>
                 <span className="min-w-0 flex-1">
-                  <span className="block font-sans text-[18px] font-semibold leading-[25px] tracking-[-0.27px] text-[#111]">
+                  <span className="block font-sans text-[18px] font-semibold leading-[25px] tracking-[-0.27px] text-black">
                     Email us
                   </span>
                   <span className="mt-[4px] block font-sans text-[12px] font-normal leading-[18px] text-black/[0.64]">
@@ -163,7 +164,7 @@ export function ContactUsSection() {
                 />
               </span>
               <div className="min-w-0 flex-1">
-                <p className="font-sans text-[18px] font-semibold leading-[25px] tracking-[-0.27px] text-[#111]">
+                <p className="font-sans text-[18px] font-semibold leading-[25px] tracking-[-0.27px] text-black">
                   Working Hours
                 </p>
                 <p className="mt-[8px] font-sans text-[12px] font-normal leading-[18px] text-black/[0.64]">
@@ -187,13 +188,15 @@ export function ContactUsSection() {
               <p className="mx-auto mt-2 max-w-sm font-sans text-[16px] leading-[24px] text-black/[0.64]">
                 Thanks for reaching out. Our team will get back to you within a few business hours.
               </p>
-              <button
+              <Button
                 type="button"
+                size="md"
+                variant="secondary-light"
                 onClick={() => setResetKey((k) => k + 1)}
-                className="focus-ring mt-6 inline-flex h-[48px] items-center justify-center rounded-[12px] border border-black/20 bg-white px-5 font-sans text-[14px] font-medium text-black transition-colors hover:border-black focus-visible:ring-offset-white"
+                className="mt-6"
               >
                 Send another message
-              </button>
+              </Button>
             </div>
           ) : (
             <div>
@@ -332,13 +335,9 @@ export function ContactUsSection() {
                 </div>
 
                 <div className="pt-[40px]">
-                  <button
-                    type="submit"
-                    disabled={pending}
-                    className="focus-ring inline-flex h-[48px] w-full items-center justify-center rounded-[12px] border border-black/80 bg-black px-[20px] font-sans text-[14px] font-medium leading-[20px] text-white transition-colors hover:border-black hover:bg-black/85 focus-visible:ring-offset-white disabled:opacity-60"
-                  >
+                  <Button type="submit" size="md" variant="primary-dark" disabled={pending} className="w-full">
                     {pending ? "Sending…" : "Send Message"}
-                  </button>
+                  </Button>
                 </div>
               </form>
             </div>

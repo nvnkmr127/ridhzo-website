@@ -59,7 +59,7 @@ export default function TermsOfServicePage() {
           endpoints, or clicking &quot;I Agree&quot;, you represent that you have the legal capacity to enter into these
           Terms and agree to be bound by all conditions set forth herein.
         </p>
-        <div className="rounded-2xl border border-white/12 bg-white/[0.04] p-4 sm:p-5">
+        <div className="rounded-2xl border border-white/[0.12] bg-white/[0.04] p-4 sm:p-5">
           <p className="text-sm sm:text-base font-medium text-white">
             If you are registering on behalf of a company, agency, or brokerage, you represent and warrant that you
             possess full administrative authority to bind that entity to these Terms.
@@ -106,12 +106,12 @@ export default function TermsOfServicePage() {
           products or services. We maintain a zero-tolerance policy regarding spam, cold harvesting, and unsolicited
           communications:
         </p>
-        <div className="border border-destructive/40 bg-destructive/10 rounded-2xl p-5 space-y-3">
+        <div className="border border-white/[0.16] bg-white/[0.04] rounded-2xl p-5 space-y-3">
           <div className="flex items-center gap-2 text-sm font-semibold text-white">
             <FeatherAlertOctagon className="h-4 w-4 text-[#5ee878]" />
             <span>Strictly Prohibited Conduct</span>
           </div>
-          <ul className="list-disc pl-5 space-y-1.5 text-sm sm:text-base text-white/65">
+          <ul className="list-disc pl-5 space-y-1.5 text-sm sm:text-base text-white/[0.64]">
             <li>Uploading scraped, bought, or third-party phone lists without explicit opt-in consent.</li>
             <li>
               Automating unsolicited mass cold messaging or robocalling that disrupts mobile users or circumvents
@@ -160,17 +160,17 @@ export default function TermsOfServicePage() {
           <span>5. Intellectual Property &amp; Customer Lead Ownership</span>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="p-5 rounded-2xl border border-white/12 bg-white/[0.04] space-y-2">
+          <div className="p-5 rounded-2xl border border-white/[0.12] bg-white/[0.04] space-y-2">
             <h3 className="text-sm font-semibold text-white">Your Customer Data (100% Yours)</h3>
-            <p className="text-sm text-white/65 leading-relaxed">
+            <p className="text-sm text-white/[0.64] leading-relaxed">
               You retain exclusive ownership, title, and intellectual property rights to all leads, contact profiles,
               notes, sales amounts, and campaign assets loaded into your workspace. Ridhzo claims zero ownership over
               your business leads.
             </p>
           </div>
-          <div className="p-5 rounded-2xl border border-white/12 bg-white/[0.04] space-y-2">
+          <div className="p-5 rounded-2xl border border-white/[0.12] bg-white/[0.04] space-y-2">
             <h3 className="text-sm font-semibold text-white">Ridhzo Platform IP</h3>
-            <p className="text-sm text-white/65 leading-relaxed">
+            <p className="text-sm text-white/[0.64] leading-relaxed">
               Ridhzo retains all rights, title, and interest in and to the Platform, including proprietary algorithms,
               mobile PWA offline engines, source code, database architectures, trademarks, and documentation.
             </p>
@@ -232,7 +232,7 @@ export default function TermsOfServicePage() {
           TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE SERVICE IS PROVIDED &quot;AS IS&quot; AND &quot;AS
           AVAILABLE&quot; WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE.
         </p>
-        <div className="rounded-2xl border border-white/12 bg-white/[0.04] p-4 space-y-2 text-sm sm:text-base text-white/65">
+        <div className="rounded-2xl border border-white/[0.12] bg-white/[0.04] p-4 space-y-2 text-sm sm:text-base text-white/[0.64]">
           <p>
             IN NO EVENT SHALL RIDHZO, ITS DIRECTORS, EMPLOYEES, OR AFFILIATES BE LIABLE FOR ANY INDIRECT, INCIDENTAL,
             SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING LOSS OF PROFITS, DATA, USE, GOODWILL, OR OTHER

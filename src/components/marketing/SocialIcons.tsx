@@ -23,7 +23,7 @@ export function SocialIcons({ className = "" }: { className?: string }) {
             rel="noopener noreferrer"
             aria-label={`Ridhzo on ${s.label}`}
             title={s.label}
-            className="focus-ring flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-secondary/60 text-muted-foreground transition-colors hover:border-foreground/30 hover:text-foreground"
+            className="focus-ring flex h-9 w-9 items-center justify-center rounded-lg border border-white/[0.12] bg-white/[0.04] text-white/[0.64] transition-colors hover:border-white/[0.32] hover:text-white"
           >
             <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden="true">
               <path d={PATHS[s.id]} />

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { APP_URL } from "@/lib/config";
+import { Button } from "@/components/site/Button";
 import { SectionEyebrowBar } from "./SectionEyebrowBar";
 import { PhoneDashboardScreen } from "./PhoneDashboardMockup";
 
@@ -51,38 +52,41 @@ export function MobileExperienceSection() {
 
             {/* Mobile Access Card */}
             <div className="mt-2 flex w-full max-w-[480px] flex-col items-start rounded-[12px] border border-white/[0.08] bg-white/[0.06] p-[23px]">
-              <p className="type-label text-[#aaa]">GIVE YOUR TEAM MOBILE ACCESS</p>
+              <p className="type-label text-white/[0.64]">GIVE YOUR TEAM MOBILE ACCESS</p>
 
               <div className="w-full pt-[19px]">
-                <div className="w-full rounded-[12px] border border-white/[0.12] bg-[#111] p-[16px] text-[16px] font-normal leading-[24px] text-white">
+                <div className="w-full rounded-[12px] border border-white/[0.12] bg-black p-[16px] text-[16px] font-normal leading-[24px] text-white">
                   {APP_LINK_DISPLAY}
                 </div>
               </div>
 
               <div className="flex w-full flex-col gap-[12px] pb-[8px] pt-[16px] sm:flex-row">
-                <button
+                <Button
                   type="button"
                   onClick={handleCopy}
-                  className="focus-ring flex h-[40px] flex-1 items-center justify-center gap-[8px] rounded-[10px] border border-white px-[24px] text-[14px] font-medium leading-[20px] text-white transition-colors hover:bg-white/10"
-                >
-                  <span className="relative size-[24px] shrink-0" aria-hidden="true">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                  size="sm"
+                  variant="secondary-outline"
+                  className="flex-1"
+                  leadingIcon={
+                    /* eslint-disable-next-line @next/next/no-img-element */
                     <img alt="" src="/figma/a2c5c.svg" className="block size-full max-w-none" />
-                  </span>
-                  {copied ? "Link Copied" : "Copy App Link"}
-                </button>
-                <a
-                  href={waShareHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="focus-ring flex h-[40px] flex-1 items-center justify-center gap-[8px] rounded-[10px] border border-white bg-white px-[16px] text-[14px] font-medium leading-[20px] text-black transition-colors hover:bg-white/90"
+                  }
                 >
-                  <span className="relative size-[24px] shrink-0" aria-hidden="true">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                  {copied ? "Link Copied" : "Copy App Link"}
+                </Button>
+                <Button
+                  href={waShareHref}
+                  external
+                  size="sm"
+                  variant="primary"
+                  className="flex-1"
+                  leadingIcon={
+                    /* eslint-disable-next-line @next/next/no-img-element */
                     <img alt="" src="/figma/a7a8b.svg" className="block size-full max-w-none" />
-                  </span>
+                  }
+                >
                   Share on WhatsApp
-                </a>
+                </Button>
               </div>
 
               <p className="pt-[12px] text-[12px] font-normal leading-[18px] text-white/[0.48]">
@@ -122,21 +126,21 @@ export function MobileExperienceSection() {
             </div>
 
             {/* Floating Notification: New Lead Alert */}
-            <div className="absolute right-[4px] top-[79.5px] flex min-w-[202px] flex-col gap-[5px] rounded-[10px] border border-[#c1c1c1] bg-white px-[17px] py-[15px] drop-shadow-[0px_12px_16px_rgba(0,0,0,0.4)] sm:right-[8px]">
+            <div className="absolute right-[4px] top-[79.5px] flex min-w-[202px] flex-col gap-[5px] rounded-[10px] border border-black/20 bg-white px-[17px] py-[15px] drop-shadow-[0px_12px_16px_rgba(0,0,0,0.4)] sm:right-[8px]">
               <p className="font-inter text-[8.9px] font-extrabold tracking-[0.9px] text-[#5ee878]">
                 ● NEW LEAD ALERT
               </p>
-              <p className="pt-[3px] font-inter text-[14.6px] font-bold text-[#111]">Aarav Sharma</p>
-              <p className="font-inter text-[9.4px] font-normal text-[#888]">Meta Lead Ads · Just now</p>
+              <p className="pt-[3px] font-inter text-[14.6px] font-bold text-black">Aarav Sharma</p>
+              <p className="font-inter text-[9.4px] font-normal text-black/[0.48]">Meta Lead Ads · Just now</p>
             </div>
 
             {/* Floating Notification: Follow-up Set */}
-            <div className="absolute bottom-[51.2px] left-[8px] flex min-w-[202px] flex-col gap-[5px] rounded-[10px] border border-[#c1c1c1] bg-white px-[17px] py-[15px] drop-shadow-[0px_12px_16px_rgba(0,0,0,0.4)] sm:left-[24px]">
+            <div className="absolute bottom-[51.2px] left-[8px] flex min-w-[202px] flex-col gap-[5px] rounded-[10px] border border-black/20 bg-white px-[17px] py-[15px] drop-shadow-[0px_12px_16px_rgba(0,0,0,0.4)] sm:left-[24px]">
               <p className="font-inter text-[9px] font-extrabold tracking-[0.9px] text-[#5ee878]">
                 ✓ FOLLOW-UP SET
               </p>
-              <p className="pt-[3px] font-inter text-[14.9px] font-bold text-[#111]">Tomorrow · 11 AM</p>
-              <p className="font-inter text-[9.5px] font-normal text-[#888]">Priya Kapoor · Site visit</p>
+              <p className="pt-[3px] font-inter text-[14.9px] font-bold text-black">Tomorrow · 11 AM</p>
+              <p className="font-inter text-[9.5px] font-normal text-black/[0.48]">Priya Kapoor · Site visit</p>
             </div>
           </div>
         </div>

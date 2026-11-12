@@ -46,12 +46,12 @@ export default function ShippingPolicyPage() {
           Ridhzo Technologies Pvt. Ltd. operates exclusively as a provider of cloud-hosted <strong>Software-as-a-Service
           (SaaS)</strong> and Progressive Web Application (PWA) solutions.
         </p>
-        <div className="rounded-2xl border border-white/12 bg-white/[0.04] p-5 space-y-2">
+        <div className="rounded-2xl border border-white/[0.12] bg-white/[0.04] p-5 space-y-2">
           <div className="flex items-center gap-2 text-white font-semibold text-sm">
             <FeatherCheckCircle className="h-4 w-4 text-[#5ee878]" />
             <span>No Physical Goods Shipped</span>
           </div>
-          <p className="text-sm sm:text-base text-white/65 leading-relaxed">
+          <p className="text-sm sm:text-base text-white/[0.64] leading-relaxed">
             We do not manufacture, package, or distribute physical goods, boxed media, hardware tokens, or paper
             materials. Consequently, no physical freight, courier shipping, customs processing, or parcel tracking is
             involved with any transaction on Ridhzo.
@@ -94,16 +94,16 @@ export default function ShippingPolicyPage() {
         </h2>
         <p>Your subscription grants electronic access across all supported device platforms:</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
-          <div className="p-4 rounded-2xl border border-white/12 bg-white/[0.04] space-y-2">
+          <div className="p-4 rounded-2xl border border-white/[0.12] bg-white/[0.04] space-y-2">
             <h3 className="text-sm font-semibold text-white">Mobile Progressive Web App (PWA)</h3>
-            <p className="text-sm text-white/65 leading-relaxed">
+            <p className="text-sm text-white/[0.64] leading-relaxed">
               Installable directly to iOS home screens (via Safari) and Android devices (via Chrome). Delivers vibrating
               hardware push alerts, 1-tap WhatsApp deep links, and field-grade offline outbox synchronization.
             </p>
           </div>
-          <div className="p-4 rounded-2xl border border-white/12 bg-white/[0.04] space-y-2">
+          <div className="p-4 rounded-2xl border border-white/[0.12] bg-white/[0.04] space-y-2">
             <h3 className="text-sm font-semibold text-white">Cloud Desktop Portal</h3>
-            <p className="text-sm text-white/65 leading-relaxed">
+            <p className="text-sm text-white/[0.64] leading-relaxed">
               Accessible through any modern web browser (Google Chrome, Apple Safari, Mozilla Firefox, Microsoft Edge)
               at <code>app.ridhzo.com</code> without requiring local desktop software installations.
             </p>
@@ -158,9 +158,9 @@ export default function ShippingPolicyPage() {
           If you have completed payment but have not received your workspace activation confirmation or cannot access
           your dashboard within 5 minutes:
         </p>
-        <div className="rounded-2xl border border-white/12 bg-white/[0.04] p-5 space-y-3 text-sm sm:text-base">
+        <div className="rounded-2xl border border-white/[0.12] bg-white/[0.04] p-5 space-y-3 text-sm sm:text-base">
           <p className="text-white">Please reach out through our rapid resolution channels:</p>
-          <ul className="list-disc pl-5 space-y-1 text-white/65">
+          <ul className="list-disc pl-5 space-y-1 text-white/[0.64]">
             <li>
               Check your spam or promotions email folder for your payment receipt and GST invoice email from Ridhzo Billing.
             </li>

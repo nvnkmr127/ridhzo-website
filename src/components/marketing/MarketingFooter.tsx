@@ -1,5 +1,6 @@
 import { appUrl, SOCIAL_LINKS } from "@/lib/config";
 import Link from "next/link";
+import { Button } from "@/components/site/Button";
 import { CookieSettingsButton } from "@/components/analytics/CookieSettingsButton";
 import { hasAnyTag } from "@/lib/analytics-config";
 import { RidhzoLogo } from "./RidhzoLogo";
@@ -89,23 +90,16 @@ export function MarketingFooter() {
             <Link href="/" aria-label="Ridhzo home" className="focus-ring inline-flex w-fit items-center rounded-md">
               <RidhzoLogo tone="light" />
             </Link>
-            <p className="text-[16px] font-normal leading-[24px] text-white/[0.41]">
+            <p className="text-[16px] font-normal leading-[24px] text-white/[0.48]">
               The mobile-first CRM built to help sales teams respond faster and follow through.
             </p>
           </div>
 
           <div className="flex flex-col items-start gap-[12px] sm:items-center">
-            <Link
-              href={appUrl("/signup")}
-              className="focus-ring inline-flex h-[48px] items-center justify-center gap-[8px] rounded-[12px] border border-white bg-white px-[20px] text-[14px] font-medium leading-[20px] text-black transition-colors hover:bg-white/90"
-            >
+            <Button href={appUrl("/signup")} size="md" variant="primary" icon="trailing">
               Start Free
-              <span className="relative size-[24px] shrink-0" aria-hidden="true">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img alt="" src="/figma/7e649.svg" className="block size-full max-w-none" />
-              </span>
-            </Link>
-            <p className="whitespace-nowrap text-[12px] font-normal leading-[18px] text-white/[0.41]">
+            </Button>
+            <p className="whitespace-nowrap text-[12px] font-normal leading-[18px] text-white/[0.48]">
               No credit card · Free forever
             </p>
           </div>
@@ -122,7 +116,7 @@ export function MarketingFooter() {
                     <li key={link.label}>
                       <Link
                         href={link.href}
-                        className="focus-ring rounded-sm text-[16px] font-normal leading-[24px] text-white/[0.41] transition-colors hover:text-white"
+                        className="focus-ring rounded-sm text-[16px] font-normal leading-[24px] text-white/[0.48] transition-colors hover:text-white"
                       >
                         {link.label}
                       </Link>
@@ -155,7 +149,7 @@ export function MarketingFooter() {
 
         {/* Legal */}
         <div className="flex w-full flex-col gap-[24px] pt-[56px]">
-          <div className="h-px w-full bg-white/10" aria-hidden="true" />
+          <div className="h-px w-full bg-white/[0.12]" aria-hidden="true" />
           <div className="flex w-full flex-col items-start justify-between gap-4 text-[12px] font-normal leading-[18px] text-white/[0.64] sm:flex-row sm:items-center">
             <p>© {new Date().getFullYear()} Ridhzo. All rights reserved.</p>
             <ul className="flex flex-wrap items-center gap-x-[24px] gap-y-3">

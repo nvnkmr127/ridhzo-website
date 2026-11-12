@@ -184,7 +184,7 @@ export function PipelineFaq() {
                 aria-expanded={isOpen}
                 aria-controls={`pipeline-faq-panel-${idx}`}
                 onClick={() => setOpen(isOpen ? null : idx)}
-                className="focus-ring flex w-full cursor-pointer items-center justify-between gap-4 text-left"
+                className="focus-ring focus-ring-light flex w-full cursor-pointer items-center justify-between gap-4 text-left"
               >
                 <span className="font-sans text-[16px] font-normal leading-[24px] text-black">
                   {item.q}

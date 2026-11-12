@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { appUrl } from "@/lib/config";
+import { Button } from "@/components/site/Button";
 import { LEAD_FAQ_JSON_LD } from "./lead-management-faqs";
 import {
   LeadInboxPreview,
@@ -65,7 +66,7 @@ export function LeadManagementView() {
   return (
     <div className="relative">
       {/* Section 1: Hero (573:22503) — no z-index on inner container so mix-blend-lighten blends ACTION. over glow */}
-      <section className="relative overflow-hidden bg-[#070807] px-4 py-14 text-white sm:px-8 lg:px-[84px] lg:py-[80px]">
+      <section className="relative overflow-hidden bg-black px-4 py-14 text-white sm:px-8 lg:px-[84px] lg:py-[80px]">
         {/* Ambient green glow behind the lead inbox card (573:22504) */}
         <div
           aria-hidden="true"
@@ -160,16 +161,9 @@ export function LeadManagementView() {
 
               {/* CTA (573:22526) */}
               <div className="pt-[32px]">
-                <Link
-                  href={appUrl("/signup")}
-                  className="focus-ring type-button inline-flex h-[56px] items-center justify-center gap-[8px] rounded-[14px] border border-white/80 bg-white px-[24px] text-black transition-colors hover:bg-white/90"
-                >
+                <Button href={appUrl("/signup")} size="lg" variant="primary" icon="trailing">
                   Start 14-Day Free Trial
-                  <span className="relative size-[24px] shrink-0" aria-hidden="true">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img alt="" src="/figma/1ef4f.svg" width={24} height={24} className="block size-full max-w-none" />
-                  </span>
-                </Link>
+                </Button>
               </div>
             </div>
 
@@ -271,7 +265,7 @@ export function LeadManagementView() {
                   <span className="w-[32.23px] shrink-0 font-sans text-[12px] font-normal leading-[18px] text-[#5ee878]">
                     {step.num}
                   </span>
-                  <span className="type-body-sm text-[#e9e9e9]">
+                  <span className="type-body-sm text-white/80">
                     {step.label}
                   </span>
                 </li>
@@ -330,7 +324,7 @@ export function LeadManagementView() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="focus-ring group flex min-h-[180px] flex-col rounded-[13px] border border-black/20 bg-white p-[28px] transition-colors hover:border-black/50"
+                className="focus-ring focus-ring-light group flex min-h-[180px] flex-col rounded-[13px] border border-black/20 bg-white p-[28px] transition-colors hover:border-black/[0.48]"
               >
                 <span className="type-label text-black/[0.48]">
                   EXPLORE
@@ -384,16 +378,9 @@ export function LeadManagementView() {
               <span className="italic text-[#5ee878]">lands</span>.
             </p>
 
-            <Link
-              href={appUrl("/signup")}
-              className="focus-ring inline-flex h-[56px] items-center justify-center gap-[8px] rounded-[14px] border border-white bg-white px-[24px] font-sans text-[14px] font-medium leading-[20px] text-black transition-colors hover:bg-white/90"
-            >
+            <Button href={appUrl("/signup")} size="lg" variant="primary" icon="trailing">
               Start 14-Day Free Trial
-              <span className="relative size-[24px] shrink-0" aria-hidden="true">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img alt="" src="/figma/1ef4f.svg" width={24} height={24} className="block size-full max-w-none" />
-              </span>
-            </Link>
+            </Button>
           </div>
         </div>
       </section>

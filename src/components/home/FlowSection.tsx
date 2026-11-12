@@ -400,8 +400,8 @@ export function FlowSection() {
                     aria-controls={`flow-panel-${tab.id}`}
                     onClick={() => setActive(tab.id)}
                     className={cn(
-                      "focus-ring flex min-h-[140px] w-full cursor-pointer flex-col items-start gap-[24px] border-b border-black/20 last:border-b-0 p-[24px] text-left transition-colors lg:min-h-[185px] lg:gap-[40px]",
-                      isSelected ? "bg-black text-white" : "bg-white text-black hover:bg-black/[0.03]",
+                      "focus-ring focus-ring-light flex min-h-[140px] w-full cursor-pointer flex-col items-start gap-[24px] border-b border-black/20 last:border-b-0 p-[24px] text-left transition-colors lg:min-h-[185px] lg:gap-[40px]",
+                      isSelected ? "bg-black text-white" : "bg-white text-black hover:bg-black/[0.04]",
                     )}
                   >
                     <span

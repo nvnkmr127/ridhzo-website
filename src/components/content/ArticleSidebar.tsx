@@ -6,6 +6,7 @@ import type { ContentHeading, ContentSummary, ContentType } from "@/lib/content"
 import { CONTENT_ROUTES } from "@/lib/content-routes";
 import { appUrl } from "@/lib/config";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/site/Button";
 
 const COMPACT_DATE_FORMATTER = new Intl.DateTimeFormat("en-GB", {
   day: "numeric",
@@ -91,12 +92,12 @@ export function ArticleSidebar({
   const relatedTitle = contentType === "blog" ? "Related Blogs" : `More in ${routeLabel}`;
 
   return (
-    <aside className="w-full shrink-0 rounded-[12px] bg-black/[0.05] p-[16px] lg:w-[352px]">
+    <aside className="w-full shrink-0 rounded-[12px] bg-black/[0.04] p-[16px] lg:w-[352px]">
       {/* Table of Contents (639:14184) */}
       {hasToc && (
         <nav
           aria-label="Table of Contents"
-          className="flex w-full flex-col items-start justify-center gap-[12px] border-b border-black/10 pb-[24px]"
+          className="flex w-full flex-col items-start justify-center gap-[12px] border-b border-black/20 pb-[24px]"
         >
           <p className="font-sans text-[16px] font-normal leading-[24px] text-black">
             Table of Contents
@@ -107,7 +108,7 @@ export function ArticleSidebar({
                 <a
                   href={`#${heading.id}`}
                   onClick={(e) => handleTocClick(e, heading.id)}
-                  className="focus-ring block rounded-sm leading-[20px] text-black transition-colors hover:underline [text-underline-position:from-font] focus-visible:ring-offset-white"
+                  className="focus-ring focus-ring-light block rounded-sm leading-[20px] text-black transition-colors hover:underline [text-underline-position:from-font]"
                 >
                   {heading.text}
                 </a>
@@ -118,7 +119,7 @@ export function ArticleSidebar({
                         <a
                           href={`#${sub.id}`}
                           onClick={(e) => handleTocClick(e, sub.id)}
-                          className="focus-ring inline rounded-sm leading-[20px] text-black transition-colors hover:underline [text-underline-position:from-font] focus-visible:ring-offset-white"
+                          className="focus-ring focus-ring-light inline rounded-sm leading-[20px] text-black transition-colors hover:underline [text-underline-position:from-font]"
                         >
                           {stripOrderedPrefix(sub.text)}
                         </a>
@@ -135,7 +136,7 @@ export function ArticleSidebar({
       {/* Share on social Media (639:14187) */}
       <div
         className={cn(
-          "flex w-full flex-col items-start justify-center gap-[12px] border-b border-black/10 pb-[24px]",
+          "flex w-full flex-col items-start justify-center gap-[12px] border-b border-black/20 pb-[24px]",
           hasToc ? "pt-[24px]" : "pt-0",
         )}
       >
@@ -231,7 +232,7 @@ export function ArticleSidebar({
 
       {/* Related Blogs (639:14210) */}
       {visibleRelated.length > 0 && (
-        <div className="flex w-full flex-col items-start justify-center gap-[12px] border-b border-black/10 py-[24px]">
+        <div className="flex w-full flex-col items-start justify-center gap-[12px] border-b border-black/20 py-[24px]">
           <p className="font-sans text-[16px] font-normal leading-[24px] text-black">
             {relatedTitle}
           </p>
@@ -242,7 +243,7 @@ export function ArticleSidebar({
                 <Link
                   key={r.slug}
                   href={`${CONTENT_ROUTES[r.type].path}/${r.slug}`}
-                  className="focus-ring group flex w-full items-center gap-[12px] rounded-[6px] transition-opacity hover:opacity-85 focus-visible:ring-offset-white"
+                  className="focus-ring focus-ring-light group flex w-full items-center gap-[12px] rounded-[6px] transition-opacity hover:opacity-80"
                 >
                   {r.image ? (
                     <div className="relative h-[64px] w-[96px] shrink-0 overflow-hidden rounded-[5.745px]">
@@ -265,7 +266,7 @@ export function ArticleSidebar({
                       {r.author ? (
                         <span className="inline-flex items-center gap-[4px]">
                           <span className="text-black/[0.48]">by</span>
-                          <span className="text-[#0075cf] underline [text-underline-position:from-font]">
+                          <span className="text-black underline decoration-[#5ee878] [text-underline-position:from-font]">
                             {r.author}
                           </span>
                         </span>
@@ -286,7 +287,7 @@ export function ArticleSidebar({
 
       {/* Sidebar Trial CTA Box (639:14243) */}
       <div className="w-full pt-[24px]">
-        <div className="flex w-full flex-col items-start gap-[16px] rounded-[8px] bg-black/10 p-[12px]">
+        <div className="flex w-full flex-col items-start gap-[16px] rounded-[8px] border border-black/20 bg-white p-[12px]">
           <p className="w-full font-inter text-[32px] font-bold uppercase leading-[normal] tracking-[-0.416px] text-black">
             NEXT LEAD WON&rsquo;T WAIT.
           </p>
@@ -296,21 +297,15 @@ export function ArticleSidebar({
               <span className="text-black">big customer</span>. Be ready when it{" "}
               <span className="text-black">lands</span>.
             </p>
-            <Link
+            <Button
               href={appUrl("/signup")}
-              className="focus-ring flex h-[48px] w-full items-center justify-center gap-[8px] rounded-[12px] border border-black/80 bg-black px-[20px] font-sans text-[14px] font-medium leading-[20px] text-white transition-colors hover:bg-black/85 focus-visible:ring-offset-white"
+              size="md"
+              variant="primary-dark"
+              icon="trailing"
+              className="w-full"
             >
               Start 14-Day Free Trial
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                alt=""
-                src="/figma/9206a.svg"
-                width={24}
-                height={24}
-                aria-hidden="true"
-                className="block size-[24px] shrink-0 max-w-none"
-              />
-            </Link>
+            </Button>
           </div>
         </div>
       </div>

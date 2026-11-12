@@ -1,10 +1,12 @@
 import Link from "next/link";
 import { appUrl } from "@/lib/config";
+import { Button } from "@/components/site/Button";
+import { FeatherArrowUpRight } from "@/components/site/icons";
 
 /** Figma Pricing Hero section (639:14521): "START FREE." */
 export function PricingHeroSection() {
   return (
-    <section className="relative z-[1] overflow-hidden bg-[#070807] px-4 py-14 sm:px-8 lg:px-[84px] lg:py-[80px]">
+    <section className="relative z-[1] overflow-hidden bg-black px-4 py-14 sm:px-8 lg:px-[84px] lg:py-[80px]">
       <div className="relative mx-auto flex w-full max-w-[1272px] flex-col items-start">
         {/* Ambient right-edge green glow (639:14522) */}
         <div
@@ -74,26 +76,17 @@ export function PricingHeroSection() {
           </div>
 
           <div className="flex w-full flex-col items-stretch gap-4 pt-[48px] sm:flex-row sm:items-center sm:gap-[24px] lg:pt-[72px]">
-            <Link
-              href={appUrl("/signup")}
-              className="focus-ring type-button inline-flex h-[56px] items-center justify-center gap-[8px] rounded-[14px] border border-white/80 bg-white px-[24px] text-black transition-colors hover:bg-white/90"
-            >
+            <Button href={appUrl("/signup")} size="lg" variant="primary" icon="trailing">
               Start 14-Day Free Trial
-              <span className="relative size-[24px] shrink-0" aria-hidden="true">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img alt="" src="/figma/1ef4f.svg" className="block size-full max-w-none" />
-              </span>
-            </Link>
-            <Link
+            </Button>
+            <Button
               href="#compare-plans"
-              className="focus-ring type-button inline-flex h-[56px] items-center justify-center gap-[8px] rounded-[14px] border border-white px-[24px] text-white transition-colors hover:bg-white/10"
+              size="lg"
+              variant="secondary-outline"
+              trailingIcon={<FeatherArrowUpRight className="h-6 w-6" />}
             >
               Compare Features
-              <span className="relative size-[24px] shrink-0" aria-hidden="true">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img alt="" src="/figma/d9b5b.svg" className="block size-full max-w-none" />
-              </span>
-            </Link>
+            </Button>
           </div>
         </div>
       </div>

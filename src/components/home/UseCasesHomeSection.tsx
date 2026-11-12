@@ -69,7 +69,7 @@ export function UseCasesHomeSection() {
             const isActive = idx === active;
             return (
               <li key={c.title} className="flex flex-col gap-4 pb-5">
-                <span className="relative block h-[3px] w-full bg-white/30" aria-hidden="true">
+                <span className="relative block h-[3px] w-full bg-white/[0.32]" aria-hidden="true">
                   {isActive && (
                     <span
                       key={`${active}-${running}`}
@@ -89,7 +89,7 @@ export function UseCasesHomeSection() {
                       className={cn("h-5 w-5 transition-opacity", isActive ? "text-highlight opacity-100" : "opacity-0")}
                     />
                   </span>
-                  <span className={cn("text-base leading-6 transition-colors", isActive ? "text-white/65" : "text-white/50")}>
+                  <span className={cn("text-base leading-6 transition-colors", isActive ? "text-white/[0.64]" : "text-white/[0.48]")}>
                     {c.body}
                   </span>
                 </Link>

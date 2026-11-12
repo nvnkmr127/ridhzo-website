@@ -22,7 +22,7 @@ export function HowToTocSidebar({ headings }: HowToTocSidebarProps) {
     if (tocItems.length === 0) return;
 
     const updateActive = () => {
-      const offset = 150;
+      const offset = 164;
       let current = tocItems[0].id;
       for (const heading of tocItems) {
         const el = document.getElementById(heading.id);
@@ -56,12 +56,13 @@ export function HowToTocSidebar({ headings }: HowToTocSidebarProps) {
                 <a
                   key={heading.id}
                   href={`#${heading.id}`}
+                  aria-current={isActive ? "true" : undefined}
                   onClick={() => setActiveId(heading.id)}
                   className={cn(
-                    "block w-full border-solid px-[13px] py-[11px] font-sans text-[14px] leading-[20px] transition-colors",
+                    "focus-ring focus-ring-light block w-full border-solid px-[13px] py-[11px] font-sans text-[14px] leading-[20px] transition-colors",
                     isActive
                       ? "border-l-2 border-[#5ee878] bg-[#5ee878]/[0.16] font-medium text-[#111]"
-                      : "border-l border-black/20 font-normal text-black/[0.64] hover:border-black/40 hover:text-[#111]"
+                      : "border-l border-black/20 font-normal text-black/[0.64] hover:border-black/[0.48] hover:text-[#111]"
                   )}
                 >
                   {heading.text}

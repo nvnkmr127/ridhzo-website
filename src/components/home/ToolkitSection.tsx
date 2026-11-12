@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { Button } from "@/components/site/Button";
+import { FeatherArrowUpRight } from "@/components/site/icons";
 import { SectionEyebrowBar } from "./SectionEyebrowBar";
 
 const LEAD_ROWS = [
@@ -349,16 +350,14 @@ export function ToolkitSection() {
 
         {/* Bottom CTA */}
         <div className="flex w-full items-center justify-center pt-[48px] lg:pt-[72px]">
-          <Link
+          <Button
             href="/features"
-            className="focus-ring inline-flex h-[56px] items-center justify-center gap-[8px] rounded-[14px] border border-white px-[24px] text-[14px] font-medium leading-[20px] text-white transition-colors hover:bg-white/10"
+            size="lg"
+            variant="secondary-outline"
+            trailingIcon={<FeatherArrowUpRight className="h-6 w-6" />}
           >
             See every Ridhzo feature
-            <span className="relative size-[24px] shrink-0" aria-hidden="true">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img alt="" src="/figma/d9b5b.svg" className="block size-full max-w-none" />
-            </span>
-          </Link>
+          </Button>
         </div>
       </div>
     </section>

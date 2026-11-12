@@ -21,15 +21,15 @@ export function WhySection() {
             top of the follow-up.
           </Lead>
         </div>
-        <ol className="border-t border-white/30">
+        <ol className="border-t border-white/20">
           {ROWS.map((r) => (
             <li
               key={r.n}
-              className="grid grid-cols-[32px_1fr] gap-x-4 gap-y-1 border-b border-white/30 py-7 sm:grid-cols-[40px_150px_1fr] sm:gap-x-5"
+              className="grid grid-cols-[32px_1fr] gap-x-4 gap-y-1 border-b border-white/20 py-7 sm:grid-cols-[40px_150px_1fr] sm:gap-x-5"
             >
               <span className="text-sm leading-5 text-highlight">{r.n}</span>
-              <h3 className="text-base leading-6 text-[#f7f7f5]">{r.title}</h3>
-              <p className="col-start-2 text-sm leading-5 text-[#7f7f7a] sm:col-start-auto">{r.body}</p>
+              <h3 className="text-base leading-6 text-white">{r.title}</h3>
+              <p className="col-start-2 text-sm leading-5 text-white/[0.64] sm:col-start-auto">{r.body}</p>
             </li>
           ))}
         </ol>

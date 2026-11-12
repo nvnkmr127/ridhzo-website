@@ -3,6 +3,7 @@ import type { ContentItem, ContentSummary } from "@/lib/content";
 import { CONTENT_ROUTES } from "@/lib/content-routes";
 import { appUrl, SITE_URL } from "@/lib/config";
 import { formatDate, stripEmoji } from "@/lib/utils";
+import { Button } from "@/components/site/Button";
 import { ArticleSidebar } from "./ArticleSidebar";
 
 /**
@@ -155,7 +156,7 @@ export function ArticleLayout({ item, related = [] }: { item: ContentItem; relat
               {badgeLabel ? <span className="text-[#5ee878]">{badgeLabel}</span> : null}
 
               {item.type !== "blog" && item.keyMetric ? (
-                <span className="rounded-full border border-[#5ee878]/60 bg-[#5ee878]/20 px-3 py-0.5 text-[12px] font-medium text-[#5ee878]">
+                <span className="rounded-full border border-[#5ee878]/[0.48] bg-[#5ee878]/[0.16] px-3 py-0.5 text-[12px] font-medium text-[#5ee878]">
                   {item.keyMetric}
                 </span>
               ) : null}
@@ -199,7 +200,7 @@ export function ArticleLayout({ item, related = [] }: { item: ContentItem; relat
                 "[&_blockquote]:my-[24px] [&_blockquote:last-child]:mb-0 [&_blockquote]:border-l-2 [&_blockquote]:border-[#5ee878] [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-black/80",
                 "[&_code]:rounded [&_code]:bg-black/[0.06] [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:font-mono [&_code]:text-[14px] [&_code]:text-black [&_pre_code]:bg-transparent [&_pre_code]:p-0",
                 "[&_pre]:my-[24px] [&_pre:last-child]:mb-0 [&_pre]:overflow-x-auto [&_pre]:rounded-[10px] [&_pre]:bg-black/[0.05] [&_pre]:p-4",
-                "[&_table]:my-[24px] [&_table:last-child]:mb-0 [&_table]:w-full [&_table]:border-collapse [&_table]:overflow-hidden [&_table]:rounded-[8px] [&_table]:border [&_table]:border-black/15 [&_table]:text-left [&_table]:text-[14px] [&_th]:bg-black/[0.04] [&_th]:px-4 [&_th]:py-2.5 [&_th]:font-semibold [&_th]:text-black [&_td]:border-t [&_td]:border-black/10 [&_td]:px-4 [&_td]:py-2.5 [&_td]:text-black/[0.64]",
+                "[&_table]:my-[24px] [&_table:last-child]:mb-0 [&_table]:w-full [&_table]:border-collapse [&_table]:overflow-hidden [&_table]:rounded-[8px] [&_table]:border [&_table]:border-black/20 [&_table]:text-left [&_table]:text-[14px] [&_th]:bg-black/[0.04] [&_th]:px-4 [&_th]:py-2.5 [&_th]:font-semibold [&_th]:text-black [&_td]:border-t [&_td]:border-black/20 [&_td]:px-4 [&_td]:py-2.5 [&_td]:text-black/[0.64]",
               ].join(" ")}
               dangerouslySetInnerHTML={{ __html: item.html }}
             />
@@ -242,16 +243,9 @@ export function ArticleLayout({ item, related = [] }: { item: ContentItem; relat
               <span className="italic text-[#5ee878]">lands</span>.
             </p>
 
-            <Link
-              href={appUrl("/signup")}
-              className="focus-ring inline-flex h-[56px] items-center justify-center gap-[8px] rounded-[14px] border border-white bg-white px-[24px] font-sans text-[14px] font-medium leading-[20px] text-black transition-colors hover:bg-white/90"
-            >
+            <Button href={appUrl("/signup")} size="lg" variant="primary" icon="trailing">
               Start 14-Day Free Trial
-              <span className="relative size-[24px] shrink-0" aria-hidden="true">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img alt="" src="/figma/1ef4f.svg" width={24} height={24} className="block size-full max-w-none" />
-              </span>
-            </Link>
+            </Button>
           </div>
         </div>
       </section>

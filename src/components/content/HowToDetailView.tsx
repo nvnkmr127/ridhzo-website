@@ -36,7 +36,7 @@ export function HowToDetailView({ item }: HowToDetailViewProps) {
   ];
 
   return (
-    <div className="bg-black text-white [font-feature-settings:normal]">
+    <div className="relative z-[1] bg-black text-white [font-feature-settings:normal]">
       {/* Dark Hero Section (Figma 682:27091) */}
       <section className="relative isolate overflow-hidden bg-black">
         <div
@@ -50,7 +50,7 @@ export function HowToDetailView({ item }: HowToDetailViewProps) {
                 <img
                   src="/figma/e0d40.svg"
                   alt=""
-                  className="block h-full w-full max-w-none"
+                  className="block size-full max-w-none"
                 />
               </div>
             </div>
@@ -67,7 +67,7 @@ export function HowToDetailView({ item }: HowToDetailViewProps) {
                 <li key={crumb.href} className="inline-flex items-center gap-[2px]">
                   <Link
                     href={crumb.href}
-                    className="text-white/[0.48] transition-colors hover:text-white"
+                    className="focus-ring rounded-sm text-white/[0.48] transition-colors hover:text-white"
                   >
                     {crumb.label}
                   </Link>
@@ -78,7 +78,7 @@ export function HowToDetailView({ item }: HowToDetailViewProps) {
                     width={16}
                     height={16}
                     aria-hidden="true"
-                    className="block h-[16px] w-[16px] shrink-0 max-w-none"
+                    className="block size-[16px] shrink-0 max-w-none"
                   />
                 </li>
               ))}
@@ -103,7 +103,7 @@ export function HowToDetailView({ item }: HowToDetailViewProps) {
                     width={20}
                     height={20}
                     aria-hidden="true"
-                    className="h-[20px] w-[20px] shrink-0"
+                    className="block size-[20px] shrink-0 max-w-none"
                   />
                   <span className="text-white underline decoration-from-font [text-underline-position:from-font]">
                     {item.author}
@@ -120,7 +120,7 @@ export function HowToDetailView({ item }: HowToDetailViewProps) {
                     width={20}
                     height={20}
                     aria-hidden="true"
-                    className="h-[20px] w-[20px] shrink-0"
+                    className="block size-[20px] shrink-0 max-w-none"
                   />
                   <time dateTime={item.date} className="text-white/[0.64]">
                     {formattedDate}
@@ -136,7 +136,7 @@ export function HowToDetailView({ item }: HowToDetailViewProps) {
                   width={20}
                   height={20}
                   aria-hidden="true"
-                  className="h-[20px] w-[20px] shrink-0"
+                  className="block size-[20px] shrink-0 max-w-none"
                 />
                 <span className="text-white/[0.64]">
                   {item.readingTime} min read
@@ -152,7 +152,7 @@ export function HowToDetailView({ item }: HowToDetailViewProps) {
       </section>
 
       {/* Two-Column White Guide Body (Figma 682:27117) */}
-      <section className="w-full bg-white pb-[88px] pt-[40px] text-black">
+      <section className="w-full bg-white pb-[64px] pt-[32px] text-black lg:pb-[88px] lg:pt-[40px]">
         <div className="mx-auto flex w-full max-w-[1440px] flex-col items-start gap-[32px] px-[24px] sm:px-[48px] lg:flex-row lg:px-[84px]">
           <HowToTocSidebar headings={item.headings} />
 
@@ -162,7 +162,7 @@ export function HowToDetailView({ item }: HowToDetailViewProps) {
             </p>
 
             <article
-              className="w-full font-sans text-[16px] font-normal leading-[32px] text-black/[0.64] [&_a]:font-medium [&_a]:text-[#111] [&_a]:underline [&_a]:decoration-[#5ee878] [&_a]:decoration-2 [&_a]:underline-offset-4 hover:[&_a]:text-black [&_blockquote]:mb-[16px] [&_blockquote]:border-l-2 [&_blockquote]:border-[#5ee878] [&_blockquote]:bg-[#5ee878]/[0.12] [&_blockquote]:px-[13px] [&_blockquote]:py-[20px] [&_blockquote]:font-sans [&_blockquote]:text-[14px] [&_blockquote]:font-normal [&_blockquote]:not-italic [&_blockquote]:leading-[20px] [&_blockquote]:text-black/[0.64] [&_blockquote_p]:mb-[12px] [&_blockquote_p]:text-[14px] [&_blockquote_p]:leading-[20px] [&_blockquote_p:last-child]:mb-0 [&_blockquote_strong]:font-semibold [&_blockquote_strong]:text-black [&_code]:rounded-[4px] [&_code]:bg-black/[0.06] [&_code]:px-[6px] [&_code]:py-[1px] [&_code]:font-mono [&_code]:text-[13px] [&_code]:text-[#111] [&_em]:italic [&_h2]:mb-[16px] [&_h2]:mt-[24px] [&_h2]:scroll-mt-[112px] [&_h2]:font-inter [&_h2]:text-[24px] [&_h2]:font-bold [&_h2]:leading-[normal] [&_h2]:tracking-[-0.312px] [&_h2]:text-black first:[&_h2]:mt-0 [&_h3]:mb-[8px] [&_h3]:mt-[20px] [&_h3]:font-inter [&_h3]:text-[18px] [&_h3]:font-semibold [&_h3]:leading-[normal] [&_h3]:tracking-[-0.2px] [&_h3]:text-black [&_hr]:my-[24px] [&_hr]:border-black/10 [&_img]:my-[16px] [&_img]:rounded-[12px] [&_img]:border [&_img]:border-black/10 [&_li]:ms-[24px] [&_li]:leading-[32px] [&_ol]:mb-[16px] [&_ol]:list-decimal [&_ol]:pl-0 [&_ol:last-child]:mb-0 [&_p]:mb-[16px] [&_p]:leading-[32px] [&_p+ol]:-mt-[16px] [&_p+ul]:-mt-[16px] [&_p:last-child]:mb-0 [&_strong]:font-semibold [&_strong]:text-[#111] [&_ul]:mb-[16px] [&_ul]:list-disc [&_ul]:pl-0 [&_ul:last-child]:mb-0 [&>blockquote:last-child]:mb-0"
+              className="w-full break-words font-sans text-[16px] font-normal leading-[32px] text-black/[0.64] [&_a]:font-medium [&_a]:text-black [&_a]:underline [&_a]:decoration-[#5ee878] [&_a]:decoration-2 [&_a]:underline-offset-4 hover:[&_a]:text-black [&_blockquote]:mb-[16px] [&_blockquote]:border-l-2 [&_blockquote]:border-[#5ee878] [&_blockquote]:bg-[#5ee878]/[0.12] [&_blockquote]:px-[13px] [&_blockquote]:py-[20px] [&_blockquote]:font-sans [&_blockquote]:text-[14px] [&_blockquote]:font-normal [&_blockquote]:not-italic [&_blockquote]:leading-[20px] [&_blockquote]:text-black/[0.64] [&_blockquote_p]:mb-[12px] [&_blockquote_p]:text-[14px] [&_blockquote_p]:leading-[20px] [&_blockquote_p:first-child:not(:only-child):has(>strong:only-child)]:text-[16px] [&_blockquote_p:first-child:not(:only-child):has(>strong:only-child)]:text-black [&_blockquote_p:last-child]:mb-0 [&_blockquote_strong]:font-semibold [&_blockquote_strong]:text-black [&_code]:rounded-[4px] [&_code]:bg-black/[0.06] [&_code]:px-[6px] [&_code]:py-[1px] [&_code]:font-mono [&_code]:text-[13px] [&_code]:text-black [&_em]:italic [&_h2]:mb-[16px] [&_h2]:mt-[24px] [&_h2]:scroll-mt-[144px] [&_h2]:font-inter [&_h2]:text-[24px] [&_h2]:font-bold [&_h2]:leading-[normal] [&_h2]:tracking-[-0.312px] [&_h2]:text-black [&_h2:first-child]:mt-0 [&_h3]:mb-[8px] [&_h3]:mt-[20px] [&_h3]:scroll-mt-[144px] [&_h3]:font-inter [&_h3]:text-[20px] [&_h3]:font-bold [&_h3]:leading-[normal] [&_h3]:tracking-[-0.26px] [&_h3]:text-black [&_h3:first-child]:mt-0 [&_hr]:my-[24px] [&_hr]:border-black/20 [&_img]:my-[16px] [&_img]:rounded-[12px] [&_img]:border [&_img]:border-black/20 [&_li]:ms-[24px] [&_li]:leading-[32px] [&_li::marker]:text-black/[0.64] [&_li>p]:mb-0 [&_li>p]:leading-[32px] [&_ol]:mb-[16px] [&_ol]:list-decimal [&_ol]:pl-0 [&_ol:last-child]:mb-0 [&_p]:mb-[16px] [&_p]:leading-[32px] [&_p+ol]:-mt-[16px] [&_p+ul]:-mt-[16px] [&_p:last-child]:mb-0 [&_pre]:mb-[16px] [&_pre]:overflow-x-auto [&_pre]:rounded-[10px] [&_pre]:border [&_pre]:border-white/[0.12] [&_pre]:bg-[#121212] [&_pre]:p-[24px] [&_pre]:text-[13px] [&_pre]:leading-[22px] [&_pre]:text-white [&_pre_code]:bg-transparent [&_pre_code]:p-0 [&_pre_code]:text-inherit [&_strong]:font-semibold [&_strong]:text-black [&_table]:mb-[16px] [&_table]:w-full [&_table]:border-collapse [&_td]:border-b [&_td]:border-black/10 [&_td]:py-[12px] [&_td]:text-[14px] [&_td]:leading-[20px] [&_td]:text-black/[0.64] [&_th]:border-b [&_th]:border-black/20 [&_th]:py-[12px] [&_th]:text-left [&_th]:text-[14px] [&_th]:font-semibold [&_th]:leading-[20px] [&_th]:text-black [&_ul]:mb-[16px] [&_ul]:list-disc [&_ul]:pl-0 [&_ul:last-child]:mb-0 [&>blockquote:last-child]:mb-0"
               dangerouslySetInnerHTML={{ __html: bodyHtml }}
             />
           </div>

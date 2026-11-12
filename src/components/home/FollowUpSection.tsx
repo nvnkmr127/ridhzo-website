@@ -27,18 +27,18 @@ function Panel({
   preview: React.ReactNode;
 }) {
   return (
-    <div className="flex min-h-[500px] flex-1 flex-col rounded-3xl bg-[linear-gradient(145deg,rgba(255,255,255,0.043)_6%,transparent_34%),linear-gradient(180deg,#101013,#08080a)] p-6 shadow-[0_40px_90px_rgba(0,0,0,0.38)] sm:p-8">
+    <div className="flex min-h-[500px] flex-1 flex-col rounded-3xl border border-white/[0.12] bg-white/[0.04] bg-glass-reflection p-6 shadow-[0_40px_90px_rgba(0,0,0,0.48)] sm:p-8">
       <div className="flex items-center gap-4">
         <span className="grid h-10 w-10 shrink-0 place-items-center rounded-[10px] bg-highlight text-black">
           <Icon className="h-6 w-6" aria-hidden="true" />
         </span>
         <div>
           <h3 className="text-lg font-semibold leading-[26px] tracking-[-0.015em] text-white">{title}</h3>
-          <p className="pt-0.5 text-xs leading-[18px] text-white/50">{subtitle}</p>
+          <p className="pt-0.5 text-xs leading-[18px] text-white/[0.48]">{subtitle}</p>
         </div>
       </div>
       <div className="flex gap-2 py-4 sm:gap-4">{children}</div>
-      <div className="flex-1 overflow-hidden rounded-xl border border-[#252525] bg-[#0b0c0d] drop-shadow-[0_28px_65px_rgba(0,0,0,0.46)]">
+      <div className="flex-1 overflow-hidden rounded-xl border border-white/[0.12] bg-black drop-shadow-[0_28px_65px_rgba(0,0,0,0.48)]">
         {preview}
       </div>
     </div>
@@ -79,7 +79,7 @@ export function FollowUpSection() {
             <div key={s.label} className={SIGNAL_CARD}>
               <p className="text-[10px] font-bold leading-3 tracking-[0.096em] text-highlight/80">{s.label}</p>
               <p className="text-lg font-semibold leading-[26px] tracking-[-0.015em] text-white">{s.count}</p>
-              <p className="text-[9px] leading-[14px] text-white/65">{s.note}</p>
+              <p className="text-[9px] leading-[14px] text-white/[0.64]">{s.note}</p>
             </div>
           ))}
         </Panel>

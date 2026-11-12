@@ -61,7 +61,7 @@ export default function PrivacyPolicyPage() {
           automated lead ingestion, pipeline tracking, and instant WhatsApp follow-up tooling for sales professionals,
           real estate brokers, marketing agencies, financial advisors, and independent business owners.
         </p>
-        <div className="rounded-2xl border border-white/12 bg-white/[0.04] p-4 sm:p-5">
+        <div className="rounded-2xl border border-white/[0.12] bg-white/[0.04] p-4 sm:p-5">
           <p className="text-sm sm:text-base font-medium text-white">
             Core Commitment: We never sell, rent, monetize, or cross-train machine learning models on your lead data.
             Your leads belong exclusively to your tenant workspace.
@@ -77,20 +77,20 @@ export default function PrivacyPolicyPage() {
         </h2>
         <p>Under international data protection frameworks, our role depends on the category of data being processed:</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
-          <div className="p-4 rounded-2xl border border-white/12 bg-white/[0.04] space-y-2">
+          <div className="p-4 rounded-2xl border border-white/[0.12] bg-white/[0.04] space-y-2">
             <h3 className="text-sm sm:text-base font-semibold text-white uppercase tracking-wider">
               Ridhzo as Data Controller
             </h3>
-            <p className="text-sm text-white/65 leading-relaxed">
+            <p className="text-sm text-white/[0.64] leading-relaxed">
               We act as the Data Controller for your workspace administrative data: subscriber account registration,
               team member email addresses, billing invoices, and website usage telemetry.
             </p>
           </div>
-          <div className="p-4 rounded-2xl border border-white/12 bg-white/[0.04] space-y-2">
+          <div className="p-4 rounded-2xl border border-white/[0.12] bg-white/[0.04] space-y-2">
             <h3 className="text-sm sm:text-base font-semibold text-white uppercase tracking-wider">
               Ridhzo as Data Processor
             </h3>
-            <p className="text-sm text-white/65 leading-relaxed">
+            <p className="text-sm text-white/[0.64] leading-relaxed">
               For the end-customer leads you capture (prospect names, phone numbers, notes, ad attributes),{" "}
               <strong>you (the subscriber) are the Data Controller</strong>, and Ridhzo acts strictly as a Data
               Processor under your operational instructions.
@@ -147,26 +147,26 @@ export default function PrivacyPolicyPage() {
           respective platform provider policies:
         </p>
         <div className="space-y-4 pt-1">
-          <div className="border border-white/12 rounded-2xl p-4 bg-white/[0.04]">
+          <div className="border border-white/[0.12] rounded-2xl p-4 bg-white/[0.04]">
             <h4 className="font-semibold text-white text-sm">Meta (Facebook &amp; Instagram) Lead Ads</h4>
-            <p className="text-sm text-white/65 mt-1">
+            <p className="text-sm text-white/[0.64] mt-1">
               When you connect Meta Lead Ads via OAuth or incoming webhooks, we verify incoming SHA-256 HMAC payload
               signatures. We extract the ad form responses and route them directly to your isolated workspace. We do
               not utilize Facebook lead data for ad retargeting or third-party profiling.
             </p>
           </div>
 
-          <div className="border border-white/12 rounded-2xl p-4 bg-white/[0.04]">
+          <div className="border border-white/[0.12] rounded-2xl p-4 bg-white/[0.04]">
             <h4 className="font-semibold text-white text-sm">Google Ads Lead Form Extensions</h4>
-            <p className="text-sm text-white/65 mt-1">
+            <p className="text-sm text-white/[0.64] mt-1">
               We process webhook payloads authenticated via Google Ads Webhook Keys. Lead records are stored solely in
               your tenant account to facilitate your sales team&apos;s follow-up.
             </p>
           </div>
 
-          <div className="border border-white/12 rounded-2xl p-4 bg-white/[0.04]">
+          <div className="border border-white/[0.12] rounded-2xl p-4 bg-white/[0.04]">
             <h4 className="font-semibold text-white text-sm">WhatsApp Messaging (`wa.me` &amp; Watxio API)</h4>
-            <p className="text-sm text-white/65 mt-1">
+            <p className="text-sm text-white/[0.64] mt-1">
               When reps tap &quot;Contact on WhatsApp&quot;, Ridhzo initiates a secure client-side deep link (
               <code>wa.me/&lt;number&gt;?text=&lt;encoded_template&gt;</code>) or transmits through official WhatsApp Cloud
               APIs. You are responsible for ensuring consent from prospects prior to outbound messaging in compliance
@@ -235,15 +235,15 @@ export default function PrivacyPolicyPage() {
           sub-processors who adhere to stringent security obligations:
         </p>
         <div className="overflow-x-auto">
-          <table className="w-full min-w-[500px] text-left text-xs border border-white/12 mt-2">
-            <thead className="bg-white/[0.08]/50 text-white border-b border-white/12">
+          <table className="w-full min-w-[500px] text-left text-xs border border-white/[0.12] mt-2">
+            <thead className="bg-white/[0.04] text-white border-b border-white/[0.12]">
               <tr>
                 <th className="p-3">Sub-Processor</th>
                 <th className="p-3">Purpose</th>
                 <th className="p-3">Security Safeguards</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-border text-white/65">
+            <tbody className="divide-y divide-border text-white/[0.64]">
               <tr>
                 <td className="p-3 font-medium text-white">AWS / Neon Cloud</td>
                 <td className="p-3">Encrypted Cloud Hosting &amp; Serverless Postgres</td>
@@ -336,19 +336,19 @@ export default function PrivacyPolicyPage() {
           In accordance with the Information Technology Act, 2000, and the Digital Personal Data Protection Act, 2023,
           the designated Grievance Officer for Ridhzo is:
         </p>
-        <div className="rounded-2xl border border-white/12 bg-white/[0.04] p-5 space-y-2 text-sm sm:text-base">
+        <div className="rounded-2xl border border-white/[0.12] bg-white/[0.04] p-5 space-y-2 text-sm sm:text-base">
           <p className="font-semibold text-white">Grievance &amp; Data Protection Officer</p>
-          <p className="text-white/65">Ridhzo Technologies Pvt. Ltd.</p>
-          <p className="text-white/65">
+          <p className="text-white/[0.64]">Ridhzo Technologies Pvt. Ltd.</p>
+          <p className="text-white/[0.64]">
             Email:{" "}
             <a href="mailto:legal@ridhzo.com" className="text-highlight underline underline-offset-4">
               legal@ridhzo.com
             </a>{" "}
             (Attn: Data Grievance)
           </p>
-          <p className="text-white/65">Phone: +91 98201 44520</p>
-          <p className="text-white/65">Hours: Monday – Saturday, 9:00 AM – 8:00 PM IST</p>
-          <p className="text-sm text-white/65 pt-2">
+          <p className="text-white/[0.64]">Phone: +91 98201 44520</p>
+          <p className="text-white/[0.64]">Hours: Monday – Saturday, 9:00 AM – 8:00 PM IST</p>
+          <p className="text-sm text-white/[0.64] pt-2">
             Grievances are formally acknowledged within 24 hours and addressed within 15 business days.
           </p>
         </div>

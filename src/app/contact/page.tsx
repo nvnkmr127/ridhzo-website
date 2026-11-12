@@ -13,7 +13,7 @@ export default function ContactPage() {
   return (
     <>
       {/* Section 1: Contact Hero (Figma 650:16123) — isolate on section so TALK blends only with hero bg + glow */}
-      <section className="relative z-[1] isolate overflow-hidden bg-[#070807] px-4 py-14 text-white [font-feature-settings:normal] sm:px-8 lg:px-[84px] lg:py-[80px]">
+      <section className="relative z-[1] isolate overflow-hidden bg-black px-4 py-14 text-white [font-feature-settings:normal] sm:px-8 lg:px-[84px] lg:py-[80px]">
         {/* Centered-bottom ambient green glow (650:16124) */}
         <div
           aria-hidden="true"

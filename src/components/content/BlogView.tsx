@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { ContentSummary } from "@/lib/content";
 import { appUrl } from "@/lib/config";
+import { Button } from "@/components/site/Button";
 import { BlogCatalog } from "./BlogCatalog";
 
 const HERO_OUTLINE_CLS =
@@ -129,16 +130,9 @@ export function BlogView({ items }: { items: ContentSummary[] }) {
               <span className="italic text-[#5ee878]">lands</span>.
             </p>
 
-            <Link
-              href={appUrl("/signup")}
-              className="focus-ring inline-flex h-[56px] items-center justify-center gap-[8px] rounded-[14px] border border-white bg-white px-[24px] font-sans text-[14px] font-medium leading-[20px] text-black transition-colors hover:bg-white/90"
-            >
+            <Button href={appUrl("/signup")} size="lg" variant="primary" icon="trailing">
               Start 14-Day Free Trial
-              <span className="relative size-[24px] shrink-0" aria-hidden="true">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img alt="" src="/figma/1ef4f.svg" width={24} height={24} className="block size-full max-w-none" />
-              </span>
-            </Link>
+            </Button>
           </div>
         </div>
       </section>

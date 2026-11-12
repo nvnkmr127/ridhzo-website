@@ -4,7 +4,8 @@ import { appUrl } from "@/lib/config";
 import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FeatherMenu, FeatherX, FeatherChevronDown, FeatherArrowRight } from "@/components/site/icons";
+import { Button } from "@/components/site/Button";
+import { FeatherMenu, FeatherX, FeatherChevronDown } from "@/components/site/icons";
 import { RidhzoLogo } from "./RidhzoLogo";
 import {
   FEATURE_CATEGORIES,
@@ -148,9 +149,9 @@ export function MarketingNavbar() {
       </div>
 
       {/* Figma Homepage/Navigation (570:10654) */}
-      <header ref={headerRef} className="relative w-full border-b border-black/[0.08] bg-white text-black [font-feature-settings:normal] lg:h-[88px]">
+      <header ref={headerRef} className="relative w-full border-b border-black/20 bg-white text-black [font-feature-settings:normal] lg:h-[88px]">
         <div className="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between px-4 sm:px-6 lg:h-full lg:px-[32px]">
-          <Link href="/" aria-label="Ridhzo home" className="focus-ring flex shrink-0 items-center rounded-md py-1">
+          <Link href="/" aria-label="Ridhzo home" className="focus-ring focus-ring-light flex shrink-0 items-center rounded-md py-1">
             <RidhzoLogo tone="dark" />
           </Link>
 
@@ -162,7 +163,7 @@ export function MarketingNavbar() {
                 aria-expanded={openMenu === "product"}
                 aria-controls="nav-panel-product"
                 onClick={() => handleMenuClick("product")}
-                className={`focus-ring flex items-center gap-[4px] rounded-md py-2 text-[16px] leading-[24px] transition-colors hover:text-black/70 ${openMenu === "product" || active === "product" ? "font-medium text-black" : "font-normal text-black"
+                className={`focus-ring focus-ring-light flex items-center gap-[4px] rounded-md py-2 text-[16px] leading-[24px] transition-colors hover:text-black/[0.64] ${openMenu === "product" || active === "product" ? "font-medium text-black" : "font-normal text-black"
                   }`}
               >
                 Product
@@ -178,7 +179,7 @@ export function MarketingNavbar() {
                 aria-expanded={openMenu === "solutions"}
                 aria-controls="nav-panel-solutions"
                 onClick={() => handleMenuClick("solutions")}
-                className={`focus-ring flex items-center gap-[4px] rounded-md py-2 text-[16px] leading-[24px] transition-colors hover:text-black/70 ${openMenu === "solutions" || active === "solutions" ? "font-medium text-black" : "font-normal text-black"
+                className={`focus-ring focus-ring-light flex items-center gap-[4px] rounded-md py-2 text-[16px] leading-[24px] transition-colors hover:text-black/[0.64] ${openMenu === "solutions" || active === "solutions" ? "font-medium text-black" : "font-normal text-black"
                   }`}
               >
                 Solutions
@@ -191,7 +192,7 @@ export function MarketingNavbar() {
             <Link
               href="/pricing"
               aria-current={active === "/pricing" ? "page" : undefined}
-              className={`focus-ring rounded-md py-2 text-[16px] leading-[24px] transition-colors ${active === "/pricing" ? "font-bold text-[#5ee878] hover:text-[#5ee878]/85" : "font-normal text-black hover:text-black/70"
+              className={`focus-ring focus-ring-light rounded-md py-2 text-[16px] leading-[24px] transition-colors ${active === "/pricing" ? "font-bold text-[#5ee878] hover:text-[#5ee878]/80" : "font-normal text-black hover:text-black/[0.64]"
                 }`}
             >
               Pricing
@@ -203,7 +204,7 @@ export function MarketingNavbar() {
                 aria-expanded={openMenu === "resources"}
                 aria-controls="nav-panel-resources"
                 onClick={() => handleMenuClick("resources")}
-                className={`focus-ring flex items-center gap-[4px] rounded-md py-2 text-[16px] leading-[24px] transition-colors hover:text-black/70 ${openMenu === "resources" || active === "resources" ? "font-medium text-black" : "font-normal text-black"
+                className={`focus-ring focus-ring-light flex items-center gap-[4px] rounded-md py-2 text-[16px] leading-[24px] transition-colors hover:text-black/[0.64] ${openMenu === "resources" || active === "resources" ? "font-medium text-black" : "font-normal text-black"
                   }`}
               >
                 Resources
@@ -216,7 +217,7 @@ export function MarketingNavbar() {
             <Link
               href="/contact"
               aria-current={active === "/contact" ? "page" : undefined}
-              className={`focus-ring rounded-md py-2 text-[16px] leading-[24px] transition-colors ${active === "/contact" ? "font-bold text-[#5ee878] hover:text-[#5ee878]/85" : "font-normal text-black hover:text-black/70"
+              className={`focus-ring focus-ring-light rounded-md py-2 text-[16px] leading-[24px] transition-colors ${active === "/contact" ? "font-bold text-[#5ee878] hover:text-[#5ee878]/80" : "font-normal text-black hover:text-black/[0.64]"
                 }`}
             >
               Contact
@@ -225,36 +226,23 @@ export function MarketingNavbar() {
 
           {/* Desktop Actions */}
           <div className="hidden items-center justify-end gap-[20px] lg:flex">
-            <Link
-              href={appUrl("/login")}
-              className="focus-ring inline-flex h-[48px] items-center justify-center rounded-[8px] border border-black px-[20px] text-[14px] font-medium leading-[20px] text-black transition-colors hover:bg-black/[0.04]"
-            >
+            <Button href={appUrl("/login")} size="md" variant="secondary-light">
               Sign in
-            </Link>
-            <Link
-              href={appUrl("/signup")}
-              className="focus-ring inline-flex h-[48px] items-center justify-center gap-[8px] rounded-[12px] bg-black px-[20px] text-[14px] font-medium leading-[20px] text-white transition-colors hover:bg-black/90"
-            >
+            </Button>
+            <Button href={appUrl("/signup")} size="md" variant="primary-dark" icon="trailing">
               Start Free Trial
-              <span className="relative size-[24px] shrink-0" aria-hidden="true">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img alt="" src="/figma/be558.svg" className="block size-full max-w-none" />
-              </span>
-            </Link>
+            </Button>
           </div>
 
           {/* Mobile Actions */}
           <div className="flex items-center gap-2 lg:hidden">
-            <Link
-              href={appUrl("/signup")}
-              className="focus-ring inline-flex h-9 items-center rounded-[10px] bg-black px-3 text-xs font-medium text-white transition-colors hover:bg-black/90"
-            >
+            <Button href={appUrl("/signup")} size="sm" variant="primary-dark">
               Start Free
-            </Link>
+            </Button>
             <button
               type="button"
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="focus-ring rounded-md p-2 text-black/70 hover:bg-black/[0.05] hover:text-black"
+              className="focus-ring focus-ring-light rounded-md p-2 text-black/[0.64] hover:bg-black/[0.04] hover:text-black"
               aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
               aria-expanded={mobileOpen}
               aria-controls="mobile-nav-drawer"
@@ -272,7 +260,7 @@ export function MarketingNavbar() {
             onMouseLeave={hoverClose}
             className="pointer-events-none absolute inset-x-0 top-full hidden justify-center pt-2 lg:flex"
           >
-            <div className="pointer-events-auto w-[850px] max-w-[calc(100vw-2rem)] rounded-[17px] border border-[#d6d6d6] bg-white px-[28px] pb-[24.75px] pt-[28px] text-black shadow-[0px_28px_40px_rgba(0,0,0,0.13)] [font-feature-settings:normal]">
+            <div className="pointer-events-auto w-[850px] max-w-[calc(100vw-2rem)] rounded-[17px] border border-black/20 bg-white px-[28px] pb-[24.75px] pt-[28px] text-black shadow-[0px_28px_40px_rgba(0,0,0,0.13)] [font-feature-settings:normal]">
               {openMenu === "product" ? (
                 <DropdownGridPanel
                   eyebrow="EXPLORE PRODUCT"
@@ -305,7 +293,7 @@ export function MarketingNavbar() {
         {mobileOpen && (
           <div
             id="mobile-nav-drawer"
-            className="h-[calc(100dvh-112px)] overflow-y-auto overscroll-contain border-t border-black/10 bg-white px-4 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-2 text-black lg:hidden"
+            className="h-[calc(100dvh-112px)] overflow-y-auto overscroll-contain border-t border-black/20 bg-white px-4 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-2 text-black lg:hidden"
           >
             <nav aria-label="Primary" className="flex flex-col text-sm font-medium text-black">
               {(
@@ -323,7 +311,7 @@ export function MarketingNavbar() {
                       key={entry.label}
                       href={entry.href}
                       onClick={closeAll}
-                      className="focus-ring flex min-h-[48px] items-center border-b border-black/10 px-1"
+                      className="focus-ring focus-ring-light flex min-h-[48px] items-center border-b border-black/20 px-1"
                     >
                       {entry.label}
                     </Link>
@@ -331,17 +319,17 @@ export function MarketingNavbar() {
                 }
                 const isOpen = mobileSection === entry.id;
                 return (
-                  <div key={entry.id} className="border-b border-black/10">
+                  <div key={entry.id} className="border-b border-black/20">
                     <button
                       type="button"
                       onClick={() => setMobileSection(isOpen ? null : entry.id)}
                       aria-expanded={isOpen}
                       aria-controls={`mobile-section-${entry.id}`}
-                      className="focus-ring flex min-h-[48px] w-full items-center justify-between px-1 text-left"
+                      className="focus-ring focus-ring-light flex min-h-[48px] w-full items-center justify-between px-1 text-left"
                     >
                       {entry.label}
                       <FeatherChevronDown
-                        className={`h-4 w-4 text-black/60 transition-transform ${isOpen ? "rotate-180" : ""}`}
+                        className={`h-4 w-4 text-black/[0.64] transition-transform ${isOpen ? "rotate-180" : ""}`}
                       />
                     </button>
                     {isOpen ? (
@@ -350,7 +338,7 @@ export function MarketingNavbar() {
                           <div className="space-y-4">
                             {FEATURE_CATEGORIES.map((cat) => (
                               <div key={cat.id}>
-                                <p className="px-1 pb-1 text-[11px] font-semibold uppercase tracking-wider text-black/50">
+                                <p className="px-1 pb-1 text-[11px] font-semibold uppercase tracking-wider text-black/[0.48]">
                                   {cat.label}
                                 </p>
                                 <MobileLinks items={featuresByCategory(cat.id)} onNavigate={closeAll} />
@@ -370,19 +358,12 @@ export function MarketingNavbar() {
               })}
             </nav>
             <div className="flex flex-col gap-2.5 pt-5">
-              <Link
-                href={appUrl("/signup")}
-                className="focus-ring inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-black text-sm font-medium text-white transition-colors hover:bg-black/90"
-              >
+              <Button href={appUrl("/signup")} size="md" variant="primary-dark" icon="trailing" className="w-full">
                 Start Free Trial
-                <FeatherArrowRight className="h-4 w-4" />
-              </Link>
-              <Link
-                href={appUrl("/login")}
-                className="focus-ring inline-flex h-12 w-full items-center justify-center rounded-xl border border-black text-sm font-medium text-black transition-colors hover:bg-black/[0.04]"
-              >
+              </Button>
+              <Button href={appUrl("/login")} size="md" variant="secondary-light" className="w-full">
                 Sign in
-              </Link>
+              </Button>
             </div>
           </div>
         )}
@@ -443,7 +424,7 @@ function DropdownGridPanel({
 }) {
   return (
     <div>
-      <p className="text-[12px] font-normal leading-[18px] text-[#767676]">{eyebrow}</p>
+      <p className="text-[12px] font-normal leading-[18px] text-black/[0.48]">{eyebrow}</p>
       <div className="mt-[12px] grid grid-cols-2 gap-x-[24px] gap-y-[16px]">
         {items.map((item) => (
           <DropdownLinkCard
@@ -454,22 +435,16 @@ function DropdownGridPanel({
             onNavigate={onNavigate}
           />
         ))}
-        <Link
+        <Button
           href={footer.href}
           onClick={onNavigate}
-          className="focus-ring col-span-2 flex h-[56px] w-full items-center justify-center gap-[8px] rounded-[14px] border border-white/80 bg-black px-[24px] text-[14px] font-medium leading-[20px] text-white transition-colors hover:bg-black/90 focus-visible:ring-offset-white"
+          size="lg"
+          variant="primary-dark"
+          icon="trailing"
+          className="col-span-2 w-full"
         >
           {footer.label}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            alt=""
-            src="/figma/nav-781ad.svg"
-            width={24}
-            height={24}
-            aria-hidden="true"
-            className="block size-[24px] shrink-0 max-w-none"
-          />
-        </Link>
+        </Button>
       </div>
     </div>
   );
@@ -485,7 +460,7 @@ function MobileLinks({ items, onNavigate }: { items: readonly NavItem[]; onNavig
             <Link
               href={item.href}
               onClick={onNavigate}
-              className="focus-ring flex min-h-[44px] items-center gap-3 rounded-lg px-2 text-sm text-black/70 transition-colors hover:bg-[#5ee878]/20 hover:text-black"
+              className="focus-ring focus-ring-light flex min-h-[44px] items-center gap-3 rounded-lg px-2 text-sm text-black/[0.64] transition-colors hover:bg-[#5ee878]/20 hover:text-black"
             >
               {Icon ? <Icon className="h-4 w-4 shrink-0 text-black" aria-hidden="true" /> : null}
               <span>{item.label}</span>

@@ -166,7 +166,7 @@ export function ContentIndex({
                 <a
                   key={g.id}
                   href={`#${g.id}`}
-                  className="focus-ring rounded-full border border-black/20 px-4 py-1.5 font-sans text-[13px] font-medium text-black transition-colors hover:border-black hover:bg-black hover:text-white"
+                  className="focus-ring focus-ring-light rounded-full border border-black/20 px-4 py-1.5 font-sans text-[13px] font-medium text-black transition-colors hover:border-black hover:bg-black hover:text-white"
                 >
                   {g.index} · {g.label}
                 </a>
@@ -176,7 +176,7 @@ export function ContentIndex({
             <div className="mt-14 space-y-16">
               {primaryGroups.map((g) => (
                 <div key={g.id} id={g.id} className="scroll-mt-24">
-                  <div className="mb-6 flex flex-wrap items-baseline justify-between gap-2 border-b border-black/15 pb-4">
+                  <div className="mb-6 flex flex-wrap items-baseline justify-between gap-2 border-b border-black/20 pb-4">
                     <div>
                       <span className="type-label text-black/[0.48]">
                         {g.index} / WORKFLOW
@@ -226,7 +226,7 @@ export function ContentIndex({
               <div className="mt-12 space-y-12">
                 {secondaryGroups.map((g) => (
                   <div key={g.id} id={g.id} className="scroll-mt-24">
-                    <div className="mb-5 flex flex-wrap items-baseline justify-between gap-2 border-b border-white/15 pb-3">
+                    <div className="mb-5 flex flex-wrap items-baseline justify-between gap-2 border-b border-white/[0.16] pb-3">
                       <h3 className="type-h4 text-white">
                         {g.label}
                       </h3>

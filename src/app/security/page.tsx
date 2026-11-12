@@ -51,22 +51,22 @@ export default function SecurityPolicyPage() {
           unauthorized access and data leakage:
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-          <div className="p-4 rounded-2xl border border-white/12 bg-white/[0.04] space-y-1.5">
+          <div className="p-4 rounded-2xl border border-white/[0.12] bg-white/[0.04] space-y-1.5">
             <h3 className="text-xs font-semibold text-white uppercase tracking-wider">Tenant Partitioning</h3>
-            <p className="text-sm text-white/65 leading-relaxed">
+            <p className="text-sm text-white/[0.64] leading-relaxed">
               Every query is scoped to your workspace, so one business can never see another&apos;s leads.
             </p>
           </div>
-          <div className="p-4 rounded-2xl border border-white/12 bg-white/[0.04] space-y-1.5">
+          <div className="p-4 rounded-2xl border border-white/[0.12] bg-white/[0.04] space-y-1.5">
             <h3 className="text-xs font-semibold text-white uppercase tracking-wider">Encrypted Secrets</h3>
-            <p className="text-sm text-white/65 leading-relaxed">
+            <p className="text-sm text-white/[0.64] leading-relaxed">
               Email passwords, integration tokens and webhook secrets are encrypted with AES-256-GCM before they are
               stored. All traffic uses HTTPS.
             </p>
           </div>
-          <div className="p-4 rounded-2xl border border-white/12 bg-white/[0.04] space-y-1.5">
+          <div className="p-4 rounded-2xl border border-white/[0.12] bg-white/[0.04] space-y-1.5">
             <h3 className="text-xs font-semibold text-white uppercase tracking-wider">Auditability</h3>
-            <p className="text-sm text-white/65 leading-relaxed">
+            <p className="text-sm text-white/[0.64] leading-relaxed">
               An audit log records who changed settings, roles and users, who deleted or merged leads, and who created
               API keys.
             </p>
@@ -104,12 +104,12 @@ export default function SecurityPolicyPage() {
           <span>3. Encryption</span>
         </h2>
         <div className="space-y-4">
-          <div className="border border-white/12 rounded-2xl p-5 bg-white/[0.04] space-y-2">
+          <div className="border border-white/[0.12] rounded-2xl p-5 bg-white/[0.04] space-y-2">
             <div className="flex items-center gap-2 text-sm font-semibold text-white">
               <FeatherKey className="h-4 w-4 text-[#5ee878]" />
               <span>Sensitive secrets: AES-256-GCM</span>
             </div>
-            <p className="text-sm sm:text-base text-white/65 leading-relaxed">
+            <p className="text-sm sm:text-base text-white/[0.64] leading-relaxed">
               Credentials such as email (SMTP) passwords and integration access tokens are encrypted at the application
               level with <strong>AES-256-GCM</strong> before they are saved, using a fresh random value for every
               encryption. A tampered value fails to decrypt. API keys are stored hashed, so they can&apos;t be read
@@ -117,12 +117,12 @@ export default function SecurityPolicyPage() {
             </p>
           </div>
 
-          <div className="border border-white/12 rounded-2xl p-5 bg-white/[0.04] space-y-2">
+          <div className="border border-white/[0.12] rounded-2xl p-5 bg-white/[0.04] space-y-2">
             <div className="flex items-center gap-2 text-sm font-semibold text-white">
               <FeatherServer className="h-4 w-4 text-[#5ee878]" />
               <span>In transit: HTTPS</span>
             </div>
-            <p className="text-sm sm:text-base text-white/65 leading-relaxed">
+            <p className="text-sm sm:text-base text-white/[0.64] leading-relaxed">
               Traffic between your browser or phone and Ridhzo is encrypted with HTTPS (TLS). Account passwords are
               stored as hashes, never in plain text.
             </p>
@@ -204,15 +204,15 @@ export default function SecurityPolicyPage() {
           separate permissions:
         </p>
         <div className="overflow-x-auto">
-          <table className="w-full min-w-[500px] text-left text-xs border border-white/12 mt-2">
-            <thead className="bg-white/[0.08]/50 text-white border-b border-white/12">
+          <table className="w-full min-w-[500px] text-left text-xs border border-white/[0.12] mt-2">
+            <thead className="bg-white/[0.04] text-white border-b border-white/[0.12]">
               <tr>
                 <th className="p-3">Role</th>
                 <th className="p-3">Scope of Access</th>
                 <th className="p-3">Billing &amp; Settings</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-border text-white/65">
+            <tbody className="divide-y divide-border text-white/[0.64]">
               <tr>
                 <td className="p-3 font-semibold text-white">Admin</td>
                 <td className="p-3">Everything: all leads, team members, roles, integrations, webhooks, API keys, audit log</td>
@@ -273,16 +273,16 @@ export default function SecurityPolicyPage() {
           We welcome collaboration with independent security researchers to uncover potential flaws. If you discover a
           security vulnerability in Ridhzo:
         </p>
-        <div className="rounded-2xl border border-white/12 bg-white/[0.04] p-5 space-y-2 text-sm sm:text-base">
+        <div className="rounded-2xl border border-white/[0.12] bg-white/[0.04] p-5 space-y-2 text-sm sm:text-base">
           <p className="font-semibold text-white">Vulnerability Disclosure Protocol</p>
-          <p className="text-white/65">
+          <p className="text-white/[0.64]">
             Please report all potential security issues directly to{" "}
             <a href="mailto:security@ridhzo.com" className="text-highlight font-semibold underline underline-offset-4">
               security@ridhzo.com
             </a>{" "}
             with reproduction steps and proof-of-concept logs.
           </p>
-          <ul className="list-disc pl-5 space-y-1 text-white/65 pt-1">
+          <ul className="list-disc pl-5 space-y-1 text-white/[0.64] pt-1">
             <li>We acknowledge verified reports within 24 hours.</li>
             <li>We commit to not pursuing legal action against researchers acting in good faith.</li>
             <li>Please allow reasonable time for remediation before public disclosure.</li>

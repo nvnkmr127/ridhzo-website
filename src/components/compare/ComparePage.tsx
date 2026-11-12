@@ -1,6 +1,8 @@
 import Link from "next/link";
 import type { Competitor } from "@/lib/competitors";
 import { appUrl } from "@/lib/config";
+import { Button } from "@/components/site/Button";
+import { FeatherArrowDown } from "@/components/site/icons";
 import { CompareFaq } from "./CompareFaq";
 
 /**
@@ -132,38 +134,17 @@ export function ComparePage({ competitor: c }: { competitor: Competitor }) {
 
           {/* Hero CTAs (639:14293) */}
           <div className="flex flex-wrap items-center gap-4 pt-[48px] sm:gap-[24px]">
-            <Link
-              href={appUrl("/signup")}
-              className="focus-ring inline-flex h-[56px] items-center justify-center gap-[8px] rounded-[14px] border border-white/80 bg-white px-[24px] font-sans text-[14px] font-medium leading-[20px] text-black transition-colors hover:bg-white/90"
-            >
+            <Button href={appUrl("/signup")} size="lg" variant="primary" icon="trailing">
               Start with Ridhzo
-              <span className="relative size-[24px] shrink-0" aria-hidden="true">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  alt=""
-                  src="/figma/1ef4f.svg"
-                  width={24}
-                  height={24}
-                  className="block size-full max-w-none"
-                />
-              </span>
-            </Link>
-            <Link
+            </Button>
+            <Button
               href="#details"
-              className="focus-ring inline-flex h-[56px] items-center justify-center gap-[8px] rounded-[14px] border border-white px-[24px] font-sans text-[14px] font-medium leading-[20px] text-white transition-colors hover:bg-white/10"
+              size="lg"
+              variant="secondary-outline"
+              trailingIcon={<FeatherArrowDown className="h-6 w-6" />}
             >
               Compare the Details
-              <span className="relative size-[24px] shrink-0" aria-hidden="true">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  alt=""
-                  src="/figma/a78f4.svg"
-                  width={24}
-                  height={24}
-                  className="block size-full max-w-none"
-                />
-              </span>
-            </Link>
+            </Button>
           </div>
         </div>
       </section>
@@ -272,7 +253,7 @@ export function ComparePage({ competitor: c }: { competitor: Competitor }) {
           </div>
 
           <div className="grid grid-cols-1 gap-[32px] pt-12 lg:grid-cols-2 lg:pt-[72px]">
-            <article className="rounded-[16px] border border-[#111] bg-white p-[32px] text-black">
+            <article className="rounded-[16px] border border-black bg-white p-[32px] text-black">
               <h3 className="font-inter text-[24px] font-bold leading-[normal] tracking-[-0.312px] text-black">
                 Choose Ridhzo if…
               </h3>
@@ -296,8 +277,8 @@ export function ComparePage({ competitor: c }: { competitor: Competitor }) {
               </ul>
             </article>
 
-            <article className="rounded-[16px] border border-[#d4d4d4] bg-white p-[32px] text-black">
-              <h3 className="font-inter text-[24px] font-bold leading-[normal] tracking-[-0.312px] text-[#111]">
+            <article className="rounded-[16px] border border-black/20 bg-white p-[32px] text-black">
+              <h3 className="font-inter text-[24px] font-bold leading-[normal] tracking-[-0.312px] text-black">
                 Consider {c.competitorShort} if…
               </h3>
               <ul className="flex flex-col gap-[16px] pt-[24px]">
@@ -347,8 +328,8 @@ export function ComparePage({ competitor: c }: { competitor: Competitor }) {
 
           <div className="grid grid-cols-1 gap-[32px] pt-12 lg:grid-cols-2 lg:pt-[72px]">
             {/* Ridhzo Pricing Card (639:14453) */}
-            <article className="flex flex-col rounded-[16px] border border-[#5ee878] bg-[#5ee878]/10 p-[32px]">
-              <p className="font-sans text-[12px] font-normal leading-[18px] text-[#aaa]">
+            <article className="flex flex-col rounded-[16px] border border-[#5ee878] bg-[#5ee878]/[0.12] p-[32px]">
+              <p className="font-sans text-[12px] font-normal leading-[18px] text-white/[0.64]">
                 {c.ridhzoPricingCard.eyebrow}
               </p>
               <h3 className="pt-[40px] font-inter text-[28px] font-bold leading-[normal] tracking-[-0.416px] text-white sm:text-[32px]">
@@ -362,14 +343,14 @@ export function ComparePage({ competitor: c }: { competitor: Competitor }) {
                 <span className="font-inter text-[56px] font-extrabold uppercase leading-[normal] tracking-[-3px] text-[#5ee878] sm:text-[72px] sm:tracking-[-5px]">
                   {c.ridhzoPricingCard.price}
                 </span>
-                <span className="pb-[10px] font-sans text-[12px] font-normal leading-[18px] text-[#aaa] sm:pb-[14px]">
+                <span className="pb-[10px] font-sans text-[12px] font-normal leading-[18px] text-white/[0.64] sm:pb-[14px]">
                   {c.ridhzoPricingCard.unit}
                 </span>
               </div>
 
               <div className="pt-[20px]">
                 <div className="flex items-center justify-between gap-4 border-t border-white/[0.08] py-[16px]">
-                  <span className="font-sans text-[12px] font-normal leading-[18px] text-[#aaa]">
+                  <span className="font-sans text-[12px] font-normal leading-[18px] text-white/[0.64]">
                     {c.ridhzoPricingCard.exampleLabel}
                   </span>
                   <span className="font-inter text-[22px] font-bold leading-[normal] tracking-[-0.312px] text-white sm:text-[24px]">
@@ -380,8 +361,8 @@ export function ComparePage({ competitor: c }: { competitor: Competitor }) {
             </article>
 
             {/* Competitor Pricing Card (639:14472) */}
-            <article className="flex flex-col rounded-[16px] border border-white/20 bg-white/[0.08] p-[32px]">
-              <p className="font-sans text-[12px] font-normal leading-[18px] text-[#aaa]">
+            <article className="flex flex-col rounded-[16px] border border-white/[0.16] bg-white/[0.08] p-[32px]">
+              <p className="font-sans text-[12px] font-normal leading-[18px] text-white/[0.64]">
                 {c.competitorPricingCard.eyebrow}
               </p>
               <h3 className="pt-[40px] font-inter text-[28px] font-bold leading-[normal] tracking-[-0.416px] text-white sm:text-[32px]">
@@ -395,14 +376,14 @@ export function ComparePage({ competitor: c }: { competitor: Competitor }) {
                 <span className="font-inter text-[56px] font-extrabold uppercase leading-[normal] tracking-[-3px] text-white sm:text-[72px] sm:tracking-[-5px]">
                   {c.competitorPricingCard.price}
                 </span>
-                <span className="pb-[10px] font-sans text-[12px] font-normal leading-[18px] text-[#aaa] sm:pb-[14px]">
+                <span className="pb-[10px] font-sans text-[12px] font-normal leading-[18px] text-white/[0.64] sm:pb-[14px]">
                   {c.competitorPricingCard.unit}
                 </span>
               </div>
 
               <div className="pt-[20px]">
                 <div className="flex items-center justify-between gap-4 border-t border-white/[0.08] py-[16px]">
-                  <span className="font-sans text-[12px] font-normal leading-[18px] text-[#aaa]">
+                  <span className="font-sans text-[12px] font-normal leading-[18px] text-white/[0.64]">
                     {c.competitorPricingCard.exampleLabel}
                   </span>
                   <span className="font-inter text-[22px] font-bold leading-[normal] tracking-[-0.312px] text-white sm:text-[24px]">
@@ -439,16 +420,9 @@ export function ComparePage({ competitor: c }: { competitor: Competitor }) {
               <span className="italic text-[#5ee878]">lands</span>.
             </p>
 
-            <Link
-              href={appUrl("/signup")}
-              className="focus-ring inline-flex h-[56px] items-center justify-center gap-[8px] rounded-[14px] border border-white bg-white px-[24px] font-sans text-[14px] font-medium leading-[20px] text-black transition-colors hover:bg-white/90"
-            >
+            <Button href={appUrl("/signup")} size="lg" variant="primary" icon="trailing">
               Start 14-Day Free Trial
-              <span className="relative size-[24px] shrink-0" aria-hidden="true">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img alt="" src="/figma/1ef4f.svg" width={24} height={24} className="block size-full max-w-none" />
-              </span>
-            </Link>
+            </Button>
           </div>
         </div>
       </section>
