@@ -32,7 +32,7 @@ export function MobileExperienceSection() {
         <div className="flex w-full flex-col items-center gap-[48px] pt-[48px] lg:flex-row lg:gap-[24px] lg:pt-[72px]">
           {/* Left Content */}
           <div className="relative z-10 flex w-full shrink-0 flex-col items-start lg:w-auto">
-            <p className="text-[16px] font-normal leading-[26px] text-white/[0.64] sm:text-[18px] sm:leading-[28px]">
+            <p className="type-body-lg text-white/[0.64]">
               YOUR TEAM. ANYWHERE.
             </p>
             <h2 className="mt-1 max-w-[920px] font-inter text-[44px] font-black uppercase leading-[1.08] sm:text-[64px] lg:text-[80px] lg:leading-[1.15]">
@@ -44,14 +44,14 @@ export function MobileExperienceSection() {
               <span className="text-outline-white block tracking-normal lg:whitespace-nowrap">SMALL SCREEN.</span>
             </h2>
 
-            <p className="w-full max-w-[650px] pb-[16px] pt-[24px] text-[16px] font-normal leading-[26px] text-white/[0.64] sm:text-[18px] sm:leading-[28px]">
+            <p className="type-body-lg w-full max-w-[650px] pb-[16px] pt-[24px] text-white/[0.64]">
               Your workspace travels with you. Open the app link on your phone, keep your sales day in view and save
               enquiries even when connectivity is unreliable.
             </p>
 
             {/* Mobile Access Card */}
             <div className="mt-2 flex w-full max-w-[480px] flex-col items-start rounded-[12px] border border-white/[0.08] bg-white/[0.06] p-[23px]">
-              <p className="text-[12px] font-normal leading-[18px] text-[#aaa]">GIVE YOUR TEAM MOBILE ACCESS</p>
+              <p className="type-label text-[#aaa]">GIVE YOUR TEAM MOBILE ACCESS</p>
 
               <div className="w-full pt-[19px]">
                 <div className="w-full rounded-[12px] border border-white/[0.12] bg-[#111] p-[16px] text-[16px] font-normal leading-[24px] text-white">

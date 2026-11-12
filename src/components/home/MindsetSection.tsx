@@ -60,7 +60,7 @@ export function MindsetSection() {
               <img alt="" src="/figma/f8580.svg" className="block size-full max-w-none" />
             </span>
 
-            <p className="text-[16px] font-normal leading-[26px] text-white/[0.64] sm:text-[18px] sm:leading-[28px]">
+            <p className="type-body-lg text-white/[0.64]">
               NO EXTRA BUSY WORK, THANKS.
             </p>
 

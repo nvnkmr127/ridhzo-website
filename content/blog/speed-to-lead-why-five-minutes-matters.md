@@ -1,10 +1,12 @@
 ---
 title: "Speed-to-Lead: Why the First 5 Minutes Decide the Deal"
 slug: "speed-to-lead-5-minute-rule"
-summary: "Leads contacted within 5 minutes convert dramatically better than those contacted an hour later. Here's the data, the psychology, and how to actually hit that window."
-badge: "⚡ Speed-to-Lead"
-date: "2026-09-15"
-author: "Ridhzo Team"
+summary: "Every inbound lead has a shelf life measured in minutes. When enquiries arrive across Meta Ads, web forms and WhatsApp, manual spreadsheets cost you the first call. Here is the data behind the 5-minute window and how fast-closing teams hit it consistently."
+badge: "Sales Management"
+date: "2026-10-26"
+author: "Manasa"
+image: "/figma/e5d92.png"
+featured: true
 order: 1
 ---
 
@@ -30,6 +32,8 @@ The reason is simple: at the moment someone submits a form, they are **actively 
 - **Leads scatter across channels.** Meta Lead Ads, Google forms, website forms, WhatsApp, email — nobody is watching all of them at once.
 - **No instant alert.** By the time a lead surfaces in an inbox or a spreadsheet, the window has closed.
 - **Manual first contact.** Saving a number, opening WhatsApp, typing a greeting — three minutes per lead adds up fast.
+
+![Sales team following up with leads on phone and laptop](/figma/617a0.png)
 
 ## How to actually hit the 5-minute window
 

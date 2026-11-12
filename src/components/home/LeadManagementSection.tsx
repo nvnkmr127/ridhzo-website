@@ -1,4 +1,4 @@
-import { CheckCircle2 } from "lucide-react";
+import { FeatherCheckCircle } from "@/components/site/icons";
 import { Eyebrow, SectionTitle, Accent, Lead, HomeButton, HomeSection, ShotPanel, FloatingChip } from "@/components/site/primitives";
 
 const POINTS = [
@@ -47,7 +47,7 @@ export function LeadManagementSection() {
             <ul className="mt-4 space-y-3.5 py-4">
               {POINTS.map((p) => (
                 <li key={p} className="flex items-start gap-[11px] text-sm leading-5 text-white/65">
-                  <CheckCircle2 className="h-5 w-5 shrink-0 text-highlight" aria-hidden="true" />
+                  <FeatherCheckCircle className="h-5 w-5 shrink-0 text-[#5ee878]" />
                   {p}
                 </li>
               ))}

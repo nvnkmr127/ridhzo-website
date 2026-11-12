@@ -4,6 +4,7 @@ import { getContentItem, getContentSummaries, getRelatedSummaries, type ContentT
 import { CONTENT_ROUTES } from "@/lib/content-routes";
 import { pageMetadata } from "@/lib/metadata";
 import { ArticleLayout } from "@/components/content/ArticleLayout";
+import { HowToDetailView } from "@/components/content/HowToDetailView";
 import { ArticleJsonLd } from "@/components/content/JsonLd";
 import { ContentIndex, type ContentGroup } from "@/components/content/ContentIndex";
 
@@ -50,7 +51,11 @@ export function articlePageFor(type: ContentType) {
     return (
       <>
         <ArticleJsonLd item={item} />
-        <ArticleLayout item={item} related={getRelatedSummaries(item)} />
+        {type === "how-to" ? (
+          <HowToDetailView item={item} />
+        ) : (
+          <ArticleLayout item={item} related={getRelatedSummaries(item)} />
+        )}
       </>
     );
   };

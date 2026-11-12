@@ -1,6 +1,13 @@
 import { pageMetadata } from "@/lib/metadata";
 import { PolicyLayout } from "@/components/marketing/PolicyLayout";
-import { Cloud, Zap, CheckCircle2, MonitorSmartphone, Mail, HelpCircle } from "lucide-react";
+import {
+  FeatherCloud,
+  FeatherZap,
+  FeatherCheckCircle,
+  FeatherMonitor,
+  EmailEnvelopeIcon,
+  FeatherHelpCircle,
+} from "@/components/site/icons";
 
 export const metadata = pageMetadata({
   title: "Shipping & Delivery Policy",
@@ -32,7 +39,7 @@ export default function ShippingPolicyPage() {
       {/* 01. Digital Nature */}
       <section id="digital-nature" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <Cloud className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherCloud className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>1. Digital SaaS Delivery Overview</span>
         </h2>
         <p>
@@ -41,7 +48,7 @@ export default function ShippingPolicyPage() {
         </p>
         <div className="rounded-2xl border border-white/12 bg-white/[0.04] p-5 space-y-2">
           <div className="flex items-center gap-2 text-white font-semibold text-sm">
-            <CheckCircle2 className="h-4 w-4 text-highlight" />
+            <FeatherCheckCircle className="h-4 w-4 text-[#5ee878]" />
             <span>No Physical Goods Shipped</span>
           </div>
           <p className="text-sm sm:text-base text-white/65 leading-relaxed">
@@ -55,7 +62,7 @@ export default function ShippingPolicyPage() {
       {/* 02. Provisioning Timeline */}
       <section id="delivery-timeline" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <Zap className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherZap className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>2. Provisioning Timeline &amp; Instant Activation</span>
         </h2>
         <p>
@@ -82,7 +89,7 @@ export default function ShippingPolicyPage() {
       {/* 03. Access Modes */}
       <section id="access-channels" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <MonitorSmartphone className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherMonitor className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>3. Access Modes &amp; Delivery Methods</span>
         </h2>
         <p>Your subscription grants electronic access across all supported device platforms:</p>
@@ -107,7 +114,7 @@ export default function ShippingPolicyPage() {
       {/* 04. Delivery Confirmation */}
       <section id="delivery-confirmation" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <Mail className="h-6 w-6 shrink-0 text-highlight" />
+          <EmailEnvelopeIcon className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>4. Proof of Delivery &amp; Digital Receipts</span>
         </h2>
         <p>Delivery of your SaaS subscription is verified and documented through:</p>
@@ -130,7 +137,7 @@ export default function ShippingPolicyPage() {
       {/* 05. Shipping Charges */}
       <section id="shipping-charges" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <CheckCircle2 className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherCheckCircle className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>5. Shipping &amp; Handling Charges</span>
         </h2>
         <p className="text-sm sm:text-base">
@@ -144,7 +151,7 @@ export default function ShippingPolicyPage() {
       {/* 06. Troubleshooting */}
       <section id="troubleshooting" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <HelpCircle className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherHelpCircle className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>6. Non-Delivery or Access Issues</span>
         </h2>
         <p>

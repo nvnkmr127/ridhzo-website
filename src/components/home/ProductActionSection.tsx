@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Check } from "lucide-react";
+import { FeatherCheck } from "@/components/site/icons";
 import { SectionEyebrowBar } from "./SectionEyebrowBar";
 
 const DRAFT_BODY =
@@ -49,7 +49,7 @@ export function ProductActionSection() {
             <span className="text-outline-white block tracking-normal">LIGHTER.</span>
           </h2>
 
-          <p className="w-full max-w-[323px] pb-[12px] text-[16px] font-normal leading-[26px] text-white/[0.64] sm:text-[18px] sm:leading-[28px]">
+          <p className="type-body-lg w-full max-w-[323px] pb-[12px] text-white/[0.64]">
             Less admin shouldn&apos;t be an abstract promise. Here&apos;s what changes in the moments between a new lead
             and your next conversation.
           </p>
@@ -64,16 +64,16 @@ export function ProductActionSection() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img alt="" src="/figma/a62f0.svg" className="block size-full max-w-none" />
               </span>
-              <span className="text-[12px] font-normal leading-[18px] text-black/[0.64]">RIDHZO AI CO-PILOT</span>
+              <span className="type-label text-black/[0.64]">RIDHZO AI CO-PILOT</span>
             </div>
 
-            <h3 className="pt-[34px] font-inter text-[28px] font-bold leading-[normal] text-black sm:text-[32px]">
+            <h3 className="type-h3 pt-[34px] text-black">
               More thinking.
               <br />
               Less typing.
             </h3>
 
-            <p className="pt-[19px] text-[16px] font-normal leading-[24px] text-black/[0.64]">
+            <p className="type-body pt-[19px] text-black/[0.64]">
               Turn conversation context into a thoughtful first draft. Your team reviews it, makes it theirs, and stays
               in control.
             </p>
@@ -144,7 +144,7 @@ export function ProductActionSection() {
                             className="focus-ring flex h-[32px] items-center justify-center rounded-[8px] bg-[#292929] px-[12px] text-white transition-colors hover:bg-[#383838]"
                           >
                             {copied ? (
-                              <Check className="size-[16px] text-[#5ee878]" aria-hidden="true" />
+                              <FeatherCheck className="size-[16px] text-[#5ee878]" />
                             ) : (
                               /* eslint-disable-next-line @next/next/no-img-element */
                               <img alt="" src="/figma/d95ca.svg" className="size-[16px]" />
@@ -201,12 +201,12 @@ export function ProductActionSection() {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img alt="" src="/figma/140e6.svg" className="block size-full max-w-none" />
                   </span>
-                  <span className="text-[12px] font-normal leading-[18px] text-black/[0.64]">SMART AUTOMATIONS</span>
+                  <span className="type-label text-black/[0.64]">SMART AUTOMATIONS</span>
                 </div>
-                <h3 className="font-inter text-[28px] font-bold leading-[normal] text-black sm:text-[32px]">
+                <h3 className="type-h3 text-black">
                   Set the rule. Keep the pace.
                 </h3>
-                <p className="text-[16px] font-normal leading-[24px] text-black/[0.64]">
+                <p className="type-body text-black/[0.64]">
                   Create a sequence that reacts to lead status, waits, and stops once a customer replies. No manual
                   chasing.
                 </p>
@@ -254,12 +254,12 @@ export function ProductActionSection() {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img alt="" src="/figma/140e6.svg" className="block size-full max-w-none" />
                   </span>
-                  <span className="text-[12px] font-normal leading-[18px] text-black/[0.64]">ACTION-READY LEADS</span>
+                  <span className="type-label text-black/[0.64]">ACTION-READY LEADS</span>
                 </div>
-                <h3 className="font-inter text-[28px] font-bold leading-[normal] text-black sm:text-[32px]">
+                <h3 className="type-h3 text-black">
                   Keep every conversation going.
                 </h3>
-                <p className="text-[16px] font-normal leading-[24px] text-black/[0.64]">
+                <p className="type-body text-black/[0.64]">
                   Every lead has a next step nearby: call, WhatsApp, or schedule a meeting without leaving the record.
                 </p>
               </div>

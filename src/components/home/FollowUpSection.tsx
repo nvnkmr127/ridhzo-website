@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { ComponentType } from "react";
-import { UserCheck } from "lucide-react";
+import { FeatherUserCheck } from "@/components/site/icons";
 import { Eyebrow, SectionTitle, Accent, Lead, HomeSection } from "@/components/site/primitives";
 import { WorkflowGraphIcon } from "@/components/site/icons";
 
@@ -61,7 +61,7 @@ export function FollowUpSection() {
 
       <div className="mt-12 flex flex-col gap-6 lg:flex-row">
         <Panel
-          Icon={UserCheck}
+          Icon={FeatherUserCheck}
           title="Every next action in view"
           subtitle="Stay ahead of calls, messages and meetings."
           preview={

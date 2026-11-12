@@ -674,14 +674,14 @@ export function HomeHero() {
               </span>
             </h1>
 
-            <p className="mt-[28px] max-w-[525px] text-[16px] font-normal leading-[26px] text-white/[0.64] sm:text-[18px] sm:leading-[28px] lg:mt-[40px]">
+            <p className="type-body-lg mt-[28px] max-w-[525px] text-white/[0.64] lg:mt-[40px]">
               Don&apos;t leave it on read. Capture every lead, reach out in a tap, and keep the conversation moving.
             </p>
 
             <div className="mt-[40px] flex w-full flex-col items-stretch gap-[16px] sm:w-auto sm:flex-row sm:items-center sm:gap-[24px] lg:mt-[72px]">
               <Link
                 href="#flow"
-                className="focus-ring inline-flex h-[56px] items-center justify-center gap-[8px] rounded-[14px] border border-white px-[24px] text-[14px] font-medium leading-[20px] text-white transition-colors hover:bg-white/10"
+                className="focus-ring type-button inline-flex h-[56px] items-center justify-center gap-[8px] rounded-[14px] border border-white px-[24px] text-white transition-colors hover:bg-white/10"
               >
                 See How It Works
                 <span className="relative size-[24px] shrink-0" aria-hidden="true">
@@ -691,7 +691,7 @@ export function HomeHero() {
               </Link>
               <Link
                 href={appUrl("/signup")}
-                className="focus-ring inline-flex h-[56px] items-center justify-center gap-[8px] rounded-[14px] border border-white/80 bg-white px-[24px] text-[14px] font-medium leading-[20px] text-black transition-colors hover:bg-white/90"
+                className="focus-ring type-button inline-flex h-[56px] items-center justify-center gap-[8px] rounded-[14px] border border-white/80 bg-white px-[24px] text-black transition-colors hover:bg-white/90"
               >
                 Start 14-Day Free Trial
                 <span className="relative size-[24px] shrink-0" aria-hidden="true">
@@ -702,21 +702,21 @@ export function HomeHero() {
             </div>
 
             <ul className="mt-[24px] flex flex-wrap items-center gap-x-[32px] gap-y-3">
-              <li className="flex items-center gap-[8px] text-[16px] font-normal leading-[24px] text-white">
+              <li className="type-body-sm flex items-center gap-[8px] text-white">
                 <span className="relative size-[20px] shrink-0" aria-hidden="true">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img alt="" src="/figma/91a51.svg" className="block size-full max-w-none" />
                 </span>
                 14-day free trial
               </li>
-              <li className="flex items-center gap-[8px] text-[14px] font-normal leading-[20px] text-white">
+              <li className="type-body-sm flex items-center gap-[8px] text-white">
                 <span className="relative size-[20px] shrink-0" aria-hidden="true">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img alt="" src="/figma/e2067.svg" className="block size-full max-w-none" />
                 </span>
                 No card required
               </li>
-              <li className="flex items-center gap-[8px] text-[14px] font-normal leading-[20px] text-white">
+              <li className="type-body-sm flex items-center gap-[8px] text-white">
                 <span className="relative size-[20px] shrink-0" aria-hidden="true">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img alt="" src="/figma/78146.svg" className="block size-full max-w-none" />

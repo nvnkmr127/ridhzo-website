@@ -1,7 +1,6 @@
 import { pageMetadata } from "@/lib/metadata";
 import { PageHero } from "@/components/site/PageHero";
 import { SiteCta } from "@/components/site/SiteCta";
-import { Accent, PageGlows } from "@/components/site/primitives";
 import { AboutUsSection } from "@/components/marketing/AboutUsSection";
 
 export const metadata = pageMetadata({
@@ -12,19 +11,22 @@ export const metadata = pageMetadata({
 
 export default function AboutPage() {
   return (
-    <div className="relative">
-      <PageGlows />
+    <>
       <PageHero
-        eyebrow="Our story"
+        breadcrumbs={[
+          { label: "Home", href: "/" },
+          { label: "About" },
+        ]}
+        eyebrow="OUR STORY"
         title={
           <>
-            Why we built <Accent>Ridhzo.</Accent>
+            WHY WE BUILT <span className="hero-outline-cutout">RIDHZO.</span>
           </>
         }
-        lead="Old CRMs were built for managers sitting at big desks. We built Ridhzo for salespeople who work on their phones and close deals on WhatsApp."
+        description="Old CRMs were built for managers sitting at big desks. We built Ridhzo for salespeople who work on their phones and close deals on WhatsApp."
       />
       <AboutUsSection />
       <SiteCta secondary={{ href: "/contact", label: "Talk to Us" }} />
-    </div>
+    </>
   );
 }

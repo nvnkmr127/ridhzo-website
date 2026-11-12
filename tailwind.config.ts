@@ -44,12 +44,11 @@ const config: Config = {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        // Ridhzo homepage palette (Figma: highlight-green / green-100).
+        // Ridhzo Design System palette (Black #000, White #fff, Highlight Green #5ee878).
         highlight: {
           DEFAULT: "#5ee878",
           soft: "#99f6aa",
         },
-        "brand-deep": "#0d2710",
       },
       animation: {
         "fade-up": "fade-up 0.6s ease-out both",
@@ -86,6 +85,30 @@ const config: Config = {
         sans: ["var(--font-geist-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
         mono: ["var(--font-geist-mono)", "ui-monospace", "monospace"],
         inter: ["var(--font-inter)", "var(--font-geist-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
+      },
+      // Ridhzo Typography scale (Figma Design System node 264:32910).
+      fontSize: {
+        "display-cta": ["112px", { lineHeight: "normal", letterSpacing: "-5px", fontWeight: "900" }],
+        display: ["96px", { lineHeight: "normal", letterSpacing: "-5px", fontWeight: "900" }],
+        h1: ["80px", { lineHeight: "normal", letterSpacing: "-5px", fontWeight: "900" }],
+        h2: ["72px", { lineHeight: "normal", letterSpacing: "-5px", fontWeight: "800" }],
+        h3: ["32px", { lineHeight: "normal", letterSpacing: "-0.416px", fontWeight: "700" }],
+        h4: ["24px", { lineHeight: "normal", letterSpacing: "-0.312px", fontWeight: "700" }],
+        h5: ["20px", { lineHeight: "normal", letterSpacing: "-0.26px", fontWeight: "700" }],
+        "body-emphasis-lg": ["20px", { lineHeight: "28px", letterSpacing: "-0.3px", fontWeight: "600" }],
+        "body-emphasis": ["18px", { lineHeight: "26px", letterSpacing: "-0.27px", fontWeight: "600" }],
+        "body-lg": ["18px", { lineHeight: "28px", letterSpacing: "0", fontWeight: "400" }],
+        body: ["16px", { lineHeight: "24px", letterSpacing: "0", fontWeight: "400" }],
+        "body-sm": ["14px", { lineHeight: "20px", letterSpacing: "0", fontWeight: "400" }],
+        label: ["13px", { lineHeight: "18px", letterSpacing: "0.04em", fontWeight: "500" }],
+        button: ["14px", { lineHeight: "20px", letterSpacing: "0", fontWeight: "500" }],
+        microcopy: ["12px", { lineHeight: "18px", letterSpacing: "0", fontWeight: "400" }],
+      },
+      letterSpacing: {
+        display: "-5px",
+        "heading-sm": "-0.013em",
+        emphasis: "-0.015em",
+        label: "0.04em",
       },
     },
   },

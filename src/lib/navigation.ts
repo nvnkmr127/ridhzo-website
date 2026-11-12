@@ -1,34 +1,32 @@
-import type { LucideIcon } from "lucide-react";
 import {
-  Inbox,
-  Smartphone,
-  WifiOff,
-  MessageSquare,
-  Send,
-  CalendarCheck,
-  Sparkles,
-  Workflow,
-  Users,
-  Kanban,
-  LayoutList,
-  BarChart3,
-  Plug,
-  ShieldCheck,
-  MapPin,
-  Stethoscope,
-  School,
-  Building2,
-  Megaphone,
-  Briefcase,
-  Sun,
-  GraduationCap,
-  Car,
-  BookOpen,
-  Compass,
-  LifeBuoy,
-  Scale,
-  PhoneCall,
-} from "lucide-react";
+  type IconComponent,
+  FeatherInbox,
+  FeatherSmartphone,
+  FeatherWifiOff,
+  FeatherSend,
+  FeatherGitBranch,
+  FeatherUsers,
+  FeatherColumns,
+  FeatherBarChart2,
+  FeatherMapPin,
+  FeatherActivity,
+  FeatherBookOpen,
+  FeatherHome,
+  FeatherTrendingUp,
+  FeatherBriefcase,
+  FeatherSun,
+  FeatherAward,
+  FeatherTruck,
+  FeatherCompass,
+  FeatherLifeBuoy,
+  FeatherPhone,
+  FeatherStar,
+  WhatsappIcon,
+  CalendarGridIcon,
+  WebhooksIcon,
+  ClipboardListIcon,
+  ShieldCheckIcon,
+} from "@/components/site/icons";
 
 /**
  * Site-wide navigation model. The navbar mega-menus, the mobile drawer, the
@@ -59,7 +57,7 @@ export interface NavItem {
   label: string;
   href: string;
   description?: string;
-  icon?: LucideIcon;
+  icon?: IconComponent;
   badge?: string;
 }
 
@@ -73,29 +71,29 @@ function feature(
   category: FeatureCategory,
   label: string,
   description: string,
-  icon: LucideIcon,
+  icon: IconComponent,
   badge?: string,
 ): FeatureNavItem {
   return { slug, category, label, description, icon, badge, href: `/features/${slug}` };
 }
 
 export const FEATURE_NAV: readonly FeatureNavItem[] = [
-  feature("lead-capture", "capture", "Lead Capture", "Meta, Google, web forms, webhooks & CSV", Inbox),
-  feature("mobile-pwa", "capture", "Mobile App & Alerts", "Android app & installable web app with instant alerts", Smartphone),
-  feature("call-sync", "capture", "Call Sync & Caller ID", "Android calls logged automatically, lead names on incoming calls", PhoneCall, "New"),
-  feature("offline-mode", "capture", "Offline Mode", "Add leads with zero signal, auto-sync later", WifiOff),
-  feature("whatsapp", "engage", "WhatsApp Messaging", "1-tap personal or Business API messaging", MessageSquare),
-  feature("follow-ups", "engage", "Follow-ups & Reminders", "On-time reminders & overdue alerts", CalendarCheck),
-  feature("meetings", "engage", "Meetings & Booking", "Site visits, reminders & a booking page", MapPin),
-  feature("sequences", "engage", "Drip Sequences", "WhatsApp & email cadences that stop on reply", Send),
-  feature("ai", "engage", "AI Assistant", "Summaries, reply drafts & actions you approve", Sparkles, "New"),
-  feature("automations", "automate", "Automations", "No-code When → If → Then rules", Workflow),
-  feature("team-routing", "automate", "Round-Robin Routing", "Fair, capacity-aware lead assignment", Users),
-  feature("lead-management", "manage", "Lead Management", "Search, filters, bulk actions & lead profile", LayoutList),
-  feature("pipeline-kanban", "manage", "Pipeline & Going Cold", "Kanban board, SLA and cold-lead radar", Kanban),
-  feature("dashboards", "analyze", "Dashboards & Insights", "Response speed, source ROI & forecasts", BarChart3),
-  feature("integrations", "platform", "Integrations & API", "Lead Ads, Calendar, CAPI, REST API & webhooks", Plug),
-  feature("team-and-security", "platform", "Team, Roles & Security", "Custom roles, audit log & data protection", ShieldCheck),
+  feature("lead-capture", "capture", "Lead Capture", "Meta, Google, web forms, webhooks & CSV", FeatherInbox),
+  feature("mobile-pwa", "capture", "Mobile App & Alerts", "Android app & installable web app with instant alerts", FeatherSmartphone),
+  feature("call-sync", "capture", "Call Sync & Caller ID", "Android calls logged automatically, lead names on incoming calls", FeatherPhone, "New"),
+  feature("offline-mode", "capture", "Offline Mode", "Add leads with zero signal, auto-sync later", FeatherWifiOff),
+  feature("whatsapp", "engage", "WhatsApp Messaging", "1-tap personal or Business API messaging", WhatsappIcon),
+  feature("follow-ups", "engage", "Follow-ups & Reminders", "On-time reminders & overdue alerts", CalendarGridIcon),
+  feature("meetings", "engage", "Meetings & Booking", "Site visits, reminders & a booking page", FeatherMapPin),
+  feature("sequences", "engage", "Drip Sequences", "WhatsApp & email cadences that stop on reply", FeatherSend),
+  feature("ai", "engage", "AI Assistant", "Summaries, reply drafts & actions you approve", FeatherStar, "New"),
+  feature("automations", "automate", "Automations", "No-code When → If → Then rules", FeatherGitBranch),
+  feature("team-routing", "automate", "Round-Robin Routing", "Fair, capacity-aware lead assignment", FeatherUsers),
+  feature("lead-management", "manage", "Lead Management", "Search, filters, bulk actions & lead profile", ClipboardListIcon),
+  feature("pipeline-kanban", "manage", "Pipeline & Going Cold", "Kanban board, SLA and cold-lead radar", FeatherColumns),
+  feature("dashboards", "analyze", "Dashboards & Insights", "Response speed, source ROI & forecasts", FeatherBarChart2),
+  feature("integrations", "platform", "Integrations & API", "Lead Ads, Calendar, CAPI, REST API & webhooks", WebhooksIcon),
+  feature("team-and-security", "platform", "Team, Roles & Security", "Custom roles, audit log & data protection", ShieldCheckIcon),
 ];
 
 export function featuresByCategory(category: FeatureCategory): FeatureNavItem[] {
@@ -107,21 +105,21 @@ export function getFeatureNav(slug: string): FeatureNavItem | undefined {
 }
 
 export const SOLUTION_NAV: readonly NavItem[] = [
-  { label: "Real Estate", href: "/usecases/real-estate", description: "Brochures & site visits in minutes", icon: Building2 },
-  { label: "Marketing Agencies", href: "/usecases/marketing-agencies", description: "Prove lead quality to clients", icon: Megaphone },
-  { label: "Financial & Insurance", href: "/usecases/financial-advisors", description: "High-trust, compliant follow-up", icon: Briefcase },
-  { label: "Solar & Home Services", href: "/usecases/solar-contractors", description: "Field sales that work offline", icon: Sun },
-  { label: "Education & Institutes", href: "/usecases/education", description: "Admissions enquiries answered fast", icon: School },
-  { label: "Clinics & Healthcare", href: "/usecases/clinics", description: "Book more consultations", icon: Stethoscope },
-  { label: "Coaching & Consulting", href: "/usecases/coaching-consulting", description: "Webinar leads to paying clients", icon: GraduationCap },
-  { label: "Auto Dealerships", href: "/usecases/auto-dealerships", description: "Book more test drives", icon: Car },
+  { label: "Real Estate", href: "/usecases/real-estate", description: "Brochures & site visits in minutes", icon: FeatherHome },
+  { label: "Marketing Agencies", href: "/usecases/marketing-agencies", description: "Prove lead quality to clients", icon: FeatherTrendingUp },
+  { label: "Financial & Insurance", href: "/usecases/financial-advisors", description: "High-trust, compliant follow-up", icon: FeatherBriefcase },
+  { label: "Solar & Home Services", href: "/usecases/solar-contractors", description: "Field sales that work offline", icon: FeatherSun },
+  { label: "Education & Institutes", href: "/usecases/education", description: "Admissions enquiries answered fast", icon: FeatherBookOpen },
+  { label: "Clinics & Healthcare", href: "/usecases/clinics", description: "Book more consultations", icon: FeatherActivity },
+  { label: "Coaching & Consulting", href: "/usecases/coaching-consulting", description: "Webinar leads to paying clients", icon: FeatherAward },
+  { label: "Auto Dealerships", href: "/usecases/auto-dealerships", description: "Book more test drives", icon: FeatherTruck },
 ];
 
 export const RESOURCE_NAV: readonly NavItem[] = [
-  { label: "Blog", href: "/blog", description: "Speed-to-lead playbooks & data", icon: BookOpen },
-  { label: "How-To Guides", href: "/how-to", description: "Step-by-step setup walkthroughs", icon: Compass },
-  { label: "Help Center", href: "/help", description: "Answers for getting started & billing", icon: LifeBuoy },
-  { label: "Compare Ridhzo", href: "/compare", description: "vs Zoho, LeadSquared, Kylas & more", icon: Scale },
+  { label: "Blog", href: "/blog", description: "Speed-to-lead playbooks & data", icon: FeatherBookOpen },
+  { label: "How-To Guides", href: "/how-to", description: "Step-by-step setup walkthroughs", icon: FeatherCompass },
+  { label: "Help Center", href: "/help", description: "Answers for getting started & billing", icon: FeatherLifeBuoy },
+  { label: "Compare Ridhzo", href: "/compare", description: "vs Zoho, LeadSquared, Kylas & more", icon: FeatherColumns },
 ];
 
 /** Top-level navbar structure: dropdown menus or direct links. */

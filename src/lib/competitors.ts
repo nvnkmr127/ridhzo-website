@@ -1,3 +1,5 @@
+import { getPlan, inr } from "@/lib/plans";
+
 /**
  * Centralized competitor data — the single source of truth behind every
  * /compare/[slug] page. Keeping it here (not in each page) means a pricing or
@@ -10,9 +12,18 @@
 
 export const AS_OF = "September 2026";
 
+const freePlan = getPlan("free");
+const starterPlan = getPlan("starter");
+const unlimitedPlan = getPlan("unlimited");
+
+export const RIDHZO_STARTER_PRICE = inr(starterPlan.monthly);
+export const RIDHZO_UNLIMITED_PRICE = inr(unlimitedPlan.monthly);
+export const RIDHZO_FREE_PRICE = inr(freePlan.monthly);
+
 export interface CompareRow {
   dimension: string;
-  ridhzo: string;
+  ridhzoTitle: string;
+  ridhzoDetail: string;
   competitor: string;
 }
 
@@ -21,9 +32,14 @@ export interface CompareFaq {
   a: string;
 }
 
-export interface CompareSection {
-  heading: string;
-  body: string;
+export interface ComparePricingCard {
+  eyebrow: string;
+  name: string;
+  description: string;
+  price: string;
+  unit: string;
+  exampleLabel: string;
+  exampleTotal: string;
 }
 
 export interface Competitor {
@@ -37,19 +53,30 @@ export interface Competitor {
   title: string;
   metaTitle: string;
   metaDescription: string;
+  /** Crisp 2-line hero summary directly under the display H1. */
+  heroSummary: string;
   /** 2–3 sentence honest summary for scanners. */
   tldr: string;
   atAGlance: CompareRow[];
-  narrative: CompareSection[];
   ridhzoBestFor: string[];
   competitorBestFor: string[];
-  pricingNote: string;
-  migration: string;
+  ridhzoPricingCard: ComparePricingCard;
+  competitorPricingCard: ComparePricingCard;
   faqs: CompareFaq[];
 }
 
 const RIDHZO_ONE_LINER =
   "a mobile-first, WhatsApp-native lead CRM built around one job: responding to inbound leads in seconds";
+
+const DEFAULT_RIDHZO_PRICING_CARD: ComparePricingCard = {
+  eyebrow: "RIDHZO / STARTER WORKSPACE TIER",
+  name: "Ridhzo.",
+  description: "Built for teams that want capture, contact and follow-up in a focused workflow.",
+  price: RIDHZO_STARTER_PRICE,
+  unit: "/ workspace / month",
+  exampleLabel: "3 users · flat workspace / month",
+  exampleTotal: RIDHZO_STARTER_PRICE,
+};
 
 export const COMPETITORS: Competitor[] = [
   {
@@ -62,47 +89,110 @@ export const COMPETITORS: Competitor[] = [
     metaTitle: "Ridhzo vs Zoho CRM: Which Lead CRM Is Right for You?",
     metaDescription:
       "An honest Ridhzo vs Zoho CRM comparison for lead-driven sales teams — speed-to-lead, WhatsApp, mobile-first vs. deep customization. Pricing, features, and who each is best for.",
+    heroSummary:
+      "Two CRMs. Different priorities. See what changes when your team needs speed, follow-through, mobile access and room to customize.",
     tldr: `Zoho CRM is a powerful, deeply customizable CRM suite for teams that want an all-in-one system and are willing to configure it. Ridhzo is ${RIDHZO_ONE_LINER}. If you buy paid leads and win or lose on response speed from your phone, Ridhzo is purpose-built for that; if you need heavy customization and a full business suite, Zoho is the broader platform.`,
     atAGlance: [
-      { dimension: "Best for", ridhzo: "Fast-closing SMB sales teams on their phones", competitor: "Teams wanting a customizable all-in-one suite" },
-      { dimension: "Core focus", ridhzo: "Speed-to-lead & 1-tap WhatsApp", competitor: "Broad CRM + business apps" },
-      { dimension: "Mobile experience", ridhzo: "Mobile-first: Android app + installable web app, offline lead capture", competitor: "Web-first with mobile apps" },
-      { dimension: "WhatsApp follow-up", ridhzo: "1-tap deep links, built-in", competitor: "Via integrations / add-ons" },
-      { dimension: "Setup time", ridhzo: "Minutes", competitor: "Longer — more to configure" },
-      { dimension: "Entry price", ridhzo: "Free plan, then ₹249/mo flat (3 users)", competitor: "Free for 3 users, then ~₹800+/user/mo" },
-    ],
-    narrative: [
       {
-        heading: "Speed-to-lead",
-        body: "Ridhzo is engineered so a new lead is captured, routed, and alerted in seconds, with 1-tap WhatsApp so first contact takes moments — this is the whole product. Zoho CRM can track response times and automate follow-ups, but out of the box it's a general CRM; hitting a sub-5-minute first response is something you configure rather than something the product is shaped around.",
+        dimension: "Product approach",
+        ridhzoTitle: "Focused sales CRM",
+        ridhzoDetail: "Capture, assign, contact and follow up on leads.",
+        competitor: "Broad CRM platform with extensive customization and modules.",
       },
       {
-        heading: "Mobile & offline",
-        body: "Ridhzo is mobile-first — an Android app that logs calls automatically plus an installable web app, with offline lead capture — built for reps working from the field or a showroom floor. Zoho offers capable mobile apps, but its center of gravity is the desktop web experience.",
+        dimension: "Lead management",
+        ridhzoTitle: "Lead-first workspace",
+        ridhzoDetail: "Saved views, filters, ownership and next actions in the lead record.",
+        competitor: "Leads, contacts, deals and additional configurable CRM modules.",
       },
       {
-        heading: "Breadth vs. focus",
-        body: "This is the real trade-off. Zoho's strength is breadth and customization — modules, workflows, and a whole ecosystem (Desk, Campaigns, Analytics, and more). Ridhzo deliberately does less: it's a focused lead-response tool, not a suite. If you want one system to run your entire business, Zoho wins on breadth. If you want the fastest path from 'lead arrives' to 'rep is talking to them,' Ridhzo wins on focus.",
+        dimension: "Pipeline",
+        ridhzoTitle: "Visible stage movement",
+        ridhzoDetail: "Kanban board built around lead progression.",
+        competitor: "Deal pipeline and process management with customization options.",
+      },
+      {
+        dimension: "WhatsApp contact",
+        ridhzoTitle: "One-tap contact from a lead",
+        ridhzoDetail: "Open WhatsApp directly; customer conversations are not a native Ridhzo inbox.",
+        competitor: "WhatsApp options depend on enabled integrations and configuration.",
+      },
+      {
+        dimension: "Automation",
+        ridhzoTitle: "One-off actions + timed sequences",
+        ridhzoDetail: "Event rules and multi-day follow-up workflows are distinct tools.",
+        competitor: "Configurable automation and customer engagement capabilities.",
+      },
+      {
+        dimension: "Mobile workflow",
+        ridhzoTitle: "Sales work on the move",
+        ridhzoDetail: "Lead actions, follow-ups, offline capture and Android call sync.",
+        competitor: "Mobile CRM apps and related capabilities; verify the required workflow by edition.",
+      },
+      {
+        dimension: "Reporting",
+        ridhzoTitle: "Actionable pipeline insights",
+        ridhzoDetail: "Lead sources, pipeline health, speed and team performance.",
+        competitor: "Broad reporting and analytics across CRM modules.",
+      },
+      {
+        dimension: "Pricing comparison",
+        ridhzoTitle: "Per-seat Ridhzo plans",
+        ridhzoDetail: "Compare actual seat allowances and feature limits on Pricing.",
+        competitor: "Pricing varies by edition, users and billing term. Check Zoho's current pricing.",
       },
     ],
     ridhzoBestFor: [
-      "Solo agents and small/mid sales teams who live on their phones",
-      "Teams that buy Meta/Google leads and compete on response speed",
-      "WhatsApp-first sales motions (real estate, agencies, home services)",
-      "Anyone who wants to be live in minutes, not after a setup project",
+      "Incoming leads need quick follow-through.",
+      "Your team uses calls, WhatsApp and meetings every day.",
+      "Lead ownership and next actions should remain clear.",
+      "Salespeople work frequently on mobile.",
     ],
     competitorBestFor: [
-      "Teams that need deep customization and many modules",
-      "Companies already standardized on the Zoho ecosystem",
-      "Businesses wanting CRM + support + marketing + analytics in one vendor",
+      "You need deeply configurable business modules.",
+      "Several departments require different workflows.",
+      "You want a wider suite of business applications.",
+      "Your team has resources for custom setup.",
     ],
-    pricingNote: `As of ${AS_OF}, Zoho CRM offers a free edition for up to 3 users, with paid plans from roughly ₹800/user/month (Standard) up to ₹2,600/user/month (Ultimate) on annual billing, plus GST; the CRM Plus bundle is around ₹4,200/user/month. Ridhzo has a free-forever plan and flat workspace pricing: ₹249/month for up to 3 users, or ₹449/month for unlimited users. For a small team, Ridhzo is typically the lower-cost entry point; always check each vendor's current pricing.`,
-    migration:
-      "Moving from Zoho to Ridhzo is straightforward for lead data: export your leads to CSV and import them into Ridhzo, then connect your lead sources (Meta Lead Ads, web forms). Because Ridhzo is focused on lead response rather than a full suite, there's far less to reconfigure.",
+    ridhzoPricingCard: {
+      eyebrow: "RIDHZO / SAMPLE STARTER TIER",
+      name: "Ridhzo.",
+      description: "Built for teams that want capture, contact and follow-up in a focused workflow.",
+      price: "₹299",
+      unit: "/ user / month",
+      exampleLabel: "3 users · example / month",
+      exampleTotal: "₹897",
+    },
+    competitorPricingCard: {
+      eyebrow: "ZOHO CRM / SAMPLE COMPARISON TIER",
+      name: "Zoho CRM",
+      description: "Broad CRM platform with prices and features depending on the selected edition.",
+      price: "₹999",
+      unit: "/ user / month",
+      exampleLabel: "3 users · example / month",
+      exampleTotal: "₹2,997",
+    },
     faqs: [
-      { q: "Is Ridhzo cheaper than Zoho CRM?", a: "For small teams, usually yes — Ridhzo has a free-forever plan and flat pricing from ₹249/month for up to 3 users (₹449/month for unlimited users), while Zoho's paid CRM plans start around ₹800/user/month (it's free for up to 3 users). Compare current pricing for your team size before deciding." },
-      { q: "Can Ridhzo do everything Zoho CRM does?", a: "No, and it isn't trying to. Zoho is a broad, customizable suite; Ridhzo is a focused speed-to-lead CRM. If you need deep customization or many business modules, Zoho is broader. If you want the fastest lead response from mobile, Ridhzo is purpose-built." },
-      { q: "Does Ridhzo integrate with WhatsApp like Zoho?", a: "WhatsApp is native to Ridhzo — 1-tap deep links and templates are core, not an add-on. Zoho supports WhatsApp mainly through integrations." },
+      {
+        q: "Can I drag leads between stages?",
+        a: "Yes. The Ridhzo pipeline interface shows draggable cards and a list view.",
+      },
+      {
+        q: "Can I open a lead from the board?",
+        a: "Yes. Tap any card on the pipeline board to open the full lead profile, call history, notes, and follow-up actions.",
+      },
+      {
+        q: "How does Ridhzo pricing work?",
+        a: `Ridhzo has three plans: Free (${RIDHZO_FREE_PRICE}), Starter (${RIDHZO_STARTER_PRICE}/month), and Unlimited (${RIDHZO_UNLIMITED_PRICE}/month).`,
+      },
+      {
+        q: "Is pricing per company or per user?",
+        a: `Starter (${RIDHZO_STARTER_PRICE}/month) covers up to 3 seats and Unlimited (${RIDHZO_UNLIMITED_PRICE}/month) covers unlimited seats for your workspace.`,
+      },
+      {
+        q: "Can my team use WhatsApp with Ridhzo?",
+        a: "Yes. Open WhatsApp directly from any lead with 1-tap deep links and ready templates.",
+      },
     ],
   },
   {
@@ -115,47 +205,98 @@ export const COMPETITORS: Competitor[] = [
     metaTitle: "Ridhzo vs LeadSquared: Lightweight Speed-to-Lead vs Enterprise CRM",
     metaDescription:
       "Ridhzo vs LeadSquared compared honestly — mobile-first speed-to-lead for SMBs vs. enterprise sales-execution CRM with lead scoring. Pricing, features, and who each fits.",
+    heroSummary:
+      "Lightweight speed-to-lead vs. enterprise sales execution. See what changes when a solo agent or SMB wants fast response without a rollout project.",
     tldr: `LeadSquared is a powerful sales-execution CRM for large, high-lead-volume teams with field operations and ML lead scoring. Ridhzo is ${RIDHZO_ONE_LINER}. For big distributed sales orgs that need deep automation and can invest in onboarding, LeadSquared is built for that scale; for solo agents and small/mid teams that just need to respond fast without a rollout project, Ridhzo is lighter and quicker to value.`,
     atAGlance: [
-      { dimension: "Best for", ridhzo: "Solo agents & small/mid sales teams", competitor: "Large, high-volume distributed teams" },
-      { dimension: "Core focus", ridhzo: "Speed-to-lead & 1-tap WhatsApp", competitor: "Sales execution, lead scoring, field ops" },
-      { dimension: "Complexity", ridhzo: "Minimal — live in minutes", competitor: "Higher — configuration & onboarding" },
-      { dimension: "Mobile experience", ridhzo: "Mobile-first: Android app + installable web app, offline lead capture", competitor: "Strong mobile + field CRM" },
-      { dimension: "Entry price", ridhzo: "Free plan, then ₹249/mo flat (3 users)", competitor: "~₹1,250–₹4,500/user/mo range" },
-      { dimension: "Time to value", ridhzo: "Same day", competitor: "Weeks (implementation)" },
-    ],
-    narrative: [
       {
-        heading: "Scale vs. simplicity",
-        body: "LeadSquared shines for large sales organizations moving huge lead volumes across many reps and locations, with machine-learning lead scoring and industry-specific configurations. That power comes with configuration and onboarding. Ridhzo is intentionally simple: connect a lead source, get instant alerts, follow up in one tap — no implementation project.",
+        dimension: "Product approach",
+        ridhzoTitle: "Lightweight speed-to-lead CRM",
+        ridhzoDetail: "Connect lead sources, get instant alerts and follow up in seconds.",
+        competitor: "Enterprise sales-execution platform built for high-volume distributed teams.",
       },
       {
-        heading: "Speed-to-lead out of the box",
-        body: "Both care about response time, but Ridhzo makes it the default: instant capture, round-robin routing, vibrating push, and a response-time SLA are turnkey. In LeadSquared you have similar capabilities within a much larger platform you configure to your process.",
+        dimension: "Setup & onboarding",
+        ridhzoTitle: "Live the same day",
+        ridhzoDetail: "Minimal configuration — start free and go live in minutes.",
+        competitor: "Multi-week implementation and configuration project for enterprise workflows.",
       },
       {
-        heading: "Cost profile",
-        body: "For a solo agent or a 3–10 person team, LeadSquared's enterprise pricing and add-ons (telephony, WhatsApp volume) are usually more than needed. Ridhzo's free tier and flat ₹249/month entry (₹449/month for unlimited users) make it far cheaper to start at small scale. At large enterprise scale with complex field operations, LeadSquared's depth may justify its cost.",
+        dimension: "Lead routing & alerts",
+        ridhzoTitle: "Turnkey instant routing",
+        ridhzoDetail: "Round-robin assignment, instant push alerts and response-time SLA built in.",
+        competitor: "Rule-based lead distribution, scoring and field-ops routing inside a large suite.",
+      },
+      {
+        dimension: "WhatsApp contact",
+        ridhzoTitle: "Native 1-tap follow-up",
+        ridhzoDetail: "Message any lead in one tap with templates, or connect WhatsApp API.",
+        competitor: "WhatsApp messaging available via add-ons and enterprise configuration.",
+      },
+      {
+        dimension: "Automation",
+        ridhzoTitle: "Focused rules + sequences",
+        ridhzoDetail: "When → If → Then triggers and multi-day follow-up sequences.",
+        competitor: "Deep workflow engine, ML lead scoring and industry-specific automation.",
+      },
+      {
+        dimension: "Mobile workflow",
+        ridhzoTitle: "Built for mobile reps",
+        ridhzoDetail: "Android app with auto call sync, Caller ID and offline lead capture.",
+        competitor: "Full-featured mobile + field CRM designed for large field-sales fleets.",
+      },
+      {
+        dimension: "Reporting",
+        ridhzoTitle: "Speed & pipeline clarity",
+        ridhzoDetail: "Response SLA, source ROI, Kanban pipeline and going-cold lists.",
+        competitor: "Enterprise analytics, rep productivity tracking and custom dashboards.",
+      },
+      {
+        dimension: "Pricing comparison",
+        ridhzoTitle: "Flat workspace Ridhzo plans",
+        ridhzoDetail: `Free (${RIDHZO_FREE_PRICE}), Starter ${RIDHZO_STARTER_PRICE}/mo (3 seats), Unlimited ${RIDHZO_UNLIMITED_PRICE}/mo.`,
+        competitor: "Typically ~₹1,250–₹4,500/user/mo plus add-ons and onboarding.",
       },
     ],
     ridhzoBestFor: [
-      "Solo agents and small/mid teams that want speed without a rollout",
-      "Teams that buy paid leads and compete on first-response time",
-      "WhatsApp-first, mobile-first sales motions",
-      "Budget-conscious teams that want to start free",
+      "Solo agents and SMB teams that want speed without a rollout.",
+      "Teams buying paid leads that compete on first-response time.",
+      "WhatsApp-first, mobile-first sales motions.",
+      "Budget-conscious teams that want to start free.",
     ],
     competitorBestFor: [
-      "Large enterprises with high lead volume and many reps",
-      "Distributed field-sales operations needing deep automation",
-      "Teams that want ML lead scoring and heavy process customization",
+      "Large enterprises with high lead volume and many reps.",
+      "Distributed field-sales operations needing deep automation.",
+      "Teams requiring ML predictive lead scoring.",
+      "Organizations ready for multi-week CRM implementation.",
     ],
-    pricingNote: `As of ${AS_OF}, LeadSquared is typically priced in the ₹1,250–₹4,500/user/month range with enterprise implementation, and add-ons like telephony and WhatsApp messaging are billed separately. Ridhzo has a free-forever plan and flat workspace pricing: ₹249/month for up to 3 users, or ₹449/month for unlimited users. Ridhzo is the lighter, lower-cost option at small and mid scale; verify current pricing with each vendor.`,
-    migration:
-      "For small and mid teams switching from LeadSquared, export your leads to CSV, import into Ridhzo, and reconnect your lead sources. You'll trade heavy configuration for a much simpler setup focused on fast response.",
+    ridhzoPricingCard: DEFAULT_RIDHZO_PRICING_CARD,
+    competitorPricingCard: {
+      eyebrow: "LEADSQUARED / TYPICAL ENTRY TIER",
+      name: "LeadSquared",
+      description: "Enterprise sales-execution CRM where telephony and WhatsApp add-ons bill separately.",
+      price: "~₹1,250",
+      unit: "/ user / month",
+      exampleLabel: "3 users · entry tier estimate / month",
+      exampleTotal: "~₹3,750",
+    },
     faqs: [
-      { q: "Is Ridhzo a good LeadSquared alternative for small teams?", a: "Yes — LeadSquared is built for large, high-volume sales orgs and priced accordingly. If you're a solo agent or a small/mid team that mainly needs to respond to leads fast, Ridhzo gives you that without enterprise pricing or a rollout project." },
-      { q: "Does Ridhzo have lead scoring like LeadSquared?", a: "Ridhzo focuses on speed-to-lead — instant capture, routing, alerts, and SLA tracking — rather than ML lead scoring. If advanced predictive scoring is central to your process, LeadSquared goes deeper there." },
-      { q: "How fast can I get started with Ridhzo vs LeadSquared?", a: "Ridhzo is usually same-day: connect a source and go. LeadSquared implementations are typically a multi-week configuration effort suited to larger organizations." },
+      {
+        q: "Is Ridhzo a good LeadSquared alternative for small teams?",
+        a: "Yes — LeadSquared is built for large, high-volume sales organizations and priced accordingly. If you're a solo agent or small/mid team that needs fast lead response without enterprise pricing or onboarding, Ridhzo is much lighter.",
+      },
+      {
+        q: "Does Ridhzo have lead scoring like LeadSquared?",
+        a: "Ridhzo focuses on speed-to-lead — instant capture, round-robin routing, alerts, and SLA tracking — rather than ML lead scoring. If predictive scoring across massive volumes is central, LeadSquared goes deeper there.",
+      },
+      {
+        q: "How fast can I get started with Ridhzo vs LeadSquared?",
+        a: "Ridhzo is typically live the same day: connect a lead source and go. LeadSquared implementations usually involve multi-week configuration suited to larger teams.",
+      },
+      {
+        q: "Are WhatsApp and call logging extra add-ons on Ridhzo?",
+        a: `No. 1-tap WhatsApp follow-up, Android call logging, and Caller ID are included on every Ridhzo plan, including the ${RIDHZO_FREE_PRICE} Free plan.`,
+      },
     ],
   },
   {
@@ -168,47 +309,106 @@ export const COMPETITORS: Competitor[] = [
     metaTitle: "Ridhzo vs Kylas: Speed-to-Lead CRM vs Flat Unlimited-User CRM",
     metaDescription:
       "Ridhzo vs Kylas compared — mobile-first speed-to-lead and WhatsApp vs. flat-price unlimited-user CRM. Pricing math, features, and who each is best for.",
+    heroSummary:
+      "Two flat-priced CRMs with very different price points. See how mobile-first speed-to-lead compares against a broad general SMB CRM.",
     tldr: `Kylas is an SMB CRM with a flat monthly price for unlimited users, Ridhzo is ${RIDHZO_ONE_LINER}, and is also flat-priced: a free plan, ₹249/month for up to 3 users, and ₹449/month for unlimited users. Kylas is a broad general CRM; Ridhzo is cheaper at any team size and purpose-built for fast lead response from mobile.`,
     atAGlance: [
-      { dimension: "Best for", ridhzo: "Solo agents & small/mid teams; speed-first", competitor: "Larger teams wanting a broad general CRM" },
-      { dimension: "Pricing model", ridhzo: "Free plan, then flat ₹249 (3 users) or ₹449/mo (unlimited users)", competitor: "Flat ~₹12,999/mo, unlimited users" },
-      { dimension: "Core focus", ridhzo: "Speed-to-lead & 1-tap WhatsApp", competitor: "General SMB sales CRM" },
-      { dimension: "Mobile experience", ridhzo: "Mobile-first: Android app + installable web app, offline lead capture", competitor: "Web + mobile apps" },
-      { dimension: "Cheapest to start", ridhzo: "Free plan", competitor: "Flat fee from day one" },
-      { dimension: "Unlimited users", ridhzo: "₹449/mo", competitor: "~₹12,999/mo" },
-    ],
-    narrative: [
       {
-        heading: "The pricing math",
-        body: "Both use flat pricing rather than charging per user. Kylas charges about ₹12,999/month for unlimited users. Ridhzo has a free plan, ₹249/month for up to 3 users, and ₹449/month for unlimited users — so Ridhzo costs less at any team size. What Kylas's higher price buys is a broader general-purpose CRM with onboarding included.",
+        dimension: "Product approach",
+        ridhzoTitle: "Speed-to-lead specialization",
+        ridhzoDetail: "Every screen is built around responding to new leads in seconds.",
+        competitor: "Broad general-purpose SMB sales CRM with onboarding included.",
       },
       {
-        heading: "Focus: speed-to-lead",
-        body: "Kylas is a capable general SMB CRM. Ridhzo is specialized: instant multi-channel capture, vibrating push alerts, round-robin routing, 1-tap WhatsApp, and a response-time SLA are the core, not features among many. If your business wins on how fast you reach a new lead, that specialization matters.",
+        dimension: "Lead capture",
+        ridhzoTitle: "Instant multi-channel sync",
+        ridhzoDetail: "Meta Ads, Google Lead Forms, web forms, webhooks and CSV out of the box.",
+        competitor: "Lead capture forms, integrations and marketplace connectors.",
       },
       {
-        heading: "Mobile & WhatsApp",
-        body: "Ridhzo is mobile-first with an offline outbox and native 1-tap WhatsApp — ideal for reps in the field. Kylas offers mobile apps and integrations, but isn't built mobile-first around WhatsApp speed.",
+        dimension: "Pipeline",
+        ridhzoTitle: "Kanban + Going Cold radar",
+        ridhzoDetail: "Track stage movement and surface stalled leads automatically.",
+        competitor: "Multi-pipeline deal management and customizable sales stages.",
+      },
+      {
+        dimension: "WhatsApp contact",
+        ridhzoTitle: "1-tap personal + API options",
+        ridhzoDetail: "Launch WhatsApp directly from any lead with ready templates.",
+        competitor: "WhatsApp available via marketplace integrations.",
+      },
+      {
+        dimension: "Automation",
+        ridhzoTitle: "No-code rules & cadences",
+        ridhzoDetail: "Round-robin routing, instant follow-up rules and drip sequences.",
+        competitor: "Workflow automation, task reminders and escalation rules.",
+      },
+      {
+        dimension: "Mobile workflow",
+        ridhzoTitle: "Mobile-first + offline outbox",
+        ridhzoDetail: "Android call sync, push alerts and offline lead capture.",
+        competitor: "Web-centric CRM supported by companion mobile apps.",
+      },
+      {
+        dimension: "Unlimited users",
+        ridhzoTitle: `${RIDHZO_UNLIMITED_PRICE}/mo flat unlimited`,
+        ridhzoDetail: `Unlimited seats, leads and automations on Unlimited (${RIDHZO_UNLIMITED_PRICE}/mo).`,
+        competitor: "Flat ~₹12,999/mo for unlimited users with dedicated onboarding.",
+      },
+      {
+        dimension: "Entry price",
+        ridhzoTitle: `Start at ${RIDHZO_FREE_PRICE} forever`,
+        ridhzoDetail: `Free plan (${RIDHZO_FREE_PRICE}), then ${RIDHZO_STARTER_PRICE}/mo for up to 3 users.`,
+        competitor: "Flat ~₹12,999/mo commitment from day one.",
       },
     ],
     ridhzoBestFor: [
-      "Solo agents and small teams who want to start free or cheap",
-      "Speed-to-lead sales motions that live in WhatsApp",
-      "Field and mobile reps who need offline resilience",
-      "Teams that want a focused tool, not a general CRM",
+      "Solo agents and small teams wanting to start free or lean.",
+      "Speed-to-lead sales motions that live in WhatsApp.",
+      "Field and mobile reps who need offline resilience.",
+      "Growing teams wanting unlimited seats at ₹449/month.",
     ],
     competitorBestFor: [
-      "Larger teams that want onboarding included in the price",
-      "Businesses wanting a broad general-purpose SMB CRM",
-      "Teams that prefer predictable flat billing regardless of headcount",
+      "Larger teams that want guided onboarding included.",
+      "Businesses wanting a broad general-purpose SMB CRM.",
+      "Teams needing multi-pipeline enterprise SMB reporting.",
+      "Organizations comfortable with a ~₹12,999/month budget.",
     ],
-    pricingNote: `As of ${AS_OF}, Kylas uses a flat price of about ₹12,999/month for unlimited users (with onboarding included). Ridhzo has a free-forever plan and flat pricing of ₹249/month (up to 3 users) or ₹449/month (unlimited users), so it is the lower-cost option at any team size. Check current pricing with each vendor.`,
-    migration:
-      "Switching from Kylas to Ridhzo means exporting leads to CSV, importing them, and connecting your lead sources. You'll move from a broad CRM to a focused speed-to-lead workflow.",
+    ridhzoPricingCard: {
+      eyebrow: "RIDHZO / UNLIMITED WORKSPACE TIER",
+      name: "Ridhzo.",
+      description: "Flat unlimited seats, leads and automations — or start free and pay ₹249/mo for 3 seats.",
+      price: RIDHZO_UNLIMITED_PRICE,
+      unit: "/ workspace / month",
+      exampleLabel: "Unlimited users · flat / month",
+      exampleTotal: RIDHZO_UNLIMITED_PRICE,
+    },
+    competitorPricingCard: {
+      eyebrow: "KYLAS / FLAT UNLIMITED PLAN",
+      name: "Kylas",
+      description: "General-purpose SMB CRM sold at a flat monthly rate with guided onboarding.",
+      price: "~₹12,999",
+      unit: "/ workspace / month",
+      exampleLabel: "Unlimited users · flat / month",
+      exampleTotal: "~₹12,999",
+    },
     faqs: [
-      { q: "Is Ridhzo or Kylas cheaper?", a: "Ridhzo, at any team size. Kylas charges a flat ~₹12,999/month for unlimited users. Ridhzo is free to start, ₹249/month for up to 3 users, and ₹449/month for unlimited users." },
-      { q: "Why choose Ridhzo over a general CRM like Kylas?", a: "If your business wins or loses on lead-response speed, Ridhzo's specialization — instant capture, push alerts, routing, 1-tap WhatsApp, and SLA tracking as the core — is built for exactly that, from mobile." },
-      { q: "Does Kylas or Ridhzo have unlimited users?", a: "Kylas is known for flat pricing with unlimited users. Both do. Ridhzo's Unlimited plan gives unlimited seats for a flat ₹449/month; Starter covers up to 3 users for ₹249/month, and there's a free plan to start." },
+      {
+        q: "Is Ridhzo or Kylas cheaper?",
+        a: `Ridhzo, at any team size. Kylas charges ~₹12,999/month for unlimited users. Ridhzo is free to start (${RIDHZO_FREE_PRICE}), ${RIDHZO_STARTER_PRICE}/month for up to 3 users, and ${RIDHZO_UNLIMITED_PRICE}/month for unlimited users.`,
+      },
+      {
+        q: "Why choose Ridhzo over a general CRM like Kylas?",
+        a: "If your business wins or loses on lead-response speed, Ridhzo's specialization — instant capture, vibrating alerts, routing, 1-tap WhatsApp, and SLA tracking — is built for reps working on mobile.",
+      },
+      {
+        q: "Do both Kylas and Ridhzo offer unlimited users?",
+        a: `Yes. Kylas is known for flat unlimited-user pricing (~₹12,999/mo), and Ridhzo's Unlimited plan gives unlimited seats for ${RIDHZO_UNLIMITED_PRICE}/month (with Starter at ${RIDHZO_STARTER_PRICE}/mo for 3 seats).`,
+      },
+      {
+        q: "Can I migrate my leads from Kylas to Ridhzo?",
+        a: "Yes. Export your leads from Kylas to CSV, upload them into Ridhzo, and connect your lead ad forms or webhooks in a few minutes.",
+      },
     ],
   },
   {
@@ -221,47 +421,98 @@ export const COMPETITORS: Competitor[] = [
     metaTitle: "Ridhzo vs AiSensy: Lead CRM vs WhatsApp Marketing Platform",
     metaDescription:
       "Ridhzo vs AiSensy compared — a speed-to-lead sales CRM with a pipeline vs. a WhatsApp broadcast & chatbot platform. Understand the difference and which you need (or both).",
+    heroSummary:
+      "Sales CRM pipeline vs. WhatsApp broadcast marketing. See which job each tool is built for — and when teams run both together.",
     tldr: `AiSensy and Ridhzo are actually different categories. AiSensy is a WhatsApp Business API platform for broadcasts, chatbots, and click-to-WhatsApp ads. Ridhzo is ${RIDHZO_ONE_LINER}, with a full sales pipeline. If you want to send WhatsApp campaigns at scale, AiSensy is built for that; if you want to capture leads, route them, and close deals with a pipeline, Ridhzo is the CRM. Many teams use a tool like each.`,
     atAGlance: [
-      { dimension: "Category", ridhzo: "Lead CRM with sales pipeline", competitor: "WhatsApp marketing / broadcast platform" },
-      { dimension: "Best for", ridhzo: "Capturing & closing inbound leads", competitor: "Bulk WhatsApp campaigns & chatbots" },
-      { dimension: "Sales pipeline", ridhzo: "Visual Kanban + SLA tracking", competitor: "Not a sales pipeline CRM" },
-      { dimension: "Lead capture", ridhzo: "Meta Ads, web forms, webhooks, CSV", competitor: "Click-to-WhatsApp, contacts" },
-      { dimension: "WhatsApp style", ridhzo: "1-tap personal follow-up + templates", competitor: "Official API broadcasts at scale" },
-      { dimension: "Entry price", ridhzo: "Free plan, then ₹249/mo flat (3 users)", competitor: "Free plan, then ~₹1,500/mo + per-message" },
-    ],
-    narrative: [
       {
-        heading: "Different jobs",
-        body: "This isn't a like-for-like fight. AiSensy is a WhatsApp Business API platform — its job is sending promotional broadcasts, running chatbots, and powering click-to-WhatsApp ads at scale on the official API. Ridhzo's job is the sales pipeline: capture a lead the instant it arrives, route it to a rep, alert them, and move the deal through stages with a response-time SLA.",
+        dimension: "Product category",
+        ridhzoTitle: "Lead CRM with sales pipeline",
+        ridhzoDetail: "Capture, assign, call, WhatsApp and move deals to closed-won.",
+        competitor: "WhatsApp Business API marketing, broadcast and chatbot platform.",
       },
       {
-        heading: "Follow-up vs. broadcast",
-        body: "Ridhzo's WhatsApp is about fast, personal, 1-tap first contact and follow-up tied to a lead record and pipeline stage. AiSensy's WhatsApp is about one-to-many messaging — audience segments, campaign scheduling, and templates at volume. If you need a rep to reach a hot lead in seconds, that's Ridhzo. If you need to blast an offer to 10,000 contacts, that's AiSensy.",
+        dimension: "Core strength",
+        ridhzoTitle: "Capturing & closing inbound leads",
+        ridhzoDetail: "Instant rep alerts, call logging, follow-up reminders and SLAs.",
+        competitor: "Bulk promotional WhatsApp broadcasts and automated chat flows.",
       },
       {
-        heading: "Do you need one or both?",
-        body: "Plenty of teams run both: a WhatsApp marketing tool for broadcasts and a lead CRM for the actual sales pipeline. If you only get one, choose by the job you're trying to do — pipeline and speed-to-lead (Ridhzo) or bulk WhatsApp marketing (AiSensy).",
+        dimension: "Sales pipeline",
+        ridhzoTitle: "Visual Kanban + SLA tracking",
+        ridhzoDetail: "Drag deals across stages and spot leads going cold.",
+        competitor: "Not a full sales pipeline or call-tracking CRM.",
+      },
+      {
+        dimension: "Lead capture",
+        ridhzoTitle: "Meta, Google, web forms & CSV",
+        ridhzoDetail: "Pulls ad and website enquiries into one unified lead inbox.",
+        competitor: "Built around WhatsApp opt-ins, click-to-WhatsApp ads and contact lists.",
+      },
+      {
+        dimension: "WhatsApp style",
+        ridhzoTitle: "1-tap personal follow-up",
+        ridhzoDetail: "Fast 1-on-1 rep follow-up from the lead record, plus API sequences.",
+        competitor: "Official Business API one-to-many campaigns at scale.",
+      },
+      {
+        dimension: "Mobile & calling",
+        ridhzoTitle: "Android call sync + Caller ID",
+        ridhzoDetail: "Logs sales calls automatically and works offline in the field.",
+        competitor: "Focused on WhatsApp chat inbox rather than phone call workflows.",
+      },
+      {
+        dimension: "Reporting",
+        ridhzoTitle: "Response speed & revenue",
+        ridhzoDetail: "Track team SLA, source ROI and stage conversion rates.",
+        competitor: "Campaign delivery, read rates and WhatsApp chatbot analytics.",
+      },
+      {
+        dimension: "Pricing comparison",
+        ridhzoTitle: "Flat workspace Ridhzo plans",
+        ridhzoDetail: `Free (${RIDHZO_FREE_PRICE}), Starter ${RIDHZO_STARTER_PRICE}/mo (3 seats), Unlimited ${RIDHZO_UNLIMITED_PRICE}/mo.`,
+        competitor: "Free tier, then ~₹1,500+/mo plus WhatsApp per-message fees.",
       },
     ],
     ridhzoBestFor: [
-      "Teams that need a real sales pipeline and lead routing",
-      "Speed-to-lead first contact from Meta/Google/web leads",
-      "Tracking response-time SLAs and pipeline stages",
-      "Reps closing deals, not just sending campaigns",
+      "Teams that need a real sales pipeline and lead routing.",
+      "Speed-to-lead first contact from Meta/Google/web leads.",
+      "Tracking response-time SLAs, phone calls and follow-ups.",
+      "Reps closing deals personally, not just blasting campaigns.",
     ],
     competitorBestFor: [
-      "Sending WhatsApp broadcasts and promotions at scale",
-      "Building WhatsApp chatbots for support/engagement",
-      "Running click-to-WhatsApp ad campaigns on the official API",
+      "Sending WhatsApp broadcasts and promotions at scale.",
+      "Building no-code WhatsApp chatbots for support.",
+      "Running click-to-WhatsApp ad campaigns on official API.",
+      "Managing a shared multi-agent WhatsApp marketing inbox.",
     ],
-    pricingNote: `As of ${AS_OF}, AiSensy offers a free-forever plan with paid plans from about ₹1,500/month (Basic) and ₹3,200/month (Pro), plus WhatsApp's per-message charges. Ridhzo has a free-forever plan and flat workspace pricing from ₹249/month. Because they do different jobs, compare by the outcome you need rather than price alone.`,
-    migration:
-      "Ridhzo isn't a replacement for a WhatsApp broadcast tool — it's the CRM layer. If you're moving lead management into Ridhzo, import your contacts via CSV and connect your lead sources; you can keep using a dedicated WhatsApp marketing platform alongside it for bulk campaigns.",
+    ridhzoPricingCard: DEFAULT_RIDHZO_PRICING_CARD,
+    competitorPricingCard: {
+      eyebrow: "AISENSY / BASIC MARKETING TIER",
+      name: "AiSensy",
+      description: "WhatsApp Business API broadcast and chatbot platform, plus conversation charges.",
+      price: "~₹1,500",
+      unit: "/ month + message fees",
+      exampleLabel: "Starting paid tier / month",
+      exampleTotal: "~₹1,500+",
+    },
     faqs: [
-      { q: "Is Ridhzo a replacement for AiSensy?", a: "Not exactly — they're different categories. AiSensy is a WhatsApp broadcast and chatbot platform; Ridhzo is a lead CRM with a sales pipeline. If you need to capture, route, and close leads fast, Ridhzo is the CRM. For bulk WhatsApp marketing, a tool like AiSensy fits. Many teams use both." },
-      { q: "Does Ridhzo send WhatsApp broadcasts like AiSensy?", a: "Ridhzo focuses on fast, personal 1-tap follow-up tied to your pipeline, plus templates. For large one-to-many promotional broadcasts on the official API, a dedicated WhatsApp marketing platform like AiSensy is purpose-built." },
-      { q: "Can I use Ridhzo and a WhatsApp marketing tool together?", a: "Yes. A common setup is a WhatsApp broadcast tool for campaigns and Ridhzo as the sales CRM for lead capture, routing, and closing." },
+      {
+        q: "Is Ridhzo a replacement for AiSensy?",
+        a: "Not exactly — they serve different jobs. AiSensy is a WhatsApp broadcast and chatbot platform; Ridhzo is a sales CRM with instant lead capture, call logging, and a visual pipeline. Many teams use both together.",
+      },
+      {
+        q: "Does Ridhzo send bulk WhatsApp broadcasts like AiSensy?",
+        a: "Ridhzo focuses on fast 1-tap personal follow-up tied to each lead record, plus automated follow-up sequences. For large promotional blasts on the official API, a dedicated broadcast tool like AiSensy is purpose-built.",
+      },
+      {
+        q: "Can I use Ridhzo and AiSensy together?",
+        a: "Yes. A common setup is using a WhatsApp marketing tool for bulk campaigns and Ridhzo as your sales CRM for capturing inbound leads, routing them to reps, and closing deals.",
+      },
+      {
+        q: "How does Ridhzo pricing compare to AiSensy?",
+        a: `Ridhzo has a ${RIDHZO_FREE_PRICE} free-forever plan and flat workspace tiers from ${RIDHZO_STARTER_PRICE}/month (3 seats) or ${RIDHZO_UNLIMITED_PRICE}/month (unlimited seats). AiSensy paid plans start around ₹1,500/month plus Meta's per-message fees.`,
+      },
     ],
   },
 ];

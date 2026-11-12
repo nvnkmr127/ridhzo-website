@@ -68,7 +68,7 @@ const FIGMA_SOCIALS = [
 
 export function MarketingFooter() {
   return (
-    <footer className="relative z-[1] overflow-hidden border-t border-white/[0.32] bg-black px-4 py-16 sm:px-6 sm:py-20 lg:h-[760px] lg:px-[84px] lg:py-[80px]">
+    <footer className="relative z-[1] overflow-hidden border-t border-white/[0.32] bg-black px-4 py-16 [font-feature-settings:normal] sm:px-6 sm:py-20 lg:h-[760px] lg:px-[84px] lg:py-[80px]">
       {/* Figma grain photo overlay */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-40 mix-blend-overlay" aria-hidden="true">
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -85,11 +85,7 @@ export function MarketingFooter() {
         {/* Brand + CTA */}
         <div className="flex w-full flex-col items-start justify-between gap-8 sm:flex-row">
           <div className="flex w-full max-w-[300px] flex-col gap-[16px]">
-            <Link href="/" aria-label="Ridhzo home" className="focus-ring inline-flex w-fit items-center gap-[6.857px] rounded-md">
-              <span className="relative h-[35.657px] w-[38.4px] shrink-0">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img alt="" src="/figma/d7f3e.svg" className="block size-full max-w-none" />
-              </span>
+            <Link href="/" aria-label="Ridhzo home" className="focus-ring inline-flex w-fit items-center rounded-md">
               <span className="relative h-[24px] w-[104.571px] shrink-0">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img alt="Ridhzo" src="/figma/10920.svg" className="block size-full max-w-none" />

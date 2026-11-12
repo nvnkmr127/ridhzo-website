@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { FeatherArrowRight } from "@/components/site/icons";
 import { cn } from "@/lib/utils";
 import { Eyebrow, SectionTitle, Accent, Lead } from "@/components/site/primitives";
 
@@ -85,9 +85,8 @@ export function UseCasesHomeSection() {
                 >
                   <span className="flex items-center justify-between text-lg font-semibold leading-[26px] tracking-[-0.015em] text-white">
                     {c.title}
-                    <ArrowRight
+                    <FeatherArrowRight
                       className={cn("h-5 w-5 transition-opacity", isActive ? "text-highlight opacity-100" : "opacity-0")}
-                      aria-hidden="true"
                     />
                   </span>
                   <span className={cn("text-base leading-6 transition-colors", isActive ? "text-white/65" : "text-white/50")}>

@@ -2,102 +2,141 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowRight, Minus, Plus } from "lucide-react";
-import { Eyebrow, SectionTitle, Lead, HomeSection } from "./primitives";
+import { cn } from "@/lib/utils";
+import { appUrl } from "@/lib/config";
+import { FeatherArrowRight, FeatherMinus, FeatherPlus } from "@/components/site/icons";
 
 export interface FaqItem {
   q: string;
   a: string;
-  link?: { href: string; label: string };
 }
 
 /**
- * Two-column FAQ from the homepage design: heading on the left, accordion on the right.
- * Also emits FAQPage structured data so every FAQ on the site is eligible for rich results.
+ * Design System FAQ section matching Figma `Question` (231:18076) and Comparison `Before You Switch` (639:14491).
+ * Uses Feather plus/minus icons and supports both light (#ffffff) and dark (#000000) alternating sections.
  */
 export function FaqAccordion({
   id = "faq",
-  items,
-  eyebrow = "FAQ",
+  eyebrow = "Common questions",
+  heading = "Before you decide.",
   title,
-  lead,
-  contactLabel = "Talk to our team",
+  accent,
+  items,
+  theme = "dark",
+  contactLabel,
+  cta = { label: "Start 14-Day Free Trial", href: appUrl("/signup") },
 }: {
   id?: string;
-  items: readonly FaqItem[];
   eyebrow?: string;
-  title: React.ReactNode;
-  lead?: React.ReactNode;
-  contactLabel?: string | null;
+  heading?: string;
+  title?: string;
+  accent?: string;
+  items: FaqItem[];
+  theme?: "dark" | "light";
+  contactLabel?: string;
+  cta?: { label: string; href: string };
 }) {
-  const [open, setOpen] = useState<number | null>(0);
-
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: items.map((f) => ({
-      "@type": "Question",
-      name: f.q,
-      acceptedAnswer: { "@type": "Answer", text: f.a },
-    })),
-  };
+  const [open, setOpen] = useState<number>(0);
+  const isLight = theme === "light";
+  const resolvedHeading = title ?? heading;
+  const resolvedCta = contactLabel ? { label: contactLabel, href: "/contact" } : cta;
 
   return (
-    <HomeSection id={id}>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <div className="grid gap-10 lg:grid-cols-[488px_1fr] lg:gap-14">
-        <div className="flex flex-col items-start gap-6">
-          <div className="flex flex-col gap-3">
-            <Eyebrow className="w-fit">{eyebrow}</Eyebrow>
-            <SectionTitle>{title}</SectionTitle>
-            {lead ? <Lead>{lead}</Lead> : null}
-          </div>
-          {contactLabel ? (
-            <Link
-              href="/contact"
-              className="focus-ring inline-flex h-12 items-center gap-2 rounded-xl text-sm font-medium text-white/80 transition-colors hover:text-white"
-            >
-              {contactLabel} <ArrowRight className="h-5 w-5" aria-hidden="true" />
-            </Link>
-          ) : null}
+    <section
+      id={id}
+      className={cn(
+        "relative z-[1] px-4 py-16 sm:px-8 lg:px-[84px] lg:py-[88px]",
+        isLight ? "bg-white text-black" : "bg-black text-white",
+      )}
+    >
+      <div className="mx-auto grid w-full max-w-[1272px] items-start gap-12 lg:grid-cols-[minmax(0,360px)_1fr]">
+        <div>
+          <span
+            className={cn(
+              "type-label",
+              isLight ? "text-black" : "text-[#5ee878]",
+            )}
+          >
+            {eyebrow}
+          </span>
+          <h2
+            className={cn(
+              "type-h2 mt-5",
+              isLight ? "text-black" : "text-white",
+            )}
+          >
+            {resolvedHeading}
+            {accent && (
+              <>
+                {" "}
+                <span className="text-[#5ee878]">{accent}</span>
+              </>
+            )}
+          </h2>
+          <Link
+            href={resolvedCta.href}
+            className={cn(
+              "focus-ring type-button mt-8 inline-flex h-[48px] items-center justify-center gap-[8px] rounded-[12px] border px-[20px] transition-colors",
+              isLight
+                ? "border-black/80 bg-black text-white hover:border-black hover:bg-black/80"
+                : "border-white/80 bg-white text-black hover:border-white hover:bg-white/80",
+            )}
+          >
+            {resolvedCta.label}
+            <FeatherArrowRight className="h-5 w-5" />
+          </Link>
         </div>
 
-        <div className="border-t border-white/30">
-          {items.map((f, i) => {
+        <ul className={cn("border-t", isLight ? "border-black/20" : "border-white/[0.16]")}>
+          {items.map((item, i) => {
             const isOpen = open === i;
+            const panelId = `${id}-panel-${i}`;
+            const buttonId = `${id}-button-${i}`;
             return (
-              <div key={f.q} className="border-b border-white/30 py-5">
-                <h3>
-                  <button
-                    type="button"
-                    aria-expanded={isOpen}
-                    aria-controls={`${id}-panel-${i}`}
-                    onClick={() => setOpen(isOpen ? null : i)}
-                    className="focus-ring flex w-full items-center justify-between gap-4 px-2 text-left text-base leading-6 text-white"
+              <li
+                key={item.q}
+                className={cn("border-b", isLight ? "border-black/20" : "border-white/[0.16]")}
+              >
+                <button
+                  id={buttonId}
+                  type="button"
+                  aria-expanded={isOpen}
+                  aria-controls={panelId}
+                  onClick={() => setOpen(isOpen ? -1 : i)}
+                  className={cn(
+                    "focus-ring flex w-full items-center justify-between gap-4 px-2 py-5 text-left font-sans text-[16px] font-normal leading-[24px] transition-colors",
+                    isLight ? "text-black hover:text-black/75" : "text-white hover:text-[#5ee878]",
+                  )}
+                >
+                  <span>{item.q}</span>
+                  <span
+                    aria-hidden="true"
+                    className={cn(
+                      "shrink-0 transition-colors",
+                      isOpen ? "text-[#5ee878]" : isLight ? "text-black/60" : "text-white/60",
+                    )}
                   >
-                    {f.q}
-                    {isOpen ? (
-                      <Minus className="h-5 w-5 shrink-0 text-highlight" aria-hidden="true" />
-                    ) : (
-                      <Plus className="h-5 w-5 shrink-0 text-highlight" aria-hidden="true" />
-                    )}
-                  </button>
-                </h3>
+                    {isOpen ? <FeatherMinus className="h-5 w-5" /> : <FeatherPlus className="h-5 w-5" />}
+                  </span>
+                </button>
                 {isOpen && (
-                  <div id={`${id}-panel-${i}`} className="px-2 pt-1">
-                    <p className="text-sm leading-6 text-white/65">{f.a}</p>
-                    {f.link && (
-                      <Link href={f.link.href} className="mt-2 inline-block text-sm text-highlight underline underline-offset-4">
-                        {f.link.label}
-                      </Link>
+                  <p
+                    id={panelId}
+                    role="region"
+                    aria-labelledby={buttonId}
+                    className={cn(
+                      "px-2 pb-5 pr-10 font-sans text-[14px] font-normal leading-[22px]",
+                      isLight ? "text-black/[0.64]" : "text-white/[0.64]",
                     )}
-                  </div>
+                  >
+                    {item.a}
+                  </p>
                 )}
-              </div>
+              </li>
             );
           })}
-        </div>
+        </ul>
       </div>
-    </HomeSection>
+    </section>
   );
 }

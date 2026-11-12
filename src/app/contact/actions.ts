@@ -7,9 +7,9 @@ export type ContactState =
   | { status: "success" }
   | { status: "error"; message: string; fieldErrors?: Partial<Record<ContactField, string>> };
 
-type ContactField = "name" | "phone" | "email" | "businessType" | "message";
+type ContactField = "name" | "email" | "company" | "teamSize" | "message";
 
-const MAX = { name: 100, phone: 25, email: 200, businessType: 60, message: 3000 } as const;
+const MAX = { name: 100, email: 200, company: 120, teamSize: 40, message: 3000 } as const;
 
 // Best-effort per-instance throttle. Serverless instances don't share memory, so this only blunts
 // bursts from one client; the honeypot and minimum fill time do most of the spam filtering.
@@ -42,7 +42,7 @@ const escapeHtml = (s: string) =>
  */
 export async function submitContact(_prev: ContactState, form: FormData): Promise<ContactState> {
   // Honeypot: real visitors never see or fill this field.
-  const honeypot = form.get("company");
+  const honeypot = form.get("website");
   if (typeof honeypot === "string" && honeypot.trim() !== "") {
     return { status: "success" };
   }
@@ -54,15 +54,14 @@ export async function submitContact(_prev: ContactState, form: FormData): Promis
 
   const data = {
     name: field(form, "name"),
-    phone: field(form, "phone"),
     email: field(form, "email"),
-    businessType: field(form, "businessType"),
+    company: field(form, "company"),
+    teamSize: field(form, "teamSize"),
     message: field(form, "message"),
   };
 
   const fieldErrors: Partial<Record<ContactField, string>> = {};
   if (data.name.length < 2) fieldErrors.name = "Please enter your name.";
-  if (data.phone.replace(/\D/g, "").length < 8) fieldErrors.phone = "Please enter a valid WhatsApp number.";
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) fieldErrors.email = "Please enter a valid email address.";
   if (Object.keys(fieldErrors).length) {
     return { status: "error", message: "Please fix the highlighted fields.", fieldErrors };

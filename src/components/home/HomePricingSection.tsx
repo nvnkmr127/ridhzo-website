@@ -29,7 +29,7 @@ export function HomePricingSection() {
           </h2>
 
           <div className="flex flex-col items-start gap-[16px] pb-[12px] lg:items-end">
-            <p className="w-full max-w-[290px] text-[16px] font-normal leading-[26px] text-black/[0.64] sm:text-[18px] sm:leading-[28px]">
+            <p className="type-body-lg w-full max-w-[290px] text-black/[0.64]">
               One straight forward price for your workspace.
             </p>
             <BillingFrequencyToggle cycle={cycle} onChange={setCycle} />

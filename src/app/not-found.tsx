@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 import { appUrl } from "@/lib/config";
 import { PageHero } from "@/components/site/PageHero";
-import { Accent, HomeButton, HomeSection, PageGlows } from "@/components/site/primitives";
+import { Accent, HomeButton, HomeSection } from "@/components/site/primitives";
+import { FeatherArrowUpRight } from "@/components/site/icons";
 
 const LINKS = [
   { href: "/features", label: "Product features", body: "Everything Ridhzo does, from capture to dashboards." },
@@ -13,43 +13,49 @@ const LINKS = [
 
 export default function NotFound() {
   return (
-    <div className="relative">
-      <PageGlows />
+    <>
       <PageHero
         align="center"
-        eyebrow="404"
+        eyebrow="404 · PAGE NOT FOUND"
         title={
           <>
-            This page went <Accent>cold.</Accent>
+            THIS PAGE WENT <Accent>COLD.</Accent>
           </>
         }
-        lead="The page you're looking for doesn't exist or has moved. Here are some places to pick things back up."
-      >
-        <div className="mt-4 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:gap-6">
-          <HomeButton href="/" variant="secondary">
-            Back to Home
-          </HomeButton>
-          <HomeButton href={appUrl("/signup")}>Start Free</HomeButton>
-        </div>
-      </PageHero>
-      <HomeSection className="pt-0 sm:pt-0">
+        description="The page you're looking for doesn't exist or has moved. Here are some places to pick things back up."
+        actions={
+          <>
+            <HomeButton href="/" variant="secondary-outline">
+              Back to Home
+            </HomeButton>
+            <HomeButton href={appUrl("/signup")} variant="primary">
+              Start 14-Day Free Trial
+            </HomeButton>
+          </>
+        }
+      />
+      <HomeSection theme="light">
         <ul className="mx-auto grid max-w-[1000px] gap-6 sm:grid-cols-2">
           {LINKS.map((l) => (
             <li key={l.href}>
               <Link
                 href={l.href}
-                className="focus-ring group flex h-full items-start justify-between gap-4 rounded-3xl border border-white/12 bg-white/[0.04] p-6 transition-colors hover:border-highlight/40 hover:bg-white/[0.07]"
+                className="focus-ring group flex h-full items-start justify-between gap-4 rounded-[16px] border border-black/20 bg-white p-6 transition-colors hover:border-black/50 sm:p-8"
               >
                 <span>
-                  <span className="block text-lg font-semibold text-white">{l.label}</span>
-                  <span className="mt-1 block text-sm text-white/65">{l.body}</span>
+                  <span className="type-h4 block text-black">
+                    {l.label}
+                  </span>
+                  <span className="type-body-sm mt-2 block text-black/[0.64]">
+                    {l.body}
+                  </span>
                 </span>
-                <ArrowUpRight className="mt-1 h-5 w-5 shrink-0 text-white/50 group-hover:text-highlight" aria-hidden="true" />
+                <FeatherArrowUpRight className="mt-1 h-5 w-5 shrink-0 text-black/[0.48] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-black" />
               </Link>
             </li>
           ))}
         </ul>
       </HomeSection>
-    </div>
+    </>
   );
 }

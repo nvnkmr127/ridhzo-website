@@ -1,6 +1,13 @@
 import { pageMetadata } from "@/lib/metadata";
 import { PolicyLayout } from "@/components/marketing/PolicyLayout";
-import { RotateCcw, CheckCircle2, Clock, CreditCard, AlertCircle, HelpCircle } from "lucide-react";
+import {
+  FeatherRotateCcw,
+  FeatherCheckCircle,
+  FeatherClock,
+  FeatherCreditCard,
+  FeatherAlertCircle,
+  FeatherHelpCircle,
+} from "@/components/site/icons";
 
 export const metadata = pageMetadata({
   title: "Cancellation & Refund Policy",
@@ -32,7 +39,7 @@ export default function RefundPolicyPage() {
       {/* 01. 14-Day Money-Back Guarantee */}
       <section id="guarantee" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <RotateCcw className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherRotateCcw className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>1. 14-Day Money-Back Guarantee</span>
         </h2>
         <p>
@@ -41,7 +48,7 @@ export default function RefundPolicyPage() {
         </p>
         <div className="rounded-2xl border border-white/12 bg-white/[0.04] p-5 space-y-2">
           <div className="flex items-center gap-2 text-white font-semibold text-sm">
-            <CheckCircle2 className="h-4 w-4 text-highlight" />
+            <FeatherCheckCircle className="h-4 w-4 text-[#5ee878]" />
             <span>Risk-Free Onboarding</span>
           </div>
           <p className="text-sm sm:text-base text-white/65 leading-relaxed">
@@ -55,7 +62,7 @@ export default function RefundPolicyPage() {
       {/* 02. How to Cancel */}
       <section id="cancellation" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <Clock className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherClock className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>2. How to Cancel Your Subscription</span>
         </h2>
         <p>You may cancel your Ridhzo subscription at any time with zero friction:</p>
@@ -79,7 +86,7 @@ export default function RefundPolicyPage() {
       {/* 03. Refund Eligibility & Rules */}
       <section id="eligibility" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <CreditCard className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherCreditCard className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>3. Refund Eligibility &amp; Criteria</span>
         </h2>
         <p>Refunds are evaluated under the following transparent rules:</p>
@@ -106,7 +113,7 @@ export default function RefundPolicyPage() {
       {/* 04. Non-Refundable Items */}
       <section id="non-refundable" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <AlertCircle className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherAlertCircle className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>4. Non-Refundable Items</span>
         </h2>
         <p>The following categories are strictly non-refundable:</p>
@@ -130,7 +137,7 @@ export default function RefundPolicyPage() {
       {/* 05. Timeline & Payout Mode */}
       <section id="timeline" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <Clock className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherClock className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>5. Processing Timeline &amp; Payment Mode</span>
         </h2>
         <div className="rounded-2xl border border-white/12 bg-white/[0.04] p-5 space-y-3">
@@ -159,7 +166,7 @@ export default function RefundPolicyPage() {
       {/* 06. How to Request a Refund */}
       <section id="how-to-request" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <HelpCircle className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherHelpCircle className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>6. How to Request a Refund</span>
         </h2>
         <p>To request a refund under our guarantee policy:</p>

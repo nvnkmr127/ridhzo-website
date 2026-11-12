@@ -1,6 +1,14 @@
 import { pageMetadata } from "@/lib/metadata";
 import { PolicyLayout } from "@/components/marketing/PolicyLayout";
-import { ShieldCheck, Lock, Database, UserCheck, Bell, Server, CheckCircle2 } from "lucide-react";
+import {
+  ShieldCheckIcon,
+  FeatherLock,
+  FeatherDatabase,
+  FeatherUserCheck,
+  FeatherBell,
+  FeatherServer,
+  FeatherCheckCircle,
+} from "@/components/site/icons";
 
 export const metadata = pageMetadata({
   title: "Privacy Policy",
@@ -36,7 +44,7 @@ export default function PrivacyPolicyPage() {
       {/* 01. Overview & Scope */}
       <section id="overview" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <ShieldCheck className="h-6 w-6 shrink-0 text-highlight" />
+          <ShieldCheckIcon className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>1. Overview &amp; Scope</span>
         </h2>
         <p>
@@ -64,7 +72,7 @@ export default function PrivacyPolicyPage() {
       {/* 02. Data Controller vs. Data Processor */}
       <section id="roles" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <UserCheck className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherUserCheck className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>2. Data Controller vs. Data Processor</span>
         </h2>
         <p>Under international data protection frameworks, our role depends on the category of data being processed:</p>
@@ -94,7 +102,7 @@ export default function PrivacyPolicyPage() {
       {/* 03. Information We Collect */}
       <section id="information-collected" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <Database className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherDatabase className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>3. Information We Collect</span>
         </h2>
         <p>We collect information in three distinct categories:</p>
@@ -131,7 +139,7 @@ export default function PrivacyPolicyPage() {
       {/* 04. Meta, Google & WhatsApp Integrations */}
       <section id="integrations" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <Server className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherServer className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>4. Meta, Google &amp; WhatsApp Integrations</span>
         </h2>
         <p>
@@ -171,7 +179,7 @@ export default function PrivacyPolicyPage() {
       {/* 05. How We Use Your Information */}
       <section id="how-we-use" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <CheckCircle2 className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherCheckCircle className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>5. How We Use Your Information</span>
         </h2>
         <p>We process data exclusively for legitimate operational purposes:</p>
@@ -188,7 +196,7 @@ export default function PrivacyPolicyPage() {
       {/* 06. Data Isolation & Security */}
       <section id="tenant-isolation" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <Lock className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherLock className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>6. Data Isolation &amp; Cryptographic Security</span>
         </h2>
         <p>
@@ -219,7 +227,7 @@ export default function PrivacyPolicyPage() {
       {/* 07. Data Sharing & Third-Party Processors */}
       <section id="sharing" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <Server className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherServer className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>7. Data Sharing &amp; Third-Party Sub-Processors</span>
         </h2>
         <p>
@@ -264,7 +272,7 @@ export default function PrivacyPolicyPage() {
       {/* 08. Data Retention & Deletion */}
       <section id="retention-deletion" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <Database className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherDatabase className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>8. Data Retention &amp; Permanent Deletion</span>
         </h2>
         <p>
@@ -291,7 +299,7 @@ export default function PrivacyPolicyPage() {
       {/* 09. Your Rights & Choices (DPDP / GDPR / CCPA) */}
       <section id="your-rights" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <UserCheck className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherUserCheck className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>9. Your Rights &amp; Choices</span>
         </h2>
         <p>
@@ -321,7 +329,7 @@ export default function PrivacyPolicyPage() {
       {/* 10. Grievance Officer & Inquiries */}
       <section id="grievance" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <Bell className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherBell className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>10. Grievance Officer &amp; Regulatory Inquiries</span>
         </h2>
         <p>

@@ -91,7 +91,7 @@ export function IntegrationsHomeSection() {
             </span>
           </h2>
 
-          <p className="w-full max-w-[323px] pb-[12px] text-[16px] font-normal leading-[26px] text-black/[0.64] sm:text-[18px] sm:leading-[28px]">
+          <p className="type-body-lg w-full max-w-[323px] pb-[12px] text-black/[0.64]">
             Link the platforms that generate enquiries to the workspace where your team manages them. No exports or
             scattered spreadsheets.
           </p>

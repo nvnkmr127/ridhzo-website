@@ -1,6 +1,14 @@
 import { pageMetadata } from "@/lib/metadata";
 import { PolicyLayout } from "@/components/marketing/PolicyLayout";
-import { FileText, CheckCircle2, AlertOctagon, Scale, ShieldAlert, CreditCard, Ban } from "lucide-react";
+import {
+  FeatherFileText,
+  FeatherCheckCircle,
+  FeatherAlertOctagon,
+  FeatherBookOpen,
+  FeatherShield,
+  FeatherCreditCard,
+  FeatherSlash,
+} from "@/components/site/icons";
 
 export const metadata = pageMetadata({
   title: "Terms of Service",
@@ -37,7 +45,7 @@ export default function TermsOfServicePage() {
       {/* 01. Acceptance of Terms */}
       <section id="acceptance" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <FileText className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherFileText className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>1. Acceptance of Terms</span>
         </h2>
         <p>
@@ -62,7 +70,7 @@ export default function TermsOfServicePage() {
       {/* 02. Accounts & Seat Licenses */}
       <section id="accounts-seats" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <CheckCircle2 className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherCheckCircle className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>2. Account Registration &amp; Seat Licenses</span>
         </h2>
         <p>
@@ -90,7 +98,7 @@ export default function TermsOfServicePage() {
       {/* 03. Acceptable Use & Anti-Spam Policy */}
       <section id="acceptable-use" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <Ban className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherSlash className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>3. Acceptable Use &amp; Strict Anti-Spam Policy</span>
         </h2>
         <p>
@@ -100,7 +108,7 @@ export default function TermsOfServicePage() {
         </p>
         <div className="border border-destructive/40 bg-destructive/10 rounded-2xl p-5 space-y-3">
           <div className="flex items-center gap-2 text-sm font-semibold text-white">
-            <AlertOctagon className="h-4 w-4 text-highlight" />
+            <FeatherAlertOctagon className="h-4 w-4 text-[#5ee878]" />
             <span>Strictly Prohibited Conduct</span>
           </div>
           <ul className="list-disc pl-5 space-y-1.5 text-sm sm:text-base text-white/65">
@@ -119,7 +127,7 @@ export default function TermsOfServicePage() {
       {/* 04. WhatsApp & Telecom Compliance */}
       <section id="whatsapp-compliance" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <ShieldAlert className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherShield className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>4. WhatsApp &amp; Telecom Regulations</span>
         </h2>
         <p>
@@ -148,7 +156,7 @@ export default function TermsOfServicePage() {
       {/* 05. Intellectual Property & Lead Ownership */}
       <section id="data-ownership" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <Scale className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherBookOpen className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>5. Intellectual Property &amp; Customer Lead Ownership</span>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -173,7 +181,7 @@ export default function TermsOfServicePage() {
       {/* 06. Subscription Fees & Renewals */}
       <section id="billing-plans" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <CreditCard className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherCreditCard className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>6. Subscription Fees, Billing &amp; Renewals</span>
         </h2>
         <p>Access to Ridhzo is billed on a recurring subscription basis (monthly or annually):</p>
@@ -200,7 +208,7 @@ export default function TermsOfServicePage() {
       {/* 07. Availability & Service SLAs */}
       <section id="service-slas" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <CheckCircle2 className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherCheckCircle className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>7. Service Availability &amp; Uptime SLA</span>
         </h2>
         <p>
@@ -217,7 +225,7 @@ export default function TermsOfServicePage() {
       {/* 08. Limitation of Liability & Warranty */}
       <section id="liability-caps" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <AlertOctagon className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherAlertOctagon className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>8. Limitation of Liability &amp; Disclaimers</span>
         </h2>
         <p>
@@ -245,7 +253,7 @@ export default function TermsOfServicePage() {
       {/* 09. Mutual Indemnification */}
       <section id="indemnification" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <Scale className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherBookOpen className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>9. Mutual Indemnification</span>
         </h2>
         <p>
@@ -260,7 +268,7 @@ export default function TermsOfServicePage() {
       {/* 10. Suspension & Termination */}
       <section id="termination" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <Ban className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherSlash className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>10. Suspension &amp; Termination</span>
         </h2>
         <p>
@@ -277,7 +285,7 @@ export default function TermsOfServicePage() {
       {/* 11. Governing Law & Dispute Resolution */}
       <section id="governing-law" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <Scale className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherBookOpen className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>11. Governing Law &amp; Dispute Resolution</span>
         </h2>
         <p>

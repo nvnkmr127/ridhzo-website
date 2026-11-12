@@ -380,7 +380,7 @@ export function FlowSection() {
             </span>
           </h2>
 
-          <p className="w-full max-w-[323px] pb-[12px] text-[16px] font-normal leading-[26px] text-black/[0.64] sm:text-[18px] sm:leading-[28px]">
+          <p className="type-body-lg w-full max-w-[323px] pb-[12px] text-black/[0.64]">
             Three little moments. One massive difference in how your team moves.
           </p>
         </div>

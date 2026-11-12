@@ -53,8 +53,8 @@ export function PricingFaq() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(PRICING_FAQ_JSON_LD) }} />
       <div className="mx-auto flex w-full max-w-[1272px] flex-col items-start gap-[44px] lg:flex-row lg:gap-[48px]">
         <div className="flex shrink-0 flex-col items-start lg:w-[589px]">
-          <p className="text-[12px] font-normal leading-[18px] text-black">COMMON QUESTIONS</p>
-          <h2 className="pt-[20px] font-inter text-[44px] font-extrabold uppercase leading-[normal] tracking-[-0.05em] sm:text-[64px] lg:text-[72px] lg:tracking-[-5.7px]">
+          <p className="type-label text-black">COMMON QUESTIONS</p>
+          <h2 className="type-h2 pt-[20px]">
             <span className="block text-black">GOOD</span>
             <span className="block text-black">QUESTIONS.</span>
             <span className="block text-[#5ee878] lg:whitespace-pre">CLEAR  ANSWERS.</span>

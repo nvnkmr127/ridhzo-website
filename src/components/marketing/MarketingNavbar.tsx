@@ -4,7 +4,7 @@ import { appUrl } from "@/lib/config";
 import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
+import { FeatherMenu, FeatherX, FeatherChevronDown, FeatherArrowRight } from "@/components/site/icons";
 import {
   FEATURE_CATEGORIES,
   featuresByCategory,
@@ -118,7 +118,7 @@ export function MarketingNavbar() {
   return (
     <>
       {/* Figma Homepage/Announcement bar (554:6624) */}
-      <div className="relative z-50 flex min-h-[40px] w-full items-center justify-center bg-black px-3 py-1.5 sm:h-[40px] sm:py-0">
+      <div className="relative z-50 flex min-h-[40px] w-full items-center justify-center bg-black px-3 py-1.5 [font-feature-settings:normal] sm:h-[40px] sm:py-0">
         <div className="flex flex-wrap items-center justify-center gap-x-[16px] gap-y-1">
           <div className="flex flex-wrap items-center justify-center gap-x-[12px] gap-y-0.5">
             <span className="text-[12px] font-normal leading-[18px] text-white sm:text-[14px] sm:leading-[20px]">
@@ -135,7 +135,7 @@ export function MarketingNavbar() {
           </div>
           <Link
             href={appUrl("/signup")}
-            className="focus-ring inline-flex items-center justify-center gap-[2px] rounded-[10px] px-[8px] py-[4px] text-[12px] font-medium leading-[18px] text-[#5ee878] underline underline-offset-2 transition-opacity hover:opacity-85 sm:px-[16px] sm:py-[6px] sm:text-[14px] sm:leading-[20px]"
+            className="focus-ring inline-flex items-center justify-center gap-[2px] rounded-[10px] px-[8px] py-[4px] text-[12px] font-medium leading-[18px] text-[#5ee878] underline [text-underline-position:from-font] transition-opacity hover:opacity-85 sm:px-[16px] sm:py-[6px] sm:text-[14px] sm:leading-[20px]"
           >
             Start Free Trial
             <span className="relative size-[18px] shrink-0 sm:size-[20px]" aria-hidden="true">
@@ -147,7 +147,7 @@ export function MarketingNavbar() {
       </div>
 
       {/* Figma Homepage/Navigation (570:10654) */}
-      <header ref={headerRef} className="sticky top-0 z-50 w-full border-b border-black/[0.08] bg-white text-black lg:h-[88px]">
+      <header ref={headerRef} className="sticky top-0 z-50 w-full border-b border-black/[0.08] bg-white text-black [font-feature-settings:normal] lg:h-[88px]">
         <div className="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between px-4 sm:px-6 lg:h-full lg:px-[32px]">
           <Link href="/" aria-label="Ridhzo home" className="focus-ring flex shrink-0 items-center rounded-md py-1">
             <span className="flex h-[32px] items-center gap-[6.154px]">
@@ -170,14 +170,12 @@ export function MarketingNavbar() {
                 aria-expanded={openMenu === "product"}
                 aria-controls="nav-panel-product"
                 onClick={() => handleMenuClick("product")}
-                className={`focus-ring flex items-center gap-[4px] rounded-md py-2 text-[16px] leading-[24px] transition-colors hover:text-black/70 ${
-                  openMenu === "product" || active === "product" ? "font-medium text-black" : "font-normal text-black"
-                }`}
+                className={`focus-ring flex items-center gap-[4px] rounded-md py-2 text-[16px] leading-[24px] transition-colors hover:text-black/70 ${openMenu === "product" || active === "product" ? "font-medium text-black" : "font-normal text-black"
+                  }`}
               >
                 Product
-                <ChevronDown
-                  className={`h-4 w-4 text-black transition-transform duration-200 ${openMenu === "product" ? "rotate-180" : ""}`}
-                  aria-hidden="true"
+                <FeatherChevronDown
+                  className={`h-6 w-6 text-black transition-transform duration-200 ${openMenu === "product" ? "rotate-180" : ""}`}
                 />
               </button>
             </div>
@@ -188,14 +186,12 @@ export function MarketingNavbar() {
                 aria-expanded={openMenu === "solutions"}
                 aria-controls="nav-panel-solutions"
                 onClick={() => handleMenuClick("solutions")}
-                className={`focus-ring flex items-center gap-[4px] rounded-md py-2 text-[16px] leading-[24px] transition-colors hover:text-black/70 ${
-                  openMenu === "solutions" || active === "solutions" ? "font-medium text-black" : "font-normal text-black"
-                }`}
+                className={`focus-ring flex items-center gap-[4px] rounded-md py-2 text-[16px] leading-[24px] transition-colors hover:text-black/70 ${openMenu === "solutions" || active === "solutions" ? "font-medium text-black" : "font-normal text-black"
+                  }`}
               >
                 Solutions
-                <ChevronDown
-                  className={`h-4 w-4 text-black transition-transform duration-200 ${openMenu === "solutions" ? "rotate-180" : ""}`}
-                  aria-hidden="true"
+                <FeatherChevronDown
+                  className={`h-6 w-6 text-black transition-transform duration-200 ${openMenu === "solutions" ? "rotate-180" : ""}`}
                 />
               </button>
             </div>
@@ -203,9 +199,8 @@ export function MarketingNavbar() {
             <Link
               href="/pricing"
               aria-current={active === "/pricing" ? "page" : undefined}
-              className={`focus-ring rounded-md py-2 text-[16px] leading-[24px] transition-colors ${
-                active === "/pricing" ? "font-bold text-[#5ee878] hover:text-[#5ee878]/85" : "font-normal text-black hover:text-black/70"
-              }`}
+              className={`focus-ring rounded-md py-2 text-[16px] leading-[24px] transition-colors ${active === "/pricing" ? "font-bold text-[#5ee878] hover:text-[#5ee878]/85" : "font-normal text-black hover:text-black/70"
+                }`}
             >
               Pricing
             </Link>
@@ -216,14 +211,12 @@ export function MarketingNavbar() {
                 aria-expanded={openMenu === "resources"}
                 aria-controls="nav-panel-resources"
                 onClick={() => handleMenuClick("resources")}
-                className={`focus-ring flex items-center gap-[4px] rounded-md py-2 text-[16px] leading-[24px] transition-colors hover:text-black/70 ${
-                  openMenu === "resources" || active === "resources" ? "font-medium text-black" : "font-normal text-black"
-                }`}
+                className={`focus-ring flex items-center gap-[4px] rounded-md py-2 text-[16px] leading-[24px] transition-colors hover:text-black/70 ${openMenu === "resources" || active === "resources" ? "font-medium text-black" : "font-normal text-black"
+                  }`}
               >
                 Resources
-                <ChevronDown
-                  className={`h-4 w-4 text-black transition-transform duration-200 ${openMenu === "resources" ? "rotate-180" : ""}`}
-                  aria-hidden="true"
+                <FeatherChevronDown
+                  className={`h-6 w-6 text-black transition-transform duration-200 ${openMenu === "resources" ? "rotate-180" : ""}`}
                 />
               </button>
             </div>
@@ -231,9 +224,8 @@ export function MarketingNavbar() {
             <Link
               href="/contact"
               aria-current={active === "/contact" ? "page" : undefined}
-              className={`focus-ring rounded-md py-2 text-[16px] leading-[24px] transition-colors hover:text-black/70 ${
-                active === "/contact" ? "font-medium text-black" : "font-normal text-black"
-              }`}
+              className={`focus-ring rounded-md py-2 text-[16px] leading-[24px] transition-colors ${active === "/contact" ? "font-bold text-[#5ee878] hover:text-[#5ee878]/85" : "font-normal text-black hover:text-black/70"
+                }`}
             >
               Contact
             </Link>
@@ -275,7 +267,7 @@ export function MarketingNavbar() {
               aria-expanded={mobileOpen}
               aria-controls="mobile-nav-drawer"
             >
-              {mobileOpen ? <X className="h-5 w-5" aria-hidden="true" /> : <Menu className="h-5 w-5" aria-hidden="true" />}
+              {mobileOpen ? <FeatherX className="h-5 w-5" /> : <FeatherMenu className="h-5 w-5" />}
             </button>
           </div>
         </div>
@@ -356,9 +348,8 @@ export function MarketingNavbar() {
                       className="focus-ring flex min-h-[48px] w-full items-center justify-between px-1 text-left"
                     >
                       {entry.label}
-                      <ChevronDown
+                      <FeatherChevronDown
                         className={`h-4 w-4 text-black/60 transition-transform ${isOpen ? "rotate-180" : ""}`}
-                        aria-hidden="true"
                       />
                     </button>
                     {isOpen ? (
@@ -392,7 +383,7 @@ export function MarketingNavbar() {
                 className="focus-ring inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-black text-sm font-medium text-white transition-colors hover:bg-black/90"
               >
                 Start Free Trial
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                <FeatherArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 href={appUrl("/login")}

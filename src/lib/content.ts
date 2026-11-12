@@ -31,22 +31,34 @@ export interface ContentMeta {
   targetAudience?: string;
   date?: string;
   author?: string;
+  image?: string;
+  featured?: boolean;
   /** Ordering hint for index pages (lower = earlier). */
   order?: number;
   /** Grouping key for index pages (features use FEATURE_CATEGORIES ids). */
   category?: string;
 }
 
+export interface ContentHeading {
+  id: string;
+  text: string;
+  level: 2 | 3;
+}
+
 export interface ContentItem extends ContentMeta {
   type: ContentType;
-  /** Rendered HTML body (frontmatter + leading H1 stripped). */
+  /** Rendered HTML body (frontmatter + leading H1 stripped, headings decorated with ids). */
   html: string;
+  /** Extracted H2/H3 headings for the Table of Contents sidebar. */
+  headings: ContentHeading[];
   /** Estimated reading time in minutes, from the raw body word count. */
   readingTime: number;
+  /** Number of explicit step headings (`## Step ...`) in the guide body, if any. */
+  stepCount?: number;
 }
 
 /** Summary shape used by index/listing pages (no rendered body). */
-export type ContentSummary = Omit<ContentItem, "html">;
+export type ContentSummary = Omit<ContentItem, "html" | "headings">;
 
 function typeDir(type: ContentType): string {
   return path.join(CONTENT_ROOT, type);
@@ -96,7 +108,78 @@ function estimateReadingTime(text: string): number {
   return Math.max(1, Math.round(words / 200));
 }
 
-async function renderMarkdown(body: string): Promise<string> {
+function countStepHeadings(text: string): number | undefined {
+  const count = (text.match(/^##\s+Step\b/gim) ?? []).length;
+  return count > 0 ? count : undefined;
+}
+
+const ENTITY_MAP: Record<string, string> = {
+  amp: "&",
+  lt: "<",
+  gt: ">",
+  quot: '"',
+  apos: "'",
+  nbsp: " ",
+  rsquo: "’",
+  lsquo: "‘",
+  ldquo: "“",
+  rdquo: "”",
+  mdash: "—",
+  ndash: "–",
+  rarr: "→",
+};
+
+function decodeHtmlEntities(value: string): string {
+  return value.replace(/&(#x?[0-9a-f]+|[a-z]+);/gi, (match, code: string) => {
+    const lower = code.toLowerCase();
+    if (lower in ENTITY_MAP) return ENTITY_MAP[lower];
+    if (lower.startsWith("#x")) {
+      const cp = Number.parseInt(lower.slice(2), 16);
+      return Number.isNaN(cp) ? match : String.fromCodePoint(cp);
+    }
+    if (lower.startsWith("#")) {
+      const cp = Number.parseInt(lower.slice(1), 10);
+      return Number.isNaN(cp) ? match : String.fromCodePoint(cp);
+    }
+    return match;
+  });
+}
+
+function slugifyHeading(text: string): string {
+  return (
+    text
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, "")
+      .trim()
+      .replace(/\s+/g, "-") || "section"
+  );
+}
+
+function decorateMarkdownHtml(rawHtml: string): { html: string; headings: ContentHeading[] } {
+  // Unwrap standalone markdown image paragraphs (<p><img ...></p>) so images align to exact layout spacing.
+  const unwrappedImages = rawHtml.replace(/<p>\s*(<img\b[^>]*>)\s*<\/p>/gi, "$1");
+
+  const headings: ContentHeading[] = [];
+  const usedIds = new Map<string, number>();
+
+  const html = unwrappedImages.replace(
+    /<h([23])>([\s\S]*?)<\/h\1>/gi,
+    (_full, rawLevel: string, innerHtml: string) => {
+      const level = Number(rawLevel) as 2 | 3;
+      const text = decodeHtmlEntities(innerHtml.replace(/<[^>]+>/g, "")).replace(/\s+/g, " ").trim();
+      const base = slugifyHeading(text);
+      const count = usedIds.get(base) ?? 0;
+      usedIds.set(base, count + 1);
+      const id = count === 0 ? base : `${base}-${count + 1}`;
+      if (text) headings.push({ id, text, level });
+      return `<h${level} id="${id}">${innerHtml}</h${level}>`;
+    },
+  );
+
+  return { html, headings };
+}
+
+async function renderMarkdown(body: string): Promise<{ html: string; headings: ContentHeading[] }> {
   // Drop a single leading H1 — the page renders the title in its own hero,
   // so keeping the markdown H1 would duplicate it.
   const withoutLeadingH1 = body.replace(/^\s*#\s+.*\r?\n/, "");
@@ -104,7 +187,7 @@ async function renderMarkdown(body: string): Promise<string> {
     .use(remarkGfm)
     .use(remarkHtml, { sanitize: false })
     .process(withoutLeadingH1);
-  return processed.toString();
+  return decorateMarkdownHtml(processed.toString());
 }
 
 function normalizeMeta(type: ContentType, fileSlug: string, data: Record<string, unknown>): ContentMeta {
@@ -117,6 +200,8 @@ function normalizeMeta(type: ContentType, fileSlug: string, data: Record<string,
     targetAudience: data.targetAudience as string | undefined,
     date: data.date as string | undefined,
     author: data.author as string | undefined,
+    image: data.image as string | undefined,
+    featured: typeof data.featured === "boolean" ? data.featured : undefined,
     order: typeof data.order === "number" ? data.order : undefined,
     category: data.category as string | undefined,
   };
@@ -130,13 +215,15 @@ export async function getContentItem(type: ContentType, slug: string): Promise<C
   const raw = fs.readFileSync(path.join(typeDir(type), file), "utf8");
   const { data, content } = matter(raw);
   const meta = normalizeMeta(type, file.replace(/\.md$/, ""), data);
-  const html = await renderMarkdown(content);
+  const { html, headings } = await renderMarkdown(content);
 
   return {
     ...meta,
     type,
     html,
+    headings,
     readingTime: estimateReadingTime(content),
+    stepCount: countStepHeadings(content),
   };
 }
 
@@ -156,6 +243,7 @@ export function getContentSummaries(type: ContentType): ContentSummary[] {
         ...meta,
         type,
         readingTime: estimateReadingTime(content),
+        stepCount: countStepHeadings(content),
       } satisfies ContentSummary;
     });
 

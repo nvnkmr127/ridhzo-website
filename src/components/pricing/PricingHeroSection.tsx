@@ -49,7 +49,7 @@ export function PricingHeroSection() {
             >
               <span className="size-[10px] rounded-full bg-[#5ee878]" />
             </span>
-            <span className="text-[12px] font-normal leading-[18px] text-[#5ee878]">
+            <span className="type-label text-[#5ee878]">
               SIMPLE PRICING. BUILT TO SCALE
             </span>
           </div>
@@ -63,11 +63,11 @@ export function PricingHeroSection() {
         {/* Subtext + CTA row (639:14539) */}
         <div className="relative flex w-full flex-col items-start">
           <div className="flex w-full flex-col items-start justify-between gap-8 pt-[48px] lg:flex-row lg:items-end lg:pt-[72px]">
-            <p className="w-full max-w-[696px] text-[18px] font-semibold leading-[26px] tracking-[-0.3px] text-white sm:text-[20px] sm:leading-[28px]">
+            <p className="type-body-emphasis-lg w-full max-w-[696px] text-white">
               One flat workspace price instead of a per-seat bill. Upgrade when your lead volume and team grow.
             </p>
             <div className="w-full max-w-[486.406px] border-t border-white/20 pt-[20px]">
-              <p className="text-[16px] font-normal leading-[24px] text-white/[0.64]">
+              <p className="type-body text-white/[0.64]">
                 One connected system for capturing demand, following through and staying close to the next opportunity.
               </p>
             </div>
@@ -76,7 +76,7 @@ export function PricingHeroSection() {
           <div className="flex w-full flex-col items-stretch gap-4 pt-[48px] sm:flex-row sm:items-center sm:gap-[24px] lg:pt-[72px]">
             <Link
               href={appUrl("/signup")}
-              className="focus-ring inline-flex h-[56px] items-center justify-center gap-[8px] rounded-[14px] border border-white/80 bg-white px-[24px] text-[14px] font-medium leading-[20px] text-black transition-colors hover:bg-white/90"
+              className="focus-ring type-button inline-flex h-[56px] items-center justify-center gap-[8px] rounded-[14px] border border-white/80 bg-white px-[24px] text-black transition-colors hover:bg-white/90"
             >
               Start 14-Day Free Trial
               <span className="relative size-[24px] shrink-0" aria-hidden="true">
@@ -86,7 +86,7 @@ export function PricingHeroSection() {
             </Link>
             <Link
               href="#compare-plans"
-              className="focus-ring inline-flex h-[56px] items-center justify-center gap-[8px] rounded-[14px] border border-white px-[24px] text-[14px] font-medium leading-[20px] text-white transition-colors hover:bg-white/10"
+              className="focus-ring type-button inline-flex h-[56px] items-center justify-center gap-[8px] rounded-[14px] border border-white px-[24px] text-white transition-colors hover:bg-white/10"
             >
               Compare Features
               <span className="relative size-[24px] shrink-0" aria-hidden="true">

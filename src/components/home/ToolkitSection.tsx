@@ -61,7 +61,7 @@ export function ToolkitSection() {
             </span>
           </h2>
 
-          <p className="w-full max-w-[323px] pb-[12px] text-[16px] font-normal leading-[26px] text-white/[0.64] sm:text-[18px] sm:leading-[28px]">
+          <p className="type-body-lg w-full max-w-[323px] pb-[12px] text-white/[0.64]">
             One straightforward price for your workspace. Not a bill for every seat.
           </p>
         </div>
@@ -78,14 +78,14 @@ export function ToolkitSection() {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img alt="" src="/figma/4b990.svg" className="block size-full max-w-none" />
                   </span>
-                  <span className="text-[12px] leading-[18px] text-black/[0.64]">LEAD MANAGEMENT</span>
+                  <span className="type-label text-black/[0.64]">LEAD MANAGEMENT</span>
                 </div>
-                <h3 className="pt-[32px] font-inter text-[28px] font-bold leading-[normal] text-black sm:text-[32px]">
+                <h3 className="type-h3 pt-[32px] text-black">
                   A clear view
                   <br />
                   of every lead.
                 </h3>
-                <p className="pt-[19px] text-[16px] leading-[24px] text-black/[0.64]">
+                <p className="type-body pt-[19px] text-black/[0.64]">
                   Sort, search and filter enquiries from one place. Find the right lead record without digging through
                   messages or sheets.
                 </p>
@@ -130,14 +130,14 @@ export function ToolkitSection() {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img alt="" src="/figma/c9dff.svg" className="block size-full max-w-none" />
                   </span>
-                  <span className="text-[12px] leading-[18px] text-black/[0.64]">KANBAN PIPELINE</span>
+                  <span className="type-label text-black/[0.64]">KANBAN PIPELINE</span>
                 </div>
-                <h3 className="pt-[32px] font-inter text-[28px] font-bold leading-[normal] text-black sm:text-[32px]">
+                <h3 className="type-h3 pt-[32px] text-black">
                   Know exactly
                   <br />
                   where deals stand.
                 </h3>
-                <p className="pt-[19px] text-[16px] leading-[24px] text-black/[0.64]">
+                <p className="type-body pt-[19px] text-black/[0.64]">
                   Turn conversation context into a thoughtful first draft. Your team reviews it, makes it theirs, and
                   stays in control.
                 </p>
@@ -206,14 +206,14 @@ export function ToolkitSection() {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img alt="" src="/figma/d51f4.svg" className="block size-full max-w-none" />
                   </span>
-                  <span className="text-[12px] leading-[18px] text-black/[0.64]">MEETINGS</span>
+                  <span className="type-label text-black/[0.64]">MEETINGS</span>
                 </div>
-                <h3 className="pt-[32px] font-inter text-[28px] font-bold leading-[normal] text-black sm:text-[32px]">
+                <h3 className="type-h3 pt-[32px] text-black">
                   Meetings, without
                   <br />
                   the calendar chaos.
                 </h3>
-                <p className="pt-[19px] text-[16px] leading-[24px] text-black/[0.64]">
+                <p className="type-body pt-[19px] text-black/[0.64]">
                   Plan calls and site visits, with a clear calendar and scheduled appointments in one view.
                 </p>
               </div>
@@ -265,14 +265,14 @@ export function ToolkitSection() {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img alt="" src="/figma/ea49b.svg" className="block size-full max-w-none" />
                   </span>
-                  <span className="text-[12px] leading-[18px] text-black/[0.64]">SALES INSIGHTS</span>
+                  <span className="type-label text-black/[0.64]">SALES INSIGHTS</span>
                 </div>
-                <h3 className="pt-[32px] font-inter text-[28px] font-bold leading-[normal] text-black sm:text-[32px]">
+                <h3 className="type-h3 pt-[32px] text-black">
                   Make decisions
                   <br />
                   with real insight.
                 </h3>
-                <p className="pt-[19px] text-[16px] leading-[24px] text-black/[0.64]">
+                <p className="type-body pt-[19px] text-black/[0.64]">
                   Compare lead sources and stage conversion visually to focus efforts.
                 </p>
               </div>
@@ -307,14 +307,14 @@ export function ToolkitSection() {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img alt="" src="/figma/0a3e7.svg" className="block size-full max-w-none" />
                   </span>
-                  <span className="text-[12px] leading-[18px] text-black/[0.64]">TEAM VISIBILITY</span>
+                  <span className="type-label text-black/[0.64]">TEAM VISIBILITY</span>
                 </div>
-                <h3 className="pt-[32px] font-inter text-[28px] font-bold leading-[normal] text-black sm:text-[32px]">
+                <h3 className="type-h3 pt-[32px] text-black">
                   See the team’s
                   <br />
                   workload at a glance.
                 </h3>
-                <p className="pt-[19px] text-[16px] leading-[24px] text-black/[0.64]">
+                <p className="type-body pt-[19px] text-black/[0.64]">
                   Understand who has capacity and how many open opportunities each person is managing.
                 </p>
               </div>

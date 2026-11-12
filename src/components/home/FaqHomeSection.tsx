@@ -69,7 +69,7 @@ export function FaqHomeSection() {
               </span>
               <span className="text-outline-black block tracking-normal">KNOW.</span>
             </h2>
-            <p className="pb-[16px] pt-[24px] text-[16px] font-normal leading-[26px] text-black/[0.64] sm:text-[18px] sm:leading-[28px]">
+            <p className="type-body-lg pb-[16px] pt-[24px] text-black/[0.64]">
               A few quick answers before your next lead comes in.
             </p>
           </div>

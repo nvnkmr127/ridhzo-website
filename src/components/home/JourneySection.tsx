@@ -1,4 +1,4 @@
-import { Play } from "lucide-react";
+import { FeatherPlay } from "@/components/site/icons";
 import { Eyebrow, SectionTitle, Accent, Lead, HomeSection } from "@/components/site/primitives";
 
 export function JourneySection() {
@@ -20,7 +20,7 @@ export function JourneySection() {
           className="focus-ring group relative flex aspect-[996/520] w-full items-center justify-center overflow-hidden rounded-[20px] border border-white/10 bg-[linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url('/home/video-poster.webp')] bg-cover bg-center"
         >
           <span className="grid h-[72px] w-[72px] place-items-center rounded-full bg-white/80 text-black transition-transform group-hover:scale-105 sm:h-[88px] sm:w-[88px]">
-            <Play className="h-8 w-8 translate-x-0.5 fill-black sm:h-10 sm:w-10" aria-hidden="true" />
+            <FeatherPlay className="h-8 w-8 translate-x-0.5 fill-black sm:h-10 sm:w-10" />
           </span>
         </a>
       </div>

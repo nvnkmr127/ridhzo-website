@@ -29,7 +29,7 @@ export function SectionEyebrowBar({
         </span>
         <span
           className={cn(
-            "whitespace-nowrap text-[10px] font-normal leading-[16px] sm:text-[12px] sm:leading-[18px]",
+            "whitespace-nowrap font-sans text-[10px] font-medium uppercase leading-[16px] tracking-[0.04em] sm:text-[13px] sm:leading-[18px]",
             isDark ? "text-[#5ee878]" : "text-black",
           )}
         >
@@ -44,7 +44,7 @@ export function SectionEyebrowBar({
 
       <span
         className={cn(
-          "whitespace-nowrap text-right text-[10px] font-normal leading-[16px] sm:text-[12px] sm:leading-[18px]",
+          "whitespace-nowrap text-right font-sans text-[10px] font-medium uppercase leading-[16px] tracking-[0.04em] sm:text-[13px] sm:leading-[18px]",
           isDark ? (rightMuted ? "text-white/80" : "text-white") : "text-black",
         )}
       >

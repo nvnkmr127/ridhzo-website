@@ -108,14 +108,14 @@ export function PricingComparison() {
         {/* Heading row (639:14713) */}
         <div className="relative flex w-full flex-col items-start justify-between gap-6 lg:flex-row lg:items-end">
           <div className="flex flex-col items-start gap-[16px]">
-            <p className="text-[12px] font-normal leading-[18px] text-[#5ee878]">COMPARE IN DETAIL</p>
-            <h2 className="font-inter text-[44px] font-extrabold uppercase leading-[normal] tracking-[-0.05em] sm:text-[64px] lg:text-[72px] lg:tracking-[-5px]">
+            <p className="type-label text-[#5ee878]">COMPARE IN DETAIL</p>
+            <h2 className="type-h2">
               <span className="block text-white">WHAT ACTUALLY</span>
               <span className="block text-[#5ee878]">CHANGES?</span>
             </h2>
           </div>
 
-          <p className="w-full max-w-[443px] pb-[12px] pt-[8px] text-[16px] font-normal leading-[26px] text-white/[0.64] sm:text-[18px] sm:leading-[28px] lg:pt-[32px]">
+          <p className="type-body-lg w-full max-w-[443px] pb-[12px] pt-[8px] text-white/[0.64] lg:pt-[32px]">
             What changes as you grow—from lead limits to automations and AI credits.
           </p>
         </div>
@@ -176,30 +176,26 @@ export function PricingComparison() {
                         <tr key={row.label} className="border-t border-black/20">
                           <th
                             scope="row"
-                            className={`pl-[24px] pr-[20px] text-[14px] font-normal leading-[20px] text-black/80 lg:pl-[40px] ${
-                              isLimits ? "py-[16.5px]" : "py-[14.5px]"
-                            }`}
+                            className={`pl-[24px] pr-[20px] text-[14px] font-normal leading-[20px] text-black/80 lg:pl-[40px] ${isLimits ? "py-[16.5px]" : "py-[14.5px]"
+                              }`}
                           >
                             {row.label}
                           </th>
                           <td
-                            className={`px-[20px] text-center ${
-                              isLimits ? "pb-[16px] pt-[17px]" : "py-[14.5px]"
-                            }`}
+                            className={`px-[20px] text-center ${isLimits ? "pb-[16px] pt-[17px]" : "py-[14.5px]"
+                              }`}
                           >
                             <CellValue value={row.free} />
                           </td>
                           <td
-                            className={`bg-[#5ee878]/[0.24] px-[20px] text-center ${
-                              isLimits ? "pb-[16px] pt-[17px]" : "py-[14.5px]"
-                            }`}
+                            className={`bg-[#5ee878]/[0.24] px-[20px] text-center ${isLimits ? "pb-[16px] pt-[17px]" : "py-[14.5px]"
+                              }`}
                           >
                             <CellValue value={row.starter} />
                           </td>
                           <td
-                            className={`px-[20px] text-center ${
-                              isLimits ? "pb-[16px] pt-[17px]" : "py-[14.5px]"
-                            }`}
+                            className={`px-[20px] text-center ${isLimits ? "pb-[16px] pt-[17px]" : "py-[14.5px]"
+                              }`}
                           >
                             <CellValue value={row.unlimited} />
                           </td>

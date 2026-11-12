@@ -10,10 +10,59 @@ html {
 }
 
 /* Consistent, keyboard-only focus ring (brand green). Applied to custom interactive controls
-   (links, buttons, toggles, accordions) via the .focus-ring class. */
+   (links, buttons, toggles, accordions) via the .focus-ring class.
+   Plus Ridhzo Typography system classes (Figma Design System node 264:32910):
+   Inter for Display & Section Headings; Geist for all supporting & body text. */
 @layer components {
   .focus-ring {
     @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+
+  .type-display-cta {
+    @apply font-inter text-[48px] font-black uppercase leading-[1.06] tracking-[-0.045em] sm:text-[84px] lg:text-[112px] lg:leading-[normal] lg:tracking-[-5px];
+  }
+  .type-display {
+    @apply font-inter text-[42px] font-black uppercase leading-[1.06] tracking-[-0.045em] sm:text-[72px] lg:text-[96px] lg:leading-[normal] lg:tracking-[-5px];
+  }
+  .type-h1 {
+    @apply font-inter text-[44px] font-black uppercase leading-[1.08] tracking-[-0.05em] sm:text-[64px] lg:text-[80px] lg:leading-[normal] lg:tracking-[-5px];
+  }
+  .type-h2 {
+    @apply font-inter text-[36px] font-extrabold uppercase leading-[1.06] tracking-[-0.04em] sm:text-[56px] lg:text-[72px] lg:leading-[normal] lg:tracking-[-5px];
+  }
+  .type-h3 {
+    @apply font-inter text-[26px] font-bold leading-[normal] tracking-[-0.416px] sm:text-[32px];
+  }
+  .type-h4 {
+    @apply font-inter text-[22px] font-bold leading-[normal] tracking-[-0.312px] sm:text-[24px];
+  }
+  .type-h5 {
+    @apply font-inter text-[20px] font-bold leading-[normal] tracking-[-0.26px];
+  }
+
+  .type-body-emphasis-lg {
+    @apply font-sans text-[18px] font-semibold leading-[26px] tracking-[-0.27px] sm:text-[20px] sm:leading-[28px] sm:tracking-[-0.3px];
+  }
+  .type-body-emphasis {
+    @apply font-sans text-[18px] font-semibold leading-[26px] tracking-[-0.27px];
+  }
+  .type-body-lg {
+    @apply font-sans text-[16px] font-normal leading-[24px] sm:text-[18px] sm:leading-[28px];
+  }
+  .type-body {
+    @apply font-sans text-[16px] font-normal leading-[24px];
+  }
+  .type-body-sm {
+    @apply font-sans text-[14px] font-normal leading-[20px];
+  }
+  .type-label {
+    @apply font-sans text-[13px] font-medium uppercase leading-[18px] tracking-[0.04em];
+  }
+  .type-button {
+    @apply font-sans text-[14px] font-medium leading-[20px];
+  }
+  .type-microcopy {
+    @apply font-sans text-[12px] font-normal leading-[18px];
   }
 }
 
@@ -33,29 +82,29 @@ html {
   }
 }
 
-/* Dark-first neutrals plus the Figma highlight green (#5ee878, also `highlight` in Tailwind).
-   Neutral tokens stay gray; brand accents (focus ring, selection, ambient wash) use the green. */
+/* Ridhzo Design System neutrals (#000000 Black/100, #ffffff White/100) plus Highlight Green (#5ee878).
+   Dark-green (#0d2710) is retired across the site. */
 :root {
-  --background: 0 0% 4%;          /* #0a0a0a page */
-  --foreground: 0 0% 96%;         /* near-white ink */
+  --background: 0 0% 0%;          /* #000000 page */
+  --foreground: 0 0% 100%;        /* #ffffff ink */
 
-  --card: 0 0% 7%;                /* lifted surface */
-  --card-foreground: 0 0% 96%;
+  --card: 0 0% 4%;                /* elevated surface */
+  --card-foreground: 0 0% 100%;
 
-  --popover: 0 0% 8%;
-  --popover-foreground: 0 0% 96%;
+  --popover: 0 0% 5%;
+  --popover-foreground: 0 0% 100%;
 
-  --primary: 0 0% 96%;            /* white block, black text — primary CTA */
-  --primary-foreground: 0 0% 6%;
+  --primary: 0 0% 100%;           /* white block, black text — primary CTA */
+  --primary-foreground: 0 0% 0%;
 
-  --secondary: 0 0% 13%;
-  --secondary-foreground: 0 0% 96%;
+  --secondary: 0 0% 9%;
+  --secondary-foreground: 0 0% 100%;
 
-  --muted: 0 0% 12%;
-  --muted-foreground: 0 0% 60%;   /* secondary text */
+  --muted: 0 0% 10%;
+  --muted-foreground: 0 0% 64%;   /* white/64 secondary text */
 
-  --accent: 0 0% 15%;             /* hover fill */
-  --accent-foreground: 0 0% 98%;
+  --accent: 0 0% 12%;             /* hover fill */
+  --accent-foreground: 0 0% 100%;
 
   --destructive: 0 0% 17%;        /* monochrome; intent carried by icon + confirm, not hue */
   --destructive-foreground: 0 0% 98%;
@@ -89,7 +138,7 @@ body {
   min-width: 320px;
 }
 
-/* Subtle green ambient wash so large dark areas don't read as flat black. */
+/* Subtle highlight-green ambient wash so large black sections stay on-brand without legacy dark-green tints. */
 body::before {
   content: "";
   position: fixed;
@@ -98,7 +147,7 @@ body::before {
   z-index: 0;
   background:
     radial-gradient(60rem 40rem at 80% -10%, rgba(94, 232, 120, 0.05), transparent 60%),
-    radial-gradient(50rem 35rem at 0% 110%, rgba(13, 39, 16, 0.5), transparent 60%);
+    radial-gradient(50rem 35rem at 0% 110%, rgba(94, 232, 120, 0.03), transparent 60%);
 }
 
 /* Prevent image and iframe blowouts on mobile screens without overriding Tailwind utility classes */
@@ -116,24 +165,41 @@ body::before {
     -webkit-text-fill-color: #000000;
     -webkit-text-stroke: 2.5px #ffffff;
     paint-order: stroke fill;
+    letter-spacing: 0;
+  }
+  .hero-outline-cutout {
+    color: #000000;
+    -webkit-text-fill-color: #000000;
+    -webkit-text-stroke: 2.2px #ffffff;
+    paint-order: stroke fill;
+    letter-spacing: 0;
+    mix-blend-mode: lighten;
+  }
+  @media (min-width: 640px) {
+    .hero-outline-cutout {
+      -webkit-text-stroke: 2.5px #ffffff;
+    }
   }
   .text-outline-hero {
     color: #010402;
     -webkit-text-fill-color: #010402;
     -webkit-text-stroke: 2.5px #ffffff;
     paint-order: stroke fill;
+    letter-spacing: 0;
   }
   .text-outline-pricing {
     color: #070807;
     -webkit-text-fill-color: #070807;
     -webkit-text-stroke: 2.5px #ffffff;
     paint-order: stroke fill;
+    letter-spacing: 0;
   }
   .text-outline-black {
     color: #ffffff;
     -webkit-text-fill-color: #ffffff;
     -webkit-text-stroke: 2.8px #000000;
     paint-order: stroke fill;
+    letter-spacing: 0;
   }
   .text-outline-marquee {
     color: #ffffff;

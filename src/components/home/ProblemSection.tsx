@@ -34,7 +34,7 @@ export function ProblemSection() {
               </span>
             </p>
 
-            <p className="w-full max-w-[420px] text-[16px] font-normal leading-[26px] text-white/[0.64] sm:text-[18px] sm:leading-[28px]">
+            <p className="type-body-lg w-full max-w-[420px] text-white/[0.64]">
               Ridhzo closes that gap. New enquiries land in one place, your team gets alerted, and every follow-up has a
               next step. No lead left floating in a spreadsheet.
             </p>

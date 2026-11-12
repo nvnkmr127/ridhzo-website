@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { FeatherArrowRight } from "@/components/site/icons";
 import { cn } from "@/lib/utils";
 import { PLANS, SHARED_FEATURES, PRICING_FOOTNOTE, inr } from "@/lib/plans";
 import { Eyebrow, SectionTitle, Accent, Lead, HomeSection } from "./primitives";
@@ -109,7 +109,7 @@ export function PricingPlans({ showHeader = true }: { showHeader?: boolean }) {
                   )}
                 >
                   {p.cta}
-                  <ArrowRight className="h-5 w-5" aria-hidden="true" />
+                  <FeatherArrowRight className="h-5 w-5" />
                 </Link>
               </div>
             </div>

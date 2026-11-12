@@ -1,6 +1,13 @@
 import { pageMetadata } from "@/lib/metadata";
 import { PolicyLayout } from "@/components/marketing/PolicyLayout";
-import { Cookie, CheckCircle2, Shield, Settings, Sliders, Info } from "lucide-react";
+import {
+  CookieIcon,
+  FeatherCheckCircle,
+  FeatherShield,
+  FeatherSettings,
+  FeatherSliders,
+  FeatherInfo,
+} from "@/components/site/icons";
 
 export const metadata = pageMetadata({
   title: "Cookie Policy",
@@ -33,7 +40,7 @@ export default function CookiePolicyPage() {
       {/* 01. What are Cookies */}
       <section id="what-are-cookies" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <Cookie className="h-6 w-6 shrink-0 text-highlight" />
+          <CookieIcon className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>1. What Are Cookies &amp; Storage Tokens?</span>
         </h2>
         <p>
@@ -51,7 +58,7 @@ export default function CookiePolicyPage() {
       {/* 02. Why We Use Them */}
       <section id="why-we-use" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <CheckCircle2 className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherCheckCircle className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>2. How Ridhzo Uses Cookies</span>
         </h2>
         <p>Ridhzo utilizes cookies and storage technologies for strictly operational and technical purposes:</p>
@@ -77,7 +84,7 @@ export default function CookiePolicyPage() {
       {/* 03. Categories of Cookies */}
       <section id="cookie-categories" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <Shield className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherShield className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>3. Categories of Cookies We Deploy</span>
         </h2>
         <div className="space-y-4 pt-1">
@@ -130,7 +137,7 @@ export default function CookiePolicyPage() {
       {/* 04. Local Storage & PWA */}
       <section id="local-storage-pwa" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <Settings className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherSettings className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>4. Local Storage &amp; Offline PWA Caches</span>
         </h2>
         <p>
@@ -154,7 +161,7 @@ export default function CookiePolicyPage() {
       {/* 05. Third-Party Integrations */}
       <section id="third-party" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <Info className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherInfo className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>5. Third-Party Integrations &amp; Pixels</span>
         </h2>
         <p className="text-sm sm:text-base">
@@ -173,7 +180,7 @@ export default function CookiePolicyPage() {
       {/* 06. Managing Cookies */}
       <section id="managing-cookies" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <Sliders className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherSliders className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>6. How You Can Control &amp; Manage Cookies</span>
         </h2>
         <p>
@@ -203,7 +210,7 @@ export default function CookiePolicyPage() {
       {/* 07. Updates & Contact */}
       <section id="updates-contact" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <Cookie className="h-6 w-6 shrink-0 text-highlight" />
+          <CookieIcon className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>7. Updates to This Policy &amp; Contact Inquiries</span>
         </h2>
         <p className="text-sm sm:text-base">

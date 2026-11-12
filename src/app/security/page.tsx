@@ -1,6 +1,14 @@
 import { pageMetadata } from "@/lib/metadata";
 import { PolicyLayout } from "@/components/marketing/PolicyLayout";
-import { ShieldCheck, Lock, Database, Key, Server, Cpu, AlertTriangle } from "lucide-react";
+import {
+  ShieldCheckIcon,
+  FeatherLock,
+  FeatherDatabase,
+  FeatherKey,
+  FeatherServer,
+  FeatherCpu,
+  FeatherAlertTriangle,
+} from "@/components/site/icons";
 
 export const metadata = pageMetadata({
   title: "Security & Data Isolation",
@@ -34,7 +42,7 @@ export default function SecurityPolicyPage() {
       {/* 01. Principles */}
       <section id="principles" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <ShieldCheck className="h-6 w-6 shrink-0 text-highlight" />
+          <ShieldCheckIcon className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>1. Security Design Principles</span>
         </h2>
         <p>
@@ -69,7 +77,7 @@ export default function SecurityPolicyPage() {
       {/* 02. Workspace isolation */}
       <section id="tenant-isolation" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <Database className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherDatabase className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>2. Workspace Isolation</span>
         </h2>
         <p>Ridhzo runs on PostgreSQL, with workspace boundaries enforced in the application on every request:</p>
@@ -92,13 +100,13 @@ export default function SecurityPolicyPage() {
       {/* 03. Encryption */}
       <section id="encryption" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <Lock className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherLock className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>3. Encryption</span>
         </h2>
         <div className="space-y-4">
           <div className="border border-white/12 rounded-2xl p-5 bg-white/[0.04] space-y-2">
             <div className="flex items-center gap-2 text-sm font-semibold text-white">
-              <Key className="h-4 w-4 text-highlight" />
+              <FeatherKey className="h-4 w-4 text-[#5ee878]" />
               <span>Sensitive secrets: AES-256-GCM</span>
             </div>
             <p className="text-sm sm:text-base text-white/65 leading-relaxed">
@@ -111,7 +119,7 @@ export default function SecurityPolicyPage() {
 
           <div className="border border-white/12 rounded-2xl p-5 bg-white/[0.04] space-y-2">
             <div className="flex items-center gap-2 text-sm font-semibold text-white">
-              <Server className="h-4 w-4 text-highlight" />
+              <FeatherServer className="h-4 w-4 text-[#5ee878]" />
               <span>In transit: HTTPS</span>
             </div>
             <p className="text-sm sm:text-base text-white/65 leading-relaxed">
@@ -125,7 +133,7 @@ export default function SecurityPolicyPage() {
       {/* 04. Webhook Integrity */}
       <section id="webhook-security" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <Cpu className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherCpu className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>4. Webhook Integrity &amp; HMAC Verification</span>
         </h2>
         <p>
@@ -155,7 +163,7 @@ export default function SecurityPolicyPage() {
       {/* 05. Mobile apps & offline */}
       <section id="pwa-offline" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <Lock className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherLock className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>5. Mobile Apps &amp; Offline Data</span>
         </h2>
         <p>
@@ -188,7 +196,7 @@ export default function SecurityPolicyPage() {
       {/* 06. RBAC */}
       <section id="rbac" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <ShieldCheck className="h-6 w-6 shrink-0 text-highlight" />
+          <ShieldCheckIcon className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>6. Role-Based Access Control (RBAC)</span>
         </h2>
         <p>
@@ -232,7 +240,7 @@ export default function SecurityPolicyPage() {
       {/* 07. Deletion, retention & recovery */}
       <section id="backups-dr" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <Server className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherServer className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>7. Deletion, Retention &amp; Recovery</span>
         </h2>
         <p>You stay in control of your data, including when it leaves Ridhzo:</p>
@@ -258,7 +266,7 @@ export default function SecurityPolicyPage() {
       {/* 08. Vulnerability Reporting */}
       <section id="vulnerability-disclosure" className="scroll-mt-24 space-y-4">
         <h2 className="flex items-center gap-3 text-2xl font-semibold tracking-[-0.02em] text-white">
-          <AlertTriangle className="h-6 w-6 shrink-0 text-highlight" />
+          <FeatherAlertTriangle className="h-6 w-6 shrink-0 text-[#5ee878]" />
           <span>8. Responsible Vulnerability Disclosure</span>
         </h2>
         <p>
