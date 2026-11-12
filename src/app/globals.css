@@ -207,6 +207,19 @@ body::before {
     -webkit-text-stroke: 1.75px #000000;
     paint-order: stroke fill;
   }
+  .animate-thunder-blink {
+    animation: thunder-blink 0.6s ease-in-out infinite;
+  }
+}
+
+@keyframes thunder-blink {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 /* Thin, unobtrusive scrollbars to match the minimalist surface. */

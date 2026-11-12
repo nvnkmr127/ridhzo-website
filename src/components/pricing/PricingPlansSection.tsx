@@ -1,11 +1,89 @@
 "use client";
 
 import { useState } from "react";
-import { BillingFrequencyToggle, PricingCardsGrid, type BillingCycle } from "./PricingCards";
+import { appUrl } from "@/lib/config";
+import {
+  BillingFrequencyToggle,
+  PricingCardsGrid,
+  type BillingCycle,
+  type FigmaPlanDef,
+} from "./PricingCards";
+
+const PRICING_PAGE_PLANS: readonly FigmaPlanDef[] = [
+  {
+    id: "free",
+    name: "FREE",
+    subtitle: "For individuals getting started",
+    badge: null,
+    badgeVariant: null,
+    monthly: 0,
+    yearly: 0,
+    features: [
+      "300 leads",
+      "1 user",
+      "15 AI credits a month",
+      "2 automations",
+      "1 follow-up sequence",
+      "1 lead source",
+      { label: "AI spots hot replies for you", included: false },
+      { label: "No Ridhzo branding on your forms", included: false },
+    ],
+    cta: "Start Free Forever",
+    href: appUrl("/signup"),
+    featured: false,
+  },
+  {
+    id: "starter",
+    name: "STARTER",
+    subtitle: "For solo agents & growing teams",
+    badge: "Most Popular",
+    badgeVariant: "green",
+    monthly: 249,
+    yearly: 2490,
+    features: [
+      "5,000 leads",
+      "3 users",
+      "300 AI credits a month",
+      "15 automations",
+      "10 follow-up sequences",
+      "5 lead sources",
+      "AI spots hot replies for you",
+      "No Ridhzo branding on your forms",
+    ],
+    cta: "Start 14-Day Free Trial",
+    href: appUrl("/signup?plan=starter"),
+    featured: true,
+  },
+  {
+    id: "unlimited",
+    name: "UNLIMITED",
+    subtitle: "Unlimited leads, seats & full access",
+    badge: "Best Value",
+    badgeVariant: "muted",
+    monthly: 449,
+    yearly: 4490,
+    features: [
+      "Unlimited leads",
+      "Unlimited users",
+      "2,000 AI credits a month",
+      "Unlimited automations",
+      "Unlimited follow-up sequences",
+      "Unlimited lead sources",
+      "AI spots hot replies for you",
+      "No Ridhzo branding on your forms",
+    ],
+    cta: "Go Unlimited",
+    href: appUrl("/signup?plan=unlimited"),
+    featured: false,
+  },
+];
+
+const PRICING_PAGE_FOOTNOTE =
+  "Prices include 18% GST. Yearly plans include 2 months free. Every new workspace starts on a 14-day Starter trial — no card needed — and moves to Free unless you subscribe. Nothing is ever deleted.";
 
 /** Figma Pricing page Plans section (639:14548): "PLANS THAT FIT." */
 export function PricingPlansSection() {
-  const [cycle, setCycle] = useState<BillingCycle>("yearly");
+  const [cycle, setCycle] = useState<BillingCycle>("monthly");
 
   return (
     <section
@@ -30,7 +108,12 @@ export function PricingPlansSection() {
           </div>
         </div>
 
-        <PricingCardsGrid cycle={cycle} />
+        <PricingCardsGrid
+          cycle={cycle}
+          plans={PRICING_PAGE_PLANS}
+          inclGst
+          footnote={PRICING_PAGE_FOOTNOTE}
+        />
       </div>
     </section>
   );

@@ -3,18 +3,22 @@
 import Link from "next/link";
 import { appUrl } from "@/lib/config";
 import { PRICING_FOOTNOTE, inr } from "@/lib/plans";
+import { FeatherX } from "@/components/site/icons";
 import { cn } from "@/lib/utils";
 
 export type BillingCycle = "monthly" | "yearly";
 
+export type PlanFeature = string | { label: string; included: boolean };
+
 export interface FigmaPlanDef {
   id: "free" | "starter" | "unlimited";
   name: string;
+  subtitle?: string;
   badge: string | null;
   badgeVariant: "green" | "muted" | null;
   monthly: number;
   yearly: number;
-  features: string[];
+  features: readonly PlanFeature[];
   cta: string;
   href: string;
   featured: boolean;
@@ -136,11 +140,21 @@ export function BillingFrequencyToggle({
 }
 
 /** Three dark-mode pricing cards plus GST/trial footnote shared by Home and /pricing. */
-export function PricingCardsGrid({ cycle }: { cycle: BillingCycle }) {
+export function PricingCardsGrid({
+  cycle,
+  plans = FIGMA_PLANS,
+  inclGst = false,
+  footnote = PRICING_FOOTNOTE,
+}: {
+  cycle: BillingCycle;
+  plans?: readonly FigmaPlanDef[];
+  inclGst?: boolean;
+  footnote?: string;
+}) {
   return (
     <div className="flex w-full flex-col items-center gap-[32px] pt-[48px] lg:pt-[72px]">
       <div className="grid w-full grid-cols-1 items-stretch gap-[24px] lg:grid-cols-3">
-        {FIGMA_PLANS.map((plan) => {
+        {plans.map((plan) => {
           const displayPrice = cycle === "yearly" ? Math.round(plan.yearly / 12) : plan.monthly;
           return (
             <div
@@ -170,45 +184,76 @@ export function PricingCardsGrid({ cycle }: { cycle: BillingCycle }) {
                     plan.badge ? "pt-[16px]" : "pt-[50px]",
                   )}
                 >
-                  <h3 className="font-inter text-[32px] font-bold leading-[normal] tracking-[-0.416px] text-white">
-                    {plan.name}
-                  </h3>
+                  <div className="flex flex-col gap-[4px]">
+                    <h3 className="font-inter text-[32px] font-bold leading-[normal] tracking-[-0.416px] text-white">
+                      {plan.name}
+                    </h3>
+                    {plan.subtitle ? (
+                      <p className="text-[14px] font-normal leading-[20px] text-white/[0.64]">
+                        {plan.subtitle}
+                      </p>
+                    ) : null}
+                  </div>
                   <div className="flex items-center gap-[8px]">
                     <span className="font-inter text-[32px] font-bold leading-[normal] tracking-[-0.416px] text-white">
                       {inr(displayPrice)}
                     </span>
-                    <div className="flex flex-col justify-center text-[12px] font-normal leading-[18px] text-white/[0.48]">
-                      {plan.monthly === 0 ? (
-                        <>
+                    {plan.monthly === 0 ? (
+                      inclGst ? null : (
+                        <div className="flex flex-col justify-center text-[12px] font-normal leading-[18px] text-white/[0.48]">
                           <span>A good place to begin.</span>
                           <span>Forever Free</span>
-                        </>
-                      ) : (
-                        <>
-                          <span>/month</span>
-                          {cycle === "yearly" ? (
-                            <span>Billed annually ({inr(plan.yearly)}/year)</span>
+                        </div>
+                      )
+                    ) : (
+                      <div className="flex flex-col justify-center text-[12px] font-normal leading-[18px] text-white/[0.48]">
+                        <span>{inclGst ? "/ mo" : "/month"}</span>
+                        {inclGst ? (
+                          cycle === "yearly" ? (
+                            <span>Billed annually ({inr(plan.yearly)}/year) · incl. GST</span>
                           ) : (
-                            <span>Billed monthly</span>
-                          )}
-                        </>
-                      )}
-                    </div>
+                            <span>incl. GST</span>
+                          )
+                        ) : cycle === "yearly" ? (
+                          <span>Billed annually ({inr(plan.yearly)}/year)</span>
+                        ) : (
+                          <span>Billed monthly</span>
+                        )}
+                      </div>
+                    )}
                   </div>
                 </div>
 
                 <ul className="flex flex-col gap-[12px] px-[32px] pb-[40px]">
-                  {plan.features.map((feat) => (
-                    <li key={feat} className="flex items-start gap-[8px]">
-                      <span className="relative size-[20px] shrink-0" aria-hidden="true">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img alt="" src="/figma/eebef.svg" className="block size-full max-w-none" />
-                      </span>
-                      <span className="flex-1 text-[14px] font-normal leading-[20px] text-white/[0.64]">
-                        {feat}
-                      </span>
-                    </li>
-                  ))}
+                  {plan.features.map((feat) => {
+                    const label = typeof feat === "string" ? feat : feat.label;
+                    const included = typeof feat === "string" ? true : feat.included;
+                    return (
+                      <li key={label} className="flex items-start gap-[8px]">
+                        {included ? (
+                          <span className="relative size-[20px] shrink-0" aria-hidden="true">
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img alt="" src="/figma/eebef.svg" className="block size-full max-w-none" />
+                          </span>
+                        ) : (
+                          <span
+                            className="flex size-[20px] shrink-0 items-center justify-center text-white/[0.32]"
+                            aria-hidden="true"
+                          >
+                            <FeatherX className="size-[16px]" />
+                          </span>
+                        )}
+                        <span
+                          className={cn(
+                            "flex-1 text-[14px] font-normal leading-[20px]",
+                            included ? "text-white/[0.64]" : "text-white/[0.36] line-through",
+                          )}
+                        >
+                          {label}
+                        </span>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
 
@@ -239,7 +284,7 @@ export function PricingCardsGrid({ cycle }: { cycle: BillingCycle }) {
       </div>
 
       <p className="max-w-[992px] text-center text-[14px] font-normal leading-[20px] text-black/[0.48]">
-        {PRICING_FOOTNOTE}
+        {footnote}
       </p>
     </div>
   );

@@ -5,6 +5,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FeatherMenu, FeatherX, FeatherChevronDown, FeatherArrowRight } from "@/components/site/icons";
+import { RidhzoLogo } from "./RidhzoLogo";
 import {
   FEATURE_CATEGORIES,
   featuresByCategory,
@@ -150,16 +151,7 @@ export function MarketingNavbar() {
       <header ref={headerRef} className="relative w-full border-b border-black/[0.08] bg-white text-black [font-feature-settings:normal] lg:h-[88px]">
         <div className="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between px-4 sm:px-6 lg:h-full lg:px-[32px]">
           <Link href="/" aria-label="Ridhzo home" className="focus-ring flex shrink-0 items-center rounded-md py-1">
-            <span className="flex h-[32px] items-center gap-[6.154px]">
-              <span className="relative h-[31.999px] w-[34.461px] shrink-0">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img alt="" src="/figma/59df8.svg" className="block size-full max-w-none" />
-              </span>
-              <span className="relative h-[21.538px] w-[93.844px] shrink-0">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img alt="Ridhzo" src="/figma/b36d9.svg" className="block size-full max-w-none" />
-              </span>
-            </span>
+            <RidhzoLogo tone="dark" />
           </Link>
 
           {/* Desktop Navigation */}

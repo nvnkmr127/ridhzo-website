@@ -2,6 +2,7 @@ import { appUrl, SOCIAL_LINKS } from "@/lib/config";
 import Link from "next/link";
 import { CookieSettingsButton } from "@/components/analytics/CookieSettingsButton";
 import { hasAnyTag } from "@/lib/analytics-config";
+import { RidhzoLogo } from "./RidhzoLogo";
 
 interface FooterSection {
   title: string;
@@ -86,10 +87,7 @@ export function MarketingFooter() {
         <div className="flex w-full flex-col items-start justify-between gap-8 sm:flex-row">
           <div className="flex w-full max-w-[300px] flex-col gap-[16px]">
             <Link href="/" aria-label="Ridhzo home" className="focus-ring inline-flex w-fit items-center rounded-md">
-              <span className="relative h-[24px] w-[104.571px] shrink-0">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img alt="Ridhzo" src="/figma/10920.svg" className="block size-full max-w-none" />
-              </span>
+              <RidhzoLogo tone="light" />
             </Link>
             <p className="text-[16px] font-normal leading-[24px] text-white/[0.41]">
               The mobile-first CRM built to help sales teams respond faster and follow through.
